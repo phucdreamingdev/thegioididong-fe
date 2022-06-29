@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html
+  lang="vi-VN"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{index.html}, {~dtdd.html}"
+>
+  <head> </head>
+  <body>
+    <div class="banner-media" th:fragment="banner-media">
+      <div class="media-slider" data-size="3">
+        <div class="nav">
+          <div class="prev">
+            <div class="arrow-left"></div>
+          </div>
+          <div class="next">
+            <div class="arrow-right"></div>
+          </div>
+        </div>
+        <div class="item" data-background-color="#FBD20E" data-order="1">
+          <a
+            aria-label="slide"
+            data-cate="0"
+            data-place="1612"
+            href="uu-dai-soc.html"
+            onclick="jQuery.ajax({ url: '/bannertracking?bid=55274&r='+ (new Date).getTime(), async: true, cache: false });"
+            ><img
+              src="cdn.tgdd.vn/2022/05/banner/1200-44-1200x44-11.png"
+              alt="big xả kho"
+          /></a>
+        </div>
+        <div class="item" data-background-color="#FFB700" data-order="2">
+          <a
+            aria-label="slide"
+            data-cate="0"
+            data-place="1612"
+            href="chi-ban-online.html"
+            onclick="jQuery.ajax({ url: '/bannertracking?bid=54983&r='+ (new Date).getTime(), async: true, cache: false });"
+            ><img
+              src="cdn.tgdd.vn/2022/05/banner/1200-44-1200x44-9.png"
+              alt="Chỉ online"
+          /></a>
+        </div>
+        <div class="item" data-background-color="#4A911C" data-order="3">
+          <a
+            aria-label="slide"
+            data-cate="0"
+            data-place="1612"
+            href="dong-gia.html"
+            onclick="jQuery.ajax({ url: '/bannertracking?bid=55750&r='+ (new Date).getTime(), async: true, cache: false });"
+            ><img
+              src="cdn.tgdd.vn/2022/06/banner/1200-628-1-1200x44.png"
+              alt="99k"
+          /></a>
+        </div>
+      </div>
+      <style>
+        .banner-media {
+          background-color: #fbd20e;
+        }
+      </style>
+    </div>
+  </body>
+</html>

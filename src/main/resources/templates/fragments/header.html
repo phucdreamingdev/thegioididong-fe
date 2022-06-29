@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html
+  lang="vi-VN"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{index.html}, ~{dtdd.html}, ~{laptop-ldp.html}"
+>
+  <head> </head>
+  <body>
+    <header th:fragment="header" class="header" data-sub="0">
+      <div class="header__top">
+        <div>
+          <a th:href="@{/}" class="header__logo">
+            <i class="iconnewglobal-logo"></i>
+          </a>
+
+          <a
+            href="javascript:void(0)"
+            class="header__address"
+            onclick="OpenLocation()"
+          >
+            Xem giá, tồn kho tại:
+            <span data-province="3" data-district="0" data-ward="0"
+              >H&#x1ED3; Ch&#xED; Minh</span
+            >
+          </a>
+          <form
+            action="https://www.thegioididong.com/tim-kiem"
+            onsubmit="return suggestSearch(event);"
+            class="header__search"
+          >
+            <input
+              id="skw"
+              type="text"
+              class="input-search"
+              onkeyup="suggestSearch(event);"
+              placeholder="Bạn tìm gì..."
+              name="key"
+              autocomplete="off"
+              maxlength="100"
+            />
+            <button type="submit">
+              <i class="icon-search"></i>
+            </button>
+            <div id="search-result"></div>
+          </form>
+          <a href="lich-su-mua-hang/index.html" class="name-order">
+            Lịch sử đơn hàng
+          </a>
+          <a href="cart.html" class="header__cart menu-info">
+            <div class="box-cart">
+              <i class="iconnewglobal-cart"></i>
+              <span class="cart-number"></span>
+            </div>
+            <span>Giỏ hàng</span>
+          </a>
+          <div class="header__listtop">
+            <div class="divitem">
+              <a href="tin-tuc.html">24h<br />Công nghệ</a>
+            </div>
+            <div class="bordercol"></div>
+            <div class="divitem">
+              <a href="hoi-dap.html">Hỏi Đáp</a>
+            </div>
+            <div class="bordercol"></div>
+            <div class="divitem">
+              <a href="game-app.html">Game App</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Category -->
+      <div class="header__main">
+        <div>
+          <ul class="main-menu">
+            <li class="">
+              <a th:href="@{/dtdd}">
+                <i>
+                  <img src="cdn.tgdd.vn/content/icon-phone-96x96-2.png" />
+                </i>
+                <span class="">&#x110;i&#x1EC7;n tho&#x1EA1;i</span>
+              </a>
+            </li>
+            <li class="">
+              <a th:href="@{/laptop-ldp}">
+                <i>
+                  <img src="cdn.tgdd.vn/content/icon-laptop-96x96-1.png" />
+                </i>
+                <span class="">Laptop</span>
+              </a>
+            </li>
+            <li class="">
+              <a href="may-tinh-bang.html">
+                <i>
+                  <img src="cdn.tgdd.vn/content/icon-tablet-96x96-1.png" />
+                </i>
+                <span class="">Tablet</span>
+              </a>
+            </li>
+            <li class="has-list">
+              <a href="phu-kien.html">
+                <i>
+                  <img src="cdn.tgdd.vn/content/icon-phu-kien-96x96-1.png" />
+                </i>
+                <span class="has-child">Ph&#x1EE5; ki&#x1EC7;n</span>
+              </a>
+              <div class="navmwg">
+                <div class="item-child">
+                  <strong> Ph&#x1EE5; ki&#x1EC7;n di &#x111;&#x1ED9;ng </strong>
+                  <a href="sac-dtdd.html"
+                    ><h3>S&#x1EA1;c d&#x1EF1; ph&#xF2;ng</h3></a
+                  >
+                  <a href="sac-cap.html"><h3>S&#x1EA1;c, c&#xE1;p</h3></a>
+                  <a href="op-lung-flipcover.html"
+                    ><h3>
+                      &#x1ED0;p l&#x1B0;ng &#x111;i&#x1EC7;n tho&#x1EA1;i
+                    </h3></a
+                  >
+                  <a href="op-lung-may-tinh-bang.html"
+                    ><h3>
+                      &#x1ED0;p l&#x1B0;ng m&#xE1;y t&#xED;nh b&#x1EA3;ng
+                    </h3></a
+                  >
+                  <a href="mieng-dan-man-hinh.html"
+                    ><h3>Mi&#x1EBF;ng d&#xE1;n m&#xE0;n h&#xEC;nh</h3></a
+                  >
+                  <a href="gay-tu-suong.html"
+                    ><h3>G&#x1EAD;y ch&#x1EE5;p &#x1EA3;nh, Gimbal</h3></a
+                  >
+                  <a href="gia-do-dien-thoai.html"
+                    ><h3>
+                      Gi&#xE1; &#x111;&#x1EE1; &#x111;i&#x1EC7;n tho&#x1EA1;i
+                    </h3></a
+                  >
+                  <a href="de-moc-dien-thoai.html"
+                    ><h3>
+                      &#x110;&#x1EBF;, m&#xF3;c &#x111;i&#x1EC7;n tho&#x1EA1;i
+                    </h3></a
+                  >
+                  <a href="tui-chong-nuoc.html"
+                    ><h3>T&#xFA;i ch&#x1ED1;ng n&#x1B0;&#x1EDB;c</h3></a
+                  >
+                  <a href="tui-dung-airpods.html"
+                    ><h3>T&#xFA;i &#x111;&#x1EF1;ng AirPods</h3></a
+                  >
+                  <a href="airtag.html"><h3>AirTag</h3></a>
+                  <a href="phu-kien-thong-minh.html"
+                    ><h3>Ph&#x1EE5; ki&#x1EC7;n Tablet</h3></a
+                  >
+                </div>
+                <div class="item-child">
+                  <strong> Ph&#x1EE5; ki&#x1EC7;n laptop </strong>
+                  <a href="chuot-ban-phim.html"
+                    ><h3>Chu&#x1ED9;t, b&#xE0;n ph&#xED;m</h3></a
+                  >
+                  <a href="thiet-bi-mang.html"
+                    ><h3>Thi&#x1EBF;t b&#x1ECB; m&#x1EA1;ng</h3></a
+                  >
+                  <a href="camera-giam-sat.html"><h3>Camera, webcam</h3></a>
+                  <a href="tui-chong-soc.html"
+                    ><h3>Balo, t&#xFA;i ch&#x1ED1;ng s&#x1ED1;c</h3></a
+                  >
+                  <a href="gia-do-dien-thoai7b1a.html?g=de-laptop-macbook"
+                    ><h3>Gi&#xE1; &#x111;&#x1EE1; laptop</h3></a
+                  >
+                  <a href="phan-mem.html"><h3>Ph&#x1EA7;n m&#x1EC1;m</h3></a>
+                </div>
+                <div class="item-child">
+                  <strong>
+                    Thi&#x1EBF;t b&#x1ECB; nh&#xE0; th&#xF4;ng minh
+                  </strong>
+                  <a href="khoa-dien-tu.html"
+                    ><h3>Kh&#xF3;a &#x111;i&#x1EC7;n t&#x1EED;</h3></a
+                  >
+                  <a href="android-tv-box.html"><h3>TV Box</h3></a>
+                  <a href="o-cam-thong-minh.html"
+                    ><h3>
+                      &#x1ED4; c&#x1EAF;m, b&#xF3;ng &#x111;&#xE8;n th&#xF4;ng
+                      minh
+                    </h3></a
+                  >
+                  <a href="may-chieu.html"><h3>M&#xE1;y chi&#x1EBF;u</h3></a>
+                  <a href="but-trinh-chieu.html"
+                    ><h3>B&#xFA;t tr&#xEC;nh chi&#x1EBF;u</h3></a
+                  >
+                </div>
+                <div class="item-child">
+                  <strong>
+                    Th&#x1B0;&#x1A1;ng hi&#x1EC7;u h&#xE0;ng &#x111;&#x1EA7;u
+                  </strong>
+                  <a href="phu-kien/apple.html"><h3>Apple</h3></a>
+                  <a href="phu-kien/samsung.html"><h3>Samsung</h3></a>
+                  <a href="phu-kien/sony.html"><h3>Sony</h3></a>
+                  <a href="phu-kien/jbl.html"><h3>JBL</h3></a>
+                  <a href="phu-kien/xiaomi.html"><h3>Xiaomi</h3></a>
+                </div>
+                <div class="item-child">
+                  <strong> Thi&#x1EBF;t b&#x1ECB; &#xE2;m thanh </strong>
+                  <a href="tai-nghe.html"><h3>Tai nghe</h3></a>
+                  <a href="loa-laptop.html"><h3>Loa</h3></a>
+                </div>
+                <div class="item-child">
+                  <strong> Thi&#x1EBF;t b&#x1ECB; l&#x1B0;u tr&#x1EEF; </strong>
+                  <a href="o-cung-di-dong.html"
+                    ><h3>&#x1ED4; c&#x1EE9;ng di &#x111;&#x1ED9;ng</h3></a
+                  >
+                  <a href="the-nho-dien-thoai.html"
+                    ><h3>Th&#x1EBB; nh&#x1EDB;</h3></a
+                  >
+                  <a href="usb.html"><h3>USB</h3></a>
+                </div>
+                <div class="item-child">
+                  <strong> Ph&#x1EE5; ki&#x1EC7;n kh&#xE1;c </strong>
+                  <a href="phu-kien-oto.html"
+                    ><h3>Ph&#x1EE5; ki&#x1EC7;n &#xF4; t&#xF4;</h3></a
+                  >
+                  <a href="may-tinh-cam-tay.html"
+                    ><h3>M&#xE1;y t&#xED;nh c&#x1EA7;m tay</h3></a
+                  >
+                  <a href="quat-mini.html"><h3>Qu&#x1EA1;t mini</h3></a>
+                  <a href="pin.html"><h3>Pin ti&#x1EC3;u</h3></a>
+                </div>
+              </div>
+            </li>
+            <li class="">
+              <a href="dong-ho-thong-minh-ldp.html">
+                <i>
+                  <img src="cdn.tgdd.vn/content/icon-smartwatch-96x96-1.png" />
+                </i>
+                <span class="">Smartwatch</span>
+              </a>
+            </li>
+            <li class="">
+              <a href="dong-ho.html">
+                <i>
+                  <img src="cdn.tgdd.vn/content/watch-icon-96x96.png" />
+                </i>
+                <span class="">&#x110;&#x1ED3;ng h&#x1ED3;</span>
+              </a>
+            </li>
+            <li class="has-list">
+              <a href="pc-may-in.html">
+                <i>
+                  <img src="cdn.tgdd.vn/content/icon-pc-96x96.png" />
+                </i>
+                <span class="has-child">PC, M&#xE1;y in</span>
+              </a>
+              <div class="navmwg limit-width">
+                <div class="item-child no-child-final">
+                  <a href="may-in.html"><h3>M&#xE1;y in</h3></a>
+                </div>
+                <div class="item-child no-child-final">
+                  <a href="muc-in.html"><h3>M&#x1EF1;c in</h3></a>
+                </div>
+                <div class="item-child no-child-final">
+                  <a href="man-hinh-may-tinh.html"
+                    ><h3>M&#xE0;n h&#xEC;nh m&#xE1;y t&#xED;nh</h3></a
+                  >
+                </div>
+                <div class="item-child no-child-final">
+                  <a href="may-tinh-de-ban.html"
+                    ><h3>M&#xE1;y t&#xED;nh &#x111;&#x1EC3; b&#xE0;n</h3></a
+                  >
+                </div>
+              </div>
+            </li>
+            <li class="">
+              <a href="may-doi-tra.html">
+                <i>
+                  <img />
+                </i>
+                <span class="">M&#xE1;y c&#x169; gi&#xE1; r&#x1EBB;</span>
+              </a>
+            </li>
+            <li class="">
+              <a href="sim-so-dep.html">
+                <i>
+                  <img />
+                </i>
+                <span class="">Sim, Th&#x1EBB; c&#xE0;o</span>
+              </a>
+            </li>
+            <li class="has-list">
+              <a href="tien-ich/thanh-toan-tra-gop.html">
+                <i>
+                  <img />
+                </i>
+                <span class="has-child"
+                  >D&#x1ECB;ch v&#x1EE5; ti&#x1EC7;n &#xED;ch</span
+                >
+              </a>
+              <div class="navmwg limit-width">
+                <div class="item-child no-child-final">
+                  <a href="tien-ich/thanh-toan-tra-gop.html"
+                    ><h3>&#x110;&#xF3;ng ti&#x1EC1;n tr&#x1EA3; g&#xF3;p</h3></a
+                  >
+                </div>
+                <div class="item-child no-child-final">
+                  <a href="tien-ich/thanh-toan-tien-dien.html"
+                    ><h3>&#x110;&#xF3;ng ti&#x1EC1;n &#x111;i&#x1EC7;n</h3></a
+                  >
+                </div>
+                <div class="item-child no-child-final">
+                  <a href="tien-ich/thanh-toan-tien-nuoc.html"
+                    ><h3>&#x110;&#xF3;ng ti&#x1EC1;n n&#x1B0;&#x1EDB;c</h3></a
+                  >
+                </div>
+                <div class="item-child no-child-final">
+                  <a href="tien-ich/thanh-toan-internet-fpt.html"
+                    ><h3>&#x110;&#xF3;ng ti&#x1EC1;n net FPT</h3></a
+                  >
+                </div>
+                <div class="item-child no-child-final">
+                  <a href="tien-ich/thanh-toan-internet-vnpt.html"
+                    ><h3>&#x110;&#xF3;ng ti&#x1EC1;n net, c&#xE1;p VNPT</h3></a
+                  >
+                </div>
+                <div class="item-child no-child-final">
+                  <a href="tien-ich/thanh-toan-bao-hiem.html"
+                    ><h3>
+                      &#x110;&#xF3;ng ti&#x1EC1;n b&#x1EA3;o hi&#x1EC3;m
+                    </h3></a
+                  >
+                </div>
+                <div class="item-child no-child-final">
+                  <a href="tien-ich/thanh-toan-ve-tau-xe.html"
+                    ><h3>
+                      &#x110;&#xF3;ng ti&#x1EC1;n v&#xE9; t&#xE0;u, xe, m&#xE1;y
+                      bay
+                    </h3></a
+                  >
+                </div>
+                <div class="item-child no-child-final">
+                  <a href="tien-ich/thanh-toan-vien-phi.html"
+                    ><h3>
+                      &#x110;&#xF3;ng vi&#x1EC7;n ph&#xED; &#x110;H Y
+                      D&#x1B0;&#x1EE3;c TP. HCM
+                    </h3></a
+                  >
+                </div>
+                <div class="item-child no-child-final">
+                  <a href="tien-ich/nap-tien-dien-thoai-tra-sau.html"
+                    ><h3>
+                      &#x110;&#xF3;ng c&#x1B0;&#x1EDB;c &#x111;i&#x1EC7;n
+                      tho&#x1EA1;i tr&#x1EA3; sau
+                    </h3></a
+                  >
+                </div>
+                <div class="item-child no-child-final">
+                  <a href="tien-ich/bao-hiem-o-to-xe-may.html"
+                    ><h3>
+                      Mua b&#x1EA3;o hi&#x1EC3;m xe m&#xE1;y, &#xF4; t&#xF4;
+                    </h3></a
+                  >
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+  </body>
+</html>
