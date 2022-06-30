@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html
+  lang="vi-VN"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{pc-may-in.html}"
+>
+  <head> </head>
+  <body>
+    <!-- Box Sort PC Máy In -->
+    <div th:fragment="box-sort-pc-may-in" class="box-sort">
+      <p class="sort-total">
+        <b>71</b> Pc, m&#xE1;y in <strong class="manu-sort"></strong>
+      </p>
+      <div class="box-checkbox extend">
+        <a
+          href="javascript:;"
+          data-href=""
+          data-type="fast"
+          class="c-checkitem fastdeli"
+        >
+          <span class="tick-checkbox"></span>
+          <i class="thunder-icon">
+            <img
+              src="../cdn.tgdd.vn/mwgcart/mwgcore/ContentMwg/images/icon-thunder.png"
+            />
+          </i>
+          <p>Giao nhanh</p>
+        </a>
+        <a
+          href="javascript:;"
+          data-href=""
+          data-type="sp2020"
+          class="c-checkitem"
+        >
+          <span class="tick-checkbox"></span>
+          <p>Giảm giá</p>
+        </a>
+      </div>
+      <div class="sort-select">
+        <p class="click-sort">
+          Xếp theo: <span class="sort-show">B&#xE1;n ch&#x1EA1;y</span>
+        </p>
+        <div class="sort-select-main sort">
+          <p>
+            <a href="javascript:;" class="check" data-id="7"><i></i>Bán chạy</a>
+          </p>
+          <p>
+            <a href="javascript:;" class="" data-id="5"><i></i>% Giảm</a>
+          </p>
+          <p>
+            <a href="javascript:;" class="" data-id="3"
+              ><i></i>Giá cao đến thấp</a
+            >
+          </p>
+          <p>
+            <a href="javascript:;" class="" data-id="2"
+              ><i></i>Giá thấp đến cao</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- End -->
+  </body>
+</html>

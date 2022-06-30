@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html
+  lang="vi-VN"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate=" ~{dong-ho-thong-minh.html}"
+>
+  <head> </head>
+  <body>
+    <!-- Banner Top Đồng Hồ Thông Minh -->
+    <div th:fragment="banner-top-smart-watch" class="banner">
+      <a
+        data-cate="7077"
+        data-place="1672"
+        href="dong-ho-thong-minh-gia-soc.html"
+        onclick="jQuery.ajax({ url: '/bannertracking?bid=45225&r='+ (new Date).getTime(), async: true, cache: false });"
+        ><img
+          style="cursor: pointer"
+          src="../cdn.tgdd.vn/2022/06/banner/Banner-top-1920x200.png"
+          alt="Header trang ĐHTM"
+          width="1920"
+          height="200"
+      /></a>
+    </div>
+    <!-- End -->
+  </body>
+</html>

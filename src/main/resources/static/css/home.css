@@ -5492,9 +5492,7 @@ body {
   border-radius: 4px;
   margin: 0 5px;
 }
-.another-slider .item {
-  border-radius: 14px;
-}
+
 .prd-promo__title.text {
   display: block;
   overflow: hidden;
@@ -11572,15 +11570,7 @@ h1 {
   width: 215px;
   text-align: center;
 }
-.assess-txtbt {
-  font-size: 12px;
-  padding: 15px 0;
-  text-align: center;
-}
-.assess-txtbt a {
-  color: #2f80ed;
-  font-size: 13px;
-}
+
 .select-star {
   display: flex;
   margin: 20px 0 0;

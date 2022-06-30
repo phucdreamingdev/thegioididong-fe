@@ -3,7 +3,7 @@
   lang="vi-VN"
   xmlns:th="http://www.thymeleaf.org"
   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-  layout:decorate="~{index.html}, ~{dtdd.html}, ~{laptop-ldp.html}"
+  layout:decorate="~{index.html}, ~{dtdd.html}, ~{laptop-ldp.html}, ~{tablet.html}, ~{phu-kien.html}, ~{dong-ho-thong-minh.html}, ~{dong-ho.html}, ~{pc-may-in.html}"
 >
   <head> </head>
   <body>
@@ -90,7 +90,7 @@
               </a>
             </li>
             <li class="">
-              <a href="may-tinh-bang.html">
+              <a th:href="@{/may-tinh-bang}">
                 <i>
                   <img src="cdn.tgdd.vn/content/icon-tablet-96x96-1.png" />
                 </i>
@@ -98,7 +98,7 @@
               </a>
             </li>
             <li class="has-list">
-              <a href="phu-kien.html">
+              <a th:href="@{/phu-kien}">
                 <i>
                   <img src="cdn.tgdd.vn/content/icon-phu-kien-96x96-1.png" />
                 </i>
@@ -223,7 +223,7 @@
               </div>
             </li>
             <li class="">
-              <a href="dong-ho-thong-minh-ldp.html">
+              <a th:href="@{/dong-ho-thong-minh-ldp}">
                 <i>
                   <img src="cdn.tgdd.vn/content/icon-smartwatch-96x96-1.png" />
                 </i>
@@ -231,7 +231,7 @@
               </a>
             </li>
             <li class="">
-              <a href="dong-ho.html">
+              <a th:href="@{/dong-ho}">
                 <i>
                   <img src="cdn.tgdd.vn/content/watch-icon-96x96.png" />
                 </i>
@@ -239,7 +239,7 @@
               </a>
             </li>
             <li class="has-list">
-              <a href="pc-may-in.html">
+              <a th:href="@{/pc-may-in}">
                 <i>
                   <img src="cdn.tgdd.vn/content/icon-pc-96x96.png" />
                 </i>
@@ -265,7 +265,7 @@
               </div>
             </li>
             <li class="">
-              <a href="may-doi-tra.html">
+              <a th:href="@{/may-doi-tra}">
                 <i>
                   <img />
                 </i>

@@ -9,27 +9,29 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Laptop | Máy tính xách tay Giá rẻ, Trả góp 0%</title>
+    <title>
+      Phụ kiện chính hãng, giá rẻ cho điện thoại, laptop, máy tính bảng
+    </title>
     <meta
       name="keywords"
-      content="Máy tính xách tay, laptop, laptop chính hãng, laptop giá rẻ, máy tính xách tay giá rẻ, laptop trả góp, máy tính xách tay trả góp"
+      content="Phụ kiện điện thoại, bao da, ốp lưng, pin, sạc dự phòng, thẻ nhớ, usb, dán màn hình, tai nghe, phụ kiện Laptop, Tablet"
     />
     <meta
       name="description"
-      content="Mua máy tính laptop tại Thế Giới Di Động, giao nhanh 1 giờ, mang nhiều máy để lựa, bảo hành tại hơn 3000 điểm trên toàn quốc. Cà thẻ tại nhà, trả góp 0%."
+      content="Phụ kiện giá rẻ, mẫu mã đẹp chất lượng cao, đa dạng mẫu mã dành cho điện thoại, máy tính bảng, laptop với nhiều khuyến mãi, hỗ trợ giao hàng tận nơi toàn quốc."
     />
     <meta
       property="og:description"
-      content="Mua máy tính laptop tại Thế Giới Di Động, giao nhanh 1 giờ, mang nhiều máy để lựa, bảo hành tại hơn 3000 điểm trên toàn quốc. Cà thẻ tại nhà, trả góp 0%."
+      content="Phụ kiện giá rẻ, mẫu mã đẹp chất lượng cao, đa dạng mẫu mã dành cho điện thoại, máy tính bảng, laptop với nhiều khuyến mãi, hỗ trợ giao hàng tận nơi toàn quốc."
     />
     <meta
       property="og:title"
-      content="Laptop | Máy tính xách tay Giá rẻ, Trả góp 0%"
+      content="Phụ kiện chính hãng, giá rẻ cho điện thoại, laptop, máy tính bảng"
     />
-    <link rel="canonical" href="laptop.html" />
+    <link rel="canonical" th:href="@{/phu-kien}" />
     <meta
       property="og:image"
-      content="../cdn.tgdd.vn/2022/01/banner/Frame4961-1200x630.jpg"
+      content="../cdn.tgdd.vn/2022/03/banner/1920x380-1920x380-1.jpg"
     />
 
     <meta content="INDEX,FOLLOW" name="robots" />
@@ -55,14 +57,17 @@
     <meta property="fb:pages" content="214993791879039" />
     <meta http-equiv="x-dns-prefetch-control" content="on" />
 
-    <link rel="stylesheet" th:href="@{/css/category/laptop.css}" />
+    <link rel="stylesheet" th:href="@{/css/category/phu-kien.css}" />
   </head>
+
   <body>
     <!-- Header Top Banner Media -->
     <div th:replace="fragments/banner-media :: banner-media"></div>
+    <!-- End  -->
 
     <!-- Header -->
     <header th:replace="fragments/header :: header" data-sub="0"></header>
+    <!-- End  -->
 
     <div class="bg-ellipse"></div>
     <div class="locationbox__overlay"></div>
@@ -72,66 +77,72 @@
     <div th:replace="fragments/location :: location-box-popup"></div>
     <!-- End -->
 
-    <!-- Top Banner Laptop -->
+    <!-- Banner Top Phụ Kiện -->
     <div
-      th:replace="fragments/category/laptop/banner-top-laptop :: top-banner-laptop"
+      th:replace="fragments/category/phu-kien/banner-top-phu-kien :: top-banner-phu-kien"
     ></div>
     <!-- End -->
 
-    <!-- Link Thương Hiệu -->
+    <!-- Menu Top Phụ Kiện -->
     <div
-      th:replace="fragments/category/laptop/quick-link-laptop :: quick-link-laptop"
+      th:replace="fragments/category/phu-kien/menu-top-phu-kien :: menu-top-phu-kien"
     ></div>
+    <!-- End -->
 
-    <!-- Menu Top -->
+    <!-- Wrapper Phụ Kiện -->
     <div
-      th:replace="fragments/category/laptop/menu-top-laptop :: menu-top"
-    ></div>
-
-    <!-- Deal Sốc -->
-    <div
-      th:replace="fragments/category/laptop/deal-soc-laptop :: deal-soc-laptop"
+      th:replace="fragments/category/phu-kien/wrapper-phu-kien :: wrapper-phu-kien"
     ></div>
     <!-- End -->
 
     <!-- Main Container -->
-    <div class="content">
-      <!-- Laptop Gaming -->
+    <div class="warpper-content" style="background-color: #fffaf0 !important">
+      <!-- Phụ Kiện Nổi Bật-->
+      <section
+        th:replace="fragments/category/phu-kien/container/phu-kien-noi-bat :: phu-kien-noi-bat"
+      ></section>
+      <!-- End -->
+
+      <!-- Thương Hiệu Hàng Đầu -->
+      <section
+        th:replace="fragments/category/phu-kien/container/thuong-hieu-hang-dau :: thuong-hieu-hang-dau"
+      ></section>
+      <!-- End -->
+
+      <!-- Deal Sốc Phụ Kiện -->
       <div
-        th:replace="fragments/category/laptop/container/gaming :: gaming"
+        th:replace="fragments/category/phu-kien/container/deal-soc-phu-kien :: deal-soc-phu-kien"
       ></div>
+      <!-- End -->
 
-      <!-- Laptop Macbook -->
-      <div
-        th:replace="fragments/category/laptop/container/macbook :: macbook"
-      ></div>
+      <!-- Main Content -->
+      <div class="content" style="background-color: #fffaf0 !important">
+        <!-- Phụ Kiện Apple Chính Hãng -->
+        <div
+          th:replace="fragments/category/phu-kien/container/content/list-phu-kien :: list-phu-kien"
+        ></div>
+        <!-- End -->
 
-      <!-- Laptop Học Tập Văn Phòng -->
+        <!-- Pin Sạc Dự Phòng -->
 
-      <!-- Laptop Đồ Hoạ Kỹ Thuật -->
+        <!-- Cáp Sạc -->
 
-      <!-- Laptop Mỏng Nhẹ -->
+        <!-- Tai Nghe -->
 
-      <!-- Laptop Cao Cấp Sang Trọng -->
+        <!-- Loa -->
 
-      <!-- Phần Mềm -->
+        <!-- Thiết Bị Nhà Thông Minh -->
+
+        <!-- Phụ Kiện Gaming -->
+      </div>
+      <!-- End Main Content -->
+      <div class="bg-black"></div>
     </div>
     <!-- End Main Container -->
 
-    <!-- Banner Bottom Laptop -->
-    <div
-      th:replace="fragments/category/laptop/banner-bottom-laptop :: banner-bottom-laptop"
-    ></div>
-    <!-- End  -->
-
-    <!-- So Sánh -->
-    <div class="popup-button">
-      <a href="javascript:;" onclick="showCompare()" id="ss-now">
-        <i class="iconcate-ss"></i>
-        <span>So sánh <label id="count-ss"></label></span>
-      </a>
+    <div id="preloader" style="display: none">
+      <div id="loader"></div>
     </div>
-    <!-- End -->
 
     <section class="page1 prmotebannerbhx">
       <div class="prmotebanner-bhx"></div>
@@ -149,7 +160,7 @@
     <!-- End Footer -->
 
     <script
-      src="../cdn.tgdd.vn/mwgcart/mwgcore/js/bundle/globalTGDD_V2.min.v202206210140.js"
+      src="../cdn.tgdd.vn/mwgcart/mwgcore/js/bundle/globalTGDD_V2.min.v202206210130.js"
       type="text/javascript"
     ></script>
     <script>
@@ -162,20 +173,20 @@
       dataLayer.push({
         pageType: "Category",
         pagePlatform: "Web",
-        pageCategoryLv1: "Trang đệm laptop",
+        pageCategoryLv1: "Trang đệm phụ kiện",
         pageStatus: "Kinh doanh",
       });
     </script>
 
     <script type="text/javascript">
-      document.cateID = "44";
-      document.isSmartWatchPage = true;
+      document.cateID = "482";
+      document.isAccessory = true;
       document.isDesktop = true;
     </script>
     <script
       defer="defer"
       async="async"
-      src="../cdn.tgdd.vn/mwgcart/mwgcore/js/bundle/laptop.min.v202206020620.js"
+      src="../cdn.tgdd.vn/mwgcart/mwgcore/js/bundle/accessory.min.v202204090440.js"
     ></script>
   </body>
 </html>

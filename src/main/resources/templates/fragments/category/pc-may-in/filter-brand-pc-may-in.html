@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html
+  lang="vi-VN"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{pc-may-in.html}"
+>
+  <head> </head>
+  <body>
+    <!-- Thương Hiệu PC Máy In -->
+    <div
+      th:fragment="filter-brand-pc-may-in"
+      class="box-filter top-box onlymanu block-scroll-main cate-9738"
+    >
+      <section>
+        <div class="jsfix scrolling_inner scroll-right">
+          <div class="box-filter block-scroll-main scrolling">
+            <div class="scroll-btn show-right">
+              <div class="btn-right-scroll"></div>
+            </div>
+
+            <div class="filter-total hide">
+              <div class="filter-item__title jsTitle">
+                <div class="arrow-filter"></div>
+                <i class="icon-filter"></i>Bộ lọc
+                <strong class="number count-total"></strong>
+              </div>
+              <div class="filter-show show-total" id="wrapper">
+                <div class="list-filter-active">
+                  <span>Đã chọn: </span>
+                  <div class="manu"></div>
+                  <div class="price"></div>
+                  <div class="props"></div>
+                  <div class="props-slider"></div>
+                  <a
+                    href="javascript:;"
+                    class="clr-filter"
+                    onclick="removeAllFilterActive()"
+                    >Xóa tất cả</a
+                  >
+                </div>
+                <div class="show-total-main">
+                  <a href="javascript:;" class="close-popup-total"
+                    ><i class="iconcate-closess"></i>Đóng</a
+                  >
+                  <div class="show-total-item warpper-manu-inside">
+                    <p class="show-total-txt">Hãng</p>
+                    <div class="filter-list filter-list--hang manu">
+                      <a
+                        href="pc-may-in-canon.html"
+                        class="c-btnbox filter-manu"
+                        data-href="canon"
+                        data-id="19180"
+                        data-name="Canon"
+                      >
+                        <img
+                          src="../cdn.tgdd.vn/Brand/1/Canon5693-b46-220x48-220x48.jpg"
+                          width="68"
+                          height="30"
+                          alt="Canon"
+                        />
+                      </a>
+                      <a
+                        href="pc-may-in-brother.html"
+                        class="c-btnbox filter-manu"
+                        data-href="brother"
+                        data-id="19111"
+                        data-name="Brother"
+                      >
+                        <img
+                          src="../cdn.tgdd.vn/Brand/1/Brother5693-b32-220x48-220x48.jpg"
+                          width="68"
+                          height="30"
+                          alt="Brother"
+                        />
+                      </a>
+                      <a
+                        href="pc-may-in-hp.html"
+                        class="c-btnbox filter-manu"
+                        data-href="hp"
+                        data-id="19112"
+                        data-name="HP"
+                      >
+                        <img
+                          src="../cdn.tgdd.vn/Brand/1/logo-hp-149x40-6.png"
+                          width="68"
+                          height="30"
+                          alt="HP"
+                        />
+                      </a>
+                      <a
+                        href="pc-may-in-apple.html"
+                        class="c-btnbox filter-manu"
+                        data-href="apple"
+                        data-id="10387"
+                        data-name="Apple"
+                      >
+                        <img
+                          src="../cdn.tgdd.vn/Brand/1/logo-apple-220x48-2.png"
+                          width="68"
+                          height="30"
+                          alt="Apple"
+                        />
+                      </a>
+                      <a
+                        href="pc-may-in-asus.html"
+                        class="c-btnbox filter-manu"
+                        data-href="asus"
+                        data-id="9069"
+                        data-name="Asus"
+                      >
+                        <img
+                          src="../cdn.tgdd.vn/Brand/1/logo-asus-149x40-10.png"
+                          width="68"
+                          height="30"
+                          alt="Asus"
+                        />
+                      </a>
+                      <a
+                        href="pc-may-in-samsung.html"
+                        class="c-btnbox filter-manu"
+                        data-href="samsung"
+                        data-id="9058"
+                        data-name="Samsung"
+                      >
+                        <img
+                          src="../cdn.tgdd.vn/Brand/1/logo-samsung-220x48.png"
+                          width="68"
+                          height="30"
+                          alt="Samsung"
+                        />
+                      </a>
+                      <a
+                        href="pc-may-in-lenovo.html"
+                        class="c-btnbox filter-manu"
+                        data-href="lenovo"
+                        data-id="24449"
+                        data-name="Lenovo"
+                      >
+                        <img
+                          src="../cdn.tgdd.vn/Brand/1/logo-lenovo-149x40-5.png"
+                          width="68"
+                          height="30"
+                          alt="Lenovo"
+                        />
+                      </a>
+                      <a
+                        href="pc-may-in-viewsonic.html"
+                        class="c-btnbox filter-manu"
+                        data-href="viewsonic"
+                        data-id="24448"
+                        data-name="Viewsonic"
+                      >
+                        <img
+                          src="../cdn.tgdd.vn/Brand/1/viewsonictgdd-220x48.png"
+                          width="68"
+                          height="30"
+                          alt="Viewsonic"
+                        />
+                      </a>
+                      <a
+                        href="pc-may-in-dell.html"
+                        class="c-btnbox filter-manu"
+                        data-href="dell"
+                        data-id="9060"
+                        data-name="Dell"
+                      >
+                        <img
+                          src="../cdn.tgdd.vn/Brand/1/logo-dell-149x40-1.png"
+                          width="68"
+                          height="30"
+                          alt="Dell"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                  <div class="filter-border"></div>
+
+                  <div class="bg-whitefix"></div>
+                  <div class="filter-button filter-button--total">
+                    <a href="javascript:void(0)" class="btn-filter-close"
+                      >Bỏ chọn</a
+                    >
+                    <a href="javascript:;" class="btn-filter-readmore"
+                      >Xem <b class="total-reloading"></b> kết quả</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="filter-list filter-list--hang manu single-manu">
+              <a
+                href="pc-may-in-canon.html"
+                class="c-btnbox filter-manu"
+                data-href="canon"
+                data-id="19180"
+                data-name="Canon"
+              >
+                <img
+                  src="../cdn.tgdd.vn/Brand/1/Canon5693-b46-220x48-220x48.jpg"
+                  width="68"
+                  height="30"
+                  alt="Canon"
+                />
+              </a>
+              <a
+                href="pc-may-in-brother.html"
+                class="c-btnbox filter-manu"
+                data-href="brother"
+                data-id="19111"
+                data-name="Brother"
+              >
+                <img
+                  src="../cdn.tgdd.vn/Brand/1/Brother5693-b32-220x48-220x48.jpg"
+                  width="68"
+                  height="30"
+                  alt="Brother"
+                />
+              </a>
+              <a
+                href="pc-may-in-hp.html"
+                class="c-btnbox filter-manu"
+                data-href="hp"
+                data-id="19112"
+                data-name="HP"
+              >
+                <img
+                  src="../cdn.tgdd.vn/Brand/1/logo-hp-149x40-6.png"
+                  width="68"
+                  height="30"
+                  alt="HP"
+                />
+              </a>
+              <a
+                href="pc-may-in-apple.html"
+                class="c-btnbox filter-manu"
+                data-href="apple"
+                data-id="10387"
+                data-name="Apple"
+              >
+                <img
+                  src="../cdn.tgdd.vn/Brand/1/logo-apple-220x48-2.png"
+                  width="68"
+                  height="30"
+                  alt="Apple"
+                />
+              </a>
+              <a
+                href="pc-may-in-asus.html"
+                class="c-btnbox filter-manu"
+                data-href="asus"
+                data-id="9069"
+                data-name="Asus"
+              >
+                <img
+                  src="../cdn.tgdd.vn/Brand/1/logo-asus-149x40-10.png"
+                  width="68"
+                  height="30"
+                  alt="Asus"
+                />
+              </a>
+              <a
+                href="pc-may-in-samsung.html"
+                class="c-btnbox filter-manu"
+                data-href="samsung"
+                data-id="9058"
+                data-name="Samsung"
+              >
+                <img
+                  src="../cdn.tgdd.vn/Brand/1/logo-samsung-220x48.png"
+                  width="68"
+                  height="30"
+                  alt="Samsung"
+                />
+              </a>
+              <a
+                href="pc-may-in-lenovo.html"
+                class="c-btnbox filter-manu"
+                data-href="lenovo"
+                data-id="24449"
+                data-name="Lenovo"
+              >
+                <img
+                  src="../cdn.tgdd.vn/Brand/1/logo-lenovo-149x40-5.png"
+                  width="68"
+                  height="30"
+                  alt="Lenovo"
+                />
+              </a>
+              <a
+                href="pc-may-in-viewsonic.html"
+                class="c-btnbox filter-manu"
+                data-href="viewsonic"
+                data-id="24448"
+                data-name="Viewsonic"
+              >
+                <img
+                  src="../cdn.tgdd.vn/Brand/1/viewsonictgdd-220x48.png"
+                  width="68"
+                  height="30"
+                  alt="Viewsonic"
+                />
+              </a>
+              <a
+                href="pc-may-in-dell.html"
+                class="c-btnbox filter-manu"
+                data-href="dell"
+                data-id="9060"
+                data-name="Dell"
+              >
+                <img
+                  src="../cdn.tgdd.vn/Brand/1/logo-dell-149x40-1.png"
+                  width="68"
+                  height="30"
+                  alt="Dell"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="box-quicklink block-scroll-main"></div>
+      </section>
+    </div>
+    <!-- End -->
+  </body>
+</html>

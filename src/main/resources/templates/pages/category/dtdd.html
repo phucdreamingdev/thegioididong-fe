@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="vi-VN">
+<html
+  lang="vi-VN"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
   <meta http-equiv="content-type" content="text/html;charset=utf-8" />
   <head>
     <meta charset="utf-8" />
@@ -89,7 +93,9 @@
     <!-- End -->
 
     <!-- Filter Thương Hiệu -->
-    <div th:replace="fragments/category/dtdd/box-filter :: box-filter"></div>
+    <div
+      th:replace="fragments/category/dtdd/box-filter-dtdd :: box-filter-dtdd"
+    ></div>
     <!-- End -->
 
     <!-- Phone Products -->
@@ -312,23 +318,5 @@
       async="async"
       src="../cdn.tgdd.vn/mwgcart/mwgcore/js/bundle/Category.min.v202206230710.js"
     ></script>
-
-    <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-          "gtm.start": new Date().getTime(),
-          event: "gtm.js",
-        });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "../www.googletagmanager.com/gtm5445.html?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-WKQZL8");
-    </script>
-    <!-- End Google Tag Manager -->
   </body>
 </html>

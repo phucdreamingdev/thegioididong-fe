@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html
+  lang="vi-VN"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate=" ~{tablet.html}"
+>
+  <head> </head>
+  <body>
+    <!-- Filter Thương Hiệu -->
+    <div
+      th:fragment="box-filter-tablet"
+      class="box-filter top-box block-scroll-main cate-522"
+    >
+      <section>
+        <div class="jsfix scrolling_inner scroll-right">
+          <div class="box-filter block-scroll-main scrolling">
+            <div class="scroll-btn show-right">
+              <div class="btn-right-scroll"></div>
+            </div>
+
+            <div class="filter-total">
+              <div class="filter-item__title jsTitle">
+                <div class="arrow-filter"></div>
+                <i class="icon-filter"></i>Bộ lọc
+                <strong class="number count-total"></strong>
+              </div>
+              <div class="filter-show show-total" id="wrapper">
+                <div class="list-filter-active">
+                  <span>Đã chọn: </span>
+                  <div class="manu"></div>
+                  <div class="price"></div>
+                  <div class="props"></div>
+                  <div class="props-slider"></div>
+                  <a
+                    href="javascript:;"
+                    class="clr-filter"
+                    onclick="removeAllFilterActive()"
+                    >Xóa tất cả</a
+                  >
+                </div>
+                <div class="show-total-main">
+                  <a href="javascript:;" class="close-popup-total"
+                    ><i class="iconcate-closess"></i>Đóng</a
+                  >
+                  <div class="show-total-item warpper-manu-inside">
+                    <p class="show-total-txt">Hãng</p>
+                    <div class="filter-list filter-list--hang manu">
+                      <a
+                        href="may-tinh-bang-apple-ipad.html"
+                        class="c-btnbox filter-manu"
+                        data-href="apple-ipad"
+                        data-id="1028"
+                        data-name="iPad (Apple)"
+                      >
+                        <img
+                          src="../cdn.tgdd.vn/Brand/1/iPad-(Apple)522-b_4.jpg"
+                          width="68"
+                          height="30"
+                          alt="iPad (Apple)"
+                        />
+                      </a>
+                      <a
+                        href="may-tinh-bang-samsung.html"
+                        class="c-btnbox filter-manu"
+                        data-href="samsung"
+                        data-id="1101"
+                        data-name="Samsung"
+                      >
+                        <img
+                          src="../cdn.tgdd.vn/Brand/1/samsungnew-220x48-3.png"
+                          width="68"
+                          height="30"
+                          alt="Samsung"
+                        />
+                      </a>
+                      <a
+                        href="may-tinh-bang-xiaomi.html"
+                        class="c-btnbox filter-manu"
+                        data-href="xiaomi"
+                        data-id="29147"
+                        data-name="Xiaomi"
+                      >
+                        <img
+                          src="../cdn.tgdd.vn/Brand/1/Tablet-xiaomi-220x48-1.png"
+                          width="68"
+                          height="30"
+                          alt="Xiaomi"
+                        />
+                      </a>
+                      <a
+                        href="may-tinh-bang-lenovo.html"
+                        class="c-btnbox filter-manu"
+                        data-href="lenovo"
+                        data-id="1226"
+                        data-name="Lenovo"
+                      >
+                        <img
+                          src="../cdn.tgdd.vn/Brand/1/Lenovo522-b_6.jpg"
+                          width="68"
+                          height="30"
+                          alt="Lenovo"
+                        />
+                      </a>
+                      <a
+                        href="may-tinh-bang-masstel.html"
+                        class="c-btnbox filter-manu"
+                        data-href="masstel"
+                        data-id="5203"
+                        data-name="Masstel"
+                      >
+                        <img
+                          src="../cdn.tgdd.vn/Brand/1/Masstel522-b_7.png"
+                          width="68"
+                          height="30"
+                          alt="Masstel"
+                        />
+                      </a>
+                      <a
+                        href="may-tinh-bang-nokia.html"
+                        class="c-btnbox filter-manu"
+                        data-href="nokia"
+                        data-id="1981"
+                        data-name="Nokia"
+                      >
+                        <img
+                          src="../cdn.tgdd.vn/Brand/1/logonokia-220x48-1.jpg"
+                          width="68"
+                          height="30"
+                          alt="Nokia"
+                        />
+                      </a>
+                      <a
+                        href="may-tinh-bang-huawei.html"
+                        class="c-btnbox filter-manu"
+                        data-href="huawei"
+                        data-id="1145"
+                        data-name="Huawei"
+                      >
+                        <img
+                          src="../cdn.tgdd.vn/Brand/1/Huawei522-b_4.jpg"
+                          width="68"
+                          height="30"
+                          alt="Huawei"
+                        />
+                      </a>
+                      <a
+                        href="may-tinh-bang-alcatel.html"
+                        class="c-btnbox filter-manu"
+                        data-href="alcatel"
+                        data-id="8504"
+                        data-name="Alcatel"
+                      >
+                        <img
+                          src="../cdn.tgdd.vn/Brand/1/logoalcatel-220x48-1.png"
+                          width="68"
+                          height="30"
+                          alt="Alcatel"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                  <div class="filter-border"></div>
+                  <div class="show-total-item count-item">
+                    <p class="show-total-txt">Giá</p>
+                    <div class="filter-list price">
+                      <a
+                        href="may-tinh-bang0f7b.html?p=duoi-3-trieu"
+                        data-href="duoi-3-trieu"
+                        class="c-btnbox"
+                        data-id="292"
+                        >D&#x1B0;&#x1EDB;i 3 tri&#x1EC7;u</a
+                      >
+                      <a
+                        href="may-tinh-bangb187.html?p=tu-3-8-trieu"
+                        data-href="tu-3-8-trieu"
+                        class="c-btnbox"
+                        data-id="294"
+                        >T&#x1EEB; 3 - 8 tri&#x1EC7;u</a
+                      >
+                      <a
+                        href="may-tinh-bang7282.html?p=tu-8-15-trieu"
+                        data-href="tu-8-15-trieu"
+                        class="c-btnbox"
+                        data-id="295"
+                        >T&#x1EEB; 8 - 15 tri&#x1EC7;u</a
+                      >
+                      <a
+                        href="may-tinh-bang4711.html?p=tren-15-trieu"
+                        data-href="tren-15-trieu"
+                        class="c-btnbox"
+                        data-id="296"
+                        >Tr&#xEA;n 15 tri&#x1EC7;u</a
+                      >
+                    </div>
+                  </div>
+
+                  <div class="show-total-item count-item">
+                    <p class="show-total-txt">M&#xE0;n h&#xEC;nh</p>
+                    <div class="filter-list filter-list--man-hinh props">
+                      <a
+                        href="may-tinh-bang-khoang-7-den-8-inch.html"
+                        data-smooth="1"
+                        data-id="40457"
+                        class="c-btnbox"
+                        >Kho&#x1EA3;ng 7 - 8 inch</a
+                      >
+                      <a
+                        href="may-tinh-bang-khoang-10-den-11-inch.html"
+                        data-smooth="1"
+                        data-id="40454"
+                        class="c-btnbox"
+                        >Kho&#x1EA3;ng 10 - 11 inch</a
+                      >
+                      <a
+                        href="may-tinh-bang-khoang-12-inch-tro-len.html"
+                        data-smooth="1"
+                        data-id="165045"
+                        class="c-btnbox"
+                        >Kho&#x1EA3;ng 12 inch tr&#x1EDF; l&#xEA;n</a
+                      >
+                    </div>
+                  </div>
+                  <div class="show-total-item count-item">
+                    <p class="show-total-txt">RAM</p>
+                    <div class="filter-list filter-list--ram props">
+                      <a
+                        href="may-tinh-bang-ram-2gb.html"
+                        data-smooth="1"
+                        data-id="15454"
+                        class="c-btnbox"
+                        >2 GB</a
+                      >
+                      <a
+                        href="may-tinh-bang-ram-3gb.html"
+                        data-smooth="1"
+                        data-id="15455"
+                        class="c-btnbox"
+                        >3 GB</a
+                      >
+                      <a
+                        href="may-tinh-bang-ram-4gb.html"
+                        data-smooth="1"
+                        data-id="15456"
+                        class="c-btnbox"
+                        >4 GB</a
+                      >
+                      <a
+                        href="may-tinh-bang-ram-6gb.html"
+                        data-smooth="1"
+                        data-id="147041"
+                        class="c-btnbox"
+                        >6 GB</a
+                      >
+                      <a
+                        href="may-tinh-bang-ram-8gb.html"
+                        data-smooth="1"
+                        data-id="54040"
+                        class="c-btnbox"
+                        >8 GB</a
+                      >
+                    </div>
+                  </div>
+                  <div class="show-total-item count-item">
+                    <p class="show-total-txt">B&#x1ED9; nh&#x1EDB; trong</p>
+                    <div class="filter-list filter-list--bo-nho-trong props">
+                      <a
+                        href="may-tinh-bang-rom-32gb.html"
+                        data-smooth="1"
+                        data-id="15466"
+                        class="c-btnbox"
+                        >32 GB</a
+                      >
+                      <a
+                        href="may-tinh-bang-rom-64gb.html"
+                        data-smooth="1"
+                        data-id="15469"
+                        class="c-btnbox"
+                        >64 GB</a
+                      >
+                      <a
+                        href="may-tinh-bang-rom-128gb.html"
+                        data-smooth="1"
+                        data-id="42426"
+                        class="c-btnbox"
+                        >128 GB</a
+                      >
+                      <a
+                        href="may-tinh-bang-rom-256gb.html"
+                        data-smooth="1"
+                        data-id="54043"
+                        class="c-btnbox"
+                        >256 GB</a
+                      >
+                    </div>
+                  </div>
+                  <div class="show-total-item count-item">
+                    <p class="show-total-txt">
+                      T&#xED;nh n&#x103;ng &#x111;&#x1EB7;c bi&#x1EC7;t
+                    </p>
+                    <div
+                      class="filter-list filter-list--tinh-nang-dac-biet props"
+                    >
+                      <a
+                        href="may-tinh-bang-choi-game.html"
+                        data-smooth="1"
+                        data-id="176552"
+                        class="c-btnbox"
+                        >Ch&#x1A1;i game / C&#x1EA5;u h&#xEC;nh cao</a
+                      >
+                      <a
+                        href="may-tinh-bang-thuc-hien-cuoc-goi.html"
+                        data-smooth="1"
+                        data-id="173711"
+                        class="c-btnbox"
+                        >H&#x1ED7; tr&#x1EE3; nghe g&#x1ECD;i</a
+                      >
+                      <a
+                        href="may-tinh-bang-pin-khung.html"
+                        data-smooth="1"
+                        data-id="177126"
+                        class="c-btnbox"
+                        >Pin kh&#x1EE7;ng tr&#xEA;n 7000 mAh</a
+                      >
+                      <a
+                        href="may-tinh-bang-sac-pin-nhanh.html"
+                        data-smooth="1"
+                        data-id="173714"
+                        class="c-btnbox"
+                        >S&#x1EA1;c pin nhanh</a
+                      >
+                      <a
+                        href="may-tinh-bang-bao-mat-khuon-mat.html"
+                        data-smooth="1"
+                        data-id="176787"
+                        class="c-btnbox"
+                        >B&#x1EA3;o m&#x1EAD;t khu&#xF4;n m&#x1EB7;t</a
+                      >
+                      <a
+                        href="may-tinh-bang-bao-mat-van-tay.html"
+                        data-smooth="1"
+                        data-id="176788"
+                        class="c-btnbox"
+                        >B&#x1EA3;o m&#x1EAD;t v&#xE2;n tay</a
+                      >
+                    </div>
+                  </div>
+                  <div class="show-total-item child-filter hide">
+                    <p class="show-total-txt">Ch&#x1ECD;n theo d&#xF2;ng</p>
+                    <div class="filter-list filter-list--chon-theo-dong props">
+                      <a
+                        href="may-tinh-bang-m1.html"
+                        data-smooth="1"
+                        data-id="196096"
+                        class="c-btnbox"
+                        >iPad Pro M1</a
+                      >
+                      <a
+                        href="may-tinh-bang-mini.html"
+                        data-smooth="1"
+                        data-id="176418"
+                        class="c-btnbox"
+                        >iPad Mini</a
+                      >
+                      <a
+                        href="may-tinh-bang-air.html"
+                        data-smooth="1"
+                        data-id="176419"
+                        class="c-btnbox"
+                        >iPad Air</a
+                      >
+                      <a
+                        href="may-tinh-bang-10-2-inch.html"
+                        data-smooth="1"
+                        data-id="176424"
+                        class="c-btnbox"
+                        >iPad 9</a
+                      >
+                      <a
+                        href="may-tinh-bang-galaxy-tab-s.html"
+                        data-smooth="1"
+                        data-id="176727"
+                        class="c-btnbox"
+                        >Galaxy Tab S</a
+                      >
+                      <a
+                        href="may-tinh-bang-galaxy-tab-a.html"
+                        data-smooth="1"
+                        data-id="176730"
+                        class="c-btnbox"
+                        >Galaxy Tab A</a
+                      >
+                    </div>
+                  </div>
+
+                  <div class="bg-whitefix"></div>
+                  <div class="filter-button filter-button--total">
+                    <a href="javascript:void(0)" class="btn-filter-close"
+                      >Bỏ chọn</a
+                    >
+                    <a href="javascript:;" class="btn-filter-readmore"
+                      >Xem <b class="total-reloading"></b> kết quả</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="filter-item block-manu">
+              <div class="filter-item__title jsTitle">
+                <div class="arrow-filter"></div>
+                <span>Hãng</span>
+              </div>
+              <div class="filter-show">
+                <div class="filter-list filter-list--hang manu">
+                  <a
+                    href="may-tinh-bang-apple-ipad.html"
+                    class="c-btnbox filter-manu"
+                    data-href="apple-ipad"
+                    data-id="1028"
+                    data-name="iPad (Apple)"
+                  >
+                    <img
+                      src="../cdn.tgdd.vn/Brand/1/iPad-(Apple)522-b_4.jpg"
+                      width="68"
+                      height="30"
+                      alt="iPad (Apple)"
+                    />
+                  </a>
+                  <a
+                    href="may-tinh-bang-samsung.html"
+                    class="c-btnbox filter-manu"
+                    data-href="samsung"
+                    data-id="1101"
+                    data-name="Samsung"
+                  >
+                    <img
+                      src="../cdn.tgdd.vn/Brand/1/samsungnew-220x48-3.png"
+                      width="68"
+                      height="30"
+                      alt="Samsung"
+                    />
+                  </a>
+                  <a
+                    href="may-tinh-bang-xiaomi.html"
+                    class="c-btnbox filter-manu"
+                    data-href="xiaomi"
+                    data-id="29147"
+                    data-name="Xiaomi"
+                  >
+                    <img
+                      src="../cdn.tgdd.vn/Brand/1/Tablet-xiaomi-220x48-1.png"
+                      width="68"
+                      height="30"
+                      alt="Xiaomi"
+                    />
+                  </a>
+                  <a
+                    href="may-tinh-bang-lenovo.html"
+                    class="c-btnbox filter-manu"
+                    data-href="lenovo"
+                    data-id="1226"
+                    data-name="Lenovo"
+                  >
+                    <img
+                      src="../cdn.tgdd.vn/Brand/1/Lenovo522-b_6.jpg"
+                      width="68"
+                      height="30"
+                      alt="Lenovo"
+                    />
+                  </a>
+                  <a
+                    href="may-tinh-bang-masstel.html"
+                    class="c-btnbox filter-manu"
+                    data-href="masstel"
+                    data-id="5203"
+                    data-name="Masstel"
+                  >
+                    <img
+                      src="../cdn.tgdd.vn/Brand/1/Masstel522-b_7.png"
+                      width="68"
+                      height="30"
+                      alt="Masstel"
+                    />
+                  </a>
+                  <a
+                    href="may-tinh-bang-nokia.html"
+                    class="c-btnbox filter-manu"
+                    data-href="nokia"
+                    data-id="1981"
+                    data-name="Nokia"
+                  >
+                    <img
+                      src="../cdn.tgdd.vn/Brand/1/logonokia-220x48-1.jpg"
+                      width="68"
+                      height="30"
+                      alt="Nokia"
+                    />
+                  </a>
+                  <a
+                    href="may-tinh-bang-huawei.html"
+                    class="c-btnbox filter-manu"
+                    data-href="huawei"
+                    data-id="1145"
+                    data-name="Huawei"
+                  >
+                    <img
+                      src="../cdn.tgdd.vn/Brand/1/Huawei522-b_4.jpg"
+                      width="68"
+                      height="30"
+                      alt="Huawei"
+                    />
+                  </a>
+                  <a
+                    href="may-tinh-bang-alcatel.html"
+                    class="c-btnbox filter-manu"
+                    data-href="alcatel"
+                    data-id="8504"
+                    data-name="Alcatel"
+                  >
+                    <img
+                      src="../cdn.tgdd.vn/Brand/1/logoalcatel-220x48-1.png"
+                      width="68"
+                      height="30"
+                      alt="Alcatel"
+                    />
+                  </a>
+                </div>
+                <div class="filter-button">
+                  <a href="javascript:void(0)" class="btn-filter-close"
+                    >Bỏ chọn</a
+                  >
+                  <a href="#" class="btn-filter-readmore"
+                    >Xem <b class="total-reloading"></b> kết quả</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="filter-item warpper-price-outside">
+              <div class="filter-item__title jsTitle">
+                <div class="arrow-filter"></div>
+                <span>Giá</span>
+              </div>
+              <div class="filter-show">
+                <div class="filter-list price">
+                  <a
+                    href="may-tinh-bang0f7b.html?p=duoi-3-trieu"
+                    data-href="duoi-3-trieu"
+                    class="c-btnbox"
+                    data-id="292"
+                    >D&#x1B0;&#x1EDB;i 3 tri&#x1EC7;u</a
+                  >
+                  <a
+                    href="may-tinh-bangb187.html?p=tu-3-8-trieu"
+                    data-href="tu-3-8-trieu"
+                    class="c-btnbox"
+                    data-id="294"
+                    >T&#x1EEB; 3 - 8 tri&#x1EC7;u</a
+                  >
+                  <a
+                    href="may-tinh-bang7282.html?p=tu-8-15-trieu"
+                    data-href="tu-8-15-trieu"
+                    class="c-btnbox"
+                    data-id="295"
+                    >T&#x1EEB; 8 - 15 tri&#x1EC7;u</a
+                  >
+                  <a
+                    href="may-tinh-bang4711.html?p=tren-15-trieu"
+                    data-href="tren-15-trieu"
+                    class="c-btnbox"
+                    data-id="296"
+                    >Tr&#xEA;n 15 tri&#x1EC7;u</a
+                  >
+                </div>
+
+                <div class="filter-button">
+                  <a href="javascript:void(0)" class="btn-filter-close"
+                    >Bỏ chọn</a
+                  >
+                  <a href="javascript:filterPros();" class="btn-filter-readmore"
+                    >Xem <b class="total-reloading"></b> kết quả</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="filter-item" propertyID="6244">
+              <div
+                class="filter-item__title jsTitle noselecttext"
+                data-textorg="M&#xE0;n h&#xEC;nh"
+              >
+                <div class="arrow-filter"></div>
+                <span>M&#xE0;n h&#xEC;nh</span>
+              </div>
+
+              <div class="filter-show">
+                <div class="filter-list props">
+                  <a
+                    href="may-tinh-bang-khoang-7-den-8-inch.html"
+                    data-order="3"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="khoang-7-den-8-inch"
+                    data-id="40457"
+                    class="c-btnbox"
+                    >Kho&#x1EA3;ng 7 - 8 inch</a
+                  >
+                  <a
+                    href="may-tinh-bang-khoang-10-den-11-inch.html"
+                    data-order="5"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="khoang-10-den-11-inch"
+                    data-id="40454"
+                    class="c-btnbox"
+                    >Kho&#x1EA3;ng 10 - 11 inch</a
+                  >
+                  <a
+                    href="may-tinh-bang-khoang-12-inch-tro-len.html"
+                    data-order="6"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="khoang-12-inch-tro-len"
+                    data-id="165045"
+                    class="c-btnbox"
+                    >Kho&#x1EA3;ng 12 inch tr&#x1EDF; l&#xEA;n</a
+                  >
+                </div>
+                <div class="filter-button">
+                  <a href="javascript:void(0)" class="btn-filter-close"
+                    >Bỏ chọn</a
+                  >
+                  <a href="javascript:filterPros();" class="btn-filter-readmore"
+                    >Xem <b class="total-reloading"></b> kết quả</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="filter-item" propertyID="3059">
+              <div
+                class="filter-item__title jsTitle noselecttext"
+                data-textorg="RAM"
+              >
+                <div class="arrow-filter"></div>
+                <span>RAM</span>
+              </div>
+
+              <div class="filter-show">
+                <div class="filter-list props">
+                  <a
+                    href="may-tinh-bang-ram-2gb.html"
+                    data-order="10"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="ram-2gb"
+                    data-id="15454"
+                    class="c-btnbox"
+                    >2 GB</a
+                  >
+                  <a
+                    href="may-tinh-bang-ram-3gb.html"
+                    data-order="15"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="ram-3gb"
+                    data-id="15455"
+                    class="c-btnbox"
+                    >3 GB</a
+                  >
+                  <a
+                    href="may-tinh-bang-ram-4gb.html"
+                    data-order="20"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="ram-4gb"
+                    data-id="15456"
+                    class="c-btnbox"
+                    >4 GB</a
+                  >
+                  <a
+                    href="may-tinh-bang-ram-6gb.html"
+                    data-order="25"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="ram-6gb"
+                    data-id="147041"
+                    class="c-btnbox"
+                    >6 GB</a
+                  >
+                  <a
+                    href="may-tinh-bang-ram-8gb.html"
+                    data-order="30"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="ram-8gb"
+                    data-id="54040"
+                    class="c-btnbox"
+                    >8 GB</a
+                  >
+                </div>
+                <div class="filter-button">
+                  <a href="javascript:void(0)" class="btn-filter-close"
+                    >Bỏ chọn</a
+                  >
+                  <a href="javascript:filterPros();" class="btn-filter-readmore"
+                    >Xem <b class="total-reloading"></b> kết quả</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="filter-item" propertyID="3060">
+              <div
+                class="filter-item__title jsTitle noselecttext"
+                data-textorg="B&#x1ED9; nh&#x1EDB; trong"
+              >
+                <div class="arrow-filter"></div>
+                <span>B&#x1ED9; nh&#x1EDB; trong</span>
+              </div>
+
+              <div class="filter-show">
+                <div class="filter-list props">
+                  <a
+                    href="may-tinh-bang-rom-32gb.html"
+                    data-order="15"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="rom-32gb"
+                    data-id="15466"
+                    class="c-btnbox"
+                    >32 GB</a
+                  >
+                  <a
+                    href="may-tinh-bang-rom-64gb.html"
+                    data-order="20"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="rom-64gb"
+                    data-id="15469"
+                    class="c-btnbox"
+                    >64 GB</a
+                  >
+                  <a
+                    href="may-tinh-bang-rom-128gb.html"
+                    data-order="25"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="rom-128gb"
+                    data-id="42426"
+                    class="c-btnbox"
+                    >128 GB</a
+                  >
+                  <a
+                    href="may-tinh-bang-rom-256gb.html"
+                    data-order="30"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="rom-256gb"
+                    data-id="54043"
+                    class="c-btnbox"
+                    >256 GB</a
+                  >
+                </div>
+                <div class="filter-button">
+                  <a href="javascript:void(0)" class="btn-filter-close"
+                    >Bỏ chọn</a
+                  >
+                  <a href="javascript:filterPros();" class="btn-filter-readmore"
+                    >Xem <b class="total-reloading"></b> kết quả</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="filter-item" propertyID="25461">
+              <div
+                class="filter-item__title jsTitle noselecttext"
+                data-textorg="T&#xED;nh n&#x103;ng &#x111;&#x1EB7;c bi&#x1EC7;t"
+              >
+                <div class="arrow-filter"></div>
+                <span>T&#xED;nh n&#x103;ng &#x111;&#x1EB7;c bi&#x1EC7;t</span>
+              </div>
+
+              <div class="filter-show">
+                <div class="filter-list props">
+                  <a
+                    href="may-tinh-bang-choi-game.html"
+                    data-order="3"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="choi-game"
+                    data-id="176552"
+                    class="c-btnbox"
+                    >Ch&#x1A1;i game / C&#x1EA5;u h&#xEC;nh cao</a
+                  >
+                  <a
+                    href="may-tinh-bang-thuc-hien-cuoc-goi.html"
+                    data-order="4"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="thuc-hien-cuoc-goi"
+                    data-id="173711"
+                    class="c-btnbox"
+                    >H&#x1ED7; tr&#x1EE3; nghe g&#x1ECD;i</a
+                  >
+                  <a
+                    href="may-tinh-bang-pin-khung.html"
+                    data-order="5"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="pin-khung"
+                    data-id="177126"
+                    class="c-btnbox"
+                    >Pin kh&#x1EE7;ng tr&#xEA;n 7000 mAh</a
+                  >
+                  <a
+                    href="may-tinh-bang-sac-pin-nhanh.html"
+                    data-order="6"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="sac-pin-nhanh"
+                    data-id="173714"
+                    class="c-btnbox"
+                    >S&#x1EA1;c pin nhanh</a
+                  >
+                  <a
+                    href="may-tinh-bang-bao-mat-khuon-mat.html"
+                    data-order="7"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="bao-mat-khuon-mat"
+                    data-id="176787"
+                    class="c-btnbox"
+                    >B&#x1EA3;o m&#x1EAD;t khu&#xF4;n m&#x1EB7;t</a
+                  >
+                  <a
+                    href="may-tinh-bang-bao-mat-van-tay.html"
+                    data-order="8"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="bao-mat-van-tay"
+                    data-id="176788"
+                    class="c-btnbox"
+                    >B&#x1EA3;o m&#x1EAD;t v&#xE2;n tay</a
+                  >
+                </div>
+                <div class="filter-button">
+                  <a href="javascript:void(0)" class="btn-filter-close"
+                    >Bỏ chọn</a
+                  >
+                  <a href="javascript:filterPros();" class="btn-filter-readmore"
+                    >Xem <b class="total-reloading"></b> kết quả</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="box-quicklink block-scroll-main">
+          <div class="lst-quickfilter q-manu">
+            <a
+              href="may-tinh-bang-apple-ipad.html"
+              data-href="may-tinh-bang-apple-ipad"
+              data-index="0"
+              class="box-quicklink__item bd-radius quicklink-logo"
+            >
+              <img
+                src="../cdn.tgdd.vn/Brand/1/iPad-(Apple)522-b_4.jpg"
+                width="30"
+                class="no-text"
+              />
+            </a>
+            <a
+              href="may-tinh-bang-samsung.html"
+              data-href="may-tinh-bang-samsung"
+              data-index="0"
+              class="box-quicklink__item bd-radius quicklink-logo"
+            >
+              <img
+                src="../cdn.tgdd.vn/Brand/1/samsungnew-220x48-3.png"
+                width="30"
+                class="no-text"
+              />
+            </a>
+            <a
+              href="may-tinh-bang-xiaomi.html"
+              data-href="may-tinh-bang-xiaomi"
+              data-index="0"
+              class="box-quicklink__item bd-radius quicklink-logo"
+            >
+              <img
+                src="../cdn.tgdd.vn/Brand/1/Tablet-xiaomi-220x48-1.png"
+                width="30"
+                class="no-text"
+              />
+            </a>
+            <a
+              href="may-tinh-bang-lenovo.html"
+              data-href="may-tinh-bang-lenovo"
+              data-index="0"
+              class="box-quicklink__item bd-radius quicklink-logo"
+            >
+              <img
+                src="../cdn.tgdd.vn/Brand/1/Lenovo522-b_6.jpg"
+                width="30"
+                class="no-text"
+              />
+            </a>
+            <a
+              href="may-tinh-bang-masstel.html"
+              data-href="may-tinh-bang-masstel"
+              data-index="0"
+              class="box-quicklink__item bd-radius quicklink-logo"
+            >
+              <img
+                src="../cdn.tgdd.vn/Brand/1/Masstel522-b_7.png"
+                width="30"
+                class="no-text"
+              />
+            </a>
+            <a
+              href="may-tinh-bang-nokia.html"
+              data-href="may-tinh-bang-nokia"
+              data-index="0"
+              class="box-quicklink__item bd-radius quicklink-logo"
+            >
+              <img
+                src="../cdn.tgdd.vn/Brand/1/logonokia-220x48-1.jpg"
+                width="30"
+                class="no-text"
+              />
+            </a>
+            <a
+              href="may-tinh-bang-huawei.html"
+              data-href="may-tinh-bang-huawei"
+              data-index="0"
+              class="box-quicklink__item bd-radius quicklink-logo"
+            >
+              <img
+                src="../cdn.tgdd.vn/Brand/1/Huawei522-b_4.jpg"
+                width="30"
+                class="no-text"
+              />
+            </a>
+            <a
+              href="may-tinh-bang-alcatel.html"
+              data-href="may-tinh-bang-alcatel"
+              data-index="0"
+              class="box-quicklink__item bd-radius quicklink-logo"
+            >
+              <img
+                src="../cdn.tgdd.vn/Brand/1/logoalcatel-220x48-1.png"
+                width="30"
+                class="no-text"
+              />
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- End -->
+  </body>
+</html>
