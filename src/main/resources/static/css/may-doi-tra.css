@@ -4634,14 +4634,16 @@ i.icon-star-half {
   height: 13px;
   width: 14px;
 }
-</style > <style > [class^="icontgdd-"],
+
+[class^="icontgdd-"],
 [class*="icontgdd-"],
 [class^="iconmobile-"],
 [class*="iconmobile-"] {
   background-image: url(Content/desktop/images/V5/icondesktop20200728%401x5e1f.png?v=2);
   display: inline-block;
 }
-</style > <style > .owl-carousel .owl-wrapper:after {
+
+.owl-carousel .owl-wrapper:after {
   content: ".";
   display: block;
   clear: both;
