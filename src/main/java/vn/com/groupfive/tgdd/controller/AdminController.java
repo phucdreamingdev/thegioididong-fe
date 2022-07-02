@@ -8,6 +8,21 @@ public class AdminController {
 
 	@GetMapping("/admin")
 	public String adminHome() {
-		return "admin/index-admin";
+		return "admin/admin-home";
+	}
+
+	@GetMapping("/login")
+	public String loginAdmin() {
+		return "admin/pages/login";
+	}
+
+	@GetMapping("/admin/products-list")
+	public String listProduct() {
+		return "admin/pages/product/products-list";
+	}
+
+	@GetMapping("/admin/products-add")
+	public String addProduct() {
+		return "admin/pages/product/products-add";
 	}
 }

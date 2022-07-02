@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Admin - Thegioididong</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" th:href="@{/vendors/admin/feather/feather.css}" />
+    <link
+      rel="stylesheet"
+      th:href="@{/vendors/admin/ti-icons/css/themify-icons.css}"
+    />
+    <link
+      rel="stylesheet"
+      th:href="@{/vendors/admin/css/vendor.bundle.base.css}"
+    />
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link
+      rel="stylesheet"
+      th:href="@{/vendors/admin/datatables.net-bs4/dataTables.bootstrap4.css}"
+    />
+    <link
+      rel="stylesheet"
+      th:href="@{/vendors/admin/ti-icons/css/themify-icons.css}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/js/admin/select.dataTables.min.css}"
+    />
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" th:href="@{/css/admin/admin.css}" />
+    <!-- endinject -->
+    <link rel="shortcut icon" th:href="@{/images/admin/favicon.ico}" />
+  </head>
+  <body>
+    <!-- Body -->
+    <div class="container-scroller">
+      <!-- Header -->
+      <nav th:replace="fragments/admin/layout-admin :: header"></nav>
+      <!-- End Header -->
+
+      <!-- Wrapper Body -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- Sidebar -->
+        <nav th:replace="fragments/admin/layout-admin :: sidebar"></nav>
+        <!-- End Sidebar -->
+
+        <!-- Main Container -->
+        <div class="main-panel">
+          <!-- Main Content -->
+          <div class="content-wrapper">
+            <div class="row">
+              <div class="col-md-12 grid-margin">
+                <div class="row">
+                  <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                    <h3 class="font-weight-bold">Welcome Admin</h3>
+                    <h6 class="font-weight-normal mb-0">
+                      All systems are running smoothly!
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 grid-margin stretch-card">
+                <div class="card-people mt-auto">
+                  <img
+                    th:src="@{/images/admin/dashboard/people-3.svg}"
+                    alt="people"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6 grid-margin transparent">
+                <div class="row">
+                  <h1>Now, you can edit or upload to your website</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Main Content -->
+
+          <!-- Footer -->
+          <footer th:replace="fragments/admin/layout-admin :: footer"></footer>
+          <!-- End Footer -->
+        </div>
+        <!-- End Main Container -->
+      </div>
+      <!-- Wrapper Body -->
+    </div>
+    <!-- End Body -->
+
+    <!-- plugins:js -->
+    <script th:src="@{/vendors/admin/js/vendor.bundle.base.js}"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script th:src="@{/vendors/admin/chart.js/Chart.min.js}"></script>
+    <script
+      th:src="@{/vendors/admin/datatables.net/jquery.dataTables.js}"
+    ></script>
+    <script
+      th:src="@{/vendors/admin/datatables.net-bs4/dataTables.bootstrap4.js}"
+    ></script>
+    <script th:src="@{/js/admin/dataTables.select.min.js}"></script>
+
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script th:src="@{/js/admin/off-canvas.js}"></script>
+    <script th:src="@{/js/admin/hoverable-collapse.js}"></script>
+    <script th:src="@{/js/admin/template.js}"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script th:src="@{/js/admin/dashboard.js}"></script>
+    <!-- End custom js for this page-->
+  </body>
+</html>
