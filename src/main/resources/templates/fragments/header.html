@@ -73,15 +73,15 @@
       <div class="header__main">
         <div>
           <ul class="main-menu">
-            <li class="">
-              <a th:href="@{/dtdd}">
+            <li class="" th:each="category : ${categories}">
+              <a>
                 <i>
-                  <img src="cdn.tgdd.vn/content/icon-phone-96x96-2.png" />
+                  <img th:src="${category.logo}" />
                 </i>
-                <span class="">&#x110;i&#x1EC7;n tho&#x1EA1;i</span>
+                <span class="" th:text="${category.name}"></span>
               </a>
             </li>
-            <li class="">
+            <!-- <li class="">
               <a th:href="@{/laptop-ldp}">
                 <i>
                   <img src="cdn.tgdd.vn/content/icon-laptop-96x96-1.png" />
@@ -354,7 +354,7 @@
                   >
                 </div>
               </div>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
