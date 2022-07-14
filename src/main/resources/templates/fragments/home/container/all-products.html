@@ -8,59 +8,15 @@
   <head> </head>
   <body>
     <!-- Gợi ý hôm nay -->
-    <div th:fragment="daily-sg" class="daily-sg">
-      <strong class="name-box">G&#x1EE3;i &#xFD; h&#xF4;m nay</strong>
-
-      <div class="option-sg">
-        <a href="javascript:;" data-is-recommend-tab="true" class="active">
-          <img
-            data-src="//cdn.tgdd.vn/mwgcart/mwgcore/ContentMwg/images/homev2/goiy-1.png"
-            class="lazyload"
-            alt="Cho bạn"
-            width="50"
-            height="50"
-          />
-          <span>Cho bạn</span>
-        </a>
-
-        <a href="javascript:;" data-campaign="281" data-group="3699">
-          <img
-            data-src="https://cdn.tgdd.vn/2022/05/campaign/icon-50x50-50x50-4.gif"
-            class="lazyload"
-            alt="Gi&#xE1; r&#x1EBB;"
-            width="50"
-            height="50"
-          />
-          <span>Gi&#xE1; r&#x1EBB;</span>
-        </a>
-        <a href="javascript:;" data-campaign="313" data-group="3701">
-          <img
-            data-src="https://cdn.tgdd.vn/2022/05/campaign/ChigiamOnlineDesk-50x54.png"
-            class="lazyload"
-            alt="Ch&#x1EC9; gi&#x1EA3;m Online"
-            width="50"
-            height="50"
-          />
-          <span>Ch&#x1EC9; gi&#x1EA3;m Online</span>
-        </a>
-        <a href="javascript:;" data-campaign="315" data-group="3703">
-          <img
-            data-src="https://cdn.tgdd.vn/2022/06/campaign/Icon-Desk-51x50-2.png"
-            class="lazyload"
-            alt="Deal t&#x1EEB; 99k"
-            width="50"
-            height="50"
-          />
-          <span>Deal t&#x1EEB; 99k</span>
-        </a>
-      </div>
+    <div th:fragment="all-products" class="daily-sg">
+      <strong class="name-box">SẢN PHẨM</strong>
       <div class="block-product relative">
         <div class="preloader">
           <div class="loaderweb"></div>
         </div>
         <div class="block-product__content">
           <ul class="listproduct" data-total="40">
-            <li data-id="250261" data-pos="1" class="item">
+            <li data-id="250261" data-pos="1" class="item" th:each = "productItem : ${productItems}">
               <a
                 href="dtdd/iphone-13-pro-max-256gb.html"
                 class="main-contain"
@@ -78,35 +34,25 @@
                 <div class="item-label"></div>
                 <div class="item-img">
                   <img
-                    data-src="https://cdn.tgdd.vn/Products/Images/42/250261/TimerThumb/230529.jpg"
+                    th:src="${productItem.img}"
                     class="lazyload"
                     alt="iPhone 13 Pro Max 256GB"
                     width="207"
                     height="207"
                   />
                 </div>
-                <p class="result-label temp4">
-                  <img
-                    width="20"
-                    height="20"
-                    class="lazyload"
-                    alt="VNPAY GIẢM 500k"
-                    data-src="cdn.tgdd.vn/2020/10/content/icon6-50x50.png"
-                  /><span>VNPAY GIẢM 500k</span>
-                </p>
-                <h3>iPhone 13 Pro Max 256GB</h3>
-                <p class="item-txt-online">Online gia&#x301; re&#x309;</p>
-                <strong class="price">
-                  30.890.000&#x20AB;
-
-                  <small>-16%</small>
+                
+                <h3 th:text="${productItem.name}"> iPhone 13 Pro Max 256GB </h3>
+                <strong class="price" th:text="${productItem.price}">
+                  
                 </strong>
-                <p class="vote-txt">
+                <!-- <p class="vote-txt">
                   <b>4.5</b><i class="iconnewglobal-vote"></i>(188)
-                </p>
+                </p> -->
               </a>
             </li>
-            <li data-id="274360" data-pos="2" class="item">
+            
+            <!-- <li data-id="274360" data-pos="2" class="item">
               <a
                 href="dtdd/samsung-galaxy-a13-6gb.html"
                 class="main-contain"
@@ -1870,7 +1816,7 @@
                   <b>3.7</b><i class="iconnewglobal-vote"></i>(284)
                 </p>
               </a>
-            </li>
+            </li> -->
           </ul>
           <a
             href="javascript:;"

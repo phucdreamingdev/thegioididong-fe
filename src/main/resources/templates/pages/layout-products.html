@@ -55,6 +55,7 @@
     <meta property="fb:pages" content="214993791879039" />
     <meta http-equiv="x-dns-prefetch-control" content="on" />
 
+    
     <link rel="stylesheet" th:href="@{/css/category/dtdd.css}" />
   </head>
   <body>
@@ -71,33 +72,16 @@
     <div th:replace="fragments/location :: location-box-popup"></div>
     <!-- End -->
 
-    <div class="margin-section"></div>
-    <div class="bsc-block">
-      <section>
-        <ul class="breadcrumb hide">
-          <li><a href="dtdd.html">&#x110;i&#x1EC7;n tho&#x1EA1;i</a></li>
-          <li>
-            <p class="sort-total"><b>97</b> ...</p>
-          </li>
-        </ul>
-      </section>
-    </div>
-
-    <!-- Top Banner -->
-    <!-- <div
-      th:replace="fragments/category/dtdd/banner-top-dtdd :: top-banner"
-    ></div> -->
-    <!-- End -->
 
     <!-- Filter Thương Hiệu -->
     <div
-      th:replace="fragments/category/dtdd/box-filter-dtdd :: box-filter-dtdd"
+      th:replace="fragments/products/box-filter-dtdd :: box-filter-dtdd"
     ></div>
     <!-- End -->
 
     <!-- Phone Products -->
     <section
-      th:replace="fragments/category/dtdd/products-phone :: products-phone"
+      th:replace="fragments/products/product :: product"
     ></section>
     <!-- End -->
 

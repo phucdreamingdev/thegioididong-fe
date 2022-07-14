@@ -3,7 +3,7 @@
   lang="vi-VN"
   xmlns:th="http://www.thymeleaf.org"
   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-  layout:decorate="~{index.html}, ~{dtdd.html}, ~{laptop-ldp.html}, ~{tablet.html}, ~{phu-kien.html}, ~{dong-ho-thong-minh.html}, ~{dong-ho.html}, ~{pc-mayin.html}"
+  layout:decorate="~{index.html}, ~{layout-products.html}"
 >
   <head> </head>
   <body>
@@ -25,7 +25,7 @@
             href="uu-dai-soc.html"
             onclick="jQuery.ajax({ url: '/bannertracking?bid=55274&r='+ (new Date).getTime(), async: true, cache: false });"
             ><img
-              src="cdn.tgdd.vn/2022/05/banner/1200-44-1200x44-11.png"
+              th:src="@{/cdn.tgdd.vn/2022/05/banner/1200-44-1200x44-11.png}"
               alt="big xả kho"
           /></a>
         </div>
@@ -37,7 +37,7 @@
             href="chi-ban-online.html"
             onclick="jQuery.ajax({ url: '/bannertracking?bid=54983&r='+ (new Date).getTime(), async: true, cache: false });"
             ><img
-              src="cdn.tgdd.vn/2022/05/banner/1200-44-1200x44-9.png"
+              th:src="@{/cdn.tgdd.vn/2022/05/banner/1200-44-1200x44-9.png}"
               alt="Chỉ online"
           /></a>
         </div>
@@ -49,7 +49,7 @@
             href="dong-gia.html"
             onclick="jQuery.ajax({ url: '/bannertracking?bid=55750&r='+ (new Date).getTime(), async: true, cache: false });"
             ><img
-              src="cdn.tgdd.vn/2022/06/banner/1200-628-1-1200x44.png"
+              th:src="@{/cdn.tgdd.vn/2022/06/banner/1200-628-1-1200x44.png}"
               alt="99k"
           /></a>
         </div>

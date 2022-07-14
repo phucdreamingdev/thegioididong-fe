@@ -7,14 +7,8 @@
 >
   <head> </head>
   <body>
-    <!-- Phone Products -->
-    <section
-      id="categoryPage"
-      data-id="42"
-      data-name="&#x110;i&#x1EC7;n tho&#x1EA1;i"
-      data-template="cate"
-      th:fragment="products-phone"
-    >
+    <!-- Products -->
+    <section th:fragment="product">
       <div class="box-sort">
         <p class="sort-total">
           <b>97</b> &#x110;i&#x1EC7;n tho&#x1EA1;i
@@ -73,49 +67,24 @@
             <span class="tick-checkbox"></span>
             <p>M&#x1EDB;i</p>
           </a>
-        </div>
-        <div class="sort-select">
-          <p class="click-sort">
-            Xếp theo: <span class="sort-show">N&#x1ED5;i b&#x1EAD;t</span>
-          </p>
-          <div class="sort-select-main sort">
-            <p>
-              <a href="javascript:;" class="check" data-id="9"
-                ><i></i>Nổi bật</a
-              >
-            </p>
-            <p>
-              <a href="javascript:;" class="" data-id="5"><i></i>% Giảm</a>
-            </p>
-            <p>
-              <a href="javascript:;" class="" data-id="3"
-                ><i></i>Giá cao đến thấp</a
-              >
-            </p>
-            <p>
-              <a href="javascript:;" class="" data-id="2"
-                ><i></i>Giá thấp đến cao</a
-              >
-            </p>
-          </div>
-        </div>
+        </div>      
       </div>
-      <div class="clearfix"></div>
+    
       <div class="container-productbox">
         <ul class="listproduct">
-          <li class="item ajaxed __cate_42">
+          <li class="item ajaxed __cate_42" th:each="product : ${products}">
             <a
-              href="dtdd/samsung-galaxy-s22-ultra7356.html?src=osp"
+              href="#"
               class="main-contain"
             >
               <div class="item-img item-img_42">
                 <img
                   class="thumb"
-                  src="../cdn.tgdd.vn/Products/Images/42/235838/Galaxy-S22-Ultra-Burgundy-600x600.jpg"
+                  th:src="${product.img}"
                 />
               </div>
 
-              <h3>Samsung Galaxy S22 Ultra 5G</h3>
+              <h3 th:text="${product.name}">Samsung Galaxy S22 Ultra 5G</h3>
               <div class="prods-group">
                 <ul>
                   <li
@@ -144,11 +113,11 @@
                   </li>
                 </ul>
               </div>
-              <div class="box-p">
+              <!-- <div class="box-p">
                 <p class="price-old black">30.990.000&#x20AB;</p>
                 <span class="percent">-9%</span>
-              </div>
-              <strong class="price">27.990.000&#x20AB;</strong>
+              </div> -->
+              <strong class="price" th:text="${product.price}"></strong>
               <!-- <div class="item-rating">
                 <p>
                   <i class="icon-star"></i>
@@ -161,238 +130,7 @@
               </div> -->
             </a>
           </li>
-          <li class="item ajaxed __cate_42">
-            <a
-              href="dtdd/samsung-galaxy-s22-ultra7356.html?src=osp"
-              class="main-contain"
-            >
-              <div class="item-img item-img_42">
-                <img
-                  class="thumb"
-                  src="../cdn.tgdd.vn/Products/Images/42/235838/Galaxy-S22-Ultra-Burgundy-600x600.jpg"
-                />
-              </div>
-
-              <h3>Samsung Galaxy S22 Ultra 5G</h3>
-              <div class="prods-group">
-                <ul>
-                  <li
-                    data-url="/dtdd/samsung-galaxy-s22-ultra"
-                    data-id="235838"
-                    data-index="0"
-                    class="merge__item item act"
-                  >
-                    8GB/128GB
-                  </li>
-                  <li
-                    data-url="/dtdd/samsung-galaxy-s22-ultra-256gb"
-                    data-id="271697"
-                    data-index="1"
-                    class="merge__item item"
-                  >
-                    12GB/256GB
-                  </li>
-                  <li
-                    data-url="/dtdd/samsung-galaxy-s22-ultra-512gb"
-                    data-id="271698"
-                    data-index="2"
-                    class="merge__item item"
-                  >
-                    12GB/512GB
-                  </li>
-                </ul>
-              </div>
-              <div class="box-p">
-                <p class="price-old black">30.990.000&#x20AB;</p>
-                <span class="percent">-9%</span>
-              </div>
-              <strong class="price">27.990.000&#x20AB;</strong>
-              <!-- <div class="item-rating">
-                <p>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star-dark"></i>
-                  <i class="icon-star-dark"></i>
-                </p>
-                <p class="item-rating-total">45</p>
-              </div> -->
-            </a>
-          </li>
-          <li class="item ajaxed __cate_42">
-            <a
-              href="dtdd/samsung-galaxy-s22-ultra7356.html?src=osp"
-              class="main-contain"
-            >
-              <div class="item-img item-img_42">
-                <img
-                  class="thumb"
-                  src="../cdn.tgdd.vn/Products/Images/42/153856/TimerThumb/153856.jpg"
-                />
-              </div>
-
-              <h3>Samsung Galaxy S22 Ultra 5G</h3>
-              <div class="prods-group">
-                <ul>
-                  <li
-                    data-url="/dtdd/samsung-galaxy-s22-ultra"
-                    data-id="235838"
-                    data-index="0"
-                    class="merge__item item act"
-                  >
-                    8GB/128GB
-                  </li>
-                  <li
-                    data-url="/dtdd/samsung-galaxy-s22-ultra-256gb"
-                    data-id="271697"
-                    data-index="1"
-                    class="merge__item item"
-                  >
-                    12GB/256GB
-                  </li>
-                  <li
-                    data-url="/dtdd/samsung-galaxy-s22-ultra-512gb"
-                    data-id="271698"
-                    data-index="2"
-                    class="merge__item item"
-                  >
-                    12GB/512GB
-                  </li>
-                </ul>
-              </div>
-              <div class="box-p">
-                <p class="price-old black">30.990.000&#x20AB;</p>
-                <span class="percent">-9%</span>
-              </div>
-              <strong class="price">27.990.000&#x20AB;</strong>
-              <!-- <div class="item-rating">
-                <p>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star-dark"></i>
-                  <i class="icon-star-dark"></i>
-                </p>
-                <p class="item-rating-total">45</p>
-              </div> -->
-            </a>
-          </li>
-          <li class="item ajaxed __cate_42">
-            <a
-              href="dtdd/samsung-galaxy-s22-ultra7356.html?src=osp"
-              class="main-contain"
-            >
-              <div class="item-img item-img_42">
-                <img
-                  class="thumb"
-                  src="../cdn.tgdd.vn/Products/Images/42/235838/Galaxy-S22-Ultra-Burgundy-600x600.jpg"
-                />
-              </div>
-
-              <h3>Samsung Galaxy S22 Ultra 5G</h3>
-              <div class="prods-group">
-                <ul>
-                  <li
-                    data-url="/dtdd/samsung-galaxy-s22-ultra"
-                    data-id="235838"
-                    data-index="0"
-                    class="merge__item item act"
-                  >
-                    8GB/128GB
-                  </li>
-                  <li
-                    data-url="/dtdd/samsung-galaxy-s22-ultra-256gb"
-                    data-id="271697"
-                    data-index="1"
-                    class="merge__item item"
-                  >
-                    12GB/256GB
-                  </li>
-                  <li
-                    data-url="/dtdd/samsung-galaxy-s22-ultra-512gb"
-                    data-id="271698"
-                    data-index="2"
-                    class="merge__item item"
-                  >
-                    12GB/512GB
-                  </li>
-                </ul>
-              </div>
-              <div class="box-p">
-                <p class="price-old black">30.990.000&#x20AB;</p>
-                <span class="percent">-9%</span>
-              </div>
-              <strong class="price">27.990.000&#x20AB;</strong>
-              <!-- <div class="item-rating">
-                <p>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star-dark"></i>
-                  <i class="icon-star-dark"></i>
-                </p>
-                <p class="item-rating-total">45</p>
-              </div> -->
-            </a>
-          </li>
-          <li class="item ajaxed __cate_42">
-            <a
-              href="dtdd/samsung-galaxy-s22-ultra7356.html?src=osp"
-              class="main-contain"
-            >
-              <div class="item-img item-img_42">
-                <img
-                  class="thumb"
-                  src="../cdn.tgdd.vn/Products/Images/42/235838/Galaxy-S22-Ultra-Burgundy-600x600.jpg"
-                />
-              </div>
-
-              <h3>Samsung Galaxy S22 Ultra 5G</h3>
-              <div class="prods-group">
-                <ul>
-                  <li
-                    data-url="/dtdd/samsung-galaxy-s22-ultra"
-                    data-id="235838"
-                    data-index="0"
-                    class="merge__item item act"
-                  >
-                    8GB/128GB
-                  </li>
-                  <li
-                    data-url="/dtdd/samsung-galaxy-s22-ultra-256gb"
-                    data-id="271697"
-                    data-index="1"
-                    class="merge__item item"
-                  >
-                    12GB/256GB
-                  </li>
-                  <li
-                    data-url="/dtdd/samsung-galaxy-s22-ultra-512gb"
-                    data-id="271698"
-                    data-index="2"
-                    class="merge__item item"
-                  >
-                    12GB/512GB
-                  </li>
-                </ul>
-              </div>
-              <div class="box-p">
-                <p class="price-old black">30.990.000&#x20AB;</p>
-                <span class="percent">-9%</span>
-              </div>
-              <strong class="price">27.990.000&#x20AB;</strong>
-              <!-- <div class="item-rating">
-                <p>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star-dark"></i>
-                  <i class="icon-star-dark"></i>
-                </p>
-                <p class="item-rating-total">45</p>
-              </div> -->
-            </a>
-          </li>
+         
 
           <!-- <li
             class="item ajaxed __cate_42"
