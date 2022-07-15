@@ -3,85 +3,18 @@
   lang="vi-VN"
   xmlns:th="http://www.thymeleaf.org"
   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-  layout:decorate=" ~{dtdd.html}"
+  layout:decorate="~{layout.html}"
 >
   <head> </head>
   <body>
     <!-- Products -->
     <section th:fragment="product">
-      <div class="box-sort">
-        <p class="sort-total">
-          <b>97</b> &#x110;i&#x1EC7;n tho&#x1EA1;i
-          <strong class="manu-sort"></strong>
-        </p>
-        <div class="box-checkbox extend">
-          <a
-            href="javascript:;"
-            data-href=""
-            data-type="fast"
-            class="c-checkitem fastdeli"
-          >
-            <span class="tick-checkbox"></span>
-            <i class="thunder-icon">
-              <img
-                src="../cdn.tgdd.vn/mwgcart/mwgcore/ContentMwg/images/icon-thunder.png"
-              />
-            </i>
-            <p>Giao nhanh</p>
-          </a>
-          <a
-            href="javascript:;"
-            data-href=""
-            data-type="sp2020"
-            class="c-checkitem"
-          >
-            <span class="tick-checkbox"></span>
-            <p>Giảm giá</p>
-          </a>
-          <a
-            href="javascript:;"
-            data-href="-tra-gop-0-phan-tram"
-            data-type="installment0"
-            class="c-checkitem"
-          >
-            <span class="tick-checkbox"></span>
-            <p>Góp 0%</p>
-          </a>
-          <a
-            href="javascript:;"
-            data-href=""
-            data-type="monopoly"
-            class="c-checkitem"
-          >
-            <span class="tick-checkbox"></span>
-            <p>Độc quyền</p>
-          </a>
-          <a
-            href="javascript:;"
-            data-href="-moi-ra-mat"
-            data-type="new"
-            data-prop="0"
-            data-newv2="False"
-            class="c-checkitem"
-          >
-            <span class="tick-checkbox"></span>
-            <p>M&#x1EDB;i</p>
-          </a>
-        </div>      
-      </div>
-    
       <div class="container-productbox">
         <ul class="listproduct">
           <li class="item ajaxed __cate_42" th:each="product : ${products}">
-            <a
-              href="#"
-              class="main-contain"
-            >
+            <a href="#" class="main-contain">
               <div class="item-img item-img_42">
-                <img
-                  class="thumb"
-                  th:src="${product.img}"
-                />
+                <img class="thumb" th:src="${product.img}" />
               </div>
 
               <h3 th:text="${product.name}">Samsung Galaxy S22 Ultra 5G</h3>
@@ -130,7 +63,6 @@
               </div> -->
             </a>
           </li>
-         
 
           <!-- <li
             class="item ajaxed __cate_42"

@@ -3,7 +3,7 @@ t<!DOCTYPE html>
   lang="vi-VN"
   xmlns:th="http://www.thymeleaf.org"
   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-  layout:decorate="~{index.html}, ~{layout-products.html}"
+  layout:decorate="~{layout.html}"
 >
   <head> </head>
   <body>
@@ -74,38 +74,62 @@ t<!DOCTYPE html>
         <div>
           <ul class="main-menu">
             <!--Main menu just display category level 0-->
-            <li th:each="categoryLevel0 : ${categoriesLevel0}" th:class="${categoryLevel0.parent} ? has-list : '' " > 
+            <li
+              th:each="categoryLevel0 : ${categoriesLevel0}"
+              th:class="${categoryLevel0.parent} ? has-list : '' "
+            >
               <a th:href="'category/' + ${categoryLevel0.id}">
                 <i>
                   <img th:src="${categoryLevel0.logo}" />
                 </i>
-                <span th:class="${categoryLevel0.parent} ? has-child : '' " th:text="${categoryLevel0.name}"></span>Category Name Level 0</span>
+                <span
+                  th:class="${categoryLevel0.parent} ? has-child : '' "
+                  th:text="${categoryLevel0.name}"
+                  >Category Name Level 0</span
+                >
               </a>
-              <!--Sub menu for categories have children-->     
+              <!--Sub menu for categories have children-->
               <th:block th:if="${categoryLevel0.parent}">
                 <!--Sub menu detail for category have children level 1-->
                 <th:block th:if="${categoryLevel0.childrenLevel} == 1">
-                  <div  class="navmwg">
-                    <div th:each="categoryLevel1 : ${categoriesLevel1}" th:if="${categoryLevel1.parentName} == ${categoryLevel0.name}" class="item-child">
-                      <strong th:text="${categoryLevel1.name}">Category Name Level 1</strong>
-                      <a th:each="categoryLevel2 : ${categoriesLevel2}" th:if="${categoryLevel2.parentName} == ${categoryLevel1.name}">
-                        <h3 th:text="${categoryLevel2.name}">Category Name Level 2</h3>
+                  <div class="navmwg">
+                    <div
+                      th:each="categoryLevel1 : ${categoriesLevel1}"
+                      th:if="${categoryLevel1.parentName} == ${categoryLevel0.name}"
+                      class="item-child"
+                    >
+                      <strong th:text="${categoryLevel1.name}"
+                        >Category Name Level 1</strong
+                      >
+                      <a
+                        th:each="categoryLevel2 : ${categoriesLevel2}"
+                        th:if="${categoryLevel2.parentName} == ${categoryLevel1.name}"
+                      >
+                        <h3 th:text="${categoryLevel2.name}">
+                          Category Name Level 2
+                        </h3>
                       </a>
                     </div>
                   </div>
-                </th:block>  
+                </th:block>
                 <!--Sub menu detail for category have children level 2-->
                 <th:block th:if="${categoryLevel0.childrenLevel} == 2">
-                  <div  class="navmwg limit-width">
-                    <div th:each="categoryLevel2 : ${categoriesLevel2}" th:if="${categoryLevel2.parentName} == ${categoryLevel0.name}" class="item-child no-child-final">
+                  <div class="navmwg limit-width">
+                    <div
+                      th:each="categoryLevel2 : ${categoriesLevel2}"
+                      th:if="${categoryLevel2.parentName} == ${categoryLevel0.name}"
+                      class="item-child no-child-final"
+                    >
                       <a>
-                        <h3 th:text="${categoryLevel2.name}">Category Name Level 1 have no child</h3>
+                        <h3 th:text="${categoryLevel2.name}">
+                          Category Name Level 1 have no child
+                        </h3>
                       </a>
                     </div>
                   </div>
                 </th:block>
               </th:block>
-            </li>  
+            </li>
           </ul>
         </div>
       </div>

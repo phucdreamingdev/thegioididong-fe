@@ -30,9 +30,9 @@ public class HomeController {
     model.addAttribute("categoriesLevel0", response0.getBody());
     model.addAttribute("categoriesLevel1", response1.getBody());
     model.addAttribute("categoriesLevel2", response2.getBody());
-    model.addAttribute("productItems", productsResponse.getBody());
+    model.addAttribute("products", productsResponse.getBody());
 
-    return "index";
+    return "layout";
   }
 
   @RequestMapping("/category/{id}")
