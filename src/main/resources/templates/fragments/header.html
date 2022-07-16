@@ -26,7 +26,7 @@ t<!DOCTYPE html>
           </a>
           <form
             action="https://www.thegioididong.com/tim-kiem"
-            onsubmit="return suggestSearch(event);"
+            onsubmit="suggestSearch(event);"
             class="header__search"
           >
             <input
@@ -78,7 +78,7 @@ t<!DOCTYPE html>
               th:each="categoryLevel0 : ${categoriesLevel0}"
               th:class="${categoryLevel0.parent} ? has-list : '' "
             >
-              <a th:href="'category/' + ${categoryLevel0.id}">
+              <a th:href="@{/category/{id}(id=${categoryLevel0.id})}">
                 <i>
                   <img th:src="${categoryLevel0.logo}" />
                 </i>

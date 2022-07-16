@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html
+  lang="vi-VN"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Admin - Thegioididong</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" th:href="@{/vendors/admin/feather/feather.css}" />
+    <link
+      rel="stylesheet"
+      th:href="@{/vendors/admin/ti-icons/css/themify-icons.css}"
+    />
+    <link
+      rel="stylesheet"
+      th:href="@{/vendors/admin/css/vendor.bundle.base.css}"
+    />
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link
+      rel="stylesheet"
+      th:href="@{/vendors/admin/datatables.net-bs4/dataTables.bootstrap4.css}"
+    />
+    <link
+      rel="stylesheet"
+      th:href="@{/vendors/admin/ti-icons/css/themify-icons.css}"
+    />
+    <link
+      rel="stylesheet"
+      th:href="@{/vendors/admin/select2/select2.min.css}"
+    />
+    <link
+      rel="stylesheet"
+      th:href="@{/vendors/admin/select2-bootstrap-theme/select2-bootstrap.min.css}"
+    />
+    <link
+      rel="stylesheet"
+      th:href="@{/vendors/admin/mdi/css/materialdesignicons.min.css}"
+    />
+
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" th:href="@{/css/admin/admin.css}" />
+    <!-- endinject -->
+    <link rel="shortcut icon" th:href="@{/images/admin/favicon.ico}" />
+  </head>
+  <body>
+    <!-- Main Body -->
+    <div class="container-scroller">
+      <!-- Header -->
+      <nav th:replace="admin/fragments/header :: header"></nav>
+      <!-- End -->
+
+      <!-- Wrapper Body -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- Sidebar -->
+        <nav th:replace="admin/fragments/sidebar :: sidebar"></nav>
+        <!-- End Sidebar -->
+
+        <div class="main-panel">
+          <!-- Main Content -->
+          <div layout:fragment="content"></div>
+          <!-- End Main Content -->
+
+          <!-- Footer -->
+          <footer th:replace="admin/fragments/footer :: footer">
+            <div
+              class="d-sm-flex justify-content-center justify-content-sm-between"
+            >
+              <span
+                class="text-muted text-center text-sm-left d-block d-sm-inline-block"
+                >Copyright © 2021. Premium
+                <a href="https://www.bootstrapdash.com/" target="_blank"
+                  >Bootstrap admin template</a
+                >
+                from BootstrapDash. All rights reserved.</span
+              >
+              <span
+                class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"
+                >Hand-crafted & made with
+                <i class="ti-heart text-danger ml-1"></i
+              ></span>
+            </div>
+            <div
+              class="d-sm-flex justify-content-center justify-content-sm-between"
+            >
+              <span
+                class="text-muted text-center text-sm-left d-block d-sm-inline-block"
+                >Distributed by
+                <a href="https://www.themewagon.com/" target="_blank"
+                  >Themewagon</a
+                ></span
+              >
+            </div>
+          </footer>
+          <!-- End Footer -->
+        </div>
+        <!-- End Main Content -->
+      </div>
+      <!-- End Wrapper Body -->
+    </div>
+    <!-- End Main Body -->
+  </body>
+
+  <!-- plugins:js -->
+  <script th:src="@{/vendors/admin/js/vendor.bundle.base.js}"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script
+    th:src="@{/vendors/admin/datatables.net/jquery.dataTables.js}"
+  ></script>
+  <script
+    th:src="@{/vendors/admin/datatables.net-bs4/dataTables.bootstrap4.js}"
+  ></script>
+  <script
+    th:src="@{/vendors/admin/typeahead.js/typeahead.bundle.min.js}"
+  ></script>
+  <script th:src="@{/vendors/admin/select2/select2.min.js}"></script>
+  <script th:src="@{/js/admin/dataTables.select.min.js}"></script>
+
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script th:src="@{/js/admin/off-canvas.js}"></script>
+  <script th:src="@{/js/admin/hoverable-collapse.js}"></script>
+  <script th:src="@{/js/admin/template.js}"></script>
+
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script th:src="@{/js/admin/file-upload.js}"></script>
+  <script th:src="@{/js/admin/typeahead.js}"></script>
+  <script th:src="@{/js/admin/select2.js}"></script>
+  <!-- End custom js for this page-->
+</html>
