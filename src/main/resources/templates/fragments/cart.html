@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html
+  lang="vi-VN"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout.html}"
+>
+  <head>
+    <link rel="stylesheet" th:href="@{/css/cart.css}" />
+  </head>
+
+  <section layout:fragment="content" id="cart">
+    <div class="yourCart top-content">
+      <a href="https://www.thegioididong.com/" class="buymore"
+        >Mua thêm sản phẩm khác</a
+      >
+      <span>Giỏ hàng của anh </span>
+    </div>
+    <div class="middleCart">
+      <ul class="listing-cart">
+        <li class="product-item">
+          <div class="imgsp">
+            <a
+              href="https://www.thegioididong.com/dtdd/iphone-11-128gb"
+              target="_blank"
+              ><img
+                data-src="https://cdn.tgdd.vn/Products/Images/42/210644/iphone-11-den-200x200.jpg"
+                src="https://cdn.tgdd.vn/Products/Images/42/210644/iphone-11-den-200x200.jpg"
+                alt=""
+                loading="lazy"
+                class="ls-is-cached lazyloaded"
+            /></a>
+            <div>
+              <button><span></span> Xóa</button>
+            </div>
+          </div>
+          <div class="infosp">
+            <div class="name-price">
+              <div class="name-container">
+                <a
+                  href="https://www.thegioididong.com/dtdd/iphone-11-128gb"
+                  class="product-item__name"
+                >
+                  Điện thoại iPhone 11 128GB
+                </a>
+              </div>
+              <span>
+                <p>16.990.000₫</p>
+              </span>
+            </div>
+
+            <div fragment="116f05c0131" class="choose-color">
+              <div class="product-size-and-color-selection">
+                <aside>
+                  <label class=""
+                    ><span class="color-label">Màu: </span
+                    ><span class="color-text">Đen</span></label
+                  >
+                  <div class="sg-color" style="display: none">
+                    <div class="select-color active">
+                      <img
+                        data-src="https://cdn.tgdd.vn/Products/Images/42/210644/iphone-11-den-200x200.jpg"
+                        src="./Giỏ hàng - Thegioididong.com_files/iphone-11-den-200x200.jpg"
+                        loading="lazy"
+                        class="lazyload"
+                      /><small>Đen</small>
+                    </div>
+                    <div class="select-color">
+                      <img
+                        data-src="https://cdn.tgdd.vn/Products/Images/42/210644/iphone-11-tim-200x200.jpg"
+                        src="./Giỏ hàng - Thegioididong.com_files/iphone-11-tim-200x200.jpg"
+                        loading="lazy"
+                        class="lazyload"
+                      /><small>Tím</small>
+                    </div>
+                    <div class="select-color">
+                      <img
+                        data-src="https://cdn.tgdd.vn/Products/Images/42/210644/iphone-11-xanhla-200x200.jpg"
+                        src="./Giỏ hàng - Thegioididong.com_files/iphone-11-xanhla-200x200.jpg"
+                        loading="lazy"
+                        class="lazyload"
+                      /><small>Xanh lá</small>
+                    </div>
+                    <div class="select-color">
+                      <img
+                        data-src="https://cdn.tgdd.vn/Products/Images/42/210644/iphone-11-trang-200x200.jpg"
+                        src="./Giỏ hàng - Thegioididong.com_files/iphone-11-trang-200x200.jpg"
+                        loading="lazy"
+                        class="lazyload"
+                      /><small>Trắng</small>
+                    </div>
+                    <div class="select-color">
+                      <img
+                        data-src="https://cdn.tgdd.vn/Products/Images/42/210644/iphone-11-vang-200x200.jpg"
+                        src="./Giỏ hàng - Thegioididong.com_files/iphone-11-vang-200x200.jpg"
+                        loading="lazy"
+                        class="lazyload"
+                      /><small>Vàng</small>
+                    </div>
+                  </div>
+                </aside>
+              </div>
+              <!--fragment#e0297af4af#head-->
+              <div class="choosenumber" fragment="e0297af4af">
+                <div class="minus" style="pointer-events: none">
+                  <i style="background-color: rgb(204, 204, 204)"></i>
+                </div>
+                <input
+                  type="text"
+                  maxlength="3"
+                  class="number"
+                  style="border: none; pointer-events: all"
+                />
+                <div class="plus" style="pointer-events: all">
+                  <i style="background-color: rgb(40, 138, 214)"></i
+                  ><i style="background-color: rgb(40, 138, 214)"></i>
+                </div>
+                <input type="hidden" />
+              </div>
+            </div>
+          </div>
+          <input fragment="1ce6ec3f2f" type="hidden" value="true" />
+        </li>
+      </ul>
+
+      <div class="total-provisional">
+        <span class="total-product-quantity">
+          <span class="total-label">Tạm tính </span>(1 sản phẩm):
+        </span>
+        <span class="temp-total-money">14.990.000₫</span>
+      </div>
+
+      <div class="infor-customer">
+        <h4>Thông tin khách hàng</h4>
+        <form class="form-customer">
+          <div class="sex-customer">
+            <label>
+              <input type="radio" class="cartnew-choose" value="Anh" id="1" />
+              Anh
+            </label>
+            <label>
+              <input type="radio" class="cartnew-choose" value="Chị" id="2" />
+              Chị
+            </label>
+          </div>
+          <div class="fillinform">
+            <div class="fillname">
+              <input
+                placeholder=""
+                maxlength="50"
+                id="cusName"
+                name="cusName"
+                required="required"
+                class="capitalize untouched pristine required"
+              /><label for="cusName" class="form-label">Họ và Tên</label>
+            </div>
+            <div class="fillname phoneNumber">
+              <input
+                placeholder=""
+                type="tel"
+                maxlength="10"
+                id="cusPhone"
+                name="cusPhone"
+                required="required"
+                class="untouched pristine required phoneNumber__input"
+              /><label for="cusPhone" class="form-label">Số điện thoại</label>
+            </div>
+          </div>
+          <h4>Địa Chỉ Nhận Hàng</h4>
+
+          <div class="fillinform">
+            <div class="fillname">
+              <input
+                placeholder=""
+                maxlength="50"
+                id="cusName"
+                name="cusName"
+                required="required"
+                class="capitalize untouched pristine required"
+              /><label for="cusName" class="form-label">Tên Đường</label>
+            </div>
+            <div class="fillname phoneNumber">
+              <input
+                placeholder=""
+                type="tel"
+                maxlength="10"
+                id="cusPhone"
+                name="cusPhone"
+                required="required"
+                class="untouched pristine required phoneNumber__input"
+              /><label for="cusPhone" class="form-label">Ấp, Xã, Phường</label>
+            </div>
+          </div>
+          <div class="fillinform">
+            <div class="fillname">
+              <input
+                placeholder=""
+                maxlength="50"
+                id="cusName"
+                name="cusName"
+                required="required"
+                class="capitalize untouched pristine required"
+              /><label for="cusName" class="form-label">Quận</label>
+            </div>
+            <div class="fillname phoneNumber">
+              <input
+                placeholder=""
+                type="tel"
+                maxlength="10"
+                id="cusPhone"
+                name="cusPhone"
+                required="required"
+                class="untouched pristine required phoneNumber__input"
+              /><label for="cusPhone" class="form-label">Thành Phố</label>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="finaltotal">
+        <div class="area-total">
+          <div class="total-price">
+            <strong>Tổng tiền:</strong><strong>14.990.000₫</strong>
+          </div>
+        </div>
+        <button type="button" class="submitorder">
+          <b style="text-transform: uppercase">Đặt hàng</b>
+        </button>
+      </div>
+    </div>
+    <aside>
+      <div>
+        <small class="footCart"
+          >Bằng cách đặt hàng, bạn đồng ý với
+          <span> Điều khoản sử dụng của Thegioididong</span>
+        </small>
+      </div>
+    </aside>
+  </section>
+</html>

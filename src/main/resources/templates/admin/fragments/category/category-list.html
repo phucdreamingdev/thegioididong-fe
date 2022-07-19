@@ -166,18 +166,20 @@ t<!DOCTYPE html>
                     <td th:text="${categoryLevel2.name}"></td>
                     <td th:text="${categoryLevel2.parentName}"></td>
                     <td>
-                      <label
+                      <span
                         th:class="${categoryLevel2.parent} ? 'badge badge-success' : 'badge badge-danger'"
                         th:text="${categoryLevel2.parent} ? 'Yes' : 'No'"
-                        >Yes</label
                       >
+                        Yes
+                      </span>
                     </td>
                     <td>
-                      <label
+                      <span
                         th:class="${categoryLevel2.status} ? 'badge badge-success' : 'badge badge-danger'"
                         th:text="${categoryLevel2.status} ? 'Active' : 'Not Active'"
-                        >Active</label
                       >
+                        Active
+                      </span>
                     </td>
                     <td>
                       <button class="btn btn-inverse-info btn-icon btn-sm">

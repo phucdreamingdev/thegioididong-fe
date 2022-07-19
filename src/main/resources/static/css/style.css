@@ -6235,8 +6235,8 @@ p.quick-filter-title {
   display: flex;
 }
 .listproduct li {
-  border-bottom: 1px solid #f3f3f3 !important;
-  border-right: 1px solid #f3f3f3 !important;
+  border-bottom: 1px solid #ededed !important;
+  border-right: 1px solid #ededed !important;
   padding: 5px;
 }
 .btn-readmore.btn-phukien {
@@ -9120,11 +9120,7 @@ nav a.utility {
   color: #888;
   margin-top: 10px;
 }
-.group a {
-  display: block;
-  vertical-align: top;
-  padding-top: 0 !important;
-}
+
 .breadcrumb {
   display: block;
   overflow: hidden;

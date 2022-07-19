@@ -36,4 +36,14 @@ public class HomeController {
     return "fragments/all-products";
   }
 
+  @RequestMapping("/cart")
+  public String cart() {
+    return "fragments/cart";
+  }
+
+  @RequestMapping("/detail")
+  public String detail() {
+    return "fragments/product-detail";
+  }
+
 }
