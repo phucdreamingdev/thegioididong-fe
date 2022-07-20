@@ -1774,7 +1774,10 @@ form .wards .select input {
   border: 1px solid #288ad6;
   margin: 0 10px;
   color: #288ad6;
+  width: 600px;
+  margin-left: 662px;
 }
+
 .cartempty p {
   display: block;
   overflow: hidden;
@@ -4994,4 +4997,13 @@ input[type="number"] {
   vertical-align: middle;
   margin-left: 15px;
   padding: 0 15px;
+}
+
+
+[class*=cartnew-], [class^=cartnew-] {
+  background-image: url(https://cdn.tgdd.vn/mwgcart/vue-pro/css/img/cart-mobile-1.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: 133px 305px;
 }

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html
+  lang="vi-VN"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout.html}"
+>
+  <head>
+    <link rel="stylesheet" th:href="@{/css/cart.css}" />
+  </head>
+
+  <section>
+    <div layout:fragment="content" class="cartempty">
+      <i class="cartnew-empty"></i>
+      <span>Không có sản phẩm nào trong giỏ hàng</span>
+      <a th:href="@{/}" class="backhome">Về trang chủ</a>
+      <p>
+        Khi cần trợ giúp vui lòng gọi
+        <a style="color: #288ad6" href="tel:18001060">1800.1060</a> hoặc
+        <a style="color: #288ad6" href="tel:02836221060">028.3622.1060</a> (7h30
+        - 22h)
+      </p>
+    </div>
+  </section>
+</html>
