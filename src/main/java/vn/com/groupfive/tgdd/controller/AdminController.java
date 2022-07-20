@@ -11,17 +11,17 @@ import org.springframework.web.client.RestTemplate;
 @RequestMapping("/admin")
 public class AdminController {
 
-	@GetMapping("/home")
+	@GetMapping(value = "/home")
 	public String adminHome() {
 		return "admin/fragments/dashboard";
 	}
 
-	@GetMapping("/category/category-add")
+	@RequestMapping(value = "/category/category-add")
 	public String categoryAdd() {
 		return "admin/fragments/category/category-add";
 	}
 
-	@GetMapping("/category/category-list")
+	@RequestMapping(value = "/category/category-list")
 	public String categoryList(Model model) {
 		RestTemplate restTemplate = new RestTemplate();
 
@@ -40,12 +40,12 @@ public class AdminController {
 		return "admin/fragments/category/category-list";
 	}
 
-	@GetMapping("/admin/products/products-add")
+	@RequestMapping(value = "/products/products-add")
 	public String addProduct() {
 		return "admin/fragments/products/products-add";
 	}
 
-	@GetMapping("/admin/products/products-list")
+	@RequestMapping(value = "/products/products-list")
 	public String listProduct() {
 		return "admin/fragments/products/products-list";
 	}
