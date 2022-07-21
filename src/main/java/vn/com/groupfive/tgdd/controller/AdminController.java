@@ -5,23 +5,25 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
 
-	@GetMapping(value = "/home")
+	
+	@RequestMapping({"", "home"})
 	public String adminHome() {
 		return "admin/fragments/dashboard";
 	}
 
-	@RequestMapping(value = "/category/category-add")
+	@RequestMapping("categories/categories-add")
 	public String categoryAdd() {
 		return "admin/fragments/category/category-add";
 	}
 
-	@RequestMapping(value = "/category/category-list")
+	@RequestMapping("categories/categories-list")
 	public String categoryList(Model model) {
 		RestTemplate restTemplate = new RestTemplate();
 
@@ -40,12 +42,12 @@ public class AdminController {
 		return "admin/fragments/category/category-list";
 	}
 
-	@RequestMapping(value = "/products/products-add")
+	@RequestMapping("products/products-add")
 	public String addProduct() {
 		return "admin/fragments/products/products-add";
 	}
 
-	@RequestMapping(value = "/products/products-list")
+	@RequestMapping("products/products-list")
 	public String listProduct() {
 		return "admin/fragments/products/products-list";
 	}
