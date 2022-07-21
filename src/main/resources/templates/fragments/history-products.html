@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html
+  lang="vi-VN"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{/layout.html}"
+>
+  <head>
+    <link rel="stylesheet" th:href="@{/css/history-products.css}" />
+  </head>
+  <!-- Lich Su Don Hang -->
+  <section layout:fragment="content" class="wrapper cate">
+    <div class="container">
+      <div class="left">
+        <a href="https://www.thegioididong.com/lich-su-mua-hang" class="active"
+          >Danh sách đơn hàng đã mua</a
+        >
+        <a
+          href="https://www.thegioididong.com/lich-su-mua-hang/thong-tin-ca-nhan"
+          class=""
+          >Thông tin cá nhân và sổ địa chỉ</a
+        >
+      </div>
+      <div class="right">
+        <div class="user" data-customer="1089714740">
+          Chào anh
+          <b>Gia Minh</b> - <b>0867635674</b>
+          <a
+            href="https://www.thegioididong.com/lich-su-mua-hang/dang-xuat"
+            class="logout-h"
+            >Thoát tài khoản</a
+          >
+          <a class="about-s">|</a>
+          <a class="feed-back">
+            <img
+              src="https://www.thegioididong.com/lich-su-mua-hang/images/icon-mes.png"
+            />
+            Phản hồi, góp ý
+          </a>
+        </div>
+        <div id="overbackgroud"></div>
+        <div class="feed-back-detail">
+          <img
+            class="close-p"
+            src="./Lịch sử mua hàng _ Thegioididong.com_files/iconclose.png"
+          />
+          <h2>Phản hồi, góp ý lịch sử mua hàng</h2>
+          <div class="infor-user">
+            <h3>Thông tin khách hàng:</h3>
+            <span
+              ><span class="sex-f" data-id="1">Anh:</span>
+              <b class="name-f">Gia Minh</b> -
+              <b class="phone-f">0867635674</b></span
+            >
+          </div>
+          <div class="feed-user">
+            <h3>Thông tin phản hồi góp ý:</h3>
+            <textarea
+              id="myTextarea"
+              name="txtFeedback"
+              placeholder="Vui lòng nhập tiếng Việt có dấu..."
+            ></textarea>
+            <button
+              type="submit"
+              class="submid-feed"
+              onclick="SendFeedback(13);"
+            >
+              GỬI
+            </button>
+            <div class="loader"></div>
+          </div>
+        </div>
+        <div class="result"></div>
+
+        <div class="list" id="list_order">
+          <b>Đơn hàng đã mua gần đây</b>
+          <aside class="h-date">
+            <i>i</i>
+            <span
+              >Đây là danh sách đơn hàng bạn đã mua từ ngày
+              <b>21/07/2021</b> đến <b>21/07/2022</b></span
+            >
+          </aside>
+          <table cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr>
+                <th>Mã đơn hàng</th>
+                <th>Sản phẩm</th>
+                <th>Giá</th>
+                <th>Ngày đặt mua</th>
+                <th>Trạng thái</th>
+              </tr>
+
+              <tr class="" data-id="00878SO22020631297  ">
+                <td>
+                  <a
+                    href="https://www.thegioididong.com/lich-su-mua-hang/don-hang-erp-00878SO22020631297"
+                    data-id="00878SO22020631297  "
+                    class="order_item"
+                    >#00878SO22020631297
+                  </a>
+                </td>
+
+                <td>
+                  <a
+                    href="https://www.thegioididong.com/lich-su-mua-hang/don-hang-erp-00878SO22020631297"
+                    data-id="00878SO22020631297  "
+                    class="order_item"
+                    ><img
+                      src="https://cdn.tgdd.vn/Products/Images/58/245109/cap-lightning-1m-ava-kalf-trang-2-180x125.jpg"
+                  /></a>
+                  <div>
+                    <a
+                      href="https://www.thegioididong.com/lich-su-mua-hang/don-hang-erp-00878SO22020631297"
+                      data-id="00878SO22020631297  "
+                      class="order_item"
+                      >Cáp Lightning 1m AVA+ Kalf Trắng</a
+                    >
+
+                    <div class="link">
+                      <a
+                        href="https://www.thegioididong.com/lich-su-mua-hang/don-hang-erp-00878SO22020631297"
+                        data-id="00878SO22020631297  "
+                        class="order_item"
+                        >Xem chi tiết</a
+                      >
+                    </div>
+                  </div>
+                </td>
+
+                <td>
+                  <b>127.000₫</b>
+                </td>
+
+                <td>
+                  <span>22/02/2022</span>
+                </td>
+
+                <td>
+                  <i class="success" data-status="1">Đã nhận hàng</i>
+                </td>
+              </tr>
+
+              <tr class="" data-id="00878SH21120595919  ">
+                <td>
+                  <a
+                    href="https://www.thegioididong.com/lich-su-mua-hang/don-hang-erp-00878SO21120595920"
+                    data-id="00878SH21120595919  "
+                    class="order_item"
+                    >#00878SH21120595919
+                  </a>
+                </td>
+
+                <td>
+                  <a
+                    href="https://www.thegioididong.com/lich-su-mua-hang/don-hang-erp-00878SO21120595920"
+                    data-id="00878SH21120595919  "
+                    class="order_item"
+                    ><img
+                      src="https://cdn.tgdd.vn/Products/Images/58/225601/cap-lightning-1m-xmobile-dr-l001x-do-den-7-400x400.jpg"
+                  /></a>
+                  <div>
+                    <a
+                      href="https://www.thegioididong.com/lich-su-mua-hang/don-hang-erp-00878SO21120595920"
+                      data-id="00878SH21120595919  "
+                      class="order_item"
+                      >Cáp Lightning 1m Xmobile DR-L001X Đỏ đen</a
+                    >
+
+                    <div class="link">
+                      <a
+                        href="https://www.thegioididong.com/lich-su-mua-hang/don-hang-erp-00878SO21120595920"
+                        data-id="00878SH21120595919  "
+                        class="order_item"
+                        >Xem chi tiết</a
+                      >
+                    </div>
+                  </div>
+                </td>
+
+                <td>
+                  <b>144.000₫</b>
+                </td>
+
+                <td>
+                  <span>25/12/2021</span>
+                </td>
+
+                <td>
+                  <i class="success" data-status="1">Đã nhận hàng</i>
+                </td>
+              </tr>
+
+              <tr class="" data-id="00878SH21110572929  ">
+                <td>
+                  <a
+                    href="https://www.thegioididong.com/lich-su-mua-hang/don-hang-erp-00878SO21110572930"
+                    data-id="00878SH21110572929  "
+                    class="order_item"
+                    >#00878SH21110572929
+                  </a>
+                </td>
+
+                <td>
+                  <a
+                    href="https://www.thegioididong.com/lich-su-mua-hang/don-hang-erp-00878SO21110572930"
+                    data-id="00878SH21110572929  "
+                    class="order_item"
+                    ><img
+                      src="https://cdn.tgdd.vn/Products/Images/58/245109/cap-lightning-1m-ava-kalf-trang-2-180x125.jpg"
+                  /></a>
+                  <div>
+                    <a
+                      href="https://www.thegioididong.com/lich-su-mua-hang/don-hang-erp-00878SO21110572930"
+                      data-id="00878SH21110572929  "
+                      class="order_item"
+                      >Cáp Lightning 1m AVA+ Kalf Trắng</a
+                    >
+
+                    <div class="link">
+                      <a
+                        href="https://www.thegioididong.com/lich-su-mua-hang/don-hang-erp-00878SO21110572930"
+                        data-id="00878SH21110572929  "
+                        class="order_item"
+                        >Xem chi tiết</a
+                      >
+                    </div>
+                  </div>
+                </td>
+
+                <td>
+                  <b>127.000₫</b>
+                </td>
+
+                <td>
+                  <span>13/11/2021</span>
+                </td>
+
+                <td>
+                  <i class="success" data-status="1">Đã nhận hàng</i>
+                </td>
+              </tr>
+
+              <tr class="" data-id="00878SH21100551654  ">
+                <td>
+                  <a
+                    href="https://www.thegioididong.com/lich-su-mua-hang/don-hang-erp-00878SO21100551655"
+                    data-id="00878SH21100551654  "
+                    class="order_item"
+                    >#00878SH21100551654
+                  </a>
+                </td>
+
+                <td>
+                  <a
+                    href="https://www.thegioididong.com/lich-su-mua-hang/don-hang-erp-00878SO21100551655"
+                    data-id="00878SH21100551654  "
+                    class="order_item"
+                    ><img
+                      src="https://cdn.tgdd.vn/Products/Images/54/69513/tai-nghe-ep-awei-es500ni-1-5-180x125.jpg"
+                  /></a>
+                  <div>
+                    <a
+                      href="https://www.thegioididong.com/lich-su-mua-hang/don-hang-erp-00878SO21100551655"
+                      data-id="00878SH21100551654  "
+                      class="order_item"
+                      >Tai nghe EP Awei ES500Ni và <b>1 s.phẩm</b> khác</a
+                    >
+
+                    <div class="link">
+                      <a
+                        href="https://www.thegioididong.com/lich-su-mua-hang/don-hang-erp-00878SO21100551655"
+                        data-id="00878SH21100551654  "
+                        class="order_item"
+                        >Xem chi tiết</a
+                      >
+                    </div>
+                  </div>
+                </td>
+
+                <td>
+                  <b>262.000₫</b>
+                </td>
+
+                <td>
+                  <span>10/10/2021</span>
+                </td>
+
+                <td>
+                  <i class="success" data-status="1">Đã nhận hàng</i>
+                </td>
+              </tr>
+
+              <tr class="" data-id="45860162">
+                <td>
+                  <a
+                    href="https://www.thegioididong.com/lich-su-mua-hang/don-hang-45860162"
+                    data-id="45860162"
+                    class="order_item"
+                    >#45860162</a
+                  >
+                </td>
+
+                <td>
+                  <a
+                    href="https://www.thegioididong.com/lich-su-mua-hang/don-hang-45860162"
+                    data-id="45860162"
+                    class="order_item"
+                    ><img
+                      class="small"
+                      src="https://www.thegioididong.com/lich-su-mua-hang/images/success.png"
+                  /></a>
+                  <div>
+                    <a
+                      href="https://www.thegioididong.com/lich-su-mua-hang/don-hang-45860162"
+                      data-id="45860162"
+                      class="order_item"
+                      >Thẻ Game Garena 50.000 đ</a
+                    >
+
+                    <div class="link">
+                      <a
+                        href="https://www.thegioididong.com/lich-su-mua-hang/don-hang-45860162"
+                        data-id="45860162"
+                        class="order_item"
+                        >Xem chi tiết</a
+                      >
+                    </div>
+                  </div>
+                </td>
+
+                <td>
+                  <b>48.500₫</b>
+                </td>
+
+                <td>
+                  <span>07/08/2021</span>
+                </td>
+
+                <td>
+                  <i class="success" data-status="1">Đã nhận hàng</i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End -->
+</html>

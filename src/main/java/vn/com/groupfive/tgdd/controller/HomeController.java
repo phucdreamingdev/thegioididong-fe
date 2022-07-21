@@ -22,21 +22,20 @@ public class HomeController {
 		return "fragments/all-products";
 	}
 
-
 	@ModelAttribute("categoriesLevel0")
 	public Object response0() {
 		String resourceUrl0 = "http://localhost:8001/customer/get-all-category-by-level/0";
 		ResponseEntity<Object> response0 = restTemplate.getForEntity(resourceUrl0, Object.class);
 		return response0.getBody();
 	}
-	
+
 	@ModelAttribute("categoriesLevel1")
 	public Object response1() {
 		String resourceUrl1 = "http://localhost:8001/customer/get-all-category-by-level/1";
 		ResponseEntity<Object> response1 = restTemplate.getForEntity(resourceUrl1, Object.class);
 		return response1.getBody();
 	}
-	
+
 	@ModelAttribute("categoriesLevel2")
 	public Object response2() {
 		String resourceUrl2 = "http://localhost:8001/customer/get-all-category-by-level/2";
@@ -57,6 +56,16 @@ public class HomeController {
 	@RequestMapping("/detail")
 	public String detail() {
 		return "fragments/product-detail";
+	}
+
+	@RequestMapping("/lich-su-don-hang/dang-nhap")
+	public String login() {
+		return "fragments/login-history";
+	}
+
+	@RequestMapping("/lich-su-don-hang")
+	public String historyProduct() {
+		return "fragments/history-products";
 	}
 
 }
