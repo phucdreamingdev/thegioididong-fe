@@ -1224,3 +1224,379 @@ img.lazy {
   position: unset;
   margin: auto;
 }
+
+.iconlsmh-edit {
+  width: 13px;
+  height: 13px;
+  background: transparent url("../../images/icon-edit.png") no-repeat center top;
+  background-size: 13px 13px !important;
+}
+.iconlsmh-add {
+  width: 18px;
+  height: 18px;
+  background: transparent url("../../images/icon-add.png") no-repeat center top;
+  background-size: 18px 18px !important;
+}
+.profile {
+  border: 1px solid #e4e4e4;
+  padding: 25px 50px;
+  border-radius: 3px;
+}
+.profile > a.button {
+  width: 250px;
+  margin: 25px auto 15px auto;
+  display: block;
+  background-color: #288ad6;
+  border-radius: 3px;
+  text-align: center;
+  color: #fff;
+  height: 40px;
+  line-height: 40px;
+}
+.profile > a.add {
+  display: block;
+  margin-top: 10px;
+  padding: 10px 0 5px 0;
+  border-top: 1px solid #ccc;
+  color: #288ad6;
+}
+.profile > a.add > i {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 5px;
+}
+.profile > span {
+  display: block;
+  margin-top: 12px;
+  padding: 12px 0 0 25px;
+  border-top: 1px solid #ccc;
+  position: relative;
+  cursor: pointer;
+  line-height: 1.6;
+}
+.profile > span.gray {
+  color: #999;
+}
+.profile > span.gray.line {
+  color: #333;
+}
+.profile > span > i {
+  border: 1px solid #ccc;
+  width: 8px;
+  height: 8px;
+  padding: 3px;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  top: 17px;
+}
+.profile > span.active > i {
+  border-color: #ef7e37;
+}
+.profile > span.active > i:before {
+  content: "";
+  display: block;
+  border-radius: 50%;
+  height: 100%;
+  background-color: #ef7e37;
+}
+.profile > span > em {
+  display: inline-block;
+  padding: 1px 10px;
+  font-style: normal;
+  background-color: #f99406;
+  color: #fff;
+  margin: 2px 0 3px 0;
+  font-size: 12px;
+  border-radius: 2px;
+}
+.profile > span > a {
+  display: inline-block;
+  vertical-align: top;
+  color: #288ad6;
+  font-size: 13px;
+  text-decoration: none;
+}
+.profile > span > a > i {
+  display: inline-block;
+  vertical-align: top;
+  margin: 3px 5px 0 0;
+}
+.profile > div > * {
+  display: inline-block;
+  vertical-align: top;
+}
+.profile > div > span {
+  margin-right: 15px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.profile > div > span > i {
+  display: inline-block;
+  vertical-align: top;
+  margin: 1px 5px 10px 0;
+  border: 1px solid #ccc;
+  width: 8px;
+  height: 8px;
+  padding: 3px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.profile > div > span.active > i {
+  border-color: #ef7e37;
+}
+.profile > div > span.active > i:before {
+  content: "";
+  display: block;
+  border-radius: 50%;
+  height: 100%;
+  background-color: #ef7e37;
+}
+.profile > div > span > b {
+  font-weight: normal;
+}
+.profile > h3 {
+  font-size: 20px;
+}
+.profile > h3:first-child {
+  margin-bottom: 15px;
+}
+.profile > input {
+  width: 46.5%;
+  padding: 0 10px;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-bottom: 25px;
+}
+.profile > input:nth-child(4) {
+  float: right;
+}
+.profile > form {
+  padding: 15px;
+  background-color: #f1f1f1;
+  margin-top: 10px;
+  position: relative;
+}
+.profile > form span {
+  display: flex;
+  cursor: pointer;
+}
+.profile > form > span.active > i {
+  background-color: #288ad6;
+}
+.profile > form > span.active > i:after {
+  content: "";
+  display: block;
+  width: 3px;
+  height: 9px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(50deg);
+  background: none;
+  margin: 1px 0 0 6px;
+  border-radius: 0;
+}
+.profile > form > span > b {
+  font-weight: normal;
+}
+.profile > form > span > * {
+  display: inline-block;
+  vertical-align: top;
+}
+.profile > form > span > i {
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+  margin-right: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+.profile > form > input {
+  height: 40px;
+  line-height: 38px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  width: 49%;
+  padding: 0 1.5%;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+.profile > form:before,
+.profile > form:after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 40px;
+  width: 0;
+  height: 0;
+  border-bottom: 10px solid #f1f1f1;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+.profile > form > div.inline {
+  width: 49%;
+  margin: 0 0 10px 0;
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+.profile > form div.province {
+  z-index: 4;
+}
+.profile > form > div.inline > span {
+  color: #288ad6;
+  padding: 0 15px 0 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  display: block;
+  height: 38px;
+  line-height: 38px;
+  position: relative;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.profile > form > div.inline > span:after {
+  content: "";
+  width: 0;
+  right: 0;
+  border-top: 6px solid #288ad6;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 17px 10px 0 0;
+  float: right;
+  position: absolute;
+}
+.profile > form div.select {
+  position: absolute;
+  width: calc(96% - 2px);
+  padding: 10px 2%;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #fff;
+  top: 44px;
+  display: none;
+  z-index: 9;
+}
+.profile > form div.select > * {
+  display: block;
+}
+.profile > form div.select > .o-search {
+  position: relative;
+}
+.profile > form div.select:before,
+.profile > form div.select:after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50px;
+  width: 0;
+  height: 0;
+  border-bottom: 10px solid #ccc;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+.profile > form div.select:after {
+  border-width: 9px;
+  margin-left: 1px;
+  border-bottom-color: #fff;
+}
+.profile > form div.select > .o-search > input {
+  height: 30px;
+  line-height: 30px;
+  padding: 0 4% 0 2%;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  width: calc(94% - 2px);
+}
+.profile > form div.select > .o-search > button {
+  border: none;
+  width: 30px;
+  height: 32px;
+  margin-left: -30px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: none;
+}
+.profile > form div.select > .list {
+  position: relative;
+  max-height: 150px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.profile > form div.select > .list > div.item {
+  width: 47%;
+  float: left;
+}
+.profile > form div.select > .list > div.item > a {
+  display: block;
+  padding: 10px 0 0 0;
+  color: #288ad6;
+}
+.profile > form div.district {
+  z-index: 3;
+}
+.profile > form p.frmAddress_error {
+  display: none;
+  padding: 0 0 10px 0;
+  color: #f00;
+}
+.profile > form > div.inline.error > span,
+.profile > form > input.error {
+  border-color: #f00;
+}
+@media screen and (max-width: 640px) {
+  .profile {
+    padding: 10px;
+  }
+  .profile > input {
+    width: 42%;
+  }
+  .profile > form > div.inline > span {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+  }
+  .profile > form > div.inline > span:after {
+    float: unset;
+    position: absolute;
+    top: 17px;
+    right: 10px;
+    bottom: 0;
+    margin: auto;
+    display: block;
+  }
+  .profile > form div.select > .list > div.item {
+    box-sizing: border-box;
+    padding: 0 5px;
+  }
+  .profile > form div.select {
+    width: calc(200% - 2px);
+  }
+  .profile form #ddlDistrict div.select {
+    left: unset;
+    right: 0;
+  }
+  .profile form #ddlDistrict div.select:before,
+  .profile form #ddlDistrict div.select:after {
+    left: unset;
+    right: 50px;
+  }
+  .profile > a.link {
+    text-align: center;
+    padding: 10px 0;
+    color: #288ad6;
+    display: block;
+    margin-top: 15px;
+  }
+}

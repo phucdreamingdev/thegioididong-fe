@@ -6,18 +6,16 @@
   layout:decorate="~{/layout.html}"
 >
   <head>
-    <link rel="stylesheet" th:href="@{/css/history-products.css}" />
+    <link rel="stylesheet" th:href="@{/css/history-products-profile.css}" />
   </head>
   <!-- Lich Su Don Hang -->
   <section layout:fragment="content" class="wrapper cate">
     <div class="container">
       <div class="left">
-        <a href="https://www.thegioididong.com/lich-su-mua-hang" class="active"
+        <a th:href="@{/lich-su-don-hang}" class="active"
           >Danh sách đơn hàng đã mua</a
         >
-        <a
-          href="https://www.thegioididong.com/lich-su-mua-hang/thong-tin-ca-nhan"
-          class=""
+        <a th:href="@{/lich-su-don-hang/thong-tin-ca-nhan}" class=""
           >Thông tin cá nhân và sổ địa chỉ</a
         >
       </div>

@@ -68,4 +68,9 @@ public class HomeController {
 		return "fragments/history-products";
 	}
 
+	@RequestMapping("/lich-su-don-hang/thong-tin-ca-nhan")
+	public String profile() {
+		return "fragments/profile";
+	}
+
 }
