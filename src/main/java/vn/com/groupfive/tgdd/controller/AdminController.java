@@ -13,7 +13,7 @@ public class AdminController {
 
 	@GetMapping({ "", "home" })
 	public String adminHome() {
-		return "admin/layout-admin";
+		return "admin/fragments/dashboard";
 	}
 
 	@GetMapping("categories/add")
