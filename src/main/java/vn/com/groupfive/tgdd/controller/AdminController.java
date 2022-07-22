@@ -13,7 +13,7 @@ public class AdminController {
 
 	@GetMapping({ "", "home" })
 	public String adminHome() {
-		return "admin/fragments/dashboard";
+		return "admin/layout-admin";
 	}
 
 	@GetMapping("categories/add")
@@ -40,14 +40,64 @@ public class AdminController {
 		return "admin/fragments/category/category-list";
 	}
 
-	@GetMapping("products/add")
+	@GetMapping("product/add")
 	public String addProduct() {
 		return "admin/fragments/products/products-add";
 	}
 
-	@GetMapping("products/list")
+	@GetMapping("product/list")
 	public String listProduct() {
 		return "admin/fragments/products/products-list";
+	}
+
+	@GetMapping("branch/list")
+	public String listBranch() {
+		return "admin/fragments/branch/branch-list";
+	}
+
+	@GetMapping("branch/add")
+	public String addBranch() {
+		return "admin/fragments/branch/branch-add";
+	}
+
+	@GetMapping("order/list")
+	public String listOrder() {
+		return "admin/fragments/order/order-list";
+	}
+
+	@GetMapping("order/add")
+	public String addOrder() {
+		return "admin/fragments/order/order-add";
+	}
+
+	@GetMapping("promotion/list")
+	public String listPromotion() {
+		return "admin/fragments/promotion/promotion-list";
+	}
+
+	@GetMapping("promotion/add")
+	public String addPromotion() {
+		return "admin/fragments/promotion/promotion-add";
+	}
+
+	@GetMapping("transaction/list")
+	public String listTransaction() {
+		return "admin/fragments/transaction/transaction-list";
+	}
+
+	@GetMapping("transaction/add")
+	public String addTransaction() {
+		return "admin/fragments/transaction/transaction-add";
+	}
+
+	@GetMapping("member/list")
+	public String listMember() {
+		return "admin/fragments/member/member-list";
+	}
+
+	@GetMapping("member/add")
+	public String addMember() {
+		return "admin/fragments/member/member-add";
 	}
 
 }
