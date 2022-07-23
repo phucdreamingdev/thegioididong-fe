@@ -8,13 +8,13 @@
   <!-- Sidebar -->
   <nav th:fragment="sidebar" class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
-      <li th:class="${admin} ? 'nav-item active' : 'nav-item' ">
-        <a class="nav-link" href="/admin" th:href="@{/admin}">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/admin/dashboard}">
           <i class="icon-grid menu-icon"></i>
           <span class="menu-title">Dashboard</span>
         </a>
       </li>
-      <li th:class="${category} ? 'nav-item active' : 'nav-item' ">
+      <li class="nav-item">
         <a
           class="nav-link"
           data-toggle="collapse"
@@ -26,22 +26,22 @@
           <span class="menu-title">Category</span>
           <i class="menu-arrow"></i>
         </a>
-        <div th:class="${category} ? 'collapse show' : 'collapse'" id="categories">
+        <div class="collapse" id="categories">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item">
-              <a class="nav-link"  th:href="@{/admin/categories-list}"
+              <a class="nav-link" th:href="@{/admin/categories/list}"
                 >List Category</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link"  th:href="@{/admin/categories-add}"
+              <a class="nav-link" th:href="@{/admin/categories/add}"
                 >Add Category</a
               >
             </li>
           </ul>
         </div>
       </li>
-      <li th:class="${product} ? 'nav-item active' : 'nav-item' ">
+      <li class="nav-item">
         <a
           class="nav-link"
           data-toggle="collapse"
@@ -53,22 +53,22 @@
           <span class="menu-title">Product</span>
           <i class="menu-arrow"></i>
         </a>
-        <div th:class="${product} ? 'collapse show' : 'collapse'" id="product">
+        <div class="collapse" id="product">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/product-list}"
+              <a class="nav-link" th:href="@{/admin/product/list}"
                 >List Product</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/product-add}"
+              <a class="nav-link" th:href="@{/admin/product/add}"
                 >Add Product</a
               >
             </li>
           </ul>
         </div>
       </li>
-      <li th:class="${branch} ? 'nav-item active' : 'nav-item' ">
+      <li class="nav-item">
         <a
           class="nav-link"
           data-toggle="collapse"
@@ -80,20 +80,20 @@
           <span class="menu-title">Branch</span>
           <i class="menu-arrow"></i>
         </a>
-        <div th:class="${branch} ? 'collapse show' : 'collapse'" id="branch">
+        <div class="collapse" id="branch">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/branch-list}"
+              <a class="nav-link" th:href="@{/admin/branch/list}"
                 >List Branch</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/branch-add}">Add Branch</a>
+              <a class="nav-link" th:href="@{/admin/branch/add}">Add Branch</a>
             </li>
           </ul>
         </div>
       </li>
-      <li th:class="${transaction} ? 'nav-item active' : 'nav-item' ">
+      <li class="nav-item">
         <a
           class="nav-link"
           data-toggle="collapse"
@@ -105,22 +105,22 @@
           <span class="menu-title">Transaction</span>
           <i class="menu-arrow"></i>
         </a>
-        <div th:class="${transaction} ? 'collapse show' : 'collapse'" id="transaction">
+        <div class="collapse" id="transaction">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/transaction-list}"
+              <a class="nav-link" th:href="@{/admin/transaction/list}"
                 >List Transaction</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/transaction-add}"
+              <a class="nav-link" th:href="@{/admin/transaction/add}"
                 >Add Transaction</a
               >
             </li>
           </ul>
         </div>
       </li>
-      <li th:class="${promotion} ? 'nav-item active' : 'nav-item' ">
+      <li class="nav-item">
         <a
           class="nav-link"
           data-toggle="collapse"
@@ -132,22 +132,22 @@
           <span class="menu-title">Promotion</span>
           <i class="menu-arrow"></i>
         </a>
-        <div th:class="${promotion} ? 'collapse show' : 'collapse'" id="promotion">
+        <div class="collapse" id="promotion">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/promotion-list}"
+              <a class="nav-link" th:href="@{/admin/promotion/list}"
                 >List Promotion</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/promotion-add}"
+              <a class="nav-link" th:href="@{/admin/promotion/add}"
                 >Add Promotion</a
               >
             </li>
           </ul>
         </div>
       </li>
-      <li th:class="${order} ? 'nav-item active' : 'nav-item' ">
+      <li class="nav-item">
         <a
           class="nav-link"
           data-toggle="collapse"
@@ -159,18 +159,20 @@
           <span class="menu-title">Order</span>
           <i class="menu-arrow"></i>
         </a>
-        <div th:class="${order} ? 'collapse show' : 'collapse'" id="order">
+        <div class="collapse" id="order">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/order-list}"> List Order </a>
+              <a class="nav-link" th:href="@{/admin/order/list}">
+                List Order
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/order-add}">Add Order</a>
+              <a class="nav-link" th:href="@{/admin/order/add}">Add Order</a>
             </li>
           </ul>
         </div>
       </li>
-      <li th:class="${member} ? 'nav-item active' : 'nav-item' ">
+      <li class="nav-item">
         <a
           class="nav-link"
           data-toggle="collapse"
@@ -182,15 +184,15 @@
           <span class="menu-title">Member</span>
           <i class="menu-arrow"></i>
         </a>
-        <div th:class="${member} ? 'collapse show' : 'collapse'" id="member">
+        <div class="collapse" id="member">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/member-list}"
+              <a class="nav-link" th:href="@{/admin/member/list}"
                 >List Member</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/member-add}">Add Member</a>
+              <a class="nav-link" th:href="@{/admin/member/add}">Add Member</a>
             </li>
           </ul>
         </div>
@@ -268,7 +270,7 @@
                 </ul>
               </div>
             </li> -->
-      <li th:class="${user} ? 'nav-item active' : 'nav-item'">
+      <li class="nav-item">
         <a
           class="nav-link"
           data-toggle="collapse"
@@ -280,10 +282,10 @@
           <span class="menu-title">User Pages</span>
           <i class="menu-arrow"></i>
         </a>
-        <div th:class="${user} ? 'collapse show' : 'collapse'" id="auth">
+        <div class="collapse" id="auth">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/login}" th:text="${admin} ? 'Login' : 'Login fail'"> Login </a>
+              <a class="nav-link" th:href="@{/admin/login}"> Login </a>
             </li>
             <!-- <li class="nav-item">
                     <a class="nav-link" href="pages/samples/register.html">
