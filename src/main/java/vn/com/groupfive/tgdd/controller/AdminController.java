@@ -1,11 +1,9 @@
 package vn.com.groupfive.tgdd.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 
@@ -18,10 +16,9 @@ public class AdminController {
 		return "admin/fragments/dashboard";
 	}
 
-	@GetMapping(value = "categories-add")
-	public String categoryAdd(Model model) {
-		return "admin/fragments/category/category-add";
-	}
+	/*
+	 * ================================CATEGORY================================
+	 */
 
 	@GetMapping(value = "categories-list")
 	public String categoryList(Model model) {
@@ -43,6 +40,15 @@ public class AdminController {
 		return "admin/fragments/category/category-list";
 	}
 
+	@GetMapping(value = "categories-add")
+	public String categoryAdd(Model model) {
+		return "admin/fragments/category/category-add";
+	}
+
+	/*
+	 * ================================PRODUCT================================
+	 */
+
 	@GetMapping(value = "product-add")
 	public String addProduct(Model model) {
 
@@ -54,6 +60,10 @@ public class AdminController {
 
 		return "admin/fragments/products/products-list";
 	}
+
+	/*
+	 * ================================BRANCH================================
+	 */
 
 	@GetMapping(value = "branch-list")
 	public String listBranch(Model model) {
@@ -67,6 +77,10 @@ public class AdminController {
 		return "admin/fragments/branch/branch-add";
 	}
 
+	/*
+	 * ================================ORDER================================
+	 */
+
 	@GetMapping(value = "order-list")
 	public String listOrder(Model model) {
 
@@ -78,6 +92,10 @@ public class AdminController {
 
 		return "admin/fragments/order/order-add";
 	}
+
+	/*
+	 * ================================PROMOTION================================
+	 */
 
 	@GetMapping(value = "promotion-list")
 	public String listPromotion(Model model) {
@@ -91,6 +109,10 @@ public class AdminController {
 		return "admin/fragments/promotion/promotion-add";
 	}
 
+	/*
+	 * ================================TRANSACTION================================
+	 */
+
 	@GetMapping(value = "transaction-list")
 	public String listTransaction(Model model) {
 
@@ -102,6 +124,10 @@ public class AdminController {
 
 		return "admin/fragments/transaction/transaction-add";
 	}
+
+	/*
+	 * ================================MEMBER================================
+	 */
 
 	@GetMapping(value = "member-list")
 	public String listMember(Model model) {
