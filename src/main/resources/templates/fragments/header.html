@@ -74,20 +74,20 @@
           <!--Main menu just display category level 0-->
           <li
             th:each="categoryLevel0 : ${categoriesLevel0}"
-            th:class="${categoryLevel0.parent} ? has-list : '' "
+            th:class="${categoryLevel0.isParent} ? has-list : '' "
           >
             <a th:href="@{/category/{id}(id=${categoryLevel0.id})}">
               <i>
                 <img th:src="${categoryLevel0.logo}" />
               </i>
               <span
-                th:class="${categoryLevel0.parent} ? has-child : '' "
+                th:class="${categoryLevel0.isParent} ? has-child : '' "
                 th:text="${categoryLevel0.name}"
                 >Category Name Level 0</span
               >
             </a>
             <!--Sub menu for categories have children-->
-            <th:block th:if="${categoryLevel0.parent}">
+            <th:block th:if="${categoryLevel0.isParent}">
               <!--Sub menu detail for category have children level 1-->
               <th:block th:if="${categoryLevel0.childrenLevel} == 1">
                 <div class="navmwg">
