@@ -18,12 +18,12 @@ public class AdminController {
 		return "admin/fragments/dashboard";
 	}
 
-	@GetMapping(value = "categories/add")
+	@GetMapping(value = "categories-add")
 	public String categoryAdd(Model model) {
 		return "admin/fragments/category/category-add";
 	}
 
-	@GetMapping(value = "categories/list")
+	@GetMapping(value = "categories-list")
 	public String categoryList(Model model) {
 		RestTemplate restTemplate = new RestTemplate();
 
@@ -43,73 +43,73 @@ public class AdminController {
 		return "admin/fragments/category/category-list";
 	}
 
-	@GetMapping(value = "product/add")
+	@GetMapping(value = "product-add")
 	public String addProduct(Model model) {
 
 		return "admin/fragments/products/products-add";
 	}
 
-	@GetMapping(value = "product/list")
+	@GetMapping(value = "product-list")
 	public String listProduct(Model model) {
 
 		return "admin/fragments/products/products-list";
 	}
 
-	@GetMapping(value = "branch/list")
+	@GetMapping(value = "branch-list")
 	public String listBranch(Model model) {
 
 		return "admin/fragments/branch/branch-list";
 	}
 
-	@GetMapping(value = "branch/add")
+	@GetMapping(value = "branch-add")
 	public String addBranch(Model model) {
 
 		return "admin/fragments/branch/branch-add";
 	}
 
-	@GetMapping(value = "order/list")
+	@GetMapping(value = "order-list")
 	public String listOrder(Model model) {
 
 		return "admin/fragments/order/order-list";
 	}
 
-	@GetMapping(value = "order/add")
+	@GetMapping(value = "order-add")
 	public String addOrder(Model model) {
 
 		return "admin/fragments/order/order-add";
 	}
 
-	@GetMapping(value = "promotion/list")
+	@GetMapping(value = "promotion-list")
 	public String listPromotion(Model model) {
 
 		return "admin/fragments/promotion/promotion-list";
 	}
 
-	@GetMapping(value = "promotion/add")
+	@GetMapping(value = "promotion-add")
 	public String addPromotion(Model model) {
 
 		return "admin/fragments/promotion/promotion-add";
 	}
 
-	@GetMapping(value = "transaction/list")
+	@GetMapping(value = "transaction-list")
 	public String listTransaction(Model model) {
 
 		return "admin/fragments/transaction/transaction-list";
 	}
 
-	@GetMapping(value = "transaction/add")
+	@GetMapping(value = "transaction-add")
 	public String addTransaction(Model model) {
 
 		return "admin/fragments/transaction/transaction-add";
 	}
 
-	@GetMapping(value = "member/list")
+	@GetMapping(value = "member-list")
 	public String listMember(Model model) {
 
 		return "admin/fragments/member/member-list";
 	}
 
-	@GetMapping(value = "member/add")
+	@GetMapping(value = "member-add")
 	public String addMember(Model model) {
 
 		return "admin/fragments/member/member-add";

@@ -29,12 +29,12 @@
         <div class="collapse" id="categories">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/categories/list}"
+              <a class="nav-link" th:href="@{/admin/categories-list}"
                 >List Category</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/categories/add}"
+              <a class="nav-link" th:href="@{/admin/categories-add}"
                 >Add Category</a
               >
             </li>
@@ -56,12 +56,12 @@
         <div class="collapse" id="product">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/product/list}"
+              <a class="nav-link" th:href="@{/admin/product-list}"
                 >List Product</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/product/add}"
+              <a class="nav-link" th:href="@{/admin/product-add}"
                 >Add Product</a
               >
             </li>
@@ -83,12 +83,12 @@
         <div class="collapse" id="branch">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/branch/list}"
+              <a class="nav-link" th:href="@{/admin/branch-list}"
                 >List Branch</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/branch/add}">Add Branch</a>
+              <a class="nav-link" th:href="@{/admin/branch-add}">Add Branch</a>
             </li>
           </ul>
         </div>
@@ -108,12 +108,12 @@
         <div class="collapse" id="transaction">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/transaction/list}"
+              <a class="nav-link" th:href="@{/admin/transaction-list}"
                 >List Transaction</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/transaction/add}"
+              <a class="nav-link" th:href="@{/admin/transaction-add}"
                 >Add Transaction</a
               >
             </li>
@@ -135,12 +135,12 @@
         <div class="collapse" id="promotion">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/promotion/list}"
+              <a class="nav-link" th:href="@{/admin/promotion-list}"
                 >List Promotion</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/promotion/add}"
+              <a class="nav-link" th:href="@{/admin/promotion-add}"
                 >Add Promotion</a
               >
             </li>
@@ -162,12 +162,12 @@
         <div class="collapse" id="order">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/order/list}">
+              <a class="nav-link" th:href="@{/admin/order-list}">
                 List Order
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/order/add}">Add Order</a>
+              <a class="nav-link" th:href="@{/admin/order-add}">Add Order</a>
             </li>
           </ul>
         </div>
@@ -187,89 +187,17 @@
         <div class="collapse" id="member">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/member/list}"
+              <a class="nav-link" th:href="@{/admin/member-list}"
                 >List Member</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/member/add}">Add Member</a>
+              <a class="nav-link" th:href="@{/admin/member-add}">Add Member</a>
             </li>
           </ul>
         </div>
       </li>
 
-      <!-- <li class="nav-item">
-        <a
-          class="nav-link"
-          data-toggle="collapse"
-          href="#form-elements"
-          aria-expanded="false"
-          aria-controls="form-elements"
-        >
-          <i class="icon-columns menu-icon"></i>
-          <span class="menu-title">Form elements</span>
-          <i class="menu-arrow"></i>
-        </a>
-        <div class="collapse" id="form-elements">
-          <ul class="nav flex-column sub-menu">
-            <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/categories/list}"
-                >Basic Elements</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/categories-add}"
-                >Basic Elements</a
-              >
-            </li>
-          </ul>
-        </div>
-      </li> -->
-
-      <!-- <li class="nav-item">
-              <a
-                class="nav-link"
-                data-toggle="collapse"
-                href="#tables"
-                aria-expanded="false"
-                aria-controls="tables"
-              >
-                <i class="icon-grid-2 menu-icon"></i>
-                <span class="menu-title">Tables</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="tables">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item">
-                    <a class="nav-link" href="pages/tables/basic-table.html"
-                      >Basic table</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                data-toggle="collapse"
-                href="#icons"
-                aria-expanded="false"
-                aria-controls="icons"
-              >
-                <i class="icon-contract menu-icon"></i>
-                <span class="menu-title">Icons</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="icons">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item">
-                    <a class="nav-link" href="pages/icons/mdi.html"
-                      >Mdi icons</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </li> -->
       <li class="nav-item">
         <a
           class="nav-link"
@@ -285,43 +213,11 @@
         <div class="collapse" id="auth">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item">
-              <a class="nav-link" th:href="@{/admin/login}"> Login </a>
+              <a class="nav-link" th:href="@{/login}"> Login </a>
             </li>
-            <!-- <li class="nav-item">
-                    <a class="nav-link" href="pages/samples/register.html">
-                      Register
-                    </a>
-                  </li> -->
           </ul>
         </div>
       </li>
-      <!-- <li class="nav-item">
-              <a
-                class="nav-link"
-                data-toggle="collapse"
-                href="#error"
-                aria-expanded="false"
-                aria-controls="error"
-              >
-                <i class="icon-ban menu-icon"></i>
-                <span class="menu-title">Error pages</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div th:class="${} ? 'collapse show' : 'collapse'" id="error">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item">
-                    <a class="nav-link" href="pages/samples/error-404.html">
-                      404
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="pages/samples/error-500.html">
-                      500
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li> -->
     </ul>
   </nav>
   <!-- End Sidebar -->
