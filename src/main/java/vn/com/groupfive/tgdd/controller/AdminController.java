@@ -1,5 +1,6 @@
 package vn.com.groupfive.tgdd.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +11,9 @@ import org.springframework.web.client.RestTemplate;
 @Controller
 @RequestMapping(value = "admin")
 public class AdminController {
+
+	@Autowired
+	private RestTemplate restTemplate;
 
 	@GetMapping(value = "dashboard")
 	public String adminHome(Model model) {
@@ -22,7 +26,6 @@ public class AdminController {
 
 	@GetMapping(value = "categories-list")
 	public String categoryList(Model model) {
-		RestTemplate restTemplate = new RestTemplate();
 
 		String resourceUrl0 = "http://localhost:8001/customer/get-all-category-by-level/0";
 		String resourceUrl1 = "http://localhost:8001/customer/get-all-category-by-level/1";
@@ -68,6 +71,12 @@ public class AdminController {
 	@GetMapping(value = "branch-list")
 	public String listBranch(Model model) {
 
+		String resource = "http://localhost:3000/branchs";
+
+		ResponseEntity<Object> response = restTemplate.getForEntity(resource, Object.class);
+
+		model.addAttribute("branchs", response.getBody());
+
 		return "admin/fragments/branch/branch-list";
 	}
 
@@ -84,7 +93,23 @@ public class AdminController {
 	@GetMapping(value = "order-list")
 	public String listOrder(Model model) {
 
+		String resource = "http://localhost:3000/orders";
+
+		ResponseEntity<Object> response = restTemplate.getForEntity(resource, Object.class);
+
+		model.addAttribute("orders", response.getBody());
 		return "admin/fragments/order/order-list";
+	}
+
+	@GetMapping(value = "order-list-member")
+	public String listMemberOrder(Model model) {
+
+		String resource = "http://localhost:3000/order-members";
+
+		ResponseEntity<Object> response = restTemplate.getForEntity(resource, Object.class);
+
+		model.addAttribute("orderMembers", response.getBody());
+		return "admin/fragments/order/order-member-list";
 	}
 
 	@GetMapping(value = "order-add")
@@ -99,7 +124,11 @@ public class AdminController {
 
 	@GetMapping(value = "promotion-list")
 	public String listPromotion(Model model) {
+		String resource = "http://localhost:3000/promotions";
 
+		ResponseEntity<Object> response = restTemplate.getForEntity(resource, Object.class);
+
+		model.addAttribute("promotions", response.getBody());
 		return "admin/fragments/promotion/promotion-list";
 	}
 
@@ -115,7 +144,11 @@ public class AdminController {
 
 	@GetMapping(value = "transaction-list")
 	public String listTransaction(Model model) {
+		String resource = "http://localhost:3000/transactions";
 
+		ResponseEntity<Object> response = restTemplate.getForEntity(resource, Object.class);
+
+		model.addAttribute("transactions", response.getBody());
 		return "admin/fragments/transaction/transaction-list";
 	}
 
@@ -131,7 +164,11 @@ public class AdminController {
 
 	@GetMapping(value = "member-list")
 	public String listMember(Model model) {
+		String resource = "http://localhost:3000/members";
 
+		ResponseEntity<Object> response = restTemplate.getForEntity(resource, Object.class);
+
+		model.addAttribute("members", response.getBody());
 		return "admin/fragments/member/member-list";
 	}
 

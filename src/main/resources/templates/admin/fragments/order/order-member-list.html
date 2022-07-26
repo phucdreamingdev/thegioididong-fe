@@ -7,27 +7,36 @@ t<!DOCTYPE html>
 >
   <!-- Main Content -->
   <div layout:fragment="content" class="content-wrapper">
-    <!-- Branch  -->
+    <!-- Order List  -->
     <div class="row">
       <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h3 class="card-title">Branch List</h3>
-            <p class="card-description">View List Branch Here</p>
+            <h3 class="card-title">Order of Member List</h3>
+            <p class="card-description">View List Member Order Here</p>
             <div class="table-responsive">
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th>No.</th>
-                    <th>Name</th>
+                    <th>ID</th>
+                    <th>Name User</th>
+                    <th>Product</th>
+                    <th>Order Date</th>
+                    <th>Receive Date</th>
+                    <th>Delivery Date</th>
+                    <th>Delivery Status</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr th:each="branch : ${branchs}">
-                    <td class="py-1" th:text="${branch.id}"></td>
-                    <td th:text="${branch.address}"></td>
-
+                  <tr th:each="orderMem : ${orderMembers}">
+                    <td class="py-1" th:text="${orderMem.id}"></td>
+                    <td class="py-1" th:text="${orderMem.name}"></td>
+                    <td class="py-1" th:text="${orderMem.product}"></td>
+                    <td class="py-1" th:text="${orderMem.orderDate}"></td>
+                    <td class="py-1" th:text="${orderMem.receiveDate}"></td>
+                    <td class="py-1" th:text="${orderMem.deliveryDate}"></td>
+                    <td class="py-1" th:text="${orderMem.deliveryStatus}"></td>
                     <td>
                       <button class="btn btn-inverse-info btn-icon btn-sm">
                         <a href="#" alt="edit">
@@ -50,7 +59,7 @@ t<!DOCTYPE html>
         </div>
       </div>
     </div>
-    <!-- End Branch  -->
+    <!-- End Order List  -->
   </div>
   <!-- End Main Content -->
 </html>

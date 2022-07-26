@@ -1,0 +1,277 @@
+{
+    "members": [
+        {
+            "id": 1,
+            "fullname": "Gia Minh"
+        },
+        {
+            "id": 2,
+            "fullname": "Hồng Phúc"
+        },
+        {
+            "id": 3,
+            "fullname": "Minh Đức"
+        },
+        {
+            "id": 4,
+            "fullname": "Nam Long"
+        },
+        {
+            "id": 5,
+            "fullname": "Khánh Linh"
+        },
+        {
+            "id": 6,
+            "fullname": "Nhật Minh"
+        },
+        {
+            "id": 7,
+            "fullname": "Minh Châu"
+        }
+    ],
+    "promotions": [
+        {
+            "id": 1,
+            "startDate": "01/08/2022",
+            "endDate": "06/9/2022",
+            "sale": "10%",
+            "productVersion": "Iphone 13 Pro Max 512GB Xanh Lá",
+            "locations": "Hà Nội, TP.HCM, Long An"
+        },
+        {
+            "id": 2,
+            "startDate": "30/07/2022",
+            "endDate": "01/08/2022",
+            "sale": "20%",
+            "productVersion": "MacBook Pro 16 M1 Pro 2021",
+            "locations": "Tiền Giang, Bắc Ninh"
+        },
+        {
+            "id": 3,
+            "startDate": "01/08/2022",
+            "endDate": "15/08/2022",
+            "sale": "15%",
+            "productVersion": "Asus Vivobook 15 X1502ZA i5 1240P (EJ120W)",
+            "locations": "Hà Nội, TP.HCM, Long An"
+        },
+        {
+            "id": 4,
+            "startDate": "07/08/2022",
+            "endDate": "05/09/2022",
+            "sale": "10%",
+            "productVersion": "OPPO Reno7 series",
+            "locations": "Hà Nội, TP.HCM, Long An"
+        },
+        {
+            "id": 5,
+            "startDate": "28/07/2022",
+            "endDate": "05/08/2022",
+            "sale": "20%",
+            "productVersion": "HP ZBook Firefly 14 G8 i5 1135G7 (275V5AV)",
+            "locations": "Tiền Giang, Bắc Ninh"
+        }
+    ],
+    "branchs": [
+        {
+            "id": 1,
+            "address": "TP.HCM"
+        },
+        {
+            "id": 2,
+            "address": "Hà Nội"
+        },
+        {
+            "id": 3,
+            "address": "Cà Mau"
+        },
+        {
+            "id": 4,
+            "address": "Bắc Ninh"
+        },
+        {
+            "id": 5,
+            "address": "Hải Phòng"
+        }
+    ],
+    "transactions": [
+        {
+            "id": 1,
+            "product": "Iphone 13 Pro Max 512GB Xanh Lá",
+            "date": "30/07/2022",
+            "quantity": 5,
+            "stock": 262
+        },
+        {
+            "id": 2,
+            "product": "MacBook Pro 16 M1 Pro 2021",
+            "date": "26/07/2022",
+            "quantity": 88,
+            "stock": 24857
+        },
+        {
+            "id": 3,
+            "product": "Asus Vivobook 15 X1502ZA i5 1240P (EJ120W)",
+            "date": "01/08/2022",
+            "quantity": 87,
+            "stock": 187677
+        },
+        {
+            "id": 4,
+            "product": "OPPO Reno7 series",
+            "date": "30/07/2022",
+            "quantity": 9,
+            "stock": 388738
+        },
+        {
+            "id": 5,
+            "product": "HP ZBook Firefly 14 G8 i5 1135G7 (275V5AV)",
+            "date": "30/07/2022",
+            "quantity": 557,
+            "stock": 7378
+        }
+    ],
+    "orders": [
+        {
+            "id": 1,
+            "member": "Gia Minh",
+            "order-id": "1",
+            "product": "Iphone 13 Pro Max 512GB Xanh Lá",
+            "originalPrice": 24000000,
+            "promotionPrice": 22000000,
+            "quantity": 1
+        },
+        {
+            "id": 2,
+            "member": "Hồng Phúc",
+            "order-id": "1",
+            "product": "MacBook Pro 16 M1 Pro 2021",
+            "originalPrice": 5500000,
+            "promotionPrice": 50000000,
+            "quantity": 1
+        },
+        {
+            "id": 3,
+            "member": "Minh Đức",
+            "order-id": "1",
+            "product": "Asus Vivobook 15 X1502ZA i5 1240P (EJ120W)",
+            "originalPrice": 24000000,
+            "promotionPrice": 22000000,
+            "quantity": 1
+        },
+        {
+            "id": 4,
+            "member": "Nam Long",
+            "order-id": "1",
+            "product": "OPPO Reno7 series",
+            "originalPrice": 24000000,
+            "promotionPrice": 22000000,
+            "quantity": 1
+        },
+        {
+            "id": 5,
+            "member": "Khánh Linh",
+            "order-id": "1",
+            "product": "HP ZBook Firefly 14 G8 i5 1135G7 (275V5AV)",
+            "originalPrice": 24000000,
+            "promotionPrice": 22000000,
+            "quantity": 1
+        },
+        {
+            "id": 6,
+            "member": "Nhật Minh",
+            "order-id": "1",
+            "product": "Iphone 13 Pro Max 512GB Xanh Lá",
+            "originalPrice": 24000000,
+            "promotionPrice": 22000000,
+            "quantity": 1
+        },
+        {
+            "id": 7,
+            "member": "Minh Châu",
+            "order-id": "1",
+            "product": "Iphone 13 Pro Max 512GB Xanh Lá",
+            "originalPrice": 24000000,
+            "promotionPrice": 22000000,
+            "quantity": 1
+        }
+    ],
+    "order-members": [
+        {
+            "id": 1,
+            "member-id": 1,
+            "name": "Gia Minh",
+            "product": "MacBook Pro 16 M1 Pro 2021",
+            "orderDate": "30/07/2022",
+            "receiveDate": "06/08/2022",
+            "deliveryDate": "01/08/2022",
+            "deliveryStatus": "Preparing",
+            "note": ""
+        },
+        {
+            "id": 2,
+            "member-id": 2,
+            "name": "Hồng Phúc",
+            "product": "Iphone 13 Pro Max 512GB Xanh Lá",
+            "orderDate": "01/08/2022",
+            "receiveDate": "07/08/2022",
+            "deliveryDate": "03/08/2022",
+            "deliveryStatus": "Ready",
+            "note": ""
+        },
+        {
+            "id": 3,
+            "member-id": 3,
+            "name": "Minh Đức",
+            "product": "Asus Vivobook 15 X1502ZA i5 1240P (EJ120W)",
+            "orderDate": "26/07/2022",
+            "receiveDate": "02/08/2022",
+            "deliveryDate": "30/07/2022",
+            "deliveryStatus": "Preparing",
+            "note": ""
+        },
+        {
+            "id": 4,
+            "member-id": 4,
+            "name": "Nam Long",
+            "product": "OPPO Reno7 series",
+            "orderDate": "05/05/2022",
+            "receiveDate": "12/08/2022",
+            "deliveryDate": "07/08/2022",
+            "deliveryStatus": "Ready",
+            "note": ""
+        },
+        {
+            "id": 5,
+            "member-id": 5,
+            "name": "Khánh Linh",
+            "product": "HP ZBook Firefly 14 G8 i5 1135G7 (275V5AV)",
+            "orderDate": "29/07/2022",
+            "receiveDate": "05/08/2022",
+            "deliveryDate": "01/08/2022",
+            "deliveryStatus": "Ready",
+            "note": ""
+        },
+        {
+            "id": 6,
+            "member-id": 6,
+            "name": "Nhật Minh",
+            "product": "Iphone 13 Pro Max 512GB Xanh Lá",
+            "orderDate": "26/07/2022",
+            "receiveDate": "05/08/2022",
+            "deliveryDate": "02/08/2022",
+            "deliveryStatus": "Cancel",
+            "note": ""
+        },
+        {
+            "id": 7,
+            "member-id": 7,
+            "name": "Minh Châu",
+            "product": "Iphone 13 Pro Max 512GB Xanh Lá",
+            "orderDate": "10/08/2022",
+            "receiveDate": "17/08/2022",
+            "deliveryDate": "12/08/2022",
+            "deliveryStatus": "Cancel",
+            "note": ""
+        }
+    ]
+}
