@@ -10,7 +10,7 @@
     <div class="container-productbox">
       <ul class="listproduct">
         <li class="item ajaxed __cate_42" th:each="product : ${products}">
-          <a href="#" class="main-contain">
+          <a th:href="@{/product-detail/{id}(id=${product.id})}" class="main-contain">
             <div class="item-img item-img_42">
               <img class="thumb" th:src="${product.img}" />
             </div>
@@ -24,7 +24,7 @@
                 ></li>
               </ul>
             </div>
-            <strong class="price" th:text="${product.price}"></strong>
+            <strong class="price" th:text="${priceFormatter.format(product.price)}"></strong>
           </a>
         </li>
       </ul>

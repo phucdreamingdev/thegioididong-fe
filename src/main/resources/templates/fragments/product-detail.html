@@ -1744,22 +1744,12 @@
           <div class="scrolling_inner scroll-right">
             <div class="box03 group desk">
               <a
+              	th:each = "version : ${product.versions}"
                 href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-ultra"
                 data-index="0"
-                class="box03__item item act"
+                th:class="${version.} box03__item item act"
+                th:text = "${version.name}"
                 >8GB - 128GB</a
-              >
-              <a
-                href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-ultra-256gb"
-                data-index="1"
-                class="box03__item item"
-                >12GB - 256GB</a
-              >
-              <a
-                href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-ultra-512gb"
-                data-index="2"
-                class="box03__item item"
-                >12GB - 512GB</a
               >
             </div>
           </div>

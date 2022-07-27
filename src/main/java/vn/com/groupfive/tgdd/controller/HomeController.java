@@ -1,10 +1,14 @@
 package vn.com.groupfive.tgdd.controller;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,6 +23,14 @@ public class HomeController {
 		String resourceProductUrl = "http://localhost:8001/customer/get-all-products";
 		ResponseEntity<Object> productsResponse = restTemplate.getForEntity(resourceProductUrl, Object.class);
 		model.addAttribute("products", productsResponse.getBody());
+		return "fragments/all-products";
+	}
+	
+	@RequestMapping(value = "/category/{id}")
+	public String getProductByCategorId(@PathVariable("id") Long categoryId, Model model) {
+		String resourceProduct = "http://localhost:8001/customer/get-all-products-by-category-id" + "/" + categoryId;
+		ResponseEntity<Object> productResponse = restTemplate.getForEntity(resourceProduct, Object.class);
+		model.addAttribute("products", productResponse.getBody());
 		return "fragments/all-products";
 	}
 
@@ -42,7 +54,15 @@ public class HomeController {
 		ResponseEntity<Object> response2 = restTemplate.getForEntity(resourceUrl2, Object.class);
 		return response2.getBody();
 	}
-
+	
+	//This attribute use for format price in VNĐ
+	@ModelAttribute("priceFormatter")
+	public NumberFormat formatPrice () {
+		Locale localeVN = new Locale("vi", "VN");
+		NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
+		return currencyVN;
+	}
+	
 	@RequestMapping("/cart")
 	public String cart() {
 		return "fragments/cart";
@@ -71,6 +91,15 @@ public class HomeController {
 	@RequestMapping("/lich-su-don-hang/thong-tin-ca-nhan")
 	public String profile() {
 		return "fragments/profile";
+	}
+	
+	@RequestMapping("/product-detail/{id}")
+	public String productDetail(@PathVariable("id") Long id, Model model) {
+		String resourceProduct = "http://localhost:8001/customer/get-product-slim-by-id" + "/" + id;
+		ResponseEntity<Object> product = restTemplate.getForEntity(resourceProduct, Object.class);
+		
+		model.addAttribute("product", product.getBody());
+		return "fragments/product-detail";
 	}
 
 }
