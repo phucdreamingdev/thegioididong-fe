@@ -18,16 +18,22 @@
     <div class="d1 step1">
       <img src="https://www.thegioididong.com/lich-su-mua-hang/images/i1.png" />
       <span>Tra cứu thông tin đơn hàng</span>
-      <form id="frmGetVerifyCode" onsubmit="return GetVerifyCode();">
+      <!--  onsubmit="return GetVerifyCode();"
+      th:value="*{phone}" 
+      th:object="${mymodelobject}
+      th:value="*{phone}" -->
+    
+      <form th:action="@{/lich-su-mua-hang/dang-nhap}" id="frmGetVerifyCode"  method="post">
         <input
           type="tel"
-          name="txtPhoneNumber"
+          name="phone"
+          
           placeholder="Nhập số điện thoại mua hàng"
           autocomplete="off"
-          maxlength="10"
+          maxlength="13"
         />
         <label class="hide"></label>
-        <button type="submit" class="btn">Tiếp tục</button>
+        <button type="submit"  class="btn">Tiếp tục</button>
       </form>
     </div>
   </section>
