@@ -1,11 +1,15 @@
 package vn.com.groupfive.tgdd.controller;
 
+import java.net.http.HttpRequest;
 import java.text.NumberFormat;
 import java.util.Locale;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -92,19 +96,40 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/lich-su-mua-hang/dang-nhap", method = RequestMethod.POST)
-	public String loginOTPRedirect(@RequestParam(name = "phone") String phone) {
+
+	public String loginOTPRedirect(@RequestParam(name = "phone") String phone, Model model,HttpServletRequest requestt) {
 		// Set header type for request header
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
 		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
 		map.add("phone", phone);
-
+		requestt.setAttribute(phone, "phone");
 		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(map, headers);
 		String url = "http://localhost:8001/customer/sendotp";
 
 		ResponseEntity<String> response = restTemplate.postForEntity(url, request, String.class);
 		return "redirect:/lich-su-mua-hang/dang-nhap/otp";
+	}
+
+	@RequestMapping(value = "/lich-su-mua-hang/dang-nhap/otp", method = RequestMethod.POST)
+	public String verifyOtp(HttpServletRequest requestt ,@RequestParam(name = "otp") String otp) {
+		// Set header type for request header
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+		
+		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
+		map.add("phone", String.valueOf(requestt.getAttribute("phone")) );
+		map.add("otp", otp);
+		
+		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(map, headers);
+		String url = "http://localhost:8001/customer/verifyotp";
+		
+		ResponseEntity<Object> response = restTemplate.postForEntity(url, request, Object.class);
+		if(response.getStatusCode() == HttpStatus.OK) {
+			return "redirect:/lich-su-don-hang";
+		}
+		return "redirect:/lich-su-mua-hang/dang-nhap";
 	}
 
 	@RequestMapping("/lich-su-mua-hang/dang-nhap/otp")
