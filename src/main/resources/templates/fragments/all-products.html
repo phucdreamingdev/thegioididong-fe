@@ -9,21 +9,30 @@
   <section layout:fragment="content">
     <div class="container-productbox">
       <ul class="listproduct">
-        <li class="item ajaxed __cate_42" th:each="product : ${products}">
-          <a th:href="@{/product-detail/{id}(id=${product.id})}" class="main-contain">
+        <li
+          class="item ajaxed __cate_42"
+          th:each="productsVersionColor : ${productsVersionColors}"
+        >
+          <a
+            th:href="@{/product-detail/{id}(id=${productsVersionColor.version.product.id})}"
+            class="main-contain"
+          >
             <div class="item-img item-img_42">
-              <img class="thumb" th:src="${product.img}" />
+              <img class="thumb" th:src="${productsVersionColor.avartar}" />
             </div>
-            <h3 th:text="${product.name}"></h3>
+            <h3 th:text="${productsVersionColor.name}"></h3>
             <div class="prods-group">
               <ul>
                 <li
-                  th:text="${product.categoryName}"
+                  th:text="${productsVersionColor.version.name}"
                   class="merge__item item act"
                 ></li>
               </ul>
             </div>
-            <strong class="price" th:text="${priceFormatter.format(product.price)}"></strong>
+            <strong
+              class="price"
+              th:text="${priceFormatter.format(productsVersionColor.price)}"
+            ></strong>
           </a>
         </li>
       </ul>

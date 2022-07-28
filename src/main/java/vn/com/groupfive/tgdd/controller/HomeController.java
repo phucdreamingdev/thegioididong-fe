@@ -27,17 +27,18 @@ public class HomeController {
 
 	@RequestMapping(value = "/")
 	public String getAllProduct(Model model) {
-		String resourceProductUrl = "http://localhost:8001/customer/get-all-products";
+		String resourceProductUrl = "http://localhost:8001/customer/get-all-products-new";
 		ResponseEntity<Object> productsResponse = restTemplate.getForEntity(resourceProductUrl, Object.class);
-		model.addAttribute("products", productsResponse.getBody());
+		model.addAttribute("productsVersionColors", productsResponse.getBody());
 		return "fragments/all-products";
 	}
 
 	@RequestMapping(value = "/category/{id}")
 	public String getProductByCategorId(@PathVariable("id") Long categoryId, Model model) {
-		String resourceProduct = "http://localhost:8001/customer/get-all-products-by-category-id" + "/" + categoryId;
+		String resourceProduct = "http://localhost:8001/customer/get-all-products-by-category-id-new" + "/"
+				+ categoryId;
 		ResponseEntity<Object> productResponse = restTemplate.getForEntity(resourceProduct, Object.class);
-		model.addAttribute("products", productResponse.getBody());
+		model.addAttribute("productsVersionColors", productResponse.getBody());
 		return "fragments/all-products";
 	}
 
@@ -125,7 +126,7 @@ public class HomeController {
 	public String productDetail(@PathVariable("id") Long id, Model model) {
 		String resourceProduct = "http://localhost:8001/customer/get-product-slim-by-id" + "/" + id;
 		ResponseEntity<Object> product = restTemplate.getForEntity(resourceProduct, Object.class);
-		model.addAttribute("product", product.getBody());
+		model.addAttribute("productDetails", product.getBody());
 		return "fragments/product-detail";
 	}
 
