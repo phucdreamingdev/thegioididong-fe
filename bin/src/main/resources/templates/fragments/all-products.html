@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html
+  lang="vi-VN"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{/layout.html}"
+>
+  <!-- Products -->
+  <section layout:fragment="content">
+    <div class="container-productbox">
+      <ul class="listproduct">
+        <li
+          class="item ajaxed __cate_42"
+          th:each="productsVersionColor : ${productsVersionColors}"
+        >
+          <a
+            th:href="@{/product-detail/{id}(id=${productsVersionColor.version.product.id})}"
+            class="main-contain"
+          >
+            <div class="item-img item-img_42">
+              <img class="thumb" th:src="${productsVersionColor.avartar}" />
+            </div>
+            <h3 th:text="${productsVersionColor.name}"></h3>
+            <div class="prods-group">
+              <!-- <ul>
+                <li
+                  th:text="${productsVersionColor.version.name}"
+                  class="merge__item item act"
+                ></li>
+              </ul> -->
+            </div>
+            <strong
+              class="price"
+              th:text="${priceFormatter.format(productsVersionColor.price)}"
+            ></strong>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <!-- End -->
+</html>

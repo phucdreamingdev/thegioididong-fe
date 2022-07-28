@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html
+  lang="vi-VN"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout.html}"
+>
+  <header th:fragment="header" class="header" data-sub="0">
+    <div class="header__top">
+      <div>
+        <a th:href="@{/}" class="header__logo">
+          <i class="iconnewglobal-logo"></i>
+        </a>
+
+        <a
+          href="javascript:void(0)"
+          class="header__address"
+          onclick="OpenLocation()"
+        >
+          Xem giá, tồn kho tại:
+          <span data-province="3" data-district="0" data-ward="0"
+            >H&#x1ED3; Ch&#xED; Minh</span
+          >
+        </a>
+        <form
+          action="https://www.thegioididong.com/tim-kiem"
+          onsubmit="suggestSearch(event);"
+          class="header__search"
+        >
+          <input
+            id="skw"
+            type="text"
+            class="input-search"
+            onkeyup="suggestSearch(event);"
+            placeholder="Bạn tìm gì..."
+            name="key"
+            autocomplete="off"
+            maxlength="100"
+          />
+          <button type="submit">
+            <i class="icon-search"></i>
+          </button>
+          <div id="search-result"></div>
+        </form>
+        <a th:href="@{/lich-su-mua-hang/dang-nhap}" class="name-order">
+          Lịch sử đơn hàng
+        </a>
+        <a th:href="@{/cart}" class="header__cart menu-info">
+          <div class="box-cart">
+            <i class="iconnewglobal-cart"></i>
+            <span class="cart-number"></span>
+          </div>
+          <span>Giỏ hàng</span>
+        </a>
+        <div class="header__listtop">
+          <div class="divitem">
+            <a href="tin-tuc.html">24h<br />Công nghệ</a>
+          </div>
+          <div class="bordercol"></div>
+          <div class="divitem">
+            <a href="hoi-dap.html">Hỏi Đáp</a>
+          </div>
+          <div class="bordercol"></div>
+          <div class="divitem">
+            <a href="game-app.html">Game App</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Category -->
+    <div class="header__main">
+      <div>
+        <ul class="main-menu">
+          <!--Main menu just display category level 0-->
+          <li
+            th:each="categoryLevel0 : ${categoriesLevel0}"
+            th:class="${categoryLevel0.isParent} ? has-list : '' "
+          >
+            <a th:href="@{/category/{id}(id=${categoryLevel0.id})}">
+              <i>
+                <img th:src="${categoryLevel0.logo}" />
+              </i>
+              <span
+                th:class="${categoryLevel0.isParent} ? has-child : '' "
+                th:text="${categoryLevel0.name}"
+                >Category Name Level 0</span
+              >
+            </a>
+            <!--Sub menu for categories have children-->
+            <th:block th:if="${categoryLevel0.isParent}">
+              <!--Sub menu detail for category have children level 1-->
+              <th:block th:if="${categoryLevel0.childrenLevel} == 1">
+                <div class="navmwg">
+                  <div
+                    th:each="categoryLevel1 : ${categoriesLevel1}"
+                    th:if="${categoryLevel1.parentName} == ${categoryLevel0.name}"
+                    class="item-child"
+                  >
+                    <strong th:text="${categoryLevel1.name}"
+                      >Category Name Level 1</strong
+                    >
+                    <a
+                      th:each="categoryLevel2 : ${categoriesLevel2}"
+                      th:if="${categoryLevel2.parentName} == ${categoryLevel1.name}"
+                    >
+                      <h3 th:text="${categoryLevel2.name}">
+                        Category Name Level 2
+                      </h3>
+                    </a>
+                  </div>
+                </div>
+              </th:block>
+              <!--Sub menu detail for category have children level 2-->
+              <th:block th:if="${categoryLevel0.childrenLevel} == 2">
+                <div class="navmwg limit-width">
+                  <div
+                    th:each="categoryLevel2 : ${categoriesLevel2}"
+                    th:if="${categoryLevel2.parentName} == ${categoryLevel0.name}"
+                    class="item-child no-child-final"
+                  >
+                    <a>
+                      <h3 th:text="${categoryLevel2.name}">
+                        Category Name Level 1 have no child
+                      </h3>
+                    </a>
+                  </div>
+                </div>
+              </th:block>
+            </th:block>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+</html>

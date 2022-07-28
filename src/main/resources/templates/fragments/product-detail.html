@@ -1722,7 +1722,7 @@
             <a
               href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-ultra"
               data-index="0"
-              class="box03__item item act"
+              class="box03__item item act"	th:text="${productDetails.version.name}"
               >8GB - 128GB</a
             >
           </div>
@@ -1734,37 +1734,17 @@
               href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-ultra?code=0131491002959"
               data-color="2"
               data-code="0131491002959"
-              class="box03__item item act"
+              class="box03__item item act"	th:text="${productDetails.color.name}"
               >Đỏ</a
             >
-            <a
-              href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-ultra?code=0131491002976"
-              data-color="12"
-              data-code="0131491002976"
-              class="box03__item item"
-              >Trắng</a
-            >
-            <a
-              href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-ultra?code=0131491002977"
-              data-color="11"
-              data-code="0131491002977"
-              class="box03__item item"
-              >Đen</a
-            >
-            <a
-              href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-ultra?code=0131491002978"
-              data-color="7"
-              data-code="0131491002978"
-              class="box03__item item"
-              >Xanh lá</a
-            >
+
           </div>
         </div>
 
         <div class="box04 box_normal">
           <div class="price-one">
             <div class="box-price">
-              <p class="box-price-present">27.990.000₫</p>
+              <p class="box-price-present" th:text="${priceFormatter.format(productDetails.price)}">27.990.000₫</p>
             </div>
           </div>
 

@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html
+  lang="vi-VN"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{index.html}, ~{dtdd.html}, ~{laptop-ldp.html}, ~{tablet.html}, ~{phu-kien.html}, ~{dong-ho-thong-minh.html}, ~{dong-ho.html}, ~{pc-may-in.html}"
+>
+  <head> </head>
+  <body>
+    <!-- Location Box -->
+    <div th:fragment="location-box" class="locationbox-v2">
+      <div class="locationbox__item locationbox__item--right">
+        <div class="top-location">
+          <p class="default-title">
+            Quý khách vui lòng cho biết <b>Địa Chỉ Nhận Hàng</b> để biết chính
+            xác thời gian giao hàng
+          </p>
+          <p class="full-location hide">
+            <span class="choose-text">Địa chỉ đã chọn: </span>
+            <span class="fulladdress-v2"></span>
+          </p>
+          <a
+            onclick="OpenLocation()"
+            class="cls-location"
+            href="javascript:void(0)"
+            ><i class="close-symbol"></i>Đóng</a
+          >
+        </div>
+        <div class="location-title hide">
+          <a href="javascript:;" class="back-ic" onclick="backLocation()"> </a>
+          <div class="location-title-text">
+            <span class="choose-text">Chọn </span>
+            <span class="ward-name-default"></span>
+            <span class="district-name-default"></span>
+            <span class="province-name-default"></span>
+          </div>
+          <a
+            onclick="OpenLocation()"
+            class="cls-location"
+            href="javascript:void(0)"
+          >
+            <i class="close-symbol"></i>Đóng
+          </a>
+        </div>
+
+        <div class="location-search">
+          <i class="icon-search"></i>
+          <input
+            class=""
+            onkeyup="suggestLocation(event);"
+            id="locationSearch"
+            name="locationSearch"
+            placeholder="Tìm nhanh tỉnh thành, quận huyện, phường xã"
+          />
+          <a
+            href="javascript:;"
+            class="clear-searchbox"
+            onclick="clearSearchBox()"
+          >
+            <span class="box-relative">
+              <i class="close-symbol"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+      <strong class="choose-province">Hoặc chọn tỉnh, thành phố</strong>
+      <div class="listing-location">
+        <div id="suggest-location"></div>
+        <div id="lst-prov">
+          <div class="listing-locale">
+            <ul>
+              <li>
+                <a
+                  class=""
+                  data-value="3"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(3, this)"
+                >
+                  H&#x1ED3; Ch&#xED; Minh
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="5"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(5, this)"
+                >
+                  H&#xE0; N&#x1ED9;i
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="9"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(9, this)"
+                >
+                  &#x110;&#xE0; N&#x1EB5;ng
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="82"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(82, this)"
+                >
+                  An Giang
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="102"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(102, this)"
+                >
+                  B&#xE0; R&#x1ECB;a - V&#x169;ng T&#xE0;u
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="103"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(103, this)"
+                >
+                  B&#x1EAF;c Giang
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="104"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(104, this)"
+                >
+                  B&#x1EAF;c K&#x1EA1;n
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="105"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(105, this)"
+                >
+                  B&#x1EA1;c Li&#xEA;u
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="106"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(106, this)"
+                >
+                  B&#x1EAF;c Ninh
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="107"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(107, this)"
+                >
+                  B&#x1EBF;n Tre
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="108"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(108, this)"
+                >
+                  B&#xEC;nh &#x110;&#x1ECB;nh
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="109"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(109, this)"
+                >
+                  B&#xEC;nh D&#x1B0;&#x1A1;ng
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="110"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(110, this)"
+                >
+                  B&#xEC;nh Ph&#x1B0;&#x1EDB;c
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="111"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(111, this)"
+                >
+                  B&#xEC;nh Thu&#x1EAD;n
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="81"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(81, this)"
+                >
+                  C&#xE0; Mau
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="7"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(7, this)"
+                >
+                  C&#x1EA7;n Th&#x1A1;
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="112"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(112, this)"
+                >
+                  Cao B&#x1EB1;ng
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="6"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(6, this)"
+                >
+                  &#x110;&#x1EAF;k L&#x1EAF;k
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="113"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(113, this)"
+                >
+                  &#x110;&#x1EAF;k N&#xF4;ng
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="114"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(114, this)"
+                >
+                  &#x110;i&#x1EC7;n Bi&#xEA;n
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="8"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(8, this)"
+                >
+                  &#x110;&#x1ED3;ng Nai
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="115"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(115, this)"
+                >
+                  &#x110;&#x1ED3;ng Th&#xE1;p
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="116"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(116, this)"
+                >
+                  Gia Lai
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="117"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(117, this)"
+                >
+                  H&#xE0; Giang
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="118"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(118, this)"
+                >
+                  H&#xE0; Nam
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="120"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(120, this)"
+                >
+                  H&#xE0; T&#x129;nh
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="121"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(121, this)"
+                >
+                  H&#x1EA3;i D&#x1B0;&#x1A1;ng
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="101"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(101, this)"
+                >
+                  H&#x1EA3;i Ph&#xF2;ng
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="122"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(122, this)"
+                >
+                  H&#x1EAD;u Giang
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="123"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(123, this)"
+                >
+                  H&#xF2;a B&#xEC;nh
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="124"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(124, this)"
+                >
+                  H&#x1B0;ng Y&#xEA;n
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="125"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(125, this)"
+                >
+                  Kh&#xE1;nh H&#xF2;a
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="126"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(126, this)"
+                >
+                  Ki&#xEA;n Giang
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="127"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(127, this)"
+                >
+                  Kon Tum
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="128"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(128, this)"
+                >
+                  Lai Ch&#xE2;u
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="129"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(129, this)"
+                >
+                  L&#xE2;m &#x110;&#x1ED3;ng
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="130"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(130, this)"
+                >
+                  L&#x1EA1;ng S&#x1A1;n
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="131"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(131, this)"
+                >
+                  L&#xE0;o Cai
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="132"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(132, this)"
+                >
+                  Long An
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="133"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(133, this)"
+                >
+                  Nam &#x110;&#x1ECB;nh
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="134"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(134, this)"
+                >
+                  Ngh&#x1EC7; An
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="135"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(135, this)"
+                >
+                  Ninh B&#xEC;nh
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="136"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(136, this)"
+                >
+                  Ninh Thu&#x1EAD;n
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="137"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(137, this)"
+                >
+                  Ph&#xFA; Th&#x1ECD;
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="138"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(138, this)"
+                >
+                  Ph&#xFA; Y&#xEA;n
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="139"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(139, this)"
+                >
+                  Qu&#x1EA3;ng B&#xEC;nh
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="140"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(140, this)"
+                >
+                  Qu&#x1EA3;ng Nam
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="141"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(141, this)"
+                >
+                  Qu&#x1EA3;ng Ng&#xE3;i
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="142"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(142, this)"
+                >
+                  Qu&#x1EA3;ng Ninh
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="143"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(143, this)"
+                >
+                  Qu&#x1EA3;ng Tr&#x1ECB;
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="144"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(144, this)"
+                >
+                  S&#xF3;c Tr&#x103;ng
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="145"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(145, this)"
+                >
+                  S&#x1A1;n La
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="146"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(146, this)"
+                >
+                  T&#xE2;y Ninh
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="147"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(147, this)"
+                >
+                  Th&#xE1;i B&#xEC;nh
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="148"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(148, this)"
+                >
+                  Th&#xE1;i Nguy&#xEA;n
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="149"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(149, this)"
+                >
+                  Thanh H&#xF3;a
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="150"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(150, this)"
+                >
+                  Th&#x1EEB;a Thi&#xEA;n Hu&#x1EBF;
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="151"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(151, this)"
+                >
+                  Ti&#x1EC1;n Giang
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="152"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(152, this)"
+                >
+                  Tr&#xE0; Vinh
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="153"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(153, this)"
+                >
+                  Tuy&#xEA;n Quang
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="154"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(154, this)"
+                >
+                  V&#x129;nh Long
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="155"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(155, this)"
+                >
+                  V&#x129;nh Ph&#xFA;c
+                </a>
+              </li>
+              <li>
+                <a
+                  class=""
+                  data-value="156"
+                  href="javascript:void(0)"
+                  onclick="changePoupProvinceV2(156, this)"
+                >
+                  Y&#xEA;n B&#xE1;i
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="lst-dis" class="hide"></div>
+        <div id="lst-ward" class="hide"></div>
+      </div>
+      <input type="hidden" id="hdLocationProvinceId" value="0" />
+      <input type="hidden" id="hdLocationDisId" value="0" />
+      <input type="hidden" id="hdLocationWardId" value="0" />
+      <input type="hidden" id="hdLocationAddress" value="" />
+      <b
+        id="h-provincename"
+        style="display: none !important"
+        data-provinceid="0"
+      ></b>
+    </div>
+    <!-- End Location Box -->
+
+    <!-- Location Box Popup -->
+    <div
+      th:fragment="location-box-popup"
+      class="locationbox__popup new-popup hide"
+      id="lc_pop--sugg"
+    >
+      <div
+        class="locationbox__popup--cnt locationbox__popup--suggestion new-locale"
+      >
+        <div class="flex-block">
+          <i class="icon-location"></i>
+          <p>
+            Hãy chọn <b>địa chỉ cụ thể</b> để chúng tôi cung cấp
+            <b>chính xác</b> gi&#xE1; v&#xE0; khuy&#x1EBF;n m&#xE3;i
+          </p>
+        </div>
+        <div class="btn-block">
+          <a href="javascript:;" class="btn-location" onclick="OpenLocation()"
+            ><b>Chọn địa chỉ</b></a
+          >
+          <a
+            href="javascript:;"
+            class="btn-location gray"
+            onclick="SkipLocation()"
+            ><b>Đóng</b></a
+          >
+        </div>
+      </div>
+    </div>
+    <!-- End Location Box Popup -->
+  </body>
+</html>

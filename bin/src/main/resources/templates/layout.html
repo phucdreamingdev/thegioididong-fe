@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html
+  lang="vi-VN"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Thế Giới Di Động</title>
+
+    <link
+      th:href="@{/favicon_TGDD.ico}"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header th:replace="fragments/header :: header"></header>
+    <!-- End  -->
+
+    <!-- Location -->
+    <div th:replace="fragments/location :: location-box"></div>
+    <div th:replace="fragments/location :: location-box-popup"></div>
+    <!-- End -->
+
+    <!-- Filter Box -->
+    <!-- <div th:replace="fragments/box-filter :: box-filter"></div> -->
+    <!-- End -->
+
+    <!-- Main Content -->
+    <section layout:fragment="content"></section>
+    <!-- End -->
+
+    <!-- Footer -->
+    <footer th:replace="fragments/footer :: footer"></footer>
+    <!-- End Footer -->
+  </body>
+</html>

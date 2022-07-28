@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html
+  lang="vi-VN"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout-admin.html}"
+>
+  <!-- Sidebar -->
+  <nav th:fragment="sidebar" class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/admin/dashboard}">
+          <i class="icon-grid menu-icon"></i>
+          <span class="menu-title">Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          data-toggle="collapse"
+          href="#categories"
+          aria-expanded="false"
+          aria-controls="categories"
+        >
+          <i class="icon-columns menu-icon"></i>
+          <span class="menu-title">Category</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="categories">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/admin/categories-list}"
+                >List Category</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/admin/categories-add}"
+                >Add Category</a
+              >
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          data-toggle="collapse"
+          href="#product"
+          aria-expanded="false"
+          aria-controls="product"
+        >
+          <i class="icon-monitor menu-icon"></i>
+          <span class="menu-title">Product</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="product">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/admin/product-list}"
+                >List Product</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/admin/product-add}"
+                >Add Product</a
+              >
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          data-toggle="collapse"
+          href="#branch"
+          aria-expanded="false"
+          aria-controls="branch"
+        >
+          <i class="icon-map menu-icon"></i>
+          <span class="menu-title">Branch</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="branch">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/admin/branch-list}"
+                >List Branch</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/admin/branch-add}">Add Branch</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          data-toggle="collapse"
+          href="#transaction"
+          aria-expanded="false"
+          aria-controls="transaction"
+        >
+          <i class="icon-bag menu-icon"></i>
+          <span class="menu-title">Transaction</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="transaction">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/admin/transaction-list}"
+                >List Transaction</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/admin/transaction-add}"
+                >Add Transaction</a
+              >
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          data-toggle="collapse"
+          href="#promotion"
+          aria-expanded="false"
+          aria-controls="promotion"
+        >
+          <i class="icon-archive menu-icon"></i>
+          <span class="menu-title">Promotion</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="promotion">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/admin/promotion-list}"
+                >List Promotion</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/admin/promotion-add}"
+                >Add Promotion</a
+              >
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          data-toggle="collapse"
+          href="#order"
+          aria-expanded="false"
+          aria-controls="order"
+        >
+          <i class="icon-clipboard menu-icon"></i>
+          <span class="menu-title">Order</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="order">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/admin/order-list}">
+                List Order
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/admin/order-list-member}">
+                List Order Member
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/admin/order-add}">Add Order</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          data-toggle="collapse"
+          href="#member"
+          aria-expanded="false"
+          aria-controls="member"
+        >
+          <i class="icon-head menu-icon"></i>
+          <span class="menu-title">Member</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="member">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/admin/member-list}"
+                >List Member</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/admin/member-add}">Add Member</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          data-toggle="collapse"
+          href="#auth"
+          aria-expanded="false"
+          aria-controls="auth"
+        >
+          <i class="icon-head menu-icon"></i>
+          <span class="menu-title">User Pages</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="auth">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/login}"> Login </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <!-- End Sidebar -->
+</html>

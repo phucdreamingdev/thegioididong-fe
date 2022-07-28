@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html
+  lang="vi-VN"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate=" ~{layout-products.html}"
+>
+  <head> </head>
+  <body>
+    <!-- Filter Thương Hiệu -->
+    <div
+      th:fragment="box-filter"
+      class="box-filter top-box block-scroll-main cate-42"
+    >
+      <section>
+        <div class="jsfix scrolling_inner scroll-right">
+          <div class="box-filter block-scroll-main scrolling">
+            <div class="scroll-btn show-right">
+              <div class="btn-right-scroll"></div>
+            </div>
+
+            <div class="filter-total">
+              <div class="filter-item__title jsTitle">
+                <div class="arrow-filter"></div>
+                <i class="icon-filter"></i>Bộ lọc
+                <strong class="number count-total"></strong>
+              </div>
+              <div class="filter-show show-total" id="wrapper">
+                <div class="list-filter-active">
+                  <span>Đã chọn: </span>
+                  <div class="manu"></div>
+                  <div class="price"></div>
+                  <div class="props"></div>
+                  <div class="props-slider"></div>
+                  <a
+                    href="javascript:;"
+                    class="clr-filter"
+                    onclick="removeAllFilterActive()"
+                    >Xóa tất cả</a
+                  >
+                </div>
+                <div class="show-total-main">
+                  <a href="javascript:;" class="close-popup-total"
+                    ><i class="iconcate-closess"></i>Đóng</a
+                  >
+
+                  <div
+                    class="show-total-item clearfix warpper-manu-inside arranged"
+                  >
+                    <p class="show-total-txt">Hãng</p>
+                    <div class="filter-list filter-list--hang manu">
+                      <a
+                        href="dtdd-apple-iphone.html"
+                        class="c-btnbox filter-manu"
+                        data-href="apple-iphone"
+                        data-id="80"
+                        data-name="iPhone (Apple)"
+                      >
+                        <img
+                          src="../cdn.tgdd.vn/Brand/1/logo-iphone-220x48.png"
+                          width="68"
+                          height="30"
+                          alt="iPhone (Apple)"
+                        />
+                      </a>
+                      <a
+                        href="dtdd-samsung.html"
+                        class="c-btnbox filter-manu"
+                        data-href="samsung"
+                        data-id="2"
+                        data-name="Samsung"
+                      >
+                        <img
+                          src="../cdn.tgdd.vn/Brand/1/samsungnew-220x48-1.png"
+                          width="68"
+                          height="30"
+                          alt="Samsung"
+                        />
+                      </a>
+                      <a
+                        href="dtdd-oppo.html"
+                        class="c-btnbox filter-manu"
+                        data-href="oppo"
+                        data-id="1971"
+                        data-name="OPPO"
+                      >
+                        <img
+                          src="../cdn.tgdd.vn/Brand/1/OPPO42-b_5.jpg"
+                          width="68"
+                          height="30"
+                          alt="OPPO"
+                        />
+                      </a>
+                      <a
+                        href="dtdd-xiaomi.html"
+                        class="c-btnbox filter-manu"
+                        data-href="xiaomi"
+                        data-id="2235"
+                        data-name="Xiaomi"
+                      >
+                        <img
+                          src="../cdn.tgdd.vn/Brand/1/logo-xiaomi-220x48-5.png"
+                          width="68"
+                          height="30"
+                          alt="Xiaomi"
+                        />
+                      </a>
+                      <a
+                        href="dtdd-vivo.html"
+                        class="c-btnbox filter-manu"
+                        data-href="vivo"
+                        data-id="2236"
+                        data-name="Vivo"
+                      >
+                        <img
+                          src="../cdn.tgdd.vn/Brand/1/vivo-logo-220-220x48-3.png"
+                          width="68"
+                          height="30"
+                          alt="Vivo"
+                        />
+                      </a>
+                      <a
+                        href="dtdd-realme.html"
+                        class="c-btnbox filter-manu"
+                        data-href="realme"
+                        data-id="17201"
+                        data-name="Realme"
+                      >
+                        <img
+                          src="../cdn.tgdd.vn/Brand/1/Realme42-b_37.png"
+                          width="68"
+                          height="30"
+                          alt="Realme"
+                        />
+                      </a>
+                      <a
+                        href="dtdd-nokia.html"
+                        class="c-btnbox filter-manu"
+                        data-href="nokia"
+                        data-id="1"
+                        data-name="Nokia"
+                      >
+                        <img
+                          src="../cdn.tgdd.vn/Brand/1/Nokia42-b_21.jpg"
+                          width="68"
+                          height="30"
+                          alt="Nokia"
+                        />
+                      </a>
+                      <a
+                        href="dtdd-itel.html"
+                        class="c-btnbox filter-manu"
+                        data-href="itel"
+                        data-id="5332"
+                        data-name="Itel"
+                      >
+                        <img
+                          src="../cdn.tgdd.vn/Brand/1/Itel42-b_54.jpg"
+                          width="68"
+                          height="30"
+                          alt="Itel"
+                        />
+                      </a>
+                      <a
+                        href="dtdd-masstel.html"
+                        class="c-btnbox filter-manu"
+                        data-href="masstel"
+                        data-id="4832"
+                        data-name="Masstel"
+                      >
+                        <img
+                          src="../cdn.tgdd.vn/Brand/1/Masstel42-b_0.png"
+                          width="68"
+                          height="30"
+                          alt="Masstel"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                  <div class="filter-border"></div>
+                  <div class="show-total-item count-item arranged">
+                    <p class="show-total-txt">Giá</p>
+                    <div class="filter-list price">
+                      <a
+                        href="dtdd9253.html?p=duoi-2-trieu"
+                        data-href="duoi-2-trieu"
+                        class="c-btnbox"
+                        data-id="7"
+                        >D&#x1B0;&#x1EDB;i 2 tri&#x1EC7;u</a
+                      >
+                      <a
+                        href="dtdd91d8.html?p=tu-2-4-trieu"
+                        data-href="tu-2-4-trieu"
+                        class="c-btnbox"
+                        data-id="9"
+                        >T&#x1EEB; 2 - 4 tri&#x1EC7;u</a
+                      >
+                      <a
+                        href="dtdd1ec6.html?p=tu-4-7-trieu"
+                        data-href="tu-4-7-trieu"
+                        class="c-btnbox"
+                        data-id="289"
+                        >T&#x1EEB; 4 - 7 tri&#x1EC7;u</a
+                      >
+                      <a
+                        href="dtdd7e6a.html?p=tu-7-13-trieu"
+                        data-href="tu-7-13-trieu"
+                        class="c-btnbox"
+                        data-id="562"
+                        >T&#x1EEB; 7 - 13 tri&#x1EC7;u</a
+                      >
+                      <a
+                        href="dtdd2ccb.html?p=tu-13-20-trieu"
+                        data-href="tu-13-20-trieu"
+                        class="c-btnbox"
+                        data-id="252"
+                        >T&#x1EEB; 13 - 20 tri&#x1EC7;u</a
+                      >
+                      <a
+                        href="dtdd2bf5.html?p=tren-20-trieu"
+                        data-href="tren-20-trieu"
+                        class="c-btnbox"
+                        data-id="253"
+                        >Tr&#xEA;n 20 tri&#x1EC7;u</a
+                      >
+                    </div>
+                  </div>
+                  <div class="show-total-item count-item">
+                    <p class="show-total-txt">
+                      Lo&#x1EA1;i &#x111;i&#x1EC7;n tho&#x1EA1;i
+                    </p>
+                    <div class="filter-list filter-list--loai-dien-thoai props">
+                      <a
+                        href="dtdde60e.html?g=android"
+                        data-smooth="0"
+                        data-id="39237"
+                        class="c-btnbox"
+                        >Android</a
+                      >
+                      <a
+                        href="dtdd83af.html?g=iphone-ios"
+                        data-smooth="0"
+                        data-id="39238"
+                        class="c-btnbox"
+                        >iPhone (iOS)</a
+                      >
+                      <a
+                        href="dtdd1531.html?g=dien-thoai-pho-thong"
+                        data-smooth="0"
+                        data-id="62879"
+                        class="c-btnbox"
+                        >&#x110;i&#x1EC7;n tho&#x1EA1;i ph&#x1ED5; th&#xF4;ng</a
+                      >
+                    </div>
+                  </div>
+                  <div class="show-total-item count-item">
+                    <p class="show-total-txt">
+                      Hi&#x1EC7;u n&#x103;ng &amp; Pin
+                    </p>
+                    <div class="filter-list filter-list--hieu-nang-pin props">
+                      <a
+                        href="dtdd-choi-game.html"
+                        data-smooth="1"
+                        data-id="181956"
+                        class="c-btnbox"
+                        >Ch&#x1A1;i game / C&#x1EA5;u h&#xEC;nh cao</a
+                      >
+                      <a
+                        href="dtdd-pin-khung.html"
+                        data-smooth="1"
+                        data-id="163467"
+                        class="c-btnbox"
+                        >Pin kh&#x1EE7;ng tr&#xEA;n 5000 mAh</a
+                      >
+                      <a
+                        href="dtdd-sac-pin-nhanh.html"
+                        data-smooth="1"
+                        data-id="181957"
+                        class="c-btnbox"
+                        >S&#x1EA1;c pin nhanh</a
+                      >
+                    </div>
+                  </div>
+                  <div class="show-total-item count-item">
+                    <p class="show-total-txt">RAM</p>
+                    <div class="filter-list filter-list--ram props">
+                      <a
+                        href="dtdd-ram-2gb.html"
+                        data-smooth="1"
+                        data-id="37897"
+                        class="c-btnbox"
+                        >2 GB</a
+                      >
+                      <a
+                        href="dtdd-ram-3gb.html"
+                        data-smooth="1"
+                        data-id="41172"
+                        class="c-btnbox"
+                        >3 GB</a
+                      >
+                      <a
+                        href="dtdd-ram-4gb.html"
+                        data-smooth="1"
+                        data-id="46927"
+                        class="c-btnbox"
+                        >4 GB</a
+                      >
+                      <a
+                        href="dtdd-ram-6gb.html"
+                        data-smooth="1"
+                        data-id="52473"
+                        class="c-btnbox"
+                        >6 GB</a
+                      >
+                      <a
+                        href="dtdd-ram-8gb.html"
+                        data-smooth="1"
+                        data-id="55436"
+                        class="c-btnbox"
+                        >8 GB</a
+                      >
+                      <a
+                        href="dtdd-ram-12gb.html"
+                        data-smooth="1"
+                        data-id="136259"
+                        class="c-btnbox"
+                        >12 GB</a
+                      >
+                    </div>
+                  </div>
+                  <div class="show-total-item count-item">
+                    <p class="show-total-txt">B&#x1ED9; nh&#x1EDB; trong</p>
+                    <div class="filter-list filter-list--bo-nho-trong props">
+                      <a
+                        href="dtdd-rom-32gb.html"
+                        data-smooth="1"
+                        data-id="191"
+                        class="c-btnbox"
+                        >8 GB</a
+                      >
+                      <a
+                        href="dtdd-rom-32gb.html"
+                        data-smooth="1"
+                        data-id="192"
+                        class="c-btnbox"
+                        >16 GB</a
+                      >
+                      <a
+                        href="dtdd-rom-32gb.html"
+                        data-smooth="1"
+                        data-id="193"
+                        class="c-btnbox"
+                        >32 GB</a
+                      >
+                      <a
+                        href="dtdd-rom-64gb.html"
+                        data-smooth="1"
+                        data-id="21987"
+                        class="c-btnbox"
+                        >64 GB</a
+                      >
+                      <a
+                        href="dtdd-rom-128gb.html"
+                        data-smooth="1"
+                        data-id="43032"
+                        class="c-btnbox"
+                        >128 GB</a
+                      >
+                      <a
+                        href="dtdd-rom-256gb.html"
+                        data-smooth="1"
+                        data-id="58037"
+                        class="c-btnbox"
+                        >256 GB</a
+                      >
+                      <a
+                        href="dtdd-rom-512gb.html"
+                        data-smooth="1"
+                        data-id="105828"
+                        class="c-btnbox"
+                        >512 GB</a
+                      >
+                    </div>
+                  </div>
+                  <div class="show-total-item count-item">
+                    <p class="show-total-txt">Camera</p>
+                    <div class="filter-list filter-list--camera props">
+                      <a
+                        href="dtdd-camera-macro.html"
+                        data-smooth="1"
+                        data-id="163409"
+                        class="c-btnbox"
+                        >Ch&#x1EE5;p c&#x1EAD;n c&#x1EA3;nh (Macro)</a
+                      >
+                      <a
+                        href="dtdd-camera-goc-rong.html"
+                        data-smooth="1"
+                        data-id="140894"
+                        class="c-btnbox"
+                        >Ch&#x1EE5;p g&#xF3;c r&#x1ED9;ng</a
+                      >
+                      <a
+                        href="dtdd-camera-xoa-phong.html"
+                        data-smooth="1"
+                        data-id="140895"
+                        class="c-btnbox"
+                        >Ch&#x1EE5;p xo&#xE1; ph&#xF4;ng</a
+                      >
+                      <a
+                        href="dtdd-camera-zoom.html"
+                        data-smooth="1"
+                        data-id="140896"
+                        class="c-btnbox"
+                        >Ch&#x1EE5;p zoom xa</a
+                      >
+                    </div>
+                  </div>
+                  <div class="show-total-item count-item">
+                    <p class="show-total-txt">
+                      T&#xED;nh n&#x103;ng &#x111;&#x1EB7;c bi&#x1EC7;t
+                    </p>
+                    <div
+                      class="filter-list filter-list--tinh-nang-dac-biet props"
+                    >
+                      <a
+                        href="dtdd-5g.html"
+                        data-smooth="1"
+                        data-id="181958"
+                        class="c-btnbox"
+                        >H&#x1ED7; tr&#x1EE3; 5G</a
+                      >
+                      <a
+                        href="dtdd-bao-mat-khuon-mat.html"
+                        data-smooth="1"
+                        data-id="173170"
+                        class="c-btnbox"
+                        >B&#x1EA3;o m&#x1EAD;t khu&#xF4;n m&#x1EB7;t</a
+                      >
+                      <a
+                        href="dtdd-bao-mat-van-tay.html"
+                        data-smooth="1"
+                        data-id="173171"
+                        class="c-btnbox"
+                        >B&#x1EA3;o m&#x1EAD;t v&#xE2;n tay</a
+                      >
+                      <a
+                        href="dtdd-sac-khong-day.html"
+                        data-smooth="1"
+                        data-id="173173"
+                        class="c-btnbox"
+                        >S&#x1EA1;c kh&#xF4;ng d&#xE2;y</a
+                      >
+                      <a
+                        href="dtdd-chong-nuoc-bui.html"
+                        data-smooth="1"
+                        data-id="173174"
+                        class="c-btnbox"
+                        >Kh&#xE1;ng n&#x1B0;&#x1EDB;c, b&#x1EE5;i</a
+                      >
+                    </div>
+                  </div>
+                  <div class="show-total-item count-item">
+                    <p class="show-total-txt">Thi&#x1EBF;t k&#x1EBF;</p>
+                    <div class="filter-list filter-list--thiet-ke props">
+                      <a
+                        href="dtdd-man-hinh-tran-vien.html"
+                        data-smooth="1"
+                        data-id="140890"
+                        class="c-btnbox"
+                        >Tr&#xE0;n vi&#x1EC1;n</a
+                      >
+                      <a
+                        href="dtdd-mong-nhe.html"
+                        data-smooth="1"
+                        data-id="181955"
+                        class="c-btnbox"
+                        >M&#x1ECF;ng nh&#x1EB9;</a
+                      >
+                      <a
+                        href="dtdd-mat-lung-kinh.html"
+                        data-smooth="1"
+                        data-id="182026"
+                        class="c-btnbox"
+                        >M&#x1EB7;t l&#x1B0;ng k&#xED;nh</a
+                      >
+                    </div>
+                  </div>
+                  <div class="show-total-item count-item">
+                    <p class="show-total-txt">M&#xE0;n h&#xEC;nh</p>
+                    <div class="filter-list filter-list--man-hinh props">
+                      <a
+                        href="dtdd-nho-gon.html"
+                        data-smooth="1"
+                        data-id="163351"
+                        class="c-btnbox"
+                        >Nh&#x1ECF; g&#x1ECD;n d&#x1EC5; c&#x1EA7;m</a
+                      >
+                      <a
+                        href="dtdd-tu-6-inch-tro-len.html"
+                        data-smooth="1"
+                        data-id="181979"
+                        class="c-btnbox"
+                        >T&#x1EEB; 6 inch tr&#x1EDF; l&#xEA;n</a
+                      >
+                      <a
+                        href="dtdd-man-hinh-gap.html"
+                        data-smooth="1"
+                        data-id="197090"
+                        class="c-btnbox"
+                        >M&#xE0;n h&#xEC;nh g&#x1EAD;p</a
+                      >
+                    </div>
+                  </div>
+                  <div class="show-total-item child-filter hide">
+                    <p class="show-total-txt">Ch&#x1ECD;n theo d&#xF2;ng</p>
+                    <div class="filter-list filter-list--chon-theo-dong props">
+                      <a
+                        href="dtdd-a.html"
+                        data-smooth="1"
+                        data-id="176484"
+                        class="c-btnbox"
+                        >OPPO A</a
+                      >
+                      <a
+                        href="dtdd-reno.html"
+                        data-smooth="1"
+                        data-id="176486"
+                        class="c-btnbox"
+                        >OPPO Reno</a
+                      >
+                      <a
+                        href="dtdd-find-x.html"
+                        data-smooth="1"
+                        data-id="176487"
+                        class="c-btnbox"
+                        >OPPO Find X</a
+                      >
+                      <a
+                        href="dtdd-galaxy-z.html"
+                        data-smooth="1"
+                        data-id="176455"
+                        class="c-btnbox"
+                        >Galaxy Z (M&#xE0;n h&#xEC;nh g&#x1EAD;p)</a
+                      >
+                      <a
+                        href="dtdd-galaxy-note.html"
+                        data-smooth="1"
+                        data-id="176452"
+                        class="c-btnbox"
+                        >Galaxy Note</a
+                      >
+                      <a
+                        href="dtdd-galaxy-s.html"
+                        data-smooth="1"
+                        data-id="176453"
+                        class="c-btnbox"
+                        >Galaxy S</a
+                      >
+                      <a
+                        href="dtdd-galaxy-a.html"
+                        data-smooth="1"
+                        data-id="176454"
+                        class="c-btnbox"
+                        >Galaxy A</a
+                      >
+                      <a
+                        href="dtdd-galaxy-m.html"
+                        data-smooth="1"
+                        data-id="176456"
+                        class="c-btnbox"
+                        >Galaxy M</a
+                      >
+                      <a
+                        href="dtdd-redmi.html"
+                        data-smooth="1"
+                        data-id="176488"
+                        class="c-btnbox"
+                        >Xiaomi Redmi</a
+                      >
+                      <a
+                        href="dtdd-mi.html"
+                        data-smooth="1"
+                        data-id="176489"
+                        class="c-btnbox"
+                        >Xiaomi Mi</a
+                      >
+                      <a
+                        href="dtdd-poco.html"
+                        data-smooth="1"
+                        data-id="176490"
+                        class="c-btnbox"
+                        >Xiaomi POCO</a
+                      >
+                      <a
+                        href="dtdd-aris.html"
+                        data-smooth="1"
+                        data-id="180887"
+                        class="c-btnbox"
+                        >Vsmart Aris</a
+                      >
+                      <a
+                        href="dtdd-live.html"
+                        data-smooth="1"
+                        data-id="180888"
+                        class="c-btnbox"
+                        >Vsmart Live</a
+                      >
+                      <a
+                        href="dtdd-active.html"
+                        data-smooth="1"
+                        data-id="180892"
+                        class="c-btnbox"
+                        >Vsmart Active</a
+                      >
+                      <a
+                        href="dtdd-joy.html"
+                        data-smooth="1"
+                        data-id="180890"
+                        class="c-btnbox"
+                        >Vsmart Joy</a
+                      >
+                      <a
+                        href="dtdd-star.html"
+                        data-smooth="1"
+                        data-id="180891"
+                        class="c-btnbox"
+                        >Vsmart Star</a
+                      >
+                      <a
+                        href="dtdd-13-series.html"
+                        data-smooth="1"
+                        data-id="199629"
+                        class="c-btnbox"
+                        >iPhone 13 (Mini, Pro, Pro Max)</a
+                      >
+                      <a
+                        href="dtdd-12-series.html"
+                        data-smooth="1"
+                        data-id="180894"
+                        class="c-btnbox"
+                        >iPhone 12 (Mini, Pro, Pro Max)</a
+                      >
+                      <a
+                        href="dtdd-11-series.html"
+                        data-smooth="1"
+                        data-id="180897"
+                        class="c-btnbox"
+                        >iPhone 11</a
+                      >
+                      <a
+                        href="dtdd-v.html"
+                        data-smooth="1"
+                        data-id="180909"
+                        class="c-btnbox"
+                        >Vivo V</a
+                      >
+                      <a
+                        href="dtdd-y.html"
+                        data-smooth="1"
+                        data-id="180914"
+                        class="c-btnbox"
+                        >Vivo Y</a
+                      >
+                      <a
+                        href="dtdd-se-series.html"
+                        data-smooth="1"
+                        data-id="180904"
+                        class="c-btnbox"
+                        >iPhone SE</a
+                      >
+                      <a
+                        href="dtdd-xr-series.html"
+                        data-smooth="1"
+                        data-id="180902"
+                        class="c-btnbox"
+                        >iPhone Xr</a
+                      >
+                    </div>
+                  </div>
+
+                  <div class="bg-whitefix"></div>
+                  <div class="filter-button filter-button--total">
+                    <a href="javascript:void(0)" class="btn-filter-close"
+                      >Bỏ chọn</a
+                    >
+                    <a href="javascript:;" class="btn-filter-readmore"
+                      >Xem <b class="total-reloading"></b> kết quả</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="filter-item block-manu">
+              <div class="filter-item__title jsTitle">
+                <div class="arrow-filter"></div>
+                <span>Hãng</span>
+              </div>
+              <div class="filter-show">
+                <div class="filter-list filter-list--hang manu">
+                  <a
+                    href="dtdd-apple-iphone.html"
+                    class="c-btnbox filter-manu"
+                    data-href="apple-iphone"
+                    data-id="80"
+                    data-name="iPhone (Apple)"
+                  >
+                    <img
+                      src="../cdn.tgdd.vn/Brand/1/logo-iphone-220x48.png"
+                      width="68"
+                      height="30"
+                      alt="iPhone (Apple)"
+                    />
+                  </a>
+                  <a
+                    href="dtdd-samsung.html"
+                    class="c-btnbox filter-manu"
+                    data-href="samsung"
+                    data-id="2"
+                    data-name="Samsung"
+                  >
+                    <img
+                      src="../cdn.tgdd.vn/Brand/1/samsungnew-220x48-1.png"
+                      width="68"
+                      height="30"
+                      alt="Samsung"
+                    />
+                  </a>
+                  <a
+                    href="dtdd-oppo.html"
+                    class="c-btnbox filter-manu"
+                    data-href="oppo"
+                    data-id="1971"
+                    data-name="OPPO"
+                  >
+                    <img
+                      src="../cdn.tgdd.vn/Brand/1/OPPO42-b_5.jpg"
+                      width="68"
+                      height="30"
+                      alt="OPPO"
+                    />
+                  </a>
+                  <a
+                    href="dtdd-xiaomi.html"
+                    class="c-btnbox filter-manu"
+                    data-href="xiaomi"
+                    data-id="2235"
+                    data-name="Xiaomi"
+                  >
+                    <img
+                      src="../cdn.tgdd.vn/Brand/1/logo-xiaomi-220x48-5.png"
+                      width="68"
+                      height="30"
+                      alt="Xiaomi"
+                    />
+                  </a>
+                  <a
+                    href="dtdd-vivo.html"
+                    class="c-btnbox filter-manu"
+                    data-href="vivo"
+                    data-id="2236"
+                    data-name="Vivo"
+                  >
+                    <img
+                      src="../cdn.tgdd.vn/Brand/1/vivo-logo-220-220x48-3.png"
+                      width="68"
+                      height="30"
+                      alt="Vivo"
+                    />
+                  </a>
+                  <a
+                    href="dtdd-realme.html"
+                    class="c-btnbox filter-manu"
+                    data-href="realme"
+                    data-id="17201"
+                    data-name="Realme"
+                  >
+                    <img
+                      src="../cdn.tgdd.vn/Brand/1/Realme42-b_37.png"
+                      width="68"
+                      height="30"
+                      alt="Realme"
+                    />
+                  </a>
+                  <a
+                    href="dtdd-nokia.html"
+                    class="c-btnbox filter-manu"
+                    data-href="nokia"
+                    data-id="1"
+                    data-name="Nokia"
+                  >
+                    <img
+                      src="../cdn.tgdd.vn/Brand/1/Nokia42-b_21.jpg"
+                      width="68"
+                      height="30"
+                      alt="Nokia"
+                    />
+                  </a>
+                  <a
+                    href="dtdd-itel.html"
+                    class="c-btnbox filter-manu"
+                    data-href="itel"
+                    data-id="5332"
+                    data-name="Itel"
+                  >
+                    <img
+                      src="../cdn.tgdd.vn/Brand/1/Itel42-b_54.jpg"
+                      width="68"
+                      height="30"
+                      alt="Itel"
+                    />
+                  </a>
+                  <a
+                    href="dtdd-masstel.html"
+                    class="c-btnbox filter-manu"
+                    data-href="masstel"
+                    data-id="4832"
+                    data-name="Masstel"
+                  >
+                    <img
+                      src="../cdn.tgdd.vn/Brand/1/Masstel42-b_0.png"
+                      width="68"
+                      height="30"
+                      alt="Masstel"
+                    />
+                  </a>
+                </div>
+                <div class="filter-button">
+                  <a href="javascript:void(0)" class="btn-filter-close"
+                    >Bỏ chọn</a
+                  >
+                  <a href="#" class="btn-filter-readmore"
+                    >Xem <b class="total-reloading"></b> kết quả</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="filter-item warpper-price-outside">
+              <div class="filter-item__title jsTitle">
+                <div class="arrow-filter"></div>
+                <span>Giá</span>
+              </div>
+              <div class="filter-show">
+                <div class="filter-list price">
+                  <a
+                    href="dtdd9253.html?p=duoi-2-trieu"
+                    data-href="duoi-2-trieu"
+                    class="c-btnbox"
+                    data-id="7"
+                    >D&#x1B0;&#x1EDB;i 2 tri&#x1EC7;u</a
+                  >
+                  <a
+                    href="dtdd91d8.html?p=tu-2-4-trieu"
+                    data-href="tu-2-4-trieu"
+                    class="c-btnbox"
+                    data-id="9"
+                    >T&#x1EEB; 2 - 4 tri&#x1EC7;u</a
+                  >
+                  <a
+                    href="dtdd1ec6.html?p=tu-4-7-trieu"
+                    data-href="tu-4-7-trieu"
+                    class="c-btnbox"
+                    data-id="289"
+                    >T&#x1EEB; 4 - 7 tri&#x1EC7;u</a
+                  >
+                  <a
+                    href="dtdd7e6a.html?p=tu-7-13-trieu"
+                    data-href="tu-7-13-trieu"
+                    class="c-btnbox"
+                    data-id="562"
+                    >T&#x1EEB; 7 - 13 tri&#x1EC7;u</a
+                  >
+                  <a
+                    href="dtdd2ccb.html?p=tu-13-20-trieu"
+                    data-href="tu-13-20-trieu"
+                    class="c-btnbox"
+                    data-id="252"
+                    >T&#x1EEB; 13 - 20 tri&#x1EC7;u</a
+                  >
+                  <a
+                    href="dtdd2bf5.html?p=tren-20-trieu"
+                    data-href="tren-20-trieu"
+                    class="c-btnbox"
+                    data-id="253"
+                    >Tr&#xEA;n 20 tri&#x1EC7;u</a
+                  >
+                </div>
+
+                <div class="filter-button">
+                  <a href="javascript:void(0)" class="btn-filter-close"
+                    >Bỏ chọn</a
+                  >
+                  <a href="javascript:filterPros();" class="btn-filter-readmore"
+                    >Xem <b class="total-reloading"></b> kết quả</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="filter-item" propertyID="6060">
+              <div
+                class="filter-item__title jsTitle noselecttext"
+                data-textorg="Lo&#x1EA1;i &#x111;i&#x1EC7;n tho&#x1EA1;i"
+              >
+                <div class="arrow-filter"></div>
+                <span>Lo&#x1EA1;i &#x111;i&#x1EC7;n tho&#x1EA1;i</span>
+              </div>
+
+              <div class="filter-show">
+                <div class="filter-list props">
+                  <a
+                    href="dtdde60e.html?g=android"
+                    data-order="3"
+                    data-tooltip=""
+                    data-smooth="0"
+                    data-href="android"
+                    data-id="39237"
+                    class="c-btnbox"
+                    >Android</a
+                  >
+                  <a
+                    href="dtdd83af.html?g=iphone-ios"
+                    data-order="4"
+                    data-tooltip=""
+                    data-smooth="0"
+                    data-href="iphone-ios"
+                    data-id="39238"
+                    class="c-btnbox"
+                    >iPhone (iOS)</a
+                  >
+                  <a
+                    href="dtdd1531.html?g=dien-thoai-pho-thong"
+                    data-order="5"
+                    data-tooltip=""
+                    data-smooth="0"
+                    data-href="dien-thoai-pho-thong"
+                    data-id="62879"
+                    class="c-btnbox"
+                    >&#x110;i&#x1EC7;n tho&#x1EA1;i ph&#x1ED5; th&#xF4;ng</a
+                  >
+                </div>
+                <div class="filter-button">
+                  <a href="javascript:void(0)" class="btn-filter-close"
+                    >Bỏ chọn</a
+                  >
+                  <a href="javascript:filterPros();" class="btn-filter-readmore"
+                    >Xem <b class="total-reloading"></b> kết quả</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="filter-item" propertyID="9006">
+              <div
+                class="filter-item__title jsTitle noselecttext"
+                data-textorg="Hi&#x1EC7;u n&#x103;ng &amp; Pin"
+              >
+                <div class="arrow-filter"></div>
+                <span>Hi&#x1EC7;u n&#x103;ng &amp; Pin</span>
+              </div>
+
+              <div class="filter-show">
+                <div class="filter-list props">
+                  <a
+                    href="dtdd-choi-game.html"
+                    data-order="3"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="choi-game"
+                    data-id="181956"
+                    class="c-btnbox"
+                    >Ch&#x1A1;i game / C&#x1EA5;u h&#xEC;nh cao</a
+                  >
+                  <a
+                    href="dtdd-pin-khung.html"
+                    data-order="5"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="pin-khung"
+                    data-id="163467"
+                    class="c-btnbox"
+                    >Pin kh&#x1EE7;ng tr&#xEA;n 5000 mAh</a
+                  >
+                  <a
+                    href="dtdd-sac-pin-nhanh.html"
+                    data-order="6"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="sac-pin-nhanh"
+                    data-id="181957"
+                    class="c-btnbox"
+                    >S&#x1EA1;c pin nhanh</a
+                  >
+                </div>
+                <div class="filter-button">
+                  <a href="javascript:void(0)" class="btn-filter-close"
+                    >Bỏ chọn</a
+                  >
+                  <a href="javascript:filterPros();" class="btn-filter-readmore"
+                    >Xem <b class="total-reloading"></b> kết quả</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="filter-item" propertyID="50">
+              <div
+                class="filter-item__title jsTitle noselecttext"
+                data-textorg="RAM"
+              >
+                <div class="arrow-filter"></div>
+                <span>RAM</span>
+              </div>
+
+              <div class="filter-show">
+                <div class="filter-list props">
+                  <a
+                    href="dtdd-ram-2gb.html"
+                    data-order="10"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="ram-2gb"
+                    data-id="37897"
+                    class="c-btnbox"
+                    >2 GB</a
+                  >
+                  <a
+                    href="dtdd-ram-3gb.html"
+                    data-order="15"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="ram-3gb"
+                    data-id="41172"
+                    class="c-btnbox"
+                    >3 GB</a
+                  >
+                  <a
+                    href="dtdd-ram-4gb.html"
+                    data-order="20"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="ram-4gb"
+                    data-id="46927"
+                    class="c-btnbox"
+                    >4 GB</a
+                  >
+                  <a
+                    href="dtdd-ram-6gb.html"
+                    data-order="25"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="ram-6gb"
+                    data-id="52473"
+                    class="c-btnbox"
+                    >6 GB</a
+                  >
+                  <a
+                    href="dtdd-ram-8gb.html"
+                    data-order="30"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="ram-8gb"
+                    data-id="55436"
+                    class="c-btnbox"
+                    >8 GB</a
+                  >
+                  <a
+                    href="dtdd-ram-12gb.html"
+                    data-order="35"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="ram-12gb"
+                    data-id="136259"
+                    class="c-btnbox"
+                    >12 GB</a
+                  >
+                </div>
+                <div class="filter-button">
+                  <a href="javascript:void(0)" class="btn-filter-close"
+                    >Bỏ chọn</a
+                  >
+                  <a href="javascript:filterPros();" class="btn-filter-readmore"
+                    >Xem <b class="total-reloading"></b> kết quả</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="filter-item" propertyID="49">
+              <div
+                class="filter-item__title jsTitle noselecttext"
+                data-textorg="B&#x1ED9; nh&#x1EDB; trong"
+              >
+                <div class="arrow-filter"></div>
+                <span>B&#x1ED9; nh&#x1EDB; trong</span>
+              </div>
+
+              <div class="filter-show">
+                <div class="filter-list props">
+                  <a
+                    href="dtdd-rom-32gb.html"
+                    data-order="5"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="rom-8gb"
+                    data-id="191"
+                    class="c-btnbox"
+                    >8 GB</a
+                  >
+                  <a
+                    href="dtdd-rom-32gb.html"
+                    data-order="10"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="rom-16gb"
+                    data-id="192"
+                    class="c-btnbox"
+                    >16 GB</a
+                  >
+                  <a
+                    href="dtdd-rom-32gb.html"
+                    data-order="15"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="rom-32gb"
+                    data-id="193"
+                    class="c-btnbox"
+                    >32 GB</a
+                  >
+                  <a
+                    href="dtdd-rom-64gb.html"
+                    data-order="20"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="rom-64gb"
+                    data-id="21987"
+                    class="c-btnbox"
+                    >64 GB</a
+                  >
+                  <a
+                    href="dtdd-rom-128gb.html"
+                    data-order="25"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="rom-128gb"
+                    data-id="43032"
+                    class="c-btnbox"
+                    >128 GB</a
+                  >
+                  <a
+                    href="dtdd-rom-256gb.html"
+                    data-order="30"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="rom-256gb"
+                    data-id="58037"
+                    class="c-btnbox"
+                    >256 GB</a
+                  >
+                  <a
+                    href="dtdd-rom-512gb.html"
+                    data-order="35"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="rom-512gb"
+                    data-id="105828"
+                    class="c-btnbox"
+                    >512 GB</a
+                  >
+                </div>
+                <div class="filter-button">
+                  <a href="javascript:void(0)" class="btn-filter-close"
+                    >Bỏ chọn</a
+                  >
+                  <a href="javascript:filterPros();" class="btn-filter-readmore"
+                    >Xem <b class="total-reloading"></b> kết quả</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="filter-item" propertyID="19879">
+              <div
+                class="filter-item__title jsTitle noselecttext"
+                data-textorg="Camera"
+              >
+                <div class="arrow-filter"></div>
+                <span>Camera</span>
+              </div>
+
+              <div class="filter-show">
+                <div class="filter-list props">
+                  <a
+                    href="dtdd-camera-macro.html"
+                    data-order="3"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="camera-macro"
+                    data-id="163409"
+                    class="c-btnbox"
+                    >Ch&#x1EE5;p c&#x1EAD;n c&#x1EA3;nh (Macro)</a
+                  >
+                  <a
+                    href="dtdd-camera-goc-rong.html"
+                    data-order="4"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="camera-goc-rong"
+                    data-id="140894"
+                    class="c-btnbox"
+                    >Ch&#x1EE5;p g&#xF3;c r&#x1ED9;ng</a
+                  >
+                  <a
+                    href="dtdd-camera-xoa-phong.html"
+                    data-order="5"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="camera-xoa-phong"
+                    data-id="140895"
+                    class="c-btnbox"
+                    >Ch&#x1EE5;p xo&#xE1; ph&#xF4;ng</a
+                  >
+                  <a
+                    href="dtdd-camera-zoom.html"
+                    data-order="6"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="camera-zoom"
+                    data-id="140896"
+                    class="c-btnbox"
+                    >Ch&#x1EE5;p zoom xa</a
+                  >
+                </div>
+                <div class="filter-button">
+                  <a href="javascript:void(0)" class="btn-filter-close"
+                    >Bỏ chọn</a
+                  >
+                  <a href="javascript:filterPros();" class="btn-filter-readmore"
+                    >Xem <b class="total-reloading"></b> kết quả</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="filter-item" propertyID="25379">
+              <div
+                class="filter-item__title jsTitle noselecttext"
+                data-textorg="T&#xED;nh n&#x103;ng &#x111;&#x1EB7;c bi&#x1EC7;t"
+              >
+                <div class="arrow-filter"></div>
+                <span>T&#xED;nh n&#x103;ng &#x111;&#x1EB7;c bi&#x1EC7;t</span>
+              </div>
+
+              <div class="filter-show">
+                <div class="filter-list props">
+                  <a
+                    href="dtdd-5g.html"
+                    data-order="3"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="5g"
+                    data-id="181958"
+                    class="c-btnbox"
+                    >H&#x1ED7; tr&#x1EE3; 5G</a
+                  >
+                  <a
+                    href="dtdd-bao-mat-khuon-mat.html"
+                    data-order="4"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="bao-mat-khuon-mat"
+                    data-id="173170"
+                    class="c-btnbox"
+                    >B&#x1EA3;o m&#x1EAD;t khu&#xF4;n m&#x1EB7;t</a
+                  >
+                  <a
+                    href="dtdd-bao-mat-van-tay.html"
+                    data-order="5"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="bao-mat-van-tay"
+                    data-id="173171"
+                    class="c-btnbox"
+                    >B&#x1EA3;o m&#x1EAD;t v&#xE2;n tay</a
+                  >
+                  <a
+                    href="dtdd-sac-khong-day.html"
+                    data-order="7"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="sac-khong-day"
+                    data-id="173173"
+                    class="c-btnbox"
+                    >S&#x1EA1;c kh&#xF4;ng d&#xE2;y</a
+                  >
+                  <a
+                    href="dtdd-chong-nuoc-bui.html"
+                    data-order="8"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="chong-nuoc-bui"
+                    data-id="173174"
+                    class="c-btnbox"
+                    >Kh&#xE1;ng n&#x1B0;&#x1EDB;c, b&#x1EE5;i</a
+                  >
+                </div>
+                <div class="filter-button">
+                  <a href="javascript:void(0)" class="btn-filter-close"
+                    >Bỏ chọn</a
+                  >
+                  <a href="javascript:filterPros();" class="btn-filter-readmore"
+                    >Xem <b class="total-reloading"></b> kết quả</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="filter-item" propertyID="19878">
+              <div
+                class="filter-item__title jsTitle noselecttext"
+                data-textorg="Thi&#x1EBF;t k&#x1EBF;"
+              >
+                <div class="arrow-filter"></div>
+                <span>Thi&#x1EBF;t k&#x1EBF;</span>
+              </div>
+
+              <div class="filter-show">
+                <div class="filter-list props">
+                  <a
+                    href="dtdd-man-hinh-tran-vien.html"
+                    data-order="3"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="man-hinh-tran-vien"
+                    data-id="140890"
+                    class="c-btnbox"
+                    >Tr&#xE0;n vi&#x1EC1;n</a
+                  >
+                  <a
+                    href="dtdd-mong-nhe.html"
+                    data-order="4"
+                    data-tooltip="M&#x1ECF;ng [26720], [100]"
+                    data-smooth="1"
+                    data-href="mong-nhe"
+                    data-id="181955"
+                    class="c-btnbox"
+                    >M&#x1ECF;ng nh&#x1EB9;</a
+                  >
+                  <a
+                    href="dtdd-mat-lung-kinh.html"
+                    data-order="5"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="mat-lung-kinh"
+                    data-id="182026"
+                    class="c-btnbox"
+                    >M&#x1EB7;t l&#x1B0;ng k&#xED;nh</a
+                  >
+                </div>
+                <div class="filter-button">
+                  <a href="javascript:void(0)" class="btn-filter-close"
+                    >Bỏ chọn</a
+                  >
+                  <a href="javascript:filterPros();" class="btn-filter-readmore"
+                    >Xem <b class="total-reloading"></b> kết quả</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="filter-item" propertyID="6240">
+              <div
+                class="filter-item__title jsTitle noselecttext"
+                data-textorg="M&#xE0;n h&#xEC;nh"
+              >
+                <div class="arrow-filter"></div>
+                <span>M&#xE0;n h&#xEC;nh</span>
+              </div>
+
+              <div class="filter-show">
+                <div class="filter-list props">
+                  <a
+                    href="dtdd-nho-gon.html"
+                    data-order="3"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="nho-gon"
+                    data-id="163351"
+                    class="c-btnbox"
+                    >Nh&#x1ECF; g&#x1ECD;n d&#x1EC5; c&#x1EA7;m</a
+                  >
+                  <a
+                    href="dtdd-tu-6-inch-tro-len.html"
+                    data-order="4"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="tu-6-inch-tro-len"
+                    data-id="181979"
+                    class="c-btnbox"
+                    >T&#x1EEB; 6 inch tr&#x1EDF; l&#xEA;n</a
+                  >
+                  <a
+                    href="dtdd-man-hinh-gap.html"
+                    data-order="5"
+                    data-tooltip=""
+                    data-smooth="1"
+                    data-href="man-hinh-gap"
+                    data-id="197090"
+                    class="c-btnbox"
+                    >M&#xE0;n h&#xEC;nh g&#x1EAD;p</a
+                  >
+                </div>
+                <div class="filter-button">
+                  <a href="javascript:void(0)" class="btn-filter-close"
+                    >Bỏ chọn</a
+                  >
+                  <a href="javascript:filterPros();" class="btn-filter-readmore"
+                    >Xem <b class="total-reloading"></b> kết quả</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="box-quicklink block-scroll-main">
+          <div class="lst-quickfilter q-manu">
+            <a
+              href="dtdd-apple-iphone.html"
+              data-href="dtdd-apple-iphone"
+              data-index="0"
+              class="box-quicklink__item bd-radius quicklink-logo"
+            >
+              <img
+                src="../cdn.tgdd.vn/Brand/1/logo-iphone-220x48.png"
+                width="30"
+                class="no-text"
+              />
+            </a>
+            <a
+              href="dtdd-samsung.html"
+              data-href="dtdd-samsung"
+              data-index="0"
+              class="box-quicklink__item bd-radius quicklink-logo"
+            >
+              <img
+                src="../cdn.tgdd.vn/Brand/1/samsungnew-220x48-1.png"
+                width="30"
+                class="no-text"
+              />
+            </a>
+            <a
+              href="dtdd-oppo.html"
+              data-href="dtdd-oppo"
+              data-index="0"
+              class="box-quicklink__item bd-radius quicklink-logo"
+            >
+              <img
+                src="../cdn.tgdd.vn/Brand/1/OPPO42-b_5.jpg"
+                width="30"
+                class="no-text"
+              />
+            </a>
+            <a
+              href="dtdd-xiaomi.html"
+              data-href="dtdd-xiaomi"
+              data-index="0"
+              class="box-quicklink__item bd-radius quicklink-logo"
+            >
+              <img
+                src="../cdn.tgdd.vn/Brand/1/logo-xiaomi-220x48-5.png"
+                width="30"
+                class="no-text"
+              />
+            </a>
+            <a
+              href="dtdd-vivo.html"
+              data-href="dtdd-vivo"
+              data-index="0"
+              class="box-quicklink__item bd-radius quicklink-logo"
+            >
+              <img
+                src="../cdn.tgdd.vn/Brand/1/vivo-logo-220-220x48-3.png"
+                width="30"
+                class="no-text"
+              />
+            </a>
+            <a
+              href="dtdd-realme.html"
+              data-href="dtdd-realme"
+              data-index="0"
+              class="box-quicklink__item bd-radius quicklink-logo"
+            >
+              <img
+                src="../cdn.tgdd.vn/Brand/1/Realme42-b_37.png"
+                width="30"
+                class="no-text"
+              />
+            </a>
+            <a
+              href="dtdd-nokia.html"
+              data-href="dtdd-nokia"
+              data-index="0"
+              class="box-quicklink__item bd-radius quicklink-logo"
+            >
+              <img
+                src="../cdn.tgdd.vn/Brand/1/Nokia42-b_21.jpg"
+                width="30"
+                class="no-text"
+              />
+            </a>
+            <a
+              href="dtdd-itel.html"
+              data-href="dtdd-itel"
+              data-index="0"
+              class="box-quicklink__item bd-radius quicklink-logo"
+            >
+              <img
+                src="../cdn.tgdd.vn/Brand/1/Itel42-b_54.jpg"
+                width="30"
+                class="no-text"
+              />
+            </a>
+            <a
+              href="dtdd-masstel.html"
+              data-href="dtdd-masstel"
+              data-index="0"
+              class="box-quicklink__item bd-radius quicklink-logo"
+            >
+              <img
+                src="../cdn.tgdd.vn/Brand/1/Masstel42-b_0.png"
+                width="30"
+                class="no-text"
+              />
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- End -->
+  </body>
+</html>

@@ -1,0 +1,61 @@
+t<!DOCTYPE html>
+<html
+  lang="vi-VN"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{admin/layout-admin.html}"
+>
+  <!-- Main Content -->
+  <div layout:fragment="content" class="content-wrapper">
+    <!-- Order List  -->
+    <div class="row">
+      <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Order List</h3>
+            <p class="card-description">View List Order Here</p>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name User</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="order : ${orders}">
+                    <td class="py-1" th:text="${order.id}"></td>
+                    <td class="py-1" th:text="${order.member}"></td>
+                    <td class="py-1" th:text="${order.product}"></td>
+                    <td class="py-1" th:text="${order.originalPrice}"></td>
+                    <td class="py-1" th:text="${order.quantity}"></td>
+                    <td>
+                      <button class="btn btn-inverse-info btn-icon btn-sm">
+                        <a href="#" alt="edit">
+                          <i class="mdi mdi-grease-pencil"></i>
+                        </a>
+                      </button>
+                      <button
+                        class="btn btn-inverse-danger btn-icon btn-sm btn-sm"
+                      >
+                        <a href="#" alt="remove">
+                          <i class="mdi mdi-delete-forever"></i>
+                        </a>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Order List  -->
+  </div>
+  <!-- End Main Content -->
+</html>

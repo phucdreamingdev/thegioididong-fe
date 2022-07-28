@@ -1,0 +1,164 @@
+t<!DOCTYPE html>
+<html
+  lang="vi-VN"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{admin/layout-admin.html}"
+>
+  <!-- Main Content -->
+  <div layout:fragment="content" class="content-wrapper">
+    <div class="row">
+      <div class="col-12 grid-margin">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Add Branch Category</h3>
+            <form class="form-sample">
+              <p class="card-description">Add new Branch here</p>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Name</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Parent Name</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Level</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Parent</label>
+                    <div class="col-sm-4">
+                      <div class="form-check form-check-success">
+                        <label class="form-check-label">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="membershipRadios"
+                            id="membershipRadios1"
+                            value="option1"
+                            checked
+                          />
+                          Yes
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-sm-5">
+                      <div class="form-check form-check-danger">
+                        <label class="form-check-label">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="membershipRadios"
+                            id="membershipRadios2"
+                            value="option2"
+                          />
+                          No
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label"
+                      >Children Level</label
+                    >
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Status</label>
+                    <div class="col-sm-4">
+                      <div class="form-check form-check-success">
+                        <label class="form-check-label">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="membershipRadios"
+                            id="membershipRadios3"
+                            value="option1"
+                            checked
+                          />
+                          Active
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-sm-5">
+                      <div class="form-check form-check-danger">
+                        <label class="form-check-label">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="membershipRadios"
+                            id="membershipRadios4"
+                            value="option2"
+                          />
+                          Not Active
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label"
+                      >File Logo Upload</label
+                    >
+                    <input
+                      type="file"
+                      name="img[]"
+                      class="file-upload-default"
+                    />
+                    <div class="input-group col-sm-12">
+                      <input
+                        type="text"
+                        class="form-control file-upload-info"
+                        disabled
+                        placeholder="Upload Image"
+                      />
+                      <span class="input-group-append">
+                        <button
+                          class="file-upload-browse btn btn-primary"
+                          type="button"
+                        >
+                          Upload
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-success mr-2">Submit</button>
+              <button class="btn btn-secondary">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Main Content -->
+</html>

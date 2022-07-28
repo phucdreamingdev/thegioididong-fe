@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html
+  lang="vi-VN"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{/layout.html}"
+>
+  <head>
+    <link rel="stylesheet" th:href="@{/css/history-login.css}" />
+  </head>
+  <!-- Tra Cuu Don Hang -->
+  <section layout:fragment="content" class="wrapper login">
+    <input
+      name="__RequestVerificationToken"
+      type="hidden"
+      value="CfDJ8NWrZ30VhyxJm_fyyCNlLpL6oHW29mjyWOtrFcjOEIdjkhf3Rhj1Hu6frWsSA8tKKimOEfC2OeUGulw8J0YC1fPLrIuxW0c7z7hmqJaDq3R49kRVh7oKLEHODj1hy7J_Mjo2HC3R9aBkKIONYK7tJ4g"
+    />
+    <div class="d2 step2">
+      <span class="s1">Mã xác nhận đã được gửi đến số điện thoại <b></b></span>
+      <span class="s2 hide">Mã xác nhận đã được gửi lại</span>
+      <form id="frmSubmitVerifyCode" onsubmit="return SubmitVerifyCode()" method="post">
+        <input
+          type="tel"
+          name="otp"
+          placeholder="Nhập mã xác nhận gồm 4 chữ số"
+          maxlength="4"
+          autocomplete="one-time-code"
+        />
+        <label class="hide"></label>
+        <button type="submit" class="btn">Tiếp tục</button>
+      </form>
+      <a class="resend-sms" href="javascript:"></a>
+      <a href="javascript:void(0)" onclick="changeNum()" class="btnChangeNum"
+        >Thay đổi số điện thoại</a
+      >
+    </div>
+  </section>
+  <!-- End -->
+</html>
