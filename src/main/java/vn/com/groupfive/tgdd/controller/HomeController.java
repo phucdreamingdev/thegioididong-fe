@@ -111,6 +111,9 @@ public class HomeController {
 		return "fragments/login-otp";
 	}
 
+
+
+
 	@RequestMapping("/lich-su-don-hang")
 	public String historyProduct() {
 		return "fragments/history-products";
@@ -125,7 +128,6 @@ public class HomeController {
 	public String productDetail(@PathVariable("id") Long id, Model model) {
 		String resourceProduct = "http://localhost:8001/customer/get-product-slim-by-id" + "/" + id;
 		ResponseEntity<Object> product = restTemplate.getForEntity(resourceProduct, Object.class);
-
 		model.addAttribute("product", product.getBody());
 		return "fragments/product-detail";
 	}
