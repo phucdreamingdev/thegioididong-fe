@@ -25,7 +25,7 @@ public class HomeController {
 		model.addAttribute("products", productsResponse.getBody());
 		return "fragments/all-products";
 	}
-	
+
 	@RequestMapping(value = "/category/{id}")
 	public String getProductByCategorId(@PathVariable("id") Long categoryId, Model model) {
 		String resourceProduct = "http://localhost:8001/customer/get-all-products-by-category-id" + "/" + categoryId;
@@ -54,15 +54,15 @@ public class HomeController {
 		ResponseEntity<Object> response2 = restTemplate.getForEntity(resourceUrl2, Object.class);
 		return response2.getBody();
 	}
-	
-	//This attribute use for format price in VNĐ
+
+	// This attribute use for format price in VNĐ
 	@ModelAttribute("priceFormatter")
-	public NumberFormat formatPrice () {
+	public NumberFormat formatPrice() {
 		Locale localeVN = new Locale("vi", "VN");
 		NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
 		return currencyVN;
 	}
-	
+
 	@RequestMapping("/cart")
 	public String cart() {
 		return "fragments/cart";
@@ -82,11 +82,13 @@ public class HomeController {
 	public String login() {
 		return "fragments/login-history";
 	}
+
 	@RequestMapping("/lich-su-mua-hang/dang-nhap/otp")
-	public String loginOTP(){
+	public String loginOTP() {
 		return "fragments/login-otp";
 
 	}
+
 	@RequestMapping("/lich-su-don-hang")
 	public String historyProduct() {
 		return "fragments/history-products";
@@ -96,12 +98,11 @@ public class HomeController {
 	public String profile() {
 		return "fragments/profile";
 	}
-	
+
 	@RequestMapping("/product-detail/{id}")
 	public String productDetail(@PathVariable("id") Long id, Model model) {
 		String resourceProduct = "http://localhost:8001/customer/get-product-slim-by-id" + "/" + id;
 		ResponseEntity<Object> product = restTemplate.getForEntity(resourceProduct, Object.class);
-		
 		model.addAttribute("product", product.getBody());
 		return "fragments/product-detail";
 	}
