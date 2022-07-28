@@ -89,30 +89,27 @@ public class HomeController {
 	public String login() {
 		return "fragments/login-history";
 	}
-	
+
 	@RequestMapping(value = "/lich-su-mua-hang/dang-nhap", method = RequestMethod.POST)
 	public String loginOTPRedirect(@RequestParam(name = "phone") String phone) {
-		//Set header type for request header
+		// Set header type for request header
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-		
-		MultiValueMap<String, String> map= new LinkedMultiValueMap<String, String>();
+
+		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
 		map.add("phone", phone);
-		
-		HttpEntity<MultiValueMap<String, String>> request = 
-				new HttpEntity<MultiValueMap<String, String>>(map, headers);
+
+		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(map, headers);
 		String url = "http://localhost:8001/customer/sendotp";
-		
-		ResponseEntity<String> response = restTemplate.postForEntity( url, request , String.class );
+
+		ResponseEntity<String> response = restTemplate.postForEntity(url, request, String.class);
 		return "redirect:/lich-su-mua-hang/dang-nhap/otp";
 	}
+
 	@RequestMapping("/lich-su-mua-hang/dang-nhap/otp")
 	public String loginOTP() {
 		return "fragments/login-otp";
 	}
-
-
-
 
 	@RequestMapping("/lich-su-don-hang")
 	public String historyProduct() {
