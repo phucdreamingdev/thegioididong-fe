@@ -19,7 +19,7 @@ public class HomeController {
 	RestTemplate restTemplate;
 
 	@RequestMapping(value = "/")
-	public String category(Model model) {
+	public String getAllProduct(Model model) {
 		String resourceProductUrl = "http://localhost:8001/customer/get-all-products";
 		ResponseEntity<Object> productsResponse = restTemplate.getForEntity(resourceProductUrl, Object.class);
 		model.addAttribute("products", productsResponse.getBody());
@@ -78,11 +78,15 @@ public class HomeController {
 		return "fragments/product-detail";
 	}
 
-	@RequestMapping("/lich-su-don-hang/dang-nhap")
+	@RequestMapping("/lich-su-mua-hang/dang-nhap")
 	public String login() {
 		return "fragments/login-history";
 	}
+	@RequestMapping("/lich-su-mua-hang/dang-nhap/otp")
+	public String loginOTP(){
+		return "fragments/login-otp";
 
+	}
 	@RequestMapping("/lich-su-don-hang")
 	public String historyProduct() {
 		return "fragments/history-products";
