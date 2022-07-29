@@ -35,7 +35,7 @@
 
     <div class="box_main">
       <div class="box_left">
-        <div class="box01">
+        <!-- <div class="box01">
           <div class="box01__show">
             <div
               class="show-tab active"
@@ -1705,24 +1705,26 @@
         </div>
 
         <div class="box-available"></div>
-        <div class="border7"></div>
+        <div class="border7"></div> -->
 
         <div class="img-main">
           <img
             class="lazyloaded"
             data-src="//cdn.tgdd.vn/Products/Images/42/235838/Kit/samsung-galaxy-s22-ultra-note.jpg"
             alt="Điện thoại Samsung Galaxy S22 Ultra 5G 128GB"
-            src="https://cdn.tgdd.vn/Products/Images/42/235838/Kit/samsung-galaxy-s22-ultra-note.jpg"
+            th:src="${productDetails.avartar}"
           />
         </div>
       </div>
+
       <div class="box_right">
         <div class="scrolling_inner scroll-right">
           <div class="box03 group desk">
             <a
               href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-ultra"
               data-index="0"
-              class="box03__item item act"	th:text="${productDetails.version.name}"
+              class="box03__item item act"
+              th:text="${productDetails.version.name}"
               >8GB - 128GB</a
             >
           </div>
@@ -1734,17 +1736,22 @@
               href="https://www.thegioididong.com/dtdd/samsung-galaxy-s22-ultra?code=0131491002959"
               data-color="2"
               data-code="0131491002959"
-              class="box03__item item act"	th:text="${productDetails.color.name}"
+              class="box03__item item act"
+              th:text="${productDetails.color.name}"
               >Đỏ</a
             >
-
           </div>
         </div>
 
         <div class="box04 box_normal">
           <div class="price-one">
             <div class="box-price">
-              <p class="box-price-present" th:text="${priceFormatter.format(productDetails.price)}">27.990.000₫</p>
+              <p
+                class="box-price-present"
+                th:text="${priceFormatter.format(productDetails.price)}"
+              >
+                27.990.000₫
+              </p>
             </div>
           </div>
 
@@ -1756,7 +1763,10 @@
         </div>
         <div class="border7"></div>
 
-        <p class="parameter__title">
+        <p
+          class="parameter__title"
+          th:text="'Cấu hình ' + ${productDetails.name}"
+        >
           Cấu hình Điện thoại Samsung Galaxy S22 Ultra 5G 128GB
         </p>
         <div class="parameter">
