@@ -28,6 +28,7 @@ public class HomeController {
 	@Autowired
 	RestTemplate restTemplate;
 
+	// Get All Products
 	@RequestMapping(value = "/")
 	public String getAllProduct(Model model) {
 		String resourceProductUrl = "http://localhost:8001/customer/get-all-products-new";
@@ -36,6 +37,7 @@ public class HomeController {
 		return "fragments/all-products";
 	}
 
+	// Get Product By Caterogy
 	@RequestMapping(value = "/category/{id}")
 	public String getProductByCategorId(@PathVariable("id") Long categoryId, Model model) {
 		String resourceProduct = "http://localhost:8001/customer/get-all-products-by-category-id-new" + "/"
@@ -45,6 +47,7 @@ public class HomeController {
 		return "fragments/all-products";
 	}
 
+	// Get Category Level 0
 	@ModelAttribute("categoriesLevel0")
 	public Object response0() {
 		String resourceUrl0 = "http://localhost:8001/customer/get-all-category-by-level/0";
@@ -52,6 +55,7 @@ public class HomeController {
 		return response0.getBody();
 	}
 
+	// Get Category Level 1
 	@ModelAttribute("categoriesLevel1")
 	public Object response1() {
 		String resourceUrl1 = "http://localhost:8001/customer/get-all-category-by-level/1";
@@ -59,6 +63,7 @@ public class HomeController {
 		return response1.getBody();
 	}
 
+	// Get Category Level 2
 	@ModelAttribute("categoriesLevel2")
 	public Object response2() {
 		String resourceUrl2 = "http://localhost:8001/customer/get-all-category-by-level/2";
@@ -94,8 +99,8 @@ public class HomeController {
 		return "fragments/login-history";
 	}
 
+	// Login by Phone Number
 	@RequestMapping(value = "/lich-su-mua-hang/dang-nhap", method = RequestMethod.POST)
-
 	public String loginOTPRedirect(@RequestParam(name = "phone") String phone, HttpSession session) {
 		// Set header type for request header
 		HttpHeaders headers = new HttpHeaders();
@@ -110,6 +115,7 @@ public class HomeController {
 		return "redirect:/lich-su-mua-hang/dang-nhap/otp";
 	}
 
+	// Get OTP phone number
 	@RequestMapping(value = "/lich-su-mua-hang/dang-nhap/otp", method = RequestMethod.POST)
 	public String verifyOtp(@RequestParam(name = "phone", required = false) String phone,
 			@RequestParam(name = "otp", required = false) String otp, HttpSession httpSession) {
@@ -147,6 +153,7 @@ public class HomeController {
 		return "fragments/profile";
 	}
 
+	// Get Product Details
 	@RequestMapping("/product-detail/{id}")
 	public String productDetail(@PathVariable("id") Long id, Model model) {
 		String resourceProduct = "http://localhost:8001/customer/get-product-slim-by-id" + "/" + id;
