@@ -62,6 +62,18 @@
                       required
                     />
                   </div>
+                  <div
+                    th:if="${param.error}"
+                    class="btn btn-inverse-danger btn-fw btn-block"
+                  >
+                    Invalid username and password.
+                  </div>
+                  <div
+                    th:if="${param.logout}"
+                    class="btn btn-inverse-success btn-fw btn-block"
+                  >
+                    You have been logged out.
+                  </div>
                   <div class="mt-3">
                     <button
                       type="submit"
