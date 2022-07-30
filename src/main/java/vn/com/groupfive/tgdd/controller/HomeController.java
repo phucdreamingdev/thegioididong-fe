@@ -89,11 +89,6 @@ public class HomeController {
 		return "fragments/cart-empty";
 	}
 
-	@RequestMapping("/detail")
-	public String detail() {
-		return "fragments/product-detail";
-	}
-
 	@RequestMapping("/lich-su-mua-hang/dang-nhap")
 	public String login() {
 		return "fragments/login-history";
