@@ -128,22 +128,30 @@ public class HomeController {
 
 		ResponseEntity<Object> response = restTemplate.postForEntity(url, request, Object.class);
 		if (response.getStatusCode() == HttpStatus.OK) {
-			return "forward:/lich-su-don-hang";
+			return "redirect:/lich-su-mua-hang";
 		}
-		return "redirect:/lich-su-mua-hang/dang-nhap";
+		return "forward:/lich-su-mua-hang/dang-nhap";
 	}
 
 	@RequestMapping("/lich-su-mua-hang/dang-nhap/otp")
 	public String loginOTP() {
 		return "fragments/login-otp";
 	}
-
-	@RequestMapping("/lich-su-don-hang")
-	public String historyProduct() {
+	@RequestMapping(value = "/lich-su-mua-hang/{id}")
+	public String historyProduct(@PathVariable("id") Long id,Model model) {
+		String resourceProductUrl = "http://localhost:8001/member/get-member-order-by-member-id" + "/" + id;
+		ResponseEntity<Object> productsResponse = restTemplate.getForEntity(resourceProductUrl, Object.class);
+		model.addAttribute("historyProducts", productsResponse.getBody());
 		return "fragments/history-products";
 	}
 
-	@RequestMapping("/lich-su-don-hang/thong-tin-ca-nhan")
+
+	// @RequestMapping("/lich-su-mua-hang")
+	// public String historyProduct() {
+	// 	return "fragments/history-products";
+	// }
+
+	@RequestMapping("/lich-su-mua-hang/thong-tin-ca-nhan")
 	public String profile() {
 		return "fragments/profile";
 	}
