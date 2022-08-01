@@ -35,8 +35,8 @@
                     <td th:text="${categoryLevel0.name}"></td>
                     <td>
                       <label
-                        th:class="${categoryLevel0.parentName} ? 'badge badge-success' : 'badge badge-danger'"
-                        th:text="${categoryLevel0.parentName} ? 'Yes' : 'No'"
+                        th:class="${categoryLevel0.isParent} ? 'badge badge-success' : 'badge badge-danger'"
+                        th:text="${categoryLevel0.isParent} ? 'Yes' : 'No'"
                         >Yes</label
                       >
                     </td>
@@ -101,8 +101,8 @@
                     <td th:text="${categoryLevel1.parentName}"></td>
                     <td>
                       <label
-                        th:class="${categoryLevel1.parentName} ? 'badge badge-success' : 'badge badge-danger'"
-                        th:text="${categoryLevel1.parentName} ? 'Yes' : 'No'"
+                        th:class="${categoryLevel1.isParent} ? 'badge badge-success' : 'badge badge-danger'"
+                        th:text="${categoryLevel1.isParent} ? 'Yes' : 'No'"
                         >Yes</label
                       >
                     </td>
@@ -167,8 +167,8 @@
                     <td th:text="${categoryLevel2.parentName}"></td>
                     <td>
                       <span
-                        th:class="${categoryLevel2.parentName} ? 'badge badge-success' : 'badge badge-danger'"
-                        th:text="${categoryLevel2.parentName} ? 'Yes' : 'No'"
+                        th:class="${categoryLevel2.isParent} ? 'badge badge-success' : 'badge badge-danger'"
+                        th:text="${categoryLevel2.isParent} ? 'Yes' : 'No'"
                       >
                         Yes
                       </span>

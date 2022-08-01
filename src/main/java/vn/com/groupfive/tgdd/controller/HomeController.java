@@ -39,7 +39,7 @@ public class HomeController {
 
 	// Get Product By Caterogy
 	@RequestMapping(value = "/category/{id}")
-	public String getProductByCategorId(@PathVariable("id") Long categoryId, Model model) {
+	public String getProductByCategoryId(@PathVariable("id") Long categoryId, Model model) {
 		String resourceProduct = "http://localhost:8001/customer/get-all-products-by-category-id-new" + "/"
 				+ categoryId;
 		ResponseEntity<Object> productResponse = restTemplate.getForEntity(resourceProduct, Object.class);
@@ -96,7 +96,7 @@ public class HomeController {
 
 	// Login by Phone Number
 	@RequestMapping(value = "/lich-su-mua-hang/dang-nhap", method = RequestMethod.POST)
-	public String loginOTPRedirect(@RequestParam(name = "phone") String phone, HttpSession session) {
+	public String loginOTPRedirect(String phone, HttpSession session) {
 		// Set header type for request header
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
