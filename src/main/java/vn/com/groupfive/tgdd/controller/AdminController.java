@@ -66,7 +66,7 @@ public class AdminController {
 	}
 
 	@PostMapping(value = "categories-add")
-	public String categoryAddResult(Model model) {
+	public String categoryAddResult(@ModelAttribute("category") CategoryRequest category) {
 		// Set header type for request header
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);

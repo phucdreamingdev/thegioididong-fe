@@ -16,7 +16,6 @@ $(function () {
             $("#childrenLevelDisplay").show();
             $("#childrenLevel").removeAttr("disabled");
             $('input[type="radio"][name=isParent][value="no').prop('disabled', false);
-            $("#childrenLevel").val('Select Children Level');
             $('input[type=radio][name=isParent]').change(function () {
                 if (this.value == 'yes') {
                     $("#childrenLevelDisplay").show()
@@ -30,7 +29,7 @@ $(function () {
             $("#idParentDisplay").show();
             $('input[type="radio"][name=isParent][value="no').prop('disabled', true);
             $("#childrenLevelDisplay").show();
-            $("#childrenLevel").val('2');
+            $("#childrenLevel").val(2);
             $("#childrenLevel").attr("disabled", "disabled");
         } else {
             $("#idParentDisplay").hide();

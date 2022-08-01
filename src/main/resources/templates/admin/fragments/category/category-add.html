@@ -12,14 +12,24 @@
         <div class="card">
           <div class="card-body">
             <h3 class="card-title">Add New Category</h3>
-            <form class="form-sample" th:action="@{/admin/categories-add}" th:object="${category}"  method = "POST">
+            <form
+              class="form-sample"
+              th:action="@{/admin/categories-add}"
+              th:object="${category}"
+              method="POST"
+            >
               <p class="card-description">Add new Category here</p>
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Name</label>
                     <div class="col-sm-9">
-                      <input type="text" th:field="*{name}" class="form-control" id="name" />
+                      <input
+                        type="text"
+                        th:field="*{name}"
+                        class="form-control"
+                        id="name"
+                      />
                     </div>
                   </div>
                 </div>
@@ -34,8 +44,8 @@
                             class="form-check-input"
                             name="status"
                             id="status"
-                            value="true"
-                            checked
+                            value="1"
+                            th:checked="*{status}"
                           />
                           Active
                         </label>
@@ -49,7 +59,8 @@
                             class="form-check-input"
                             name="status"
                             id="status"
-                            value="false"
+                            value="0"
+                            th:checked="*{status} == false"
                           />
                           Not Active
                         </label>
@@ -67,12 +78,14 @@
                         id="level"
                         type="text"
                         class="form-control"
+                        th:field="*{level}"
                         required
                       >
-                        <option>Select Level</option>
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
+                        <option
+                          th:each="i : ${#numbers.sequence(0, 2)}"
+                          th:value="${i}"
+                          th:text="${i}"
+                        ></option>
                       </select>
                     </div>
                   </div>
@@ -101,6 +114,7 @@
                             name="isParent"
                             id="isParent"
                             value="yes"
+                            th:field="*{parent}"
                             checked
                           />
                           Yes
@@ -116,6 +130,7 @@
                             name="isParent"
                             id="isParent"
                             value="no"
+                            th:field="*{parent}"
                           />
                           No
                         </label>
@@ -133,12 +148,15 @@
                         class="form-control"
                         id="childrenLevel"
                         disabled="disabled"
+                        th:field="*{childrenLevel}"
                         required
                       >
-                        <option>Select Children Level</option>
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
+                        <option
+                          th:each="i : ${#numbers.sequence(0, 3)}"
+                          th:value="${i}"
+                          th:text="${i}"
+                          th:selected="${i==2}"
+                        ></option>
                       </select>
                     </div>
                   </div>
