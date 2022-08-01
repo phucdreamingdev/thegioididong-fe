@@ -96,7 +96,7 @@ public class HomeController {
 
 	// Login by Phone Number
 	@RequestMapping(value = "/lich-su-mua-hang/dang-nhap", method = RequestMethod.POST)
-	public String loginOTPRedirect(@RequestParam(name = "phone") String phone, HttpSession session) {
+	public String loginOTPRedirect(String phone, HttpSession session) {
 		// Set header type for request header
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);

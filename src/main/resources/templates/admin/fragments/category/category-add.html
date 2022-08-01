@@ -12,14 +12,14 @@
         <div class="card">
           <div class="card-body">
             <h3 class="card-title">Add New Category</h3>
-            <form class="form-sample">
+            <form class="form-sample" th:action="@{/admin/categories-add}" th:object="${category}"  method = "POST">
               <p class="card-description">Add new Category here</p>
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Name</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="name" />
+                      <input type="text" th:field="*{name}" class="form-control" id="name" />
                     </div>
                   </div>
                 </div>
