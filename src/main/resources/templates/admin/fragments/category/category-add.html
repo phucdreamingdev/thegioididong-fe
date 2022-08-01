@@ -25,80 +25,6 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Parent Name</label>
-                    <div class="col-sm-9">
-                      <select id="parentName" class="form-control" alt="Load from DB">
-                      	<option class="form-control">Load from DB</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Level</label>
-                    <div class="col-sm-9">
-                      <select id="level" type="text" class="form-control" required>
-                      	<option>0</option>
-                      	<option>1</option>
-                      	<option>2</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Parent</label>
-                    <div class="col-sm-4">
-                      <div class="form-check form-check-success">
-                        <label class="form-check-label">
-                          <input
-                            type="radio"
-                            class="form-check-input"
-                            name="isParent"
-                            id="isParent"
-                            value="option1"
-                            checked
-                          />
-                          Yes
-                        </label>
-                      </div>
-                    </div>
-                    <div class="col-sm-5">
-                      <div class="form-check form-check-danger">
-                        <label class="form-check-label">
-                          <input
-                            type="radio"
-                            class="form-check-input"
-                            name="isParent"
-                            id="isParent"
-                            value="option2"
-                          />
-                          No
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-3 col-form-label"
-                      >Children Level</label
-                    >
-                    <div class="col-sm-9">
-                      <select class="form-control" required>
-                      	<option value="0">0</option>
-                      	<option value="1">1</option>
-                      	<option value="2">2</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Status</label>
                     <div class="col-sm-4">
                       <div class="form-check form-check-success">
@@ -133,6 +59,92 @@
                 </div>
               </div>
               <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Level</label>
+                    <div class="col-sm-9">
+                      <select
+                        id="level"
+                        type="text"
+                        class="form-control"
+                        required
+                      >
+                        <option>Select Level</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6" id="parentName">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Parent Name</label>
+                    <div class="col-sm-9">
+                      <select class="form-control" alt="Load from DB">
+                        <option class="form-control">Load from DB</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6" id="idParentDisplay">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Parent</label>
+                    <div class="col-sm-4">
+                      <div class="form-check form-check-success">
+                        <label class="form-check-label">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="isParent"
+                            id="isParent"
+                            value="yes"
+                            checked
+                          />
+                          Yes
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-sm-5">
+                      <div class="form-check form-check-danger">
+                        <label class="form-check-label">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="isParent"
+                            id="isParent"
+                            value="no"
+                          />
+                          No
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6" id="childrenLevelDisplay">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label"
+                      >Children Level</label
+                    >
+                    <div class="col-sm-9">
+                      <select
+                        class="form-control"
+                        id="childrenLevel"
+                        disabled="disabled"
+                        required
+                      >
+                        <option>Select Children Level</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
                 <div class="col-md-12">
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label"
@@ -162,7 +174,13 @@
                   </div>
                 </div>
               </div>
-              <button type="submit" class="btn btn-success mr-2" id="addCategory">Submit</button>
+              <button
+                type="submit"
+                class="btn btn-success mr-2"
+                id="addCategory"
+              >
+                Submit
+              </button>
               <button class="btn btn-secondary">Cancel</button>
             </form>
           </div>

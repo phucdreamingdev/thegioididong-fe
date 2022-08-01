@@ -39,7 +39,7 @@ public class HomeController {
 
 	// Get Product By Caterogy
 	@RequestMapping(value = "/category/{id}")
-	public String getProductByCategorId(@PathVariable("id") Long categoryId, Model model) {
+	public String getProductByCategoryId(@PathVariable("id") Long categoryId, Model model) {
 		String resourceProduct = "http://localhost:8001/customer/get-all-products-by-category-id-new" + "/"
 				+ categoryId;
 		ResponseEntity<Object> productResponse = restTemplate.getForEntity(resourceProduct, Object.class);

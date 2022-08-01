@@ -34,9 +34,9 @@ public class AdminController {
 	@GetMapping(value = "categories-list")
 	public String categoryList(Model model) {
 
-		String resourceUrl0 = "http://localhost:8001/customer/get-all-category-by-level/0";
-		String resourceUrl1 = "http://localhost:8001/customer/get-all-category-by-level/1";
-		String resourceUrl2 = "http://localhost:8001/customer/get-all-category-by-level/2";
+		String resourceUrl0 = "http://localhost:8001/admin/get-all-category-by-level/0";
+		String resourceUrl1 = "http://localhost:8001/admin/get-all-category-by-level/1";
+		String resourceUrl2 = "http://localhost:8001/admin/get-all-category-by-level/2";
 
 		ResponseEntity<Object> response0 = restTemplate.getForEntity(resourceUrl0, Object.class);
 		ResponseEntity<Object> response1 = restTemplate.getForEntity(resourceUrl1, Object.class);
@@ -54,20 +54,22 @@ public class AdminController {
 	public String categoryAdd(Model model) {
 		return "admin/fragments/category/category-add";
 	}
-	
+
 	@PostMapping(value = "categories-add")
 	public String categoryAddResult(@RequestBody Object category, Model model) {
 		// Set header type for request header
-//				HttpHeaders headers = new HttpHeaders();
-//				headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
-//
-//				MultiValueMap<String, Object> map = new LinkedMultiValueMap<String, Object>();
-//				map.add("category", category);
-//				
-//				HttpEntity<MultiValueMap<Object, String>> request = new HttpEntity<MultiValueMap<Object, String>>(map, headers);
-//				String url = "http://localhost:8001/customer/sendotp";
-//				restTemplate.postForEntity(url, request, String.class);
-//				return "redirect:/lich-su-mua-hang/dang-nhap/otp";
+		// HttpHeaders headers = new HttpHeaders();
+		// headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
+		//
+		// MultiValueMap<String, Object> map = new LinkedMultiValueMap<String,
+		// Object>();
+		// map.add("category", category);
+		//
+		// HttpEntity<MultiValueMap<Object, String>> request = new
+		// HttpEntity<MultiValueMap<Object, String>>(map, headers);
+		// String url = "http://localhost:8001/customer/sendotp";
+		// restTemplate.postForEntity(url, request, String.class);
+		// return "redirect:/lich-su-mua-hang/dang-nhap/otp";
 		return "admin/fragments/category/category-add";
 	}
 
@@ -105,11 +107,9 @@ public class AdminController {
 
 	@GetMapping(value = "branch-add")
 	public String addBranch(Model model) {
-		
+
 		return "admin/fragments/branch/branch-add";
 	}
-		
-	
 
 	/*
 	 * ================================ORDER================================
