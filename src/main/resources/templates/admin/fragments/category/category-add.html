@@ -147,12 +147,12 @@
                       <select
                         class="form-control"
                         id="childrenLevel"
+                        name="childrenLevel"
                         disabled="disabled"
-                        th:field="*{childrenLevel}"
                         required
                       >
                         <option
-                          th:each="i : ${#numbers.sequence(0, 3)}"
+                          th:each="i : ${#numbers.sequence(0, 2)}"
                           th:value="${i}"
                           th:text="${i}"
                           th:selected="${i==2}"

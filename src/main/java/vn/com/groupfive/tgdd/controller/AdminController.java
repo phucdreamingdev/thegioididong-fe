@@ -1,6 +1,5 @@
 package vn.com.groupfive.tgdd.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -20,7 +19,6 @@ import org.springframework.web.client.RestTemplate;
 import vn.com.groupfive.tgdd.payload.request.Member;
 
 import com.fasterxml.jackson.databind.util.JSONPObject;
-
 
 import vn.com.groupfive.tgdd.payload.request.CategoryRequest;
 
@@ -61,7 +59,6 @@ public class AdminController {
 
 	@GetMapping(value = "categories-add")
 	public String categoryAdd(@ModelAttribute("category") CategoryRequest category) {
-		
 		return "admin/fragments/category/category-add";
 	}
 
@@ -72,7 +69,7 @@ public class AdminController {
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		String url = "http://localhost:8001/admin/create-new-category";
 		ResponseEntity<Object> categoryResult = restTemplate.postForEntity(url, category, Object.class);
-		return "redirect:admin/categories-list";
+		return "redirect:/admin/categories-list";
 	}
 
 	/*
