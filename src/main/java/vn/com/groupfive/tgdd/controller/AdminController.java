@@ -1,9 +1,14 @@
 package vn.com.groupfive.tgdd.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -47,6 +52,22 @@ public class AdminController {
 
 	@GetMapping(value = "categories-add")
 	public String categoryAdd(Model model) {
+		return "admin/fragments/category/category-add";
+	}
+	
+	@PostMapping(value = "categories-add")
+	public String categoryAddResult(@RequestBody Object category, Model model) {
+		// Set header type for request header
+//				HttpHeaders headers = new HttpHeaders();
+//				headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
+//
+//				MultiValueMap<String, Object> map = new LinkedMultiValueMap<String, Object>();
+//				map.add("category", category);
+//				
+//				HttpEntity<MultiValueMap<Object, String>> request = new HttpEntity<MultiValueMap<Object, String>>(map, headers);
+//				String url = "http://localhost:8001/customer/sendotp";
+//				restTemplate.postForEntity(url, request, String.class);
+//				return "redirect:/lich-su-mua-hang/dang-nhap/otp";
 		return "admin/fragments/category/category-add";
 	}
 
