@@ -1,7 +1,7 @@
 var btnAddCategory;
-$(document).ready(function() {
+$(document).ready(function () {
 	btnAddCategory = $("#addCategory");
-	btnAddCategory.click(function() {
+	btnAddCategory.click(function () {
 		addCategory();
 	});
 });
@@ -28,10 +28,10 @@ function addCategory() {
 			"parent": true,
 			"childrenLevel": 2
 		}),
-		success: function() {
+		success: function () {
 			alert('clicked');
 		},
-		error: function(abc) {
+		error: function (abc) {
 			alert('non');
 		}
 	});
@@ -41,28 +41,28 @@ function test() {
 	$.ajax({
 		url: 'http://localhost:8001/customer/test',
 		type: 'post',
-		success: function() {
+		success: function () {
 			alert('sucess');
 		},
-		error: function() {
+		error: function () {
 			alert('error');
 		}
 	});
 }
 function getCategory() {
 	$.ajax({
-		url: 'http://localhost:8001/customer/get-all-category-by-level/0',
+		url: 'http://localhost:8001/admin/get-all-category-by-level/0',
 		dataType: 'json',
 		type: 'GET',
-		complete: function(data) {
+		complete: function (data) {
 			alert('sucess');
 			alert(data)
 		},
-		success: function(data) {
+		success: function (data) {
 			alert('sucess');
 			alert(data)
 		},
-		error: function() {
+		error: function () {
 			alert('non');
 		}
 

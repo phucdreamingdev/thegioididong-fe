@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.http.HttpStatus;
 
 import vn.com.groupfive.tgdd.payload.request.CategoryRequest;
 
@@ -33,7 +34,7 @@ public class AdminController {
 	// Get Category Level 0
 	@ModelAttribute("categoriesLevel0")
 	public Object response0() {
-		String resourceUrl0 = "http://localhost:8001/customer/get-all-category-by-level/0";
+		String resourceUrl0 = "http://localhost:8001/admin/get-all-category-by-level/0";
 		ResponseEntity<Object> response0 = restTemplate.getForEntity(resourceUrl0, Object.class);
 		return response0.getBody();
 	}
@@ -41,7 +42,7 @@ public class AdminController {
 	// Get Category Level 1
 	@ModelAttribute("categoriesLevel1")
 	public Object response1() {
-		String resourceUrl1 = "http://localhost:8001/customer/get-all-category-by-level/1";
+		String resourceUrl1 = "http://localhost:8001/admin/get-all-category-by-level/1";
 		ResponseEntity<Object> response1 = restTemplate.getForEntity(resourceUrl1, Object.class);
 		return response1.getBody();
 	}
@@ -49,7 +50,7 @@ public class AdminController {
 	// Get Category Level 2
 	@ModelAttribute("categoriesLevel2")
 	public Object response2() {
-		String resourceUrl2 = "http://localhost:8001/customer/get-all-category-by-level/2";
+		String resourceUrl2 = "http://localhost:8001/admin/get-all-category-by-level/2";
 		ResponseEntity<Object> response2 = restTemplate.getForEntity(resourceUrl2, Object.class);
 		return response2.getBody();
 	}
@@ -66,12 +67,17 @@ public class AdminController {
 	}
 
 	@PostMapping(value = "categories-add")
-	public String categoryAddResult(@ModelAttribute("category") CategoryRequest category) {
+	public String categoryAddResult(@ModelAttribute("category") CategoryRequest category,
+			@ModelAttribute("error") Object errorMessage) {
 		// Set header type for request header
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		String url = "http://localhost:8001/admin/create-new-category";
 		ResponseEntity<Object> categoryResult = restTemplate.postForEntity(url, category, Object.class);
+		if (categoryResult.getStatusCode() == HttpStatus.OK) {
+			return "redirect:/admin/categories-list";
+		}
+
 		return "redirect:/admin/categories-list";
 	}
 

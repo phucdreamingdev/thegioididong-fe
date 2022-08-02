@@ -133,22 +133,30 @@ public class HomeController {
 		return "forward:/lich-su-mua-hang/dang-nhap";
 	}
 
-	@RequestMapping("/lich-su-mua-hang/dang-nhap/otp")
-	public String loginOTP() {
-		return "fragments/login-otp";
-	}
+	// @RequestMapping("/lich-su-mua-hang/dang-nhap/otp")
+	// public String loginOTP() {
+	// return "fragments/login-otp";
+	// }
+
 	@RequestMapping(value = "/lich-su-mua-hang/{id}")
-	public String historyProduct(@PathVariable("id") Long id,Model model) {
+	public String historyProduct(@PathVariable("id") Long id, Model model) {
 		String resourceProductUrl = "http://localhost:8001/member/get-member-order-by-member-id" + "/" + id;
 		ResponseEntity<Object> productsResponse = restTemplate.getForEntity(resourceProductUrl, Object.class);
 		model.addAttribute("historyProducts", productsResponse.getBody());
 		return "fragments/history-products";
 	}
 
+	@RequestMapping("/lich-su-mua-hang/don-hang/{id}")
+	public String orderDetail(@PathVariable("id") Long id, Model model) {
+		String resourceProductUrl = "http://localhost:8001/member/get-order-detail-by-member-order-id" + "/" + id;
+		ResponseEntity<Object> orderDetail = restTemplate.getForEntity(resourceProductUrl, Object.class);
+		model.addAttribute("orderDetails", orderDetail.getBody());
+		return "fragments/order-detail";
+	}
 
 	// @RequestMapping("/lich-su-mua-hang")
 	// public String historyProduct() {
-	// 	return "fragments/history-products";
+	// return "fragments/history-products";
 	// }
 
 	@RequestMapping("/lich-su-mua-hang/thong-tin-ca-nhan")
