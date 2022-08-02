@@ -139,20 +139,27 @@ public class HomeController {
 	}
 	@RequestMapping(value = "/lich-su-mua-hang/{id}")
 	public String historyProduct(@PathVariable("id") Long id,Model model) {
+		
+		String resourceProductUrl1 = "http://localhost:8001/admin/get-member-by-id" + "/" + id;
+		ResponseEntity<Object> productsResponse1 = restTemplate.getForEntity(resourceProductUrl1, Object.class);
+		model.addAttribute("memberID", productsResponse1.getBody());
+		
 		String resourceProductUrl = "http://localhost:8001/member/get-member-order-by-member-id" + "/" + id;
 		ResponseEntity<Object> productsResponse = restTemplate.getForEntity(resourceProductUrl, Object.class);
 		model.addAttribute("historyProducts", productsResponse.getBody());
 		return "fragments/history-products";
 	}
 
-
-	// @RequestMapping("/lich-su-mua-hang")
-	// public String historyProduct() {
-	// 	return "fragments/history-products";
-	// }
-
-	@RequestMapping("/lich-su-mua-hang/thong-tin-ca-nhan")
-	public String profile() {
+	@RequestMapping("/lich-su-mua-hang/thong-tin-ca-nhan/{id}")
+	public String profile(@PathVariable("id") Long id,Model model) {
+		
+		String resourceProductUrl1 = "http://localhost:8001/admin/get-member-by-id" + "/" + id;
+		ResponseEntity<Object> productsResponse1 = restTemplate.getForEntity(resourceProductUrl1, Object.class);
+		model.addAttribute("memberID", productsResponse1.getBody());
+		
+		String resourceProductUrl = "http://localhost:8001/member/get-member-address-by-member-id" + "/" + id;
+		ResponseEntity<Object> productsResponse = restTemplate.getForEntity(resourceProductUrl, Object.class);
+		model.addAttribute("profileMember", productsResponse.getBody());
 		return "fragments/profile";
 	}
 
