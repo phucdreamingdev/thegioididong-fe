@@ -15,6 +15,7 @@ public class MvcConfiguration implements WebMvcConfigurer {
         return new LayoutDialect();
     }
 
+    // Set admin to admin/dashboard
     @Override
     public void addViewControllers(ViewControllerRegistry viewControllerRegistry) {
         viewControllerRegistry.addViewController("/admin").setViewName("redirect:/admin/dashboard");

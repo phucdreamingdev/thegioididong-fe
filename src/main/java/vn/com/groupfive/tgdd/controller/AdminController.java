@@ -1,27 +1,21 @@
 package vn.com.groupfive.tgdd.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.json.JsonMapper;
+import vn.com.groupfive.tgdd.payload.request.CategoryRequest;
+
 
 @Controller
 @RequestMapping(value = "admin")
@@ -42,30 +36,50 @@ public class AdminController {
 	 * ================================CATEGORY================================
 	 */
 
-	@GetMapping(value = "categories-list")
 
-	public String categoryList(Model model) throws JsonMappingException, JsonProcessingException {
-
+	// Get Category Level 0
+	@ModelAttribute("categoriesLevel0")
+	public Object response0() {
 		String resourceUrl0 = "http://localhost:8001/customer/get-all-category-by-level/0";
-		String resourceUrl1 = "http://localhost:8001/customer/get-all-category-by-level/1";
-		String resourceUrl2 = "http://localhost:8001/customer/get-all-category-by-level/2";
-		String url = "http://localhost:8001/admin/get-member-by-id";
-
 		ResponseEntity<Object> response0 = restTemplate.getForEntity(resourceUrl0, Object.class);
+		return response0.getBody();
+	}
+
+	// Get Category Level 1
+	@ModelAttribute("categoriesLevel1")
+	public Object response1() {
+		String resourceUrl1 = "http://localhost:8001/customer/get-all-category-by-level/1";
 		ResponseEntity<Object> response1 = restTemplate.getForEntity(resourceUrl1, Object.class);
+		return response1.getBody();
+	}
+
+	// Get Category Level 2
+	@ModelAttribute("categoriesLevel2")
+	public Object response2() {
+		String resourceUrl2 = "http://localhost:8001/customer/get-all-category-by-level/2";
 		ResponseEntity<Object> response2 = restTemplate.getForEntity(resourceUrl2, Object.class);
+		return response2.getBody();
+	}
 
-		model.addAttribute("categoriesLevel0", response0.getBody());
-		model.addAttribute("categoriesLevel1", response1.getBody());
-		model.addAttribute("categoriesLevel2", response2.getBody());
-		model.addAttribute("category", true);
-
+	// Render Category
+	@GetMapping(value = "categories-list")
+	public String categoryList() {
 		return "admin/fragments/category/category-list";
 	}
 
 	@GetMapping(value = "categories-add")
-	public String categoryAdd(Model model) {
+	public String categoryAdd(@ModelAttribute("category") CategoryRequest category) {
 		return "admin/fragments/category/category-add";
+	}
+
+	@PostMapping(value = "categories-add")
+	public String categoryAddResult(@ModelAttribute("category") CategoryRequest category) {
+		// Set header type for request header
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		String url = "http://localhost:8001/admin/create-new-category";
+		ResponseEntity<Object> categoryResult = restTemplate.postForEntity(url, category, Object.class);
+		return "redirect:/admin/categories-list";
 	}
 
 	/*

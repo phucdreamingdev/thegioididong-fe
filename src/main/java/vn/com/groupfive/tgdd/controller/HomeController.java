@@ -43,7 +43,7 @@ public class HomeController {
 
 	// Get Product By Caterogy
 	@RequestMapping(value = "/category/{id}")
-	public String getProductByCategorId(@PathVariable("id") Long categoryId, Model model) {
+	public String getProductByCategoryId(@PathVariable("id") Long categoryId, Model model) {
 		String resourceProduct = "http://localhost:8001/customer/get-all-products-by-category-id-new" + "/"
 				+ categoryId;
 		ResponseEntity<Object> productResponse = restTemplate.getForEntity(resourceProduct, Object.class);
@@ -92,7 +92,7 @@ public class HomeController {
 	public String cartEmpty() {
 		return "fragments/cart-empty";
 	}
-
+	
 	@RequestMapping("/detail")
 	public String detail() {
 		return "fragments/product-detail";
@@ -105,6 +105,7 @@ public class HomeController {
 		return "redirect:/lich-su-mua-hang/dang-nhap";
 	}
 
+
 	@RequestMapping("/lich-su-mua-hang/dang-nhap")
 	public String login(HttpSession session) {		
 		Object ob = session.getAttribute("id");
@@ -116,7 +117,7 @@ public class HomeController {
 
 	// Login by Phone Number
 	@RequestMapping(value = "/lich-su-mua-hang/dang-nhap", method = RequestMethod.POST)
-	public String loginOTPRedirect(@RequestParam(name = "phone") String phone, HttpSession session) {
+	public String loginOTPRedirect(String phone, HttpSession session) {
 		// Set header type for request header
 		HttpHeaders headers = new HttpHeaders();
 
@@ -170,12 +171,19 @@ public class HomeController {
 		String urlOrder = "http://localhost:8001/member/get-member-order-by-member-id" + "/" + id;
 		ResponseEntity<Object> memberOrder = restTemplate.getForEntity(urlOrder, Object.class);
 		model.addAttribute("memberOrder", memberOrder.getBody());
-		
 		return "fragments/history-products";
 	}
 
-	@RequestMapping("/lich-su-don-hang/thong-tin-ca-nhan")
-	public String profile() {
+	@RequestMapping("/lich-su-mua-hang/thong-tin-ca-nhan/{id}")
+	public String profile(@PathVariable("id") Long id,Model model) {
+		
+		String resourceProductUrl1 = "http://localhost:8001/admin/get-member-by-id" + "/" + id;
+		ResponseEntity<Object> productsResponse1 = restTemplate.getForEntity(resourceProductUrl1, Object.class);
+		model.addAttribute("memberID", productsResponse1.getBody());
+		
+		String resourceProductUrl = "http://localhost:8001/member/get-member-address-by-member-id" + "/" + id;
+		ResponseEntity<Object> productsResponse = restTemplate.getForEntity(resourceProductUrl, Object.class);
+		model.addAttribute("profileMember", productsResponse.getBody());
 		return "fragments/profile";
 	}
 

@@ -12,78 +12,24 @@
         <div class="card">
           <div class="card-body">
             <h3 class="card-title">Add New Category</h3>
-            <form class="form-sample">
+            <form
+              class="form-sample"
+              th:action="@{/admin/categories-add}"
+              th:object="${category}"
+              method="POST"
+            >
               <p class="card-description">Add new Category here</p>
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Name</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" />
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Parent Name</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Level</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" />
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Parent</label>
-                    <div class="col-sm-4">
-                      <div class="form-check form-check-success">
-                        <label class="form-check-label">
-                          <input
-                            type="radio"
-                            class="form-check-input"
-                            name="membershipRadios"
-                            id="membershipRadios1"
-                            value="option1"
-                            checked
-                          />
-                          Yes
-                        </label>
-                      </div>
-                    </div>
-                    <div class="col-sm-5">
-                      <div class="form-check form-check-danger">
-                        <label class="form-check-label">
-                          <input
-                            type="radio"
-                            class="form-check-input"
-                            name="membershipRadios"
-                            id="membershipRadios2"
-                            value="option2"
-                          />
-                          No
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-3 col-form-label"
-                      >Children Level</label
-                    >
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" />
+                      <input
+                        type="text"
+                        th:field="*{name}"
+                        class="form-control"
+                        id="name"
+                      />
                     </div>
                   </div>
                 </div>
@@ -96,10 +42,10 @@
                           <input
                             type="radio"
                             class="form-check-input"
-                            name="membershipRadios"
-                            id="membershipRadios3"
-                            value="option1"
-                            checked
+                            name="status"
+                            id="status"
+                            value="1"
+                            th:checked="*{status}"
                           />
                           Active
                         </label>
@@ -111,13 +57,129 @@
                           <input
                             type="radio"
                             class="form-check-input"
-                            name="membershipRadios"
-                            id="membershipRadios4"
-                            value="option2"
+                            name="status"
+                            id="status"
+                            value="0"
+                            th:checked="*{status} == false"
                           />
                           Not Active
                         </label>
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Level</label>
+                    <div class="col-sm-9">
+                      <select
+                        id="level"
+                        name="level"
+                        type="text"
+                        class="form-control"
+                        required
+                      >
+                        <option
+                          th:each="i : ${#numbers.sequence(0, 2)}"
+                          th:value="${i}"
+                          th:text="${i}"
+                          th:selected="${i==1}"
+                        ></option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6" id="parentName">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Parent Name</label>
+                    <div class="col-sm-9" th:field="*{level}">
+                      <select
+                        th:field="*{parentName}"
+                        th:unless="${level == 1}"
+                        class="form-control"
+                      >
+                        <option
+                          class="form-control"
+                          th:each="categories0 : ${categoriesLevel0}"
+                          th:value="${categories0.id}"
+                          th:text="${categories0.name}"
+                        ></option>
+                      </select>
+                      <select
+                        th:field="*{parentName}"
+                        th:if="${level == 2}"
+                        class="form-control"
+                      >
+                        <option
+                          class="form-control"
+                          th:each="categories1 : ${categoriesLevel1}"
+                          th:value="${categories1.id}"
+                          th:text="${categories1.name}"
+                        ></option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6" id="idParentDisplay">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Parent</label>
+                    <div class="col-sm-4">
+                      <div class="form-check form-check-success">
+                        <label class="form-check-label">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="isParent"
+                            id="isParent"
+                            value="yes"
+                            th:field="*{parent}"
+                            checked
+                          />
+                          Yes
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-sm-5">
+                      <div class="form-check form-check-danger">
+                        <label class="form-check-label">
+                          <input
+                            type="radio"
+                            class="form-check-input"
+                            name="isParent"
+                            id="isParent"
+                            value="no"
+                            th:field="*{parent}"
+                          />
+                          No
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6" id="childrenLevelDisplay">
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label"
+                      >Children Level</label
+                    >
+                    <div class="col-sm-9">
+                      <select
+                        class="form-control"
+                        id="childrenLevel"
+                        name="childrenLevel"
+                        disabled="disabled"
+                        required
+                      >
+                        <option
+                          th:each="i : ${#numbers.sequence(0, 2)}"
+                          th:value="${i}"
+                          th:text="${i}"
+                          th:selected="${i==2}"
+                        ></option>
+                      </select>
                     </div>
                   </div>
                 </div>
@@ -152,7 +214,13 @@
                   </div>
                 </div>
               </div>
-              <button type="submit" class="btn btn-success mr-2">Submit</button>
+              <button
+                type="submit"
+                class="btn btn-success mr-2"
+                id="addCategory"
+              >
+                Submit
+              </button>
               <button class="btn btn-secondary">Cancel</button>
             </form>
           </div>
