@@ -13,14 +13,14 @@
     <div class="container">
       <div class="left">
         <a th:href="@{/lich-su-mua-hang}" class="">Danh sách đơn hàng đã mua</a>
-        <a th:href="@{/lich-su-mua-hang/thong-tin-ca-nhan{id}}" class="active"
+        <a th:href="@{/lich-su-mua-hang/thong-tin-ca-nhan}" class="active"
           >Thông tin cá nhân và sổ địa chỉ</a
         >
       </div>
       <div class="right">
         <div class="user" data-customer="1089714740">
           Chào 
-          <b th:text="${memberID.fullname}">Gia Minh</b> : <b th:text="${memberID.phone}">0867635674</b>
+          <b th:text="${member.fullname}">Gia Minh</b> : <b th:text="${member.phone}">0867635674</b>
           <a
             th:href="@{/logout}"
             class="logout-h"
@@ -70,12 +70,12 @@
         <div class="profile">
           <h3>Thông tin cá nhân</h3>
           <div>
-            <span th:class="${memberID.gender} ? 'active' : ''" ><i></i><b>Anh</b></span>
-            <span th:class="${memberID.gender} ? '' : 'active'"><i></i><b>Chị</b></span>
+            <span th:class="${member.gender} ? 'active' : ''" ><i></i><b>Anh</b></span>
+            <span th:class="${member.gender} ? '' : 'active'"><i></i><b>Chị</b></span>
             <input type="hidden" name="hdGender" value="1" />
           </div>
-          <input  th:value="${memberID.fullname}"/>
-          <input  th:value="${memberID.phone}"
+          <input  th:value="${member.fullname}"/>
+          <input  th:value="${member.phone}"
           />
           <h3>Địa chỉ nhận hàng</h3>
           <span id="add35810907" data-id="35810907" class="address active">

@@ -15,19 +15,16 @@
         <a th:href="@{/lich-su-mua-hang}" class="active"
           >Danh sách đơn hàng đã mua</a
         >
-        <a th:href="@{/lich-su-mua-hang/thong-tin-ca-nhan/{id}}" class=""
+        <a th:href="@{/lich-su-mua-hang/thong-tin-ca-nhan}" class=""
           >Thông tin cá nhân và sổ địa chỉ</a
         >
       </div>
       <div class="right">
-        <div class="user" data-customer="1089714740" >
-          Chào 
-          <b th:text="${memberID.fullname}">Gia Minh</b> : <b th:text="${memberID.phone}">0867635674</b>
-          <a
-            th:href="@{/logout}"
-            class="logout-h"
-            >Thoát tài khoản</a
-          >
+        <div class="user" data-customer="1089714740">
+          Chào
+          <b th:text="${member.fullname}">Gia Minh</b> :
+          <b th:text="${member.phone}">0867635674</b>
+          <a th:href="@{/logout}" class="logout-h">Thoát tài khoản</a>
           <a class="about-s">|</a>
           <a class="feed-back">
             <img
@@ -90,7 +87,7 @@
               </tr>
 
               <tr
-                th:each="historyProduct : ${historyProducts}"
+                th:each="historyProduct : ${memberOrders}"
                 class=""
                 data-id="00878SO22020631297"
               >

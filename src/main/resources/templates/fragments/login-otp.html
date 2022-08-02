@@ -18,7 +18,7 @@
     <div class="d2 step2">
       <span class="s1">Mã xác nhận đã được gửi đến số điện thoại <b></b></span>
       <span class="s2 hide">Mã xác nhận đã được gửi lại</span>
-      <form id="frmSubmitVerifyCode" onsubmit="return SubmitVerifyCode()" method="post">
+      <form id="frmSubmitVerifyCode" th:action="@{/lich-su-mua-hang/dang-nhap/otp}"  method="post">
         <input
           type="tel"
           name="otp"

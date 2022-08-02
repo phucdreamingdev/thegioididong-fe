@@ -147,16 +147,16 @@ public class HomeController {
 	 * =============================================
 	 */
 	@RequestMapping(value = "/lich-su-mua-hang/dang-nhap", method = RequestMethod.POST)
-	public String loginOTPRedirect(@RequestParam(name = "phone", required = false) String phone, HttpSession session) {
+	public String loginOTPRedirect(String phone, HttpSession session) {
 		// Set header type for request header
-		HttpHeaders headers = new HttpHeaders();
-
-		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
-		map.add("phone", phone);
-		session.setAttribute("phone", phone);
-		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(map, headers);
-		String url = "http://localhost:8001/customer/sendotp";
-		restTemplate.postForEntity(url, request, String.class);
+//		HttpHeaders headers = new HttpHeaders();
+//		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
+//		map.add("phone", phone);
+//		session.setAttribute("phone", phone);
+//		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(map, headers);
+//		String url = "http://localhost:8001/customer/sendotp";
+//		restTemplate.postForEntity(url, request, String.class);
+//		REMOVE AFTER COMBINE 
 		return "redirect:/lich-su-mua-hang/dang-nhap/otp";
 	}
 
@@ -166,32 +166,35 @@ public class HomeController {
 	 * =============================================
 	 */
 	
+	//RENDER PAGE
 	@RequestMapping("/lich-su-mua-hang/dang-nhap/otp")
 	public String loginOTP() {
 		return "fragments/login-otp";
 	}
-	
+	//POST REQUEST
 	@RequestMapping(value = "/lich-su-mua-hang/dang-nhap/otp", method = RequestMethod.POST)
-	public String verifyOtp(@RequestParam(name = "phone", required = false) String phone,
-			@RequestParam(name = "otp", required = false) String otp, HttpSession httpSession) {
-		// Set header type for request header
-		HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-
-		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
-
-		map.add("phone", String.valueOf(httpSession.getAttribute("phone")));
-		map.add("otp", otp);
-
-		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(map, headers);
-		String url = "http://localhost:8001/customer/verifyotp";
-
-		ResponseEntity<Object> response = restTemplate.postForEntity(url, request, Object.class);
-		if (response.getStatusCode() == HttpStatus.OK) {
-			httpSession.setAttribute("id", response.getBody());
-			return "redirect:/lich-su-mua-hang";
-		}
-		return "forward:/lich-su-mua-hang/dang-nhap";
+	public String verifyOtp(@ModelAttribute("id") Object id, String phone, String otp, HttpSession httpSession) {
+//		// Set header type for request header
+//		HttpHeaders headers = new HttpHeaders();
+//		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+//
+//		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
+//
+//		map.add("phone", String.valueOf(httpSession.getAttribute("phone")));
+//		map.add("otp", otp);
+//
+//		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(map, headers);
+//		String url = "http://localhost:8001/customer/verifyotp";
+//
+//		ResponseEntity<Object> response = restTemplate.postForEntity(url, request, Object.class);
+//		if (response.getStatusCode() == HttpStatus.OK) {
+//			httpSession.setAttribute("id", response.getBody());
+//			return "redirect:/lich-su-mua-hang";
+//		}
+//		return "forward:/lich-su-mua-hang/dang-nhap";
+		id = 1;
+		httpSession.setAttribute("id", id);
+		return "redirect:/lich-su-mua-hang";
 	}
 
 	/*
@@ -214,7 +217,8 @@ public class HomeController {
 	 */
 	@RequestMapping("/lich-su-mua-hang")
 	public String historyProduct(HttpSession session, Model model) {
-		String id = String.valueOf(session.getAttribute("id"));
+//		String id = String.valueOf(session.getAttribute("id"));
+		String id = "1";
 		// Get Member Info
 		String url = "http://localhost:8001/admin/get-member-by-id" + "?id=" + id;
 		ResponseEntity<Object> member = restTemplate.getForEntity(url, Object.class);
@@ -223,7 +227,7 @@ public class HomeController {
 		// GET Order
 		String urlOrder = "http://localhost:8001/member/get-member-order-by-member-id" + "/" + id;
 		ResponseEntity<Object> memberOrder = restTemplate.getForEntity(urlOrder, Object.class);
-		model.addAttribute("memberOrder", memberOrder.getBody());
+		model.addAttribute("memberOrders", memberOrder.getBody());
 
 		return "fragments/history-products";
 	}
@@ -246,16 +250,16 @@ public class HomeController {
 	 * GET INFORMATION PROFILES
 	 * =============================================
 	 */
-	@RequestMapping("/lich-su-mua-hang/thong-tin-ca-nhan/{id}")
-	public String profile(@PathVariable("id") Long id, Model model) {
-
-		String resourceProductUrl1 = "http://localhost:8001/admin/get-member-by-id" + "/" + id;
+	@RequestMapping("/lich-su-mua-hang/thong-tin-ca-nhan")
+	public String profile(Model model, HttpSession session) {
+		String resourceProductUrl1 = "http://localhost:8001/admin/get-member-by-id?id=1";
+//		String resourceProductUrl1 = "http://localhost:8001/admin/get-member-by-id" + "/" + id;
 		ResponseEntity<Object> productsResponse1 = restTemplate.getForEntity(resourceProductUrl1, Object.class);
-		model.addAttribute("memberID", productsResponse1.getBody());
-
-		String resourceProductUrl = "http://localhost:8001/member/get-member-address-by-member-id" + "/" + id;
-		ResponseEntity<Object> productsResponse = restTemplate.getForEntity(resourceProductUrl, Object.class);
-		model.addAttribute("profileMember", productsResponse.getBody());
+		model.addAttribute("member", productsResponse1.getBody());
+		String resourceProductUrl = "http://localhost:8001/member/get-member-address-by-member-id/1";
+//		String resourceProductUrl = "http://localhost:8001/member/get-member-address-by-member-id" + "/" + id;
+		ResponseEntity<Object> memberAddresses = restTemplate.getForEntity(resourceProductUrl, Object.class);
+		model.addAttribute("profileMember", memberAddresses.getBody());
 
 		return "fragments/profile";
 	}
