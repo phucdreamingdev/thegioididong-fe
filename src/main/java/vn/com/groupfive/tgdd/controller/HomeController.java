@@ -28,7 +28,11 @@ public class HomeController {
 	@Autowired
 	RestTemplate restTemplate;
 
-	// Get All Products
+	/*
+	 * =============================================
+	 * GET ALL PRODUCT
+	 * =============================================
+	 */
 	@RequestMapping(value = "/")
 	public String getAllProduct(Model model) {
 		String resourceProductUrl = "http://localhost:8001/customer/get-all-products-new";
@@ -37,7 +41,24 @@ public class HomeController {
 		return "fragments/all-products.html";
 	}
 
-	// Get Product By Caterogy
+	/*
+	 * =============================================
+	 * GET DETAILS OF PRODUCT
+	 * =============================================
+	 */
+	@RequestMapping("/product-detail/{id}")
+	public String productDetail(@PathVariable("id") Long id, Model model) {
+		String resourceProduct = "http://localhost:8001/customer/get-product-slim-by-id" + "/" + id;
+		ResponseEntity<Object> product = restTemplate.getForEntity(resourceProduct, Object.class);
+		model.addAttribute("productDetails", product.getBody());
+		return "fragments/product-detail";
+	}
+
+	/*
+	 * =============================================
+	 * GET PRODUCT BY CATEGORY
+	 * =============================================
+	 */
 	@RequestMapping(value = "/category/{id}")
 	public String getProductByCategoryId(@PathVariable("id") Long categoryId, Model model) {
 		String resourceProduct = "http://localhost:8001/customer/get-all-products-by-category-id-new" + "/"
@@ -47,7 +68,11 @@ public class HomeController {
 		return "fragments/all-products";
 	}
 
-	// Get Category Level 0
+	/*
+	 * =============================================
+	 * GET CATEGORY BY LEVEL 0
+	 * =============================================
+	 */
 	@ModelAttribute("categoriesLevel0")
 	public Object response0() {
 		String resourceUrl0 = "http://localhost:8001/customer/get-all-category-by-level/0";
@@ -55,7 +80,11 @@ public class HomeController {
 		return response0.getBody();
 	}
 
-	// Get Category Level 1
+	/*
+	 * =============================================
+	 * GET CATEGORY BY LEVEL 1
+	 * =============================================
+	 */
 	@ModelAttribute("categoriesLevel1")
 	public Object response1() {
 		String resourceUrl1 = "http://localhost:8001/customer/get-all-category-by-level/1";
@@ -63,7 +92,11 @@ public class HomeController {
 		return response1.getBody();
 	}
 
-	// Get Category Level 2
+	/*
+	 * =============================================
+	 * GET CATEGORY BY LEVEL 2
+	 * =============================================
+	 */
 	@ModelAttribute("categoriesLevel2")
 	public Object response2() {
 		String resourceUrl2 = "http://localhost:8001/customer/get-all-category-by-level/2";
@@ -71,7 +104,12 @@ public class HomeController {
 		return response2.getBody();
 	}
 
-	// This attribute use for format price in VNĐ
+	/*
+	 * =============================================
+	 * THIS ATTRIBUTE USE FOR FORMAT PRICE TO 'VNĐ'
+	 * =============================================
+	 */
+
 	@ModelAttribute("priceFormatter")
 	public NumberFormat formatPrice() {
 		Locale localeVN = new Locale("vi", "VN");
@@ -89,19 +127,11 @@ public class HomeController {
 		return "fragments/cart-empty";
 	}
 
-	@RequestMapping("/detail")
-	public String detail() {
-		return "fragments/product-detail";
-	}
-
-	@RequestMapping(value = "/logout")
-	public String memberLogout(HttpSession session) {
-		if (session.getAttribute("id") != null) {
-			session.removeAttribute("id");
-		}
-		return "redirect:/lich-su-mua-hang/dang-nhap";
-	}
-
+	/*
+	 * =============================================
+	 * CHECK SESSION WITHOUT REQUEST LOGIN
+	 * =============================================
+	 */
 	@RequestMapping("/lich-su-mua-hang/dang-nhap")
 	public String login(HttpSession session) {
 		Object ob = session.getAttribute("id");
@@ -111,9 +141,13 @@ public class HomeController {
 		return "fragments/login-history";
 	}
 
-	// Login by Phone Number
+	/*
+	 * =============================================
+	 * LOGIN BY PHONE NUMBER
+	 * =============================================
+	 */
 	@RequestMapping(value = "/lich-su-mua-hang/dang-nhap", method = RequestMethod.POST)
-	public String loginOTPRedirect(String phone, HttpSession session) {
+	public String loginOTPRedirect(@RequestParam(name = "phone", required = false) String phone, HttpSession session) {
 		// Set header type for request header
 		HttpHeaders headers = new HttpHeaders();
 
@@ -126,7 +160,17 @@ public class HomeController {
 		return "redirect:/lich-su-mua-hang/dang-nhap/otp";
 	}
 
-	// Get OTP phone number
+	/*
+	 * =============================================
+	 * GET OTP PHONE NUMBER
+	 * =============================================
+	 */
+	
+	@RequestMapping("/lich-su-mua-hang/dang-nhap/otp")
+	public String loginOTP() {
+		return "fragments/login-otp";
+	}
+	
 	@RequestMapping(value = "/lich-su-mua-hang/dang-nhap/otp", method = RequestMethod.POST)
 	public String verifyOtp(@RequestParam(name = "phone", required = false) String phone,
 			@RequestParam(name = "otp", required = false) String otp, HttpSession httpSession) {
@@ -145,17 +189,30 @@ public class HomeController {
 		ResponseEntity<Object> response = restTemplate.postForEntity(url, request, Object.class);
 		if (response.getStatusCode() == HttpStatus.OK) {
 			httpSession.setAttribute("id", response.getBody());
-			return "redirect:/lich-su-don-hang";
+			return "redirect:/lich-su-mua-hang";
 		}
 		return "forward:/lich-su-mua-hang/dang-nhap";
 	}
 
-	@RequestMapping("/lich-su-mua-hang/dang-nhap/otp")
-	public String loginOTP() {
-		return "fragments/login-otp";
+	/*
+	 * =============================================
+	 * LOGOUT MEMBER ACCOUNT
+	 * =============================================
+	 */
+	@RequestMapping(value = "/logout")
+	public String memberLogout(HttpSession session) {
+		if (session.getAttribute("id") != null) {
+			session.removeAttribute("id");
+		}
+		return "redirect:/lich-su-mua-hang/dang-nhap";
 	}
 
-	@RequestMapping("/lich-su-don-hang")
+	/*
+	 * =============================================
+	 * ORDER HISTORY
+	 * =============================================
+	 */
+	@RequestMapping("/lich-su-mua-hang")
 	public String historyProduct(HttpSession session, Model model) {
 		String id = String.valueOf(session.getAttribute("id"));
 		// Get Member Info
@@ -171,6 +228,11 @@ public class HomeController {
 		return "fragments/history-products";
 	}
 
+	/*
+	 * =============================================
+	 * GET ORDER DETAILS
+	 * =============================================
+	 */
 	@RequestMapping("/lich-su-mua-hang/don-hang/{id}")
 	public String orderDetail(@PathVariable("id") Long id, Model model) {
 		String resourceProductUrl = "http://localhost:8001/member/get-order-detail-by-member-order-id" + "/" + id;
@@ -179,6 +241,11 @@ public class HomeController {
 		return "fragments/order-detail";
 	}
 
+	/*
+	 * =============================================
+	 * GET INFORMATION PROFILES
+	 * =============================================
+	 */
 	@RequestMapping("/lich-su-mua-hang/thong-tin-ca-nhan/{id}")
 	public String profile(@PathVariable("id") Long id, Model model) {
 
@@ -191,15 +258,6 @@ public class HomeController {
 		model.addAttribute("profileMember", productsResponse.getBody());
 
 		return "fragments/profile";
-	}
-
-	// Get Product Details
-	@RequestMapping("/product-detail/{id}")
-	public String productDetail(@PathVariable("id") Long id, Model model) {
-		String resourceProduct = "http://localhost:8001/customer/get-product-slim-by-id" + "/" + id;
-		ResponseEntity<Object> product = restTemplate.getForEntity(resourceProduct, Object.class);
-		model.addAttribute("productDetails", product.getBody());
-		return "fragments/product-detail";
 	}
 
 }
