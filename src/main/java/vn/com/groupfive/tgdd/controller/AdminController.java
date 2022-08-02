@@ -1,5 +1,7 @@
 package vn.com.groupfive.tgdd.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -15,12 +17,16 @@ import org.springframework.http.HttpStatus;
 
 import vn.com.groupfive.tgdd.payload.request.CategoryRequest;
 
+
 @Controller
 @RequestMapping(value = "admin")
 public class AdminController {
 
 	@Autowired
 	private RestTemplate restTemplate;
+
+	@Autowired
+	HttpSession session;
 
 	@GetMapping(value = "dashboard")
 	public String adminHome(Model model) {
@@ -30,6 +36,7 @@ public class AdminController {
 	/*
 	 * ================================CATEGORY================================
 	 */
+
 
 	// Get Category Level 0
 	@ModelAttribute("categoriesLevel0")
