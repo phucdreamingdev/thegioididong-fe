@@ -1,14 +1,27 @@
 package vn.com.groupfive.tgdd.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.json.JsonMapper;
 
 @Controller
 @RequestMapping(value = "admin")
@@ -16,6 +29,9 @@ public class AdminController {
 
 	@Autowired
 	private RestTemplate restTemplate;
+
+	@Autowired
+	HttpSession session;
 
 	@GetMapping(value = "dashboard")
 	public String adminHome(Model model) {
@@ -27,11 +43,13 @@ public class AdminController {
 	 */
 
 	@GetMapping(value = "categories-list")
-	public String categoryList(Model model) {
+
+	public String categoryList(Model model) throws JsonMappingException, JsonProcessingException {
 
 		String resourceUrl0 = "http://localhost:8001/customer/get-all-category-by-level/0";
 		String resourceUrl1 = "http://localhost:8001/customer/get-all-category-by-level/1";
 		String resourceUrl2 = "http://localhost:8001/customer/get-all-category-by-level/2";
+		String url = "http://localhost:8001/admin/get-member-by-id";
 
 		ResponseEntity<Object> response0 = restTemplate.getForEntity(resourceUrl0, Object.class);
 		ResponseEntity<Object> response1 = restTemplate.getForEntity(resourceUrl1, Object.class);
@@ -84,11 +102,9 @@ public class AdminController {
 
 	@GetMapping(value = "branch-add")
 	public String addBranch(Model model) {
-		
+
 		return "admin/fragments/branch/branch-add";
 	}
-		
-	
 
 	/*
 	 * ================================ORDER================================
