@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.http.HttpStatus;
 
 import vn.com.groupfive.tgdd.payload.request.CategoryRequest;
-
 
 @Controller
 @RequestMapping(value = "admin")
@@ -28,6 +28,11 @@ public class AdminController {
 	@Autowired
 	HttpSession session;
 
+	/*
+	 * =============================================
+	 * DASHBOARD ADMIN PAGE
+	 * =============================================
+	 */
 	@GetMapping(value = "dashboard")
 	public String adminHome(Model model) {
 		return "admin/fragments/dashboard";
@@ -37,8 +42,11 @@ public class AdminController {
 	 * ================================CATEGORY================================
 	 */
 
-
-	// Get Category Level 0
+	/*
+	 * =============================================
+	 * GET CATEGORY BY LEVEL 0
+	 * =============================================
+	 */
 	@ModelAttribute("categoriesLevel0")
 	public Object response0() {
 		String resourceUrl0 = "http://localhost:8001/admin/get-all-category-by-level/0";
@@ -46,7 +54,11 @@ public class AdminController {
 		return response0.getBody();
 	}
 
-	// Get Category Level 1
+	/*
+	 * =============================================
+	 * GET CATEGORY BY LEVEL 1
+	 * =============================================
+	 */
 	@ModelAttribute("categoriesLevel1")
 	public Object response1() {
 		String resourceUrl1 = "http://localhost:8001/admin/get-all-category-by-level/1";
@@ -54,7 +66,11 @@ public class AdminController {
 		return response1.getBody();
 	}
 
-	// Get Category Level 2
+	/*
+	 * =============================================
+	 * GET CATEGORY BY LEVEL 2
+	 * =============================================
+	 */
 	@ModelAttribute("categoriesLevel2")
 	public Object response2() {
 		String resourceUrl2 = "http://localhost:8001/admin/get-all-category-by-level/2";
@@ -62,29 +78,43 @@ public class AdminController {
 		return response2.getBody();
 	}
 
-	// Render Category
+	/*
+	 * =============================================
+	 * CATEGORY LIST PAGE
+	 * =============================================
+	 */
 	@GetMapping(value = "categories-list")
 	public String categoryList() {
 		return "admin/fragments/category/category-list";
 	}
 
+	/*
+	 * =============================================
+	 * CATEGORY ADD PAGE
+	 * =============================================
+	 */
 	@GetMapping(value = "categories-add")
 	public String categoryAdd(@ModelAttribute("category") CategoryRequest category) {
 		return "admin/fragments/category/category-add";
 	}
 
+	/*
+	 * =============================================
+	 * CATEGORY ADD FUNCTIONS
+	 * =============================================
+	 */
 	@PostMapping(value = "categories-add")
 	public String categoryAddResult(@ModelAttribute("category") CategoryRequest category,
-			@ModelAttribute("error") Object errorMessage) {
+			RedirectAttributes redirectAttributes) {
 		// Set header type for request header
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		String url = "http://localhost:8001/admin/create-new-category";
 		ResponseEntity<Object> categoryResult = restTemplate.postForEntity(url, category, Object.class);
 		if (categoryResult.getStatusCode() == HttpStatus.OK) {
+			redirectAttributes.addFlashAttribute("flag", "showAlert");
 			return "redirect:/admin/categories-list";
 		}
-
 		return "redirect:/admin/categories-list";
 	}
 
