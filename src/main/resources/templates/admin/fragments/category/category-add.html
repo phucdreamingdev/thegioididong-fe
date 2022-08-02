@@ -76,15 +76,16 @@
                     <div class="col-sm-9">
                       <select
                         id="level"
+                        name="level"
                         type="text"
                         class="form-control"
-                        th:field="*{level}"
                         required
                       >
                         <option
                           th:each="i : ${#numbers.sequence(0, 2)}"
                           th:value="${i}"
                           th:text="${i}"
+                          th:selected="${i==1}"
                         ></option>
                       </select>
                     </div>
@@ -93,9 +94,30 @@
                 <div class="col-md-6" id="parentName">
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Parent Name</label>
-                    <div class="col-sm-9">
-                      <select class="form-control" alt="Load from DB">
-                        <option class="form-control">Load from DB</option>
+                    <div class="col-sm-9" th:field="*{level}">
+                      <select
+                        th:field="*{parentName}"
+                        th:unless="${level == 1}"
+                        class="form-control"
+                      >
+                        <option
+                          class="form-control"
+                          th:each="categories0 : ${categoriesLevel0}"
+                          th:value="${categories0.id}"
+                          th:text="${categories0.name}"
+                        ></option>
+                      </select>
+                      <select
+                        th:field="*{parentName}"
+                        th:if="${level == 2}"
+                        class="form-control"
+                      >
+                        <option
+                          class="form-control"
+                          th:each="categories1 : ${categoriesLevel1}"
+                          th:value="${categories1.id}"
+                          th:text="${categories1.name}"
+                        ></option>
                       </select>
                     </div>
                   </div>
