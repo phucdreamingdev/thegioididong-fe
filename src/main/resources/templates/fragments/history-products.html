@@ -12,17 +12,17 @@
   <section layout:fragment="content" class="wrapper cate">
     <div class="container">
       <div class="left">
-        <a th:href="@{/lich-su-don-hang}" class="active"
+        <a th:href="@{/lich-su-mua-hang}" class="active"
           >Danh sách đơn hàng đã mua</a
         >
-        <a th:href="@{/lich-su-don-hang/thong-tin-ca-nhan}" class=""
+        <a th:href="@{/lich-su-mua-hang/thong-tin-ca-nhan/{id}}" class=""
           >Thông tin cá nhân và sổ địa chỉ</a
         >
       </div>
       <div class="right">
-        <div class="user" data-customer="1089714740">
-          Chào anh
-          <b>Gia Minh</b> - <b>0867635674</b>
+        <div class="user" data-customer="1089714740" >
+          Chào 
+          <b th:text="${memberID.fullname}">Gia Minh</b> : <b th:text="${memberID.phone}">0867635674</b>
           <a
             href="https://www.thegioididong.com/lich-su-mua-hang/dang-xuat"
             class="logout-h"
