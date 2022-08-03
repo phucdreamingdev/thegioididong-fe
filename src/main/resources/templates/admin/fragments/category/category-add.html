@@ -8,42 +8,45 @@
   <!-- Main Content -->
   <div layout:fragment="content" class="content-wrapper">
     <div class="row">
+      <!-- BOX SELECT LEVEL 0 -->
       <div class="col-md-4 grid-margin stretch-card">
         <div class="card">
           <div class="card-body hover-cursor" id="btnLevel0">
             <h4 class="card-title">Category Level 0</h4>
             <div class="media">
               <i
-                class="ti-world icon-md text-info d-flex align-self-start mr-3"
+                class="ti-world icon-md text-success d-flex align-self-start mr-3"
               ></i>
               <div class="media-body">
                 <p class="card-text">
-                  Select This Box For Add New Category at
-                  <mark class="bg-info text-white">Level 0</mark>
+                  Select This Box To Add New Category <br />
+                  <span class="text-success font-weight-bold">Level 0</span>
                 </p>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <!-- BOX SELECT LEVEL 1 -->
       <div class="col-md-4 grid-margin stretch-card">
         <div class="card">
           <div class="card-body hover-cursor" id="btnLevel1">
             <h4 class="card-title">Category Level 1</h4>
             <div class="media">
               <i
-                class="ti-world icon-md text-info d-flex align-self-center mr-3"
+                class="ti-world icon-md text-danger d-flex align-self-center mr-3"
               ></i>
               <div class="media-body">
                 <p class="card-text">
-                  Select This Box For Add New Category at
-                  <mark class="bg-info text-white">Level 1</mark>
+                  Select This Box To Add New Category <br />
+                  <span class="text-danger font-weight-bold">Level 1</span>
                 </p>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <!-- BOX SELECT LEVEL 2 -->
       <div class="col-md-4 grid-margin stretch-card">
         <div class="card">
           <div class="card-body hover-cursor" id="btnLevel2">
@@ -54,14 +57,15 @@
               ></i>
               <div class="media-body">
                 <p class="card-text">
-                  Select This Box For Add New Category at
-                  <mark class="bg-info text-white">Level 2</mark>
+                  Select This Box To Add New Category <br />
+                  <span class="text-info font-weight-bold">Level 2</span>
                 </p>
               </div>
             </div>
           </div>
         </div>
       </div>
+
       <!-- CATEGORY FORM LEVEL 0 -->
       <div class="col-md-12 grid-margin stretch-card" id="formCategoryLv0">
         <div class="card">
@@ -76,16 +80,17 @@
               id="forms-cate-add"
               enctype="multipart/form-data"
             >
-              <div class="form-group row">
+              <div class="form-group row" id="levelHide0">
                 <label class="col-sm-3 col-form-label">Level</label>
                 <div class="col-sm-9">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="level0"
-                    value="0"
-                    placeholder="0"
-                  />
+                  <select class="form-control" id="level0" name="level">
+                    <option
+                      th:each="i : ${#numbers.sequence(0, 2)}"
+                      th:value="${i}"
+                      th:text="${i}"
+                      th:selected="${i == 0}"
+                    ></option>
+                  </select>
                 </div>
               </div>
               <div class="form-group row">
@@ -238,16 +243,17 @@
               id="forms-cate-add"
               enctype="multipart/form-data"
             >
-              <div class="form-group row">
+              <div class="form-group row" id="levelHide1">
                 <label class="col-sm-3 col-form-label">Level</label>
                 <div class="col-sm-9">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="level1"
-                    value="1"
-                    placeholder="1"
-                  />
+                  <select class="form-control" id="level1" name="level">
+                    <option
+                      th:each="i : ${#numbers.sequence(0, 2)}"
+                      th:value="${i}"
+                      th:text="${i}"
+                      th:selected="${i == 1}"
+                    ></option>
+                  </select>
                 </div>
               </div>
               <div class="form-group row">
@@ -312,7 +318,7 @@
                   </div>
                 </div>
               </div>
-              <div class="form-group row" id="isParent1">
+              <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Parent</label>
                 <div class="col-sm-4">
                   <div class="form-check form-check-success">
@@ -340,6 +346,7 @@
                         id="isParent1F"
                         value="0"
                         th:field="*{parent}"
+                        disabled
                       />
                       No
                     </label>
@@ -419,16 +426,17 @@
               id="forms-cate-add"
               enctype="multipart/form-data"
             >
-              <div class="form-group row">
+              <div class="form-group row" id="levelHide2">
                 <label class="col-sm-3 col-form-label">Level</label>
                 <div class="col-sm-9">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="level2"
-                    value="2"
-                    placeholder="2"
-                  />
+                  <select class="form-control" id="level2" name="level">
+                    <option
+                      th:each="i : ${#numbers.sequence(0, 2)}"
+                      th:value="${i}"
+                      th:text="${i}"
+                      th:selected="${i == 2}"
+                    ></option>
+                  </select>
                 </div>
               </div>
               <div class="form-group row">

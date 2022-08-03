@@ -20,17 +20,6 @@ $(function () {
 });
 
 $(function () {
-  $("#isParent1 input[type=radio]").change(function () {
-    if (this.value == 1) {
-      $("#childrenLevel1Display").show();
-    } else if (this.value == 0) {
-      $("#childrenLevel1Display").hide();
-    }
-  });
-});
-formCategoryLv0;
-
-$(function () {
   $("#btnLevel0").click(function () {
     $("#levelHide0").hide();
     $("#formCategoryLv0").show();
