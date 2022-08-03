@@ -110,22 +110,23 @@ public class AdminController {
 	 */
 	@PostMapping(value = "categories-add")
 	public String categoryAddResult(@ModelAttribute("category") CategoryRequest category,
-			@RequestParam("logoURL") MultipartFile logoURL,
+			@RequestParam(name = "logoURL", required = false) MultipartFile logoURL,
 			RedirectAttributes redirectAttributes) throws IOException {
-		// Set image
-		String fileName = StringUtils.cleanPath(logoURL.getOriginalFilename());
-		
-		// save the file on the local file system
-		Path path = Paths.get(CATE_LOGO_DIR + fileName);
-		Files.copy(logoURL.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
-		category.setLogo("/images/category-logo/" + logoURL.getOriginalFilename());
-		
+		//Check logo null
+		if (!logoURL.isEmpty()) {
+			String fileName = StringUtils.cleanPath(logoURL.getOriginalFilename());
+
+			// save the file on the local file system
+			Path path = Paths.get(CATE_LOGO_DIR + fileName);
+			Files.copy(logoURL.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
+			category.setLogo("/images/category-logo/" + logoURL.getOriginalFilename());
+
+		}
 		// Set header type for request header
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		String url = "http://localhost:8001/admin/create-new-category";
 		ResponseEntity<Object> categoryResult = restTemplate.postForEntity(url, category, Object.class);
-		
 		if (categoryResult.getStatusCode() == HttpStatus.OK) {
 			redirectAttributes.addFlashAttribute("flag", "showAlert");
 			return "redirect:/admin/categories-list";
