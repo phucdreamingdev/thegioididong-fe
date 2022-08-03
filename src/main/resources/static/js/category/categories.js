@@ -66,3 +66,15 @@ $(function () {
     function (event) {}
   );
 });
+
+// if ("${flag}" == "showAlert") {
+//   swal("Are you sure you want to do this?", {
+//     buttons: ["Oh noez!", true],
+//   });
+// }
+
+// document.getElementById("btn-submit").onclick = function () {};
+
+// document.getElementById("b1").onclick = function () {
+//   Swal.fire("Any fool can use a computer");
+// };
