@@ -256,11 +256,12 @@ public class HomeController {
 		ResponseEntity<Object> productsResponse1 = restTemplate.getForEntity(resourceProductUrl1, Object.class);
 		model.addAttribute("member", productsResponse1.getBody());
 		
-//		String urlOrder = "http://localhost:8001/member/get-member-order-by-member-id" + "/" + id;
-//		ResponseEntity<Object> memberOrder = restTemplate.getForEntity(urlOrder, Object.class);
-//		model.addAttribute("memberOrders", memberOrder.getBody());
+		String urlOrder = "http://localhost:8001/member/get-member-order-by-member-id/1";
+		ResponseEntity<Object> memberOrder = restTemplate.getForEntity(urlOrder, Object.class);
+		model.addAttribute("memberOrders", memberOrder.getBody());
 		
 		String resourceProductUrl = "http://localhost:8001/member/get-order-detail-by-member-order-id" + "/" + id;
+		model.addAttribute("id", id);
 		ResponseEntity<Object> orderDetail = restTemplate.getForEntity(resourceProductUrl, Object.class);
 		model.addAttribute("orderDetails", orderDetail.getBody());
 		return "fragments/order-detail";
