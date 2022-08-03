@@ -28,9 +28,7 @@
           >
           <a class="about-s">|</a>
           <a class="feed-back">
-            <img
-              src="./Lịch sử mua hàng _ Thegioididong.com_files/icon-mes.png"
-            />
+            
             Phản hồi, góp ý
           </a>
         </div>
@@ -78,9 +76,9 @@
           <input  th:value="${member.phone}"
           />
           <h3>Địa chỉ nhận hàng</h3>
-          <span id="add35810907" data-id="35810907" class="address active">
+          <span id="add35810907" data-id="35810907" class="address active" th:each="profile : ${profileMember}">
             <i></i>
-            <span  >116/8, Phường Tây Thạnh, Quận Tân Phú, Hồ Chí Minh</span
+            <span  th:utext="${profile.address} + ', ' + ${profile.ward.name} + ', ' + ${profile.ward.district.name} + ', ' + ${profile.ward.district.province.name}">116/8, Phường Tây Thạnh, Quận Tân Phú, Hồ Chí Minh</span
             ><br />
             <a
               href="javascript:;"

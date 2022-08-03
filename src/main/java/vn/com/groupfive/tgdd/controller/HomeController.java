@@ -1,6 +1,7 @@
 package vn.com.groupfive.tgdd.controller;
 
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
@@ -114,8 +115,17 @@ public class HomeController {
 	public NumberFormat formatPrice() {
 		Locale localeVN = new Locale("vi", "VN");
 		NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
+		
 		return currencyVN;
 	}
+	
+	@ModelAttribute("dateFormatter")
+	public SimpleDateFormat simpleDateFormat() {
+		String pattern = "yyyy-MM-dd";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+		return simpleDateFormat;
+	}
+	
 
 	@RequestMapping("/cart")
 	public String cart() {
@@ -239,11 +249,24 @@ public class HomeController {
 	 */
 	@RequestMapping("/lich-su-mua-hang/don-hang/{id}")
 	public String orderDetail(@PathVariable("id") Long id, Model model) {
+		//String id = "1";
+		
+		String resourceProductUrl1 = "http://localhost:8001/admin/get-member-by-id?id=1";
+//		String resourceProductUrl1 = "http://localhost:8001/admin/get-member-by-id" + "/" + id;
+		ResponseEntity<Object> productsResponse1 = restTemplate.getForEntity(resourceProductUrl1, Object.class);
+		model.addAttribute("member", productsResponse1.getBody());
+		
+//		String urlOrder = "http://localhost:8001/member/get-member-order-by-member-id" + "/" + id;
+//		ResponseEntity<Object> memberOrder = restTemplate.getForEntity(urlOrder, Object.class);
+//		model.addAttribute("memberOrders", memberOrder.getBody());
+		
 		String resourceProductUrl = "http://localhost:8001/member/get-order-detail-by-member-order-id" + "/" + id;
 		ResponseEntity<Object> orderDetail = restTemplate.getForEntity(resourceProductUrl, Object.class);
 		model.addAttribute("orderDetails", orderDetail.getBody());
 		return "fragments/order-detail";
 	}
+	
+	
 
 	/*
 	 * =============================================

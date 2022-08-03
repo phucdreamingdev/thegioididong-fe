@@ -21,8 +21,8 @@
       </div>
       <div class="right">
         <div class="user" data-customer="1089714740">
-          Chào anh
-          <b>Gia Minh</b> - <b>0867635674</b>
+          Chào
+          <b th:text="${member.fullname}">Gia Minh</b> : <b th:text="${member.phone}">0867635674</b>
           <a
             href="https://www.thegioididong.com/lich-su-mua-hang/dang-xuat"
             class="logout-h"
@@ -70,39 +70,40 @@
         </div>
         <div class="result"></div>
 
-        <div class="detail" id="detail_order">
-          <div class="title">
+        <div class="detail" id="detail_order" th:each=" orderDetail :  ${orderDetails}">
+          <div class="title" >
             <span>
               Trạng thái:
               <i class="success">Đã nhận hàng</i>
             </span>
-            <p>Chi tiết đơn hàng #00878SO22020631297</p>
+            <p >Chi tiết đơn hàng #00878SO22020631297</p>
             <small
               >Mua tại Thegioididong.com , 451 Lê Trọng Tấn, P.Sơn Kỳ, Q.Tân
               Phú, TP.HCM</small
             >
           </div>
 
-          <div class="item">
+          <div class="item" >
             <a href="http://thegioididong.com/sp-245109" class="fl"
               ><img
+              	 th:src="${orderDetail.versionColor.avatar}"
                 src="./Chi tiết đơn hàng 00878SO22020631297 _ Thegioididong.com_files/cap-lightning-1m-ava-kalf-trang-2-180x125.jpg"
             /></a>
             <div class="fl" data-apply="">
-              <a href="http://thegioididong.com/sp-245109"
+              <a href="http://thegioididong.com/sp-245109" th:text="${orderDetail.versionColor.name}"
                 >Cáp Lightning 1m AVA+ Kalf Trắng</a
               >
-              <i>Màu: <b>Trắng</b></i>
-              <i>Số lượng: <b>1</b></i>
+              <i>Màu: <b th:text="${orderDetail.versionColor.color.name}">Trắng</b></i>
+              <i>Số lượng: <b th:text="${orderDetail.quantity}" >1</b></i>
             </div>
             <div class="fr">
-              <b>127.000₫</b>
-              <em>150.000₫</em>
+              <b th:text="${priceFormatter.format(orderDetail.promotionPrice)}">127.000₫</b>
+              <em th:text="${priceFormatter.format(orderDetail.versionColor.price)}">150.000₫</em>
             </div>
           </div>
-          <div class="sum">
-            <span><label>Giá tạm tính:</label> <i>150.000₫</i></span>
-            <span><strong>Tổng tiền:</strong> <b>127.000₫</b></span>
+          <div class="sum" th:each=" orderDetail :  ${orderDetails}">
+            <span><label>Giá tạm tính:</label> <i >150.000₫</i></span>
+            <span><strong>Tổng tiền:</strong> <b >127.000₫</b></span>
           </div>
           <div class="info type0" data-recievetype="0">
             <b>Địa chỉ và thông tin người nhận hàng:</b>

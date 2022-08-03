@@ -19,19 +19,20 @@
           >Thông tin cá nhân và sổ địa chỉ</a
         >
       </div>
-      <div class="right">
-        <div class="user" data-customer="1089714740">
+      <div class="right" >
+        <div class="user" data-customer="1089714740" >
           Chào
           <b th:text="${member.fullname}">Gia Minh</b> :
           <b th:text="${member.phone}">0867635674</b>
           <a th:href="@{/logout}" class="logout-h">Thoát tài khoản</a>
           <a class="about-s">|</a>
-          <a class="feed-back">
+          <!--<a class="feed-back" th:each = "historyProduct : ${memberOrders}">
             <img
-              src="https://www.thegioididong.com/lich-su-mua-hang/images/icon-mes.png"
+            	th:src="${historyProduct.orderDetails.get(0).versionColor.avatar}"
+             
             />
             Phản hồi, góp ý
-          </a>
+          </a>-->
         </div>
         <div id="overbackgroud"></div>
         <div class="feed-back-detail">
@@ -70,11 +71,6 @@
         <div class="list" id="list_order">
           <b>Đơn hàng đã mua gần đây</b>
           <aside class="h-date">
-            <i>i</i>
-            <span
-              >Đây là danh sách đơn hàng bạn đã mua từ ngày
-              <b>21/07/2021</b> đến <b>21/07/2022</b></span
-            >
           </aside>
           <table cellpadding="0" cellspacing="0">
             <tbody>
@@ -107,22 +103,22 @@
                     data-id="00878SO22020631297  "
                     class="order_item"
                     ><img
-                      src="https://cdn.tgdd.vn/Products/Images/58/245109/cap-lightning-1m-ava-kalf-trang-2-180x125.jpg"
+                    th:src="${historyProduct.orderDetails.get(0).versionColor.avatar}"
+                      
                   /></a>
-                  <div th:each="orderDetail : ${historyProduct.orderDetails}">
+                  <div >
                     <a
                       href="https://www.thegioididong.com/lich-su-mua-hang/don-hang-erp-00878SO22020631297"
-                      data-id="00878SO22020631297  "
+
                       class="order_item"
-                      th:text="${orderDetail.versionColor.name}"
+                      th:text="${historyProduct.orderDetails.size() > 1} ? ${historyProduct.orderDetails.get(0).versionColor.name} + 'và ' + ${historyProduct.orderDetails.size() - 1 } +' sản phẩm khác' : '' " 
                     >
-                      Cáp Lightning 1m AVA+ Kalf Trắng
+                      
                     </a>
 
                     <div class="link">
                       <a
-                        href="https://www.thegioididong.com/lich-su-mua-hang/don-hang-erp-00878SO22020631297"
-                        data-id="00878SO22020631297  "
+                        th:href="@{/lich-su-mua-hang/don-hang/{id}(id=${historyProduct.id})}"
                         class="order_item"
                         >Xem chi tiết</a
                       >
@@ -131,11 +127,11 @@
                 </td>
 
                 <td>
-                  <b th:text="${historyProduct.totalPayment}">127.000₫</b>
+                  <b  th:text="${priceFormatter.format(historyProduct.totalPayment)}">127.000₫</b>
                 </td>
 
                 <td>
-                  <span th:text="${historyProduct.orderDate}">22/02/2022</span>
+                  <span th:text="${historyProduct.orderDate} ">22/02/2022</span>
                 </td>
 
                 <td>
