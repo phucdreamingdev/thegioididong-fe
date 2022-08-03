@@ -266,6 +266,13 @@ public class HomeController {
 		// "/" + id;
 		ResponseEntity<Object> productsResponse1 = restTemplate.getForEntity(resourceProductUrl1, Object.class);
 		model.addAttribute("member", productsResponse1.getBody());
+<<<<<<< HEAD
+		
+		String urlOrder = "http://localhost:8001/member/get-member-order-by-member-id/1";
+		ResponseEntity<Object> memberOrder = restTemplate.getForEntity(urlOrder, Object.class);
+		model.addAttribute("memberOrders", memberOrder.getBody());
+		
+=======
 
 		// String urlOrder =
 		// "http://localhost:8001/member/get-member-order-by-member-id" + "/" + id;
@@ -273,7 +280,9 @@ public class HomeController {
 		// Object.class);
 		// model.addAttribute("memberOrders", memberOrder.getBody());
 
+>>>>>>> fd2e7c595ef11a727f1a9d14c7a57aabc01d3f40
 		String resourceProductUrl = "http://localhost:8001/member/get-order-detail-by-member-order-id" + "/" + id;
+		model.addAttribute("id", id);
 		ResponseEntity<Object> orderDetail = restTemplate.getForEntity(resourceProductUrl, Object.class);
 		model.addAttribute("orderDetails", orderDetail.getBody());
 		return "fragments/order-detail";

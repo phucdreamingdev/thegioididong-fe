@@ -1,136 +1,113 @@
 <!DOCTYPE html>
-<html
-  lang="vi-VN"
-  xmlns:th="http://www.thymeleaf.org"
-  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-  layout:decorate="~{/layout.html}"
->
-  <head>
-    <link rel="stylesheet" th:href="@{/css/history-products-profile.css}" />
-  </head>
-  <!-- Lich Su Don Hang -->
-  <section layout:fragment="content" class="wrapper cate">
-    <div class="container">
-      <div class="left">
-        <a th:href="@{/lich-su-don-hang}" class="active"
-          >Danh sách đơn hàng đã mua</a
-        >
-        <a th:href="@{/lich-su-don-hang/thong-tin-ca-nhan}" class=""
-          >Thông tin cá nhân và sổ địa chỉ</a
-        >
-      </div>
-      <div class="right">
-        <div class="user" data-customer="1089714740">
-          Chào
-          <b th:text="${member.fullname}">Gia Minh</b> : <b th:text="${member.phone}">0867635674</b>
-          <a
-            href="https://www.thegioididong.com/lich-su-mua-hang/dang-xuat"
-            class="logout-h"
-            >Thoát tài khoản</a
-          >
-          <a class="about-s">|</a>
-          <a class="feed-back">
-            <img
-              src="https://www.thegioididong.com/lich-su-mua-hang/images/icon-mes.png"
-            />
-            Phản hồi, góp ý
-          </a>
-        </div>
-        <div id="overbackgroud"></div>
-        <div class="feed-back-detail">
-          <img
-            class="close-p"
-            src="./Lịch sử mua hàng _ Thegioididong.com_files/iconclose.png"
-          />
-          <h2>Phản hồi, góp ý lịch sử mua hàng</h2>
-          <div class="infor-user">
-            <h3>Thông tin khách hàng:</h3>
-            <span
-              ><span class="sex-f" data-id="1">Anh:</span>
-              <b class="name-f">Gia Minh</b> -
-              <b class="phone-f">0867635674</b></span
-            >
-          </div>
-          <div class="feed-user">
-            <h3>Thông tin phản hồi góp ý:</h3>
-            <textarea
-              id="myTextarea"
-              name="txtFeedback"
-              placeholder="Vui lòng nhập tiếng Việt có dấu..."
-            ></textarea>
-            <button
-              type="submit"
-              class="submid-feed"
-              onclick="SendFeedback(13);"
-            >
-              GỬI
-            </button>
-            <div class="loader"></div>
-          </div>
-        </div>
-        <div class="result"></div>
+<html lang="vi-VN" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/layout.html}">
+<head>
+<link rel="stylesheet" th:href="@{/css/history-products-profile.css}" />
+</head>
+<!-- Lich Su Don Hang -->
+<section layout:fragment="content" class="wrapper cate">
+	<div class="container">
+		<div class="left">
+			<a th:href="@{/lich-su-don-hang}" class="active">Danh sách đơn
+				hàng đã mua</a> <a th:href="@{/lich-su-don-hang/thong-tin-ca-nhan}"
+				class="">Thông tin cá nhân và sổ địa chỉ</a>
+		</div>
+		<div class="right">
+			<div class="user" data-customer="1089714740">
+				Chào <b th:text="${member.fullname}">Gia Minh</b> : <b
+					th:text="${member.phone}">0867635674</b> <a
+					href="https://www.thegioididong.com/lich-su-mua-hang/dang-xuat"
+					class="logout-h">Thoát tài khoản</a> <a class="about-s">|</a> <a
+					class="feed-back"> <img
+					src="https://www.thegioididong.com/lich-su-mua-hang/images/icon-mes.png" />
+					Phản hồi, góp ý
+				</a>
+			</div>
+			<div id="overbackgroud"></div>
+			<div class="feed-back-detail">
+				<img class="close-p"
+					src="./Lịch sử mua hàng _ Thegioididong.com_files/iconclose.png" />
+				<h2>Phản hồi, góp ý lịch sử mua hàng</h2>
+				<div class="infor-user">
+					<h3>Thông tin khách hàng:</h3>
+					<span><span class="sex-f" data-id="1">Anh:</span> <b
+						class="name-f">Gia Minh</b> - <b class="phone-f">0867635674</b></span>
+				</div>
+				<div class="feed-user">
+					<h3>Thông tin phản hồi góp ý:</h3>
+					<textarea id="myTextarea" name="txtFeedback"
+						placeholder="Vui lòng nhập tiếng Việt có dấu..."></textarea>
+					<button type="submit" class="submid-feed"
+						onclick="SendFeedback(13);">GỬI</button>
+					<div class="loader"></div>
+				</div>
+			</div>
+			<div class="result"></div>
 
-        <div class="detail" id="detail_order" th:each=" orderDetail :  ${orderDetails}">
-          <div class="title" >
-            <span>
-              Trạng thái:
-              <i class="success">Đã nhận hàng</i>
-            </span>
-            <p >Chi tiết đơn hàng #00878SO22020631297</p>
-            <small
-              >Mua tại Thegioididong.com , 451 Lê Trọng Tấn, P.Sơn Kỳ, Q.Tân
-              Phú, TP.HCM</small
-            >
-          </div>
+			<div class="detail" id="detail_order"
+				th:each="memberOrder : ${memberOrders}">
+				<div class="title">
+					<span> Trạng thái: <i class="success"
+						th:text="${memberOrder.deliveryStatus}">Đã nhận hàng</i>
+					</span>
+					<p th:text="'Chi tiết đơn hàng #'+ ${id}">Chi tiết đơn hàng
+						#00878SO22020631297</p>
+					<small>Mua tại Thegioididong.com , 451 Lê Trọng Tấn, P.Sơn
+						Kỳ, Q.Tân Phú, TP.HCM</small>
+				</div>
 
-          <div class="item" >
-            <a href="http://thegioididong.com/sp-245109" class="fl"
-              ><img
-              	 th:src="${orderDetail.versionColor.avatar}"
-                src="./Chi tiết đơn hàng 00878SO22020631297 _ Thegioididong.com_files/cap-lightning-1m-ava-kalf-trang-2-180x125.jpg"
-            /></a>
-            <div class="fl" data-apply="">
-              <a href="http://thegioididong.com/sp-245109" th:text="${orderDetail.versionColor.name}"
-                >Cáp Lightning 1m AVA+ Kalf Trắng</a
-              >
-              <i>Màu: <b th:text="${orderDetail.versionColor.color.name}">Trắng</b></i>
-              <i>Số lượng: <b th:text="${orderDetail.quantity}" >1</b></i>
-            </div>
-            <div class="fr">
-              <b th:text="${priceFormatter.format(orderDetail.promotionPrice)}">127.000₫</b>
-              <em th:text="${priceFormatter.format(orderDetail.versionColor.price)}">150.000₫</em>
-            </div>
-          </div>
-          <div class="sum" th:each=" orderDetail :  ${orderDetails}">
-            <span><label>Giá tạm tính:</label> <i >150.000₫</i></span>
-            <span><strong>Tổng tiền:</strong> <b >127.000₫</b></span>
-          </div>
-          <div class="info type0" data-recievetype="0">
-            <b>Địa chỉ và thông tin người nhận hàng:</b>
+				<div class="item" th:each=" orderDetail :  ${orderDetails}">
+					<a href="http://thegioididong.com/sp-245109" class="fl"><img
+						th:src="${orderDetail.versionColor.avatar}"
+						src="./Chi tiết đơn hàng 00878SO22020631297 _ Thegioididong.com_files/cap-lightning-1m-ava-kalf-trang-2-180x125.jpg" /></a>
+					<div class="fl" data-apply="">
+						<a href="http://thegioididong.com/sp-245109"
+							th:text="${orderDetail.versionColor.name}">Cáp Lightning 1m
+							AVA+ Kalf Trắng</a> <i>Màu: <b
+							th:text="${orderDetail.versionColor.color.name}">Trắng</b></i> <i>Số
+							lượng: <b th:text="${orderDetail.quantity}">1</b>
+						</i>
+					</div>
+					<th:block th:if="${orderDetail.promotionPrice} <= 0 ">
+						<div class="fr">
+							<b
+								th:text="${priceFormatter.format(orderDetail.originalPrice)}">127.000₫</b>
+						</div>
+					</th:block>
+					<th:block th:if="${orderDetail.promotionPrice} > 0 ">
+						<div class="fr">
+							<b
+								th:text="${priceFormatter.format(orderDetail.promotionPrice)}">127.000₫</b>
+							<em
+								th:text="${priceFormatter.format(orderDetail.originalPrice)}">150.000₫</em>
+						</div>
+					</th:block>
 
-            <span class="receiver">Anh Minh - 0867635674</span>
 
-            <input type="hidden" name="hdOrderPhone" value="" />
-            <span
-              >Siêu thị nhận hàng: 451 Lê Trọng Tấn, P.Sơn Kỳ, Q.Tân Phú,
-              TP.HCM</span
-            >
+				</div>
+				<div class="sum">
+					<span><label>Giá tạm tính:</label> <i>150.000₫</i></span> 
+					<span><strong >Tổng tiền:</strong> <b th:text="${priceFormatter.format(memberOrder.totalPayment)}">127.000₫</b></span>
+					<span><strong class="paid">Số tiền đã thanh toán:</strong><b th:text="${priceFormatter.format(memberOrder.totalPayment)}">637.000₫</b></span>
+				</div>
+				<div class="info type0" data-recievetype="0">
+					<b>Địa chỉ và thông tin người nhận hàng:</b> <span class="receiver">Anh
+						Minh - 0867635674</span> <input type="hidden" name="hdOrderPhone"
+						value="" /> <span>Siêu thị nhận hàng: 451 Lê Trọng Tấn,
+						P.Sơn Kỳ, Q.Tân Phú, TP.HCM</span> <span>Thời gian nhận hàng:
+						Trước 21:58 22/02/2022</span>
+				</div>
 
-            <span>Thời gian nhận hàng: Trước 21:58 22/02/2022</span>
-          </div>
-
-          <div class="pay">
-            <div class="box_payment">
-              <a
-                href="https://www.thegioididong.com/lich-su-mua-hang"
-                class="back"
-                >Quay lại danh sách đơn hàng</a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End -->
+				<div class="pay">
+					<div class="box_payment">
+						<a href="https://www.thegioididong.com/lich-su-mua-hang"
+							class="back">Quay lại danh sách đơn hàng</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End -->
 </html>
