@@ -75,7 +75,6 @@
                   <select
                     id="level"
                     name="level"
-                    type="text"
                     class="form-control"
                     required
                   >
@@ -141,24 +140,11 @@
                   </select>
                 </div>
               </div>
-              <div class="form-group row" id="parentName">
+              <div class="form-group row" id="parentNameDisplay">
                 <label class="col-sm-3 col-form-label">Parent Name</label>
                 <div class="col-sm-9">
-                  <select th:field="*{parentName}" class="form-control">
-                    <option
-                      class="form-control"
-                      th:each="categories0 : ${categoriesLevel0}"
-                      th:value="${categories0.name}"
-                      th:text="${categories0.name}"
-                      id="parentNameLevel0"
-                    ></option>
-                    <option
-                      class="form-control"
-                      th:each="categories1 : ${categoriesLevel1}"
-                      th:value="${categories1.name}"
-                      th:text="${categories1.name}"
-                      id="parentNameLevel1"
-                    ></option>
+                  <select id="parentName" th:field="*{parentName}" class="form-control">
+
                   </select>
                 </div>
               </div>
