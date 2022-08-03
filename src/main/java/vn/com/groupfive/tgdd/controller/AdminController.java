@@ -1,26 +1,38 @@
 package vn.com.groupfive.tgdd.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.http.HttpStatus;
 
 import vn.com.groupfive.tgdd.payload.request.CategoryRequest;
 
 @Controller
 @RequestMapping(value = "admin")
 public class AdminController {
+
+	private final String CATE_LOGO_DIR = "src\\main\\resources\\static\\images\\category-logo\\";
 
 	@Autowired
 	private RestTemplate restTemplate;
@@ -29,8 +41,7 @@ public class AdminController {
 	HttpSession session;
 
 	/*
-	 * =============================================
-	 * DASHBOARD ADMIN PAGE
+	 * ============================================= DASHBOARD ADMIN PAGE
 	 * =============================================
 	 */
 	@GetMapping(value = "dashboard")
@@ -43,8 +54,7 @@ public class AdminController {
 	 */
 
 	/*
-	 * =============================================
-	 * GET CATEGORY BY LEVEL 0
+	 * ============================================= GET CATEGORY BY LEVEL 0
 	 * =============================================
 	 */
 	@ModelAttribute("categoriesLevel0")
@@ -55,8 +65,7 @@ public class AdminController {
 	}
 
 	/*
-	 * =============================================
-	 * GET CATEGORY BY LEVEL 1
+	 * ============================================= GET CATEGORY BY LEVEL 1
 	 * =============================================
 	 */
 	@ModelAttribute("categoriesLevel1")
@@ -67,8 +76,7 @@ public class AdminController {
 	}
 
 	/*
-	 * =============================================
-	 * GET CATEGORY BY LEVEL 2
+	 * ============================================= GET CATEGORY BY LEVEL 2
 	 * =============================================
 	 */
 	@ModelAttribute("categoriesLevel2")
@@ -79,8 +87,7 @@ public class AdminController {
 	}
 
 	/*
-	 * =============================================
-	 * CATEGORY LIST PAGE
+	 * ============================================= CATEGORY LIST PAGE
 	 * =============================================
 	 */
 	@GetMapping(value = "categories-list")
@@ -89,8 +96,7 @@ public class AdminController {
 	}
 
 	/*
-	 * =============================================
-	 * CATEGORY ADD PAGE
+	 * ============================================= CATEGORY ADD PAGE
 	 * =============================================
 	 */
 	@GetMapping(value = "categories-add")
@@ -99,18 +105,27 @@ public class AdminController {
 	}
 
 	/*
-	 * =============================================
-	 * CATEGORY ADD FUNCTIONS
+	 * ============================================= CATEGORY ADD FUNCTIONS
 	 * =============================================
 	 */
 	@PostMapping(value = "categories-add")
 	public String categoryAddResult(@ModelAttribute("category") CategoryRequest category,
-			RedirectAttributes redirectAttributes) {
+			@RequestParam("logoURL") MultipartFile logoURL,
+			RedirectAttributes redirectAttributes) throws IOException {
+		// Set image
+		String fileName = StringUtils.cleanPath(logoURL.getOriginalFilename());
+		
+		// save the file on the local file system
+		Path path = Paths.get(CATE_LOGO_DIR + fileName);
+		Files.copy(logoURL.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
+		category.setLogo("/images/category-logo/" + logoURL.getOriginalFilename());
+		
 		// Set header type for request header
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		String url = "http://localhost:8001/admin/create-new-category";
 		ResponseEntity<Object> categoryResult = restTemplate.postForEntity(url, category, Object.class);
+		
 		if (categoryResult.getStatusCode() == HttpStatus.OK) {
 			redirectAttributes.addFlashAttribute("flag", "showAlert");
 			return "redirect:/admin/categories-list";
