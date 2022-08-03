@@ -107,7 +107,7 @@ public class HomeController {
 
 	/*
 	 * =============================================
-	 * THIS ATTRIBUTE USE FOR FORMAT PRICE TO 'VNĐ'
+	 * THIS FUNCTIONS USE FOR FORMAT PRICE TO 'VNĐ'
 	 * =============================================
 	 */
 
@@ -115,17 +115,21 @@ public class HomeController {
 	public NumberFormat formatPrice() {
 		Locale localeVN = new Locale("vi", "VN");
 		NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
-		
+
 		return currencyVN;
 	}
-	
+
+	/*
+	 * =============================================
+	 * THIS FUNCTIONS USE FOR FORMAT DATE
+	 * =============================================
+	 */
 	@ModelAttribute("dateFormatter")
 	public SimpleDateFormat simpleDateFormat() {
 		String pattern = "yyyy-MM-dd";
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 		return simpleDateFormat;
 	}
-	
 
 	@RequestMapping("/cart")
 	public String cart() {
@@ -159,14 +163,16 @@ public class HomeController {
 	@RequestMapping(value = "/lich-su-mua-hang/dang-nhap", method = RequestMethod.POST)
 	public String loginOTPRedirect(String phone, HttpSession session) {
 		// Set header type for request header
-//		HttpHeaders headers = new HttpHeaders();
-//		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
-//		map.add("phone", phone);
-//		session.setAttribute("phone", phone);
-//		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(map, headers);
-//		String url = "http://localhost:8001/customer/sendotp";
-//		restTemplate.postForEntity(url, request, String.class);
-//		REMOVE AFTER COMBINE 
+		// HttpHeaders headers = new HttpHeaders();
+		// MultiValueMap<String, String> map = new LinkedMultiValueMap<String,
+		// String>();
+		// map.add("phone", phone);
+		// session.setAttribute("phone", phone);
+		// HttpEntity<MultiValueMap<String, String>> request = new
+		// HttpEntity<MultiValueMap<String, String>>(map, headers);
+		// String url = "http://localhost:8001/customer/sendotp";
+		// restTemplate.postForEntity(url, request, String.class);
+		// REMOVE AFTER COMBINE
 		return "redirect:/lich-su-mua-hang/dang-nhap/otp";
 	}
 
@@ -175,33 +181,37 @@ public class HomeController {
 	 * GET OTP PHONE NUMBER
 	 * =============================================
 	 */
-	
-	//RENDER PAGE
+
+	/* RENDER PAGE */
 	@RequestMapping("/lich-su-mua-hang/dang-nhap/otp")
 	public String loginOTP() {
 		return "fragments/login-otp";
 	}
-	//POST REQUEST
+
+	/* POST REQUEST */
 	@RequestMapping(value = "/lich-su-mua-hang/dang-nhap/otp", method = RequestMethod.POST)
 	public String verifyOtp(@ModelAttribute("id") Object id, String phone, String otp, HttpSession httpSession) {
-//		// Set header type for request header
-//		HttpHeaders headers = new HttpHeaders();
-//		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-//
-//		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
-//
-//		map.add("phone", String.valueOf(httpSession.getAttribute("phone")));
-//		map.add("otp", otp);
-//
-//		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(map, headers);
-//		String url = "http://localhost:8001/customer/verifyotp";
-//
-//		ResponseEntity<Object> response = restTemplate.postForEntity(url, request, Object.class);
-//		if (response.getStatusCode() == HttpStatus.OK) {
-//			httpSession.setAttribute("id", response.getBody());
-//			return "redirect:/lich-su-mua-hang";
-//		}
-//		return "forward:/lich-su-mua-hang/dang-nhap";
+		// // Set header type for request header
+		// HttpHeaders headers = new HttpHeaders();
+		// headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+		//
+		// MultiValueMap<String, String> map = new LinkedMultiValueMap<String,
+		// String>();
+		//
+		// map.add("phone", String.valueOf(httpSession.getAttribute("phone")));
+		// map.add("otp", otp);
+		//
+		// HttpEntity<MultiValueMap<String, String>> request = new
+		// HttpEntity<MultiValueMap<String, String>>(map, headers);
+		// String url = "http://localhost:8001/customer/verifyotp";
+		//
+		// ResponseEntity<Object> response = restTemplate.postForEntity(url, request,
+		// Object.class);
+		// if (response.getStatusCode() == HttpStatus.OK) {
+		// httpSession.setAttribute("id", response.getBody());
+		// return "redirect:/lich-su-mua-hang";
+		// }
+		// return "forward:/lich-su-mua-hang/dang-nhap";
 		id = 1;
 		httpSession.setAttribute("id", id);
 		return "redirect:/lich-su-mua-hang";
@@ -227,7 +237,7 @@ public class HomeController {
 	 */
 	@RequestMapping("/lich-su-mua-hang")
 	public String historyProduct(HttpSession session, Model model) {
-//		String id = String.valueOf(session.getAttribute("id"));
+		// String id = String.valueOf(session.getAttribute("id"));
 		String id = "1";
 		// Get Member Info
 		String url = "http://localhost:8001/admin/get-member-by-id" + "?id=" + id;
@@ -249,24 +259,25 @@ public class HomeController {
 	 */
 	@RequestMapping("/lich-su-mua-hang/don-hang/{id}")
 	public String orderDetail(@PathVariable("id") Long id, Model model) {
-		//String id = "1";
-		
+		// String id = "1";
+
 		String resourceProductUrl1 = "http://localhost:8001/admin/get-member-by-id?id=1";
-//		String resourceProductUrl1 = "http://localhost:8001/admin/get-member-by-id" + "/" + id;
+		// String resourceProductUrl1 = "http://localhost:8001/admin/get-member-by-id" +
+		// "/" + id;
 		ResponseEntity<Object> productsResponse1 = restTemplate.getForEntity(resourceProductUrl1, Object.class);
 		model.addAttribute("member", productsResponse1.getBody());
-		
-//		String urlOrder = "http://localhost:8001/member/get-member-order-by-member-id" + "/" + id;
-//		ResponseEntity<Object> memberOrder = restTemplate.getForEntity(urlOrder, Object.class);
-//		model.addAttribute("memberOrders", memberOrder.getBody());
-		
+
+		// String urlOrder =
+		// "http://localhost:8001/member/get-member-order-by-member-id" + "/" + id;
+		// ResponseEntity<Object> memberOrder = restTemplate.getForEntity(urlOrder,
+		// Object.class);
+		// model.addAttribute("memberOrders", memberOrder.getBody());
+
 		String resourceProductUrl = "http://localhost:8001/member/get-order-detail-by-member-order-id" + "/" + id;
 		ResponseEntity<Object> orderDetail = restTemplate.getForEntity(resourceProductUrl, Object.class);
 		model.addAttribute("orderDetails", orderDetail.getBody());
 		return "fragments/order-detail";
 	}
-	
-	
 
 	/*
 	 * =============================================
@@ -276,11 +287,13 @@ public class HomeController {
 	@RequestMapping("/lich-su-mua-hang/thong-tin-ca-nhan")
 	public String profile(Model model, HttpSession session) {
 		String resourceProductUrl1 = "http://localhost:8001/admin/get-member-by-id?id=1";
-//		String resourceProductUrl1 = "http://localhost:8001/admin/get-member-by-id" + "/" + id;
+		// String resourceProductUrl1 = "http://localhost:8001/admin/get-member-by-id" +
+		// "/" + id;
 		ResponseEntity<Object> productsResponse1 = restTemplate.getForEntity(resourceProductUrl1, Object.class);
 		model.addAttribute("member", productsResponse1.getBody());
 		String resourceProductUrl = "http://localhost:8001/member/get-member-address-by-member-id/1";
-//		String resourceProductUrl = "http://localhost:8001/member/get-member-address-by-member-id" + "/" + id;
+		// String resourceProductUrl =
+		// "http://localhost:8001/member/get-member-address-by-member-id" + "/" + id;
 		ResponseEntity<Object> memberAddresses = restTemplate.getForEntity(resourceProductUrl, Object.class);
 		model.addAttribute("profileMember", memberAddresses.getBody());
 
