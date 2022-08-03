@@ -8,8 +8,6 @@
   <!-- Main Content -->
   <div layout:fragment="content" class="content-wrapper">
     <div class="row">
-      <!--=================BOX SELECT SECTION==================-->
-      <!-- BOX SELECT LEVEL 0 -->
       <div class="col-md-4 grid-margin stretch-card">
         <div class="card">
           <div class="card-body hover-cursor" id="btnLevel0">
@@ -20,7 +18,7 @@
               ></i>
               <div class="media-body">
                 <p class="card-text">
-                  Select This Box To Add New Category
+                  Select This Box For Add New Category at
                   <mark class="bg-info text-white">Level 0</mark>
                 </p>
               </div>
@@ -28,7 +26,6 @@
           </div>
         </div>
       </div>
-      <!-- BOX SELECT LEVEL 1 -->
       <div class="col-md-4 grid-margin stretch-card">
         <div class="card">
           <div class="card-body hover-cursor" id="btnLevel1">
@@ -39,7 +36,7 @@
               ></i>
               <div class="media-body">
                 <p class="card-text">
-                  Select This Box To Add New Category
+                  Select This Box For Add New Category at
                   <mark class="bg-info text-white">Level 1</mark>
                 </p>
               </div>
@@ -47,7 +44,6 @@
           </div>
         </div>
       </div>
-      <!-- BOX SELECT LEVEL 2 -->
       <div class="col-md-4 grid-margin stretch-card">
         <div class="card">
           <div class="card-body hover-cursor" id="btnLevel2">
@@ -58,7 +54,7 @@
               ></i>
               <div class="media-body">
                 <p class="card-text">
-                  Select This Box To Add New Category
+                  Select This Box For Add New Category at
                   <mark class="bg-info text-white">Level 2</mark>
                 </p>
               </div>
@@ -66,8 +62,6 @@
           </div>
         </div>
       </div>
-      <!--=================END BOX SELECT SECTION==================-->
-
       <!-- CATEGORY FORM LEVEL 0 -->
       <div class="col-md-12 grid-margin stretch-card" id="formCategoryLv0">
         <div class="card">
@@ -80,31 +74,22 @@
               method="POST"
               class="forms-sample"
               id="forms-cate-add"
+              enctype="multipart/form-data"
             >
-              <div class="form-group row" id="levelHide0">
+              <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Level</label>
                 <div class="col-sm-9">
-                  <select
-                    id="level0"
-                    name="level"
+                  <input
+                    type="text"
                     class="form-control"
-                    required
-                  >
-                    <option
-                      th:each="i : ${#numbers.sequence(0, 2)}"
-                      th:value="${i}"
-                      th:text="${i}"
-                      th:selected="${i==0}"
-                    ></option>
-                  </select>
+                    id="level0"
+                    value="0"
+                    placeholder="0"
+                  />
                 </div>
               </div>
               <div class="form-group row">
-                <label
-                  for="exampleInputUsername2"
-                  class="col-sm-3 col-form-label"
-                  >Name</label
-                >
+                <label class="col-sm-3 col-form-label">Name</label>
                 <div class="col-sm-9">
                   <input
                     type="text"
@@ -200,7 +185,12 @@
               </div>
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">File Logo Upload</label>
-                <input type="file" name="img[]" class="file-upload-default" />
+                <input
+                  type="file"
+                  name="logoURL"
+                  class="file-upload-default"
+                  accept="image/png, image/jpeg"
+                />
                 <div class="input-group col-sm-12">
                   <input
                     type="text"
@@ -246,31 +236,22 @@
               method="POST"
               class="forms-sample"
               id="forms-cate-add"
+              enctype="multipart/form-data"
             >
-              <div class="form-group row" id="levelHide1">
+              <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Level</label>
                 <div class="col-sm-9">
-                  <select
-                    id="level1"
-                    name="level"
+                  <input
+                    type="text"
                     class="form-control"
-                    required
-                  >
-                    <option
-                      th:each="i : ${#numbers.sequence(0, 2)}"
-                      th:value="${i}"
-                      th:text="${i}"
-                      th:selected="${i==1}"
-                    ></option>
-                  </select>
+                    id="level1"
+                    value="1"
+                    placeholder="1"
+                  />
                 </div>
               </div>
               <div class="form-group row">
-                <label
-                  for="exampleInputUsername2"
-                  class="col-sm-3 col-form-label"
-                  >Name</label
-                >
+                <label class="col-sm-3 col-form-label">Name</label>
                 <div class="col-sm-9">
                   <input
                     type="text"
@@ -387,7 +368,12 @@
 
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">File Logo Upload</label>
-                <input type="file" name="img[]" class="file-upload-default" />
+                <input
+                  type="file"
+                  name="logoURL"
+                  class="file-upload-default"
+                  accept="image/png, image/jpeg"
+                />
                 <div class="input-group col-sm-12">
                   <input
                     type="text"
@@ -431,31 +417,22 @@
               method="POST"
               class="forms-sample"
               id="forms-cate-add"
+              enctype="multipart/form-data"
             >
-              <div class="form-group row" id="levelHide2">
+              <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Level</label>
                 <div class="col-sm-9">
-                  <select
-                    id="level2"
-                    name="level"
+                  <input
+                    type="text"
                     class="form-control"
-                    required
-                  >
-                    <option
-                      th:each="i : ${#numbers.sequence(0, 2)}"
-                      th:value="${i}"
-                      th:text="${i}"
-                      th:selected="${i==2}"
-                    ></option>
-                  </select>
+                    id="level2"
+                    value="2"
+                    placeholder="2"
+                  />
                 </div>
               </div>
               <div class="form-group row">
-                <label
-                  for="exampleInputUsername2"
-                  class="col-sm-3 col-form-label"
-                  >Name</label
-                >
+                <label class="col-sm-3 col-form-label">Name</label>
                 <div class="col-sm-9">
                   <input
                     type="text"
@@ -524,7 +501,12 @@
 
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">File Logo Upload</label>
-                <input type="file" name="img[]" class="file-upload-default" />
+                <input
+                  type="file"
+                  name="logoURL"
+                  class="file-upload-default"
+                  accept="image/png, image/jpeg"
+                />
                 <div class="input-group col-sm-12">
                   <input
                     type="text"
