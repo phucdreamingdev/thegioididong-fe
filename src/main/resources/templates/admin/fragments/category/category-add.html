@@ -470,6 +470,11 @@
                       Select Category Name Level 1
                     </option>
                     <option
+                      th:each="categoryLevel0 : ${categoriesLevel0}"
+                      th:value="${categoryLevel0.name}"
+                      th:text="${categoryLevel0.name}"
+                    ></option>
+                    <option
                       th:each="categoryLevel1 : ${categoriesLevel1}"
                       th:value="${categoryLevel1.name}"
                       th:text="${categoryLevel1.name}"
