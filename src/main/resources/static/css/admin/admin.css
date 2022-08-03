@@ -8867,7 +8867,7 @@ a {
 }
 
 a:hover {
-  color: inherit; 
+  color: inherit;
   text-decoration: underline;
 }
 
@@ -11720,8 +11720,8 @@ fieldset:disabled .wizard > .actions a,
 .btn-primary.focus,
 .wizard > .actions a.focus {
   color: #fff;
-  background-color: #3f3e91;
-  border-color: #3b3a88;
+  background-color: #dfb507;
+  border-color: #d2aa07;
   box-shadow: 0 0 0 0.2rem rgba(102, 100, 184, 0.5);
 }
 
