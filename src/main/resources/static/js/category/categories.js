@@ -1,8 +1,4 @@
 $(function () {
-  $("#level0").attr("disabled", "disabled");
-  $("#level1").attr("disabled", "disabled");
-  $("#level2").attr("disabled", "disabled");
-
   $("#statusLv0T").attr("checked", "checked");
   $("#statusLv1T").attr("checked", "checked");
   $("#statusLv2T").attr("checked", "checked");
@@ -32,20 +28,23 @@ $(function () {
     }
   });
 });
-formCategoryLv0
+formCategoryLv0;
 
 $(function () {
   $("#btnLevel0").click(function () {
+    $("#levelHide0").hide();
     $("#formCategoryLv0").show();
     $("#formCategoryLv1").hide();
     $("#formCategoryLv2").hide();
   });
   $("#btnLevel1").click(function () {
+    $("#levelHide1").hide();
     $("#formCategoryLv0").hide();
     $("#formCategoryLv1").show();
     $("#formCategoryLv2").hide();
   });
   $("#btnLevel2").click(function () {
+    $("#levelHide2").hide();
     $("#formCategoryLv0").hide();
     $("#formCategoryLv1").hide();
     $("#formCategoryLv2").show();
@@ -55,12 +54,15 @@ $(function () {
     $("#formCategoryLv0").hide();
     $("#formCategoryLv1").hide();
     $("#formCategoryLv2").hide();
-  }
+  };
 
   $(document).ready(function () {
     $("#formCategoryLv0").hide();
     $("#formCategoryLv1").hide();
     $("#formCategoryLv2").hide();
   });
-});
 
+  $("#formCategoryLv0", "#formCategoryLv1", "#formCategoryLv2").submit(
+    function (event) {}
+  );
+});

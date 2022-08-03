@@ -8,6 +8,8 @@
   <!-- Main Content -->
   <div layout:fragment="content" class="content-wrapper">
     <div class="row">
+      <!--=================BOX SELECT SECTION==================-->
+      <!-- BOX SELECT LEVEL 0 -->
       <div class="col-md-4 grid-margin stretch-card">
         <div class="card">
           <div class="card-body hover-cursor" id="btnLevel0">
@@ -18,7 +20,7 @@
               ></i>
               <div class="media-body">
                 <p class="card-text">
-                  Select This Box For Add New Category at
+                  Select This Box To Add New Category
                   <mark class="bg-info text-white">Level 0</mark>
                 </p>
               </div>
@@ -26,6 +28,7 @@
           </div>
         </div>
       </div>
+      <!-- BOX SELECT LEVEL 1 -->
       <div class="col-md-4 grid-margin stretch-card">
         <div class="card">
           <div class="card-body hover-cursor" id="btnLevel1">
@@ -36,7 +39,7 @@
               ></i>
               <div class="media-body">
                 <p class="card-text">
-                  Select This Box For Add New Category at
+                  Select This Box To Add New Category
                   <mark class="bg-info text-white">Level 1</mark>
                 </p>
               </div>
@@ -44,6 +47,7 @@
           </div>
         </div>
       </div>
+      <!-- BOX SELECT LEVEL 2 -->
       <div class="col-md-4 grid-margin stretch-card">
         <div class="card">
           <div class="card-body hover-cursor" id="btnLevel2">
@@ -54,7 +58,7 @@
               ></i>
               <div class="media-body">
                 <p class="card-text">
-                  Select This Box For Add New Category at
+                  Select This Box To Add New Category
                   <mark class="bg-info text-white">Level 2</mark>
                 </p>
               </div>
@@ -62,6 +66,8 @@
           </div>
         </div>
       </div>
+      <!--=================END BOX SELECT SECTION==================-->
+
       <!-- CATEGORY FORM LEVEL 0 -->
       <div class="col-md-12 grid-margin stretch-card" id="formCategoryLv0">
         <div class="card">
@@ -75,7 +81,7 @@
               class="forms-sample"
               id="forms-cate-add"
             >
-              <div class="form-group row">
+              <div class="form-group row" id="levelHide0">
                 <label class="col-sm-3 col-form-label">Level</label>
                 <div class="col-sm-9">
                   <select
@@ -239,7 +245,7 @@
               class="forms-sample"
               id="forms-cate-add"
             >
-              <div class="form-group row">
+              <div class="form-group row" id="levelHide1">
                 <label class="col-sm-3 col-form-label">Level</label>
                 <div class="col-sm-9">
                   <select
@@ -424,7 +430,7 @@
               class="forms-sample"
               id="forms-cate-add"
             >
-              <div class="form-group row">
+              <div class="form-group row" id="levelHide2">
                 <label class="col-sm-3 col-form-label">Level</label>
                 <div class="col-sm-9">
                   <select
