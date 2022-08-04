@@ -19,18 +19,12 @@
       </div>
       <div class="right">
         <div class="user" data-customer="1089714740">
-          Chào 
-          <b th:text="${member.fullname}">Gia Minh</b> : <b th:text="${member.phone}">0867635674</b>
-          <a
-            th:href="@{/logout}"
-            class="logout-h"
-            >Thoát tài khoản</a
-          >
+          Chào
+          <b th:text="${member.fullname}">Gia Minh</b> :
+          <b th:text="${member.phone}">0867635674</b>
+          <a th:href="@{/logout}" class="logout-h">Thoát tài khoản</a>
           <a class="about-s">|</a>
-          <a class="feed-back">
-            
-            Phản hồi, góp ý
-          </a>
+          <a class="feed-back"> Phản hồi, góp ý </a>
         </div>
         <div id="overbackgroud"></div>
         <div class="feed-back-detail">
@@ -68,140 +62,59 @@
         <div class="profile">
           <h3>Thông tin cá nhân</h3>
           <div>
-            <span th:class="${member.gender} ? 'active' : ''" ><i></i><b>Anh</b></span>
-            <span th:class="${member.gender} ? '' : 'active'"><i></i><b>Chị</b></span>
+            <span th:class="${member.gender} ? 'active' : ''"
+              ><i></i><b>Anh</b></span
+            >
+            <span th:class="${member.gender} ? '' : 'active'"
+              ><i></i><b>Chị</b></span
+            >
             <input type="hidden" name="hdGender" value="1" />
           </div>
-          <input  th:value="${member.fullname}"/>
-          <input  th:value="${member.phone}"
-          />
+          <input th:value="${member.fullname}" />
+          <input th:value="${member.phone}" />
           <h3>Địa chỉ nhận hàng</h3>
-          <span id="add35810907" data-id="35810907" class="address active" th:each="profile : ${profileMember}">
+          <span
+            id="add35810907"
+            data-id="35810907"
+            class="address active"
+            th:each="profile : ${profileMember}"
+          >
             <i></i>
-            <span  th:utext="${profile.address} + ', ' + ${profile.ward.name} + ', ' + ${profile.ward.district.name} + ', ' + ${profile.ward.district.province.name}">116/8, Phường Tây Thạnh, Quận Tân Phú, Hồ Chí Minh</span
+            <span
+              th:utext="${profile.address} + ', ' + ${profile.ward.name} + ', ' + ${profile.ward.district.name} + ', ' + ${profile.ward.district.province.name}"
+              >116/8, Phường Tây Thạnh, Quận Tân Phú, Hồ Chí Minh</span
             ><br />
-            <a
-              href="javascript:;"
-              onclick="AddressEdit($(this).parent(), 35810907)"
-              class="edit"
-              ><i class="iconlsmh-edit"></i>Sửa</a
-            >
+            <a href="" class="edit"><i class="iconlsmh-edit"></i>Sửa</a>
             <a href="javascript:AddressDelete(35810907, true)"
               ><i class="iconlsmh-delete"></i>Xóa</a
             >
           </span>
-          <a href="javascript:;" onclick="AddressEdit($(this), -2)" class="add"
-            ><i class="iconlsmh-add"></i>Thêm địa chỉ nhận hàng</a
-          >
-          <form
-            id="frmAddress"
-            class="address"
-            
-          >
-            <input
-              name="__RequestVerificationToken"
-              type="hidden"
-              value="CfDJ8NWrZ30VhyxJm_fyyCNlLpIctGCyCPYFugkcdBQn-ODbjriI7-UcoK_6KSetCYAakQ-cM1Kk0dCeMYJGzj5DCVcWCbNtjykE-WZb_D2xJD1Vxst6SKRViLaMHT2eB__rv5q0vs18Ox7q_c_GqZMspraMJBL9hm_x32Bf9vOZAIDytrVoMM3KryjOpTCXFsCIcg"
-            />
-            <div id="ddlProvince" class="province inline">
-              <span data-value="0">Tỉnh/ Thành phố</span>
-              <div class="select" style="display: none">
-                <div class="o-search">
-                  <input
-                    type="text"
-                    name="key"
-                    placeholder="Nhập tỉnh, thành để tìm nhanh"
-                  />
-                  <button></button>
-                </div>
-                <div class="list scroll">
-                  <div class="item">
-                    <a href="javascript:;" data-value="3">Hồ Chí Minh</a>
-                    <a href="javascript:;" data-value="5">Hà Nội</a>
-                    <a href="javascript:;" data-value="9">Đà Nẵng</a>
-                    <a href="javascript:;" data-value="82">An Giang</a>
-                    <a href="javascript:;" data-value="102"
-                      >Bà Rịa - Vũng Tàu</a
-                    >
-                    <a href="javascript:;" data-value="103">Bắc Giang</a>
-                    <a href="javascript:;" data-value="104">Bắc Kạn</a>
-                    <a href="javascript:;" data-value="105">Bạc Liêu</a>
-                    <a href="javascript:;" data-value="106">Bắc Ninh</a>
-                    <a href="javascript:;" data-value="107">Bến Tre</a>
-                    <a href="javascript:;" data-value="108">Bình Định</a>
-                    <a href="javascript:;" data-value="109">Bình Dương</a>
-                    <a href="javascript:;" data-value="110">Bình Phước</a>
-                    <a href="javascript:;" data-value="111">Bình Thuận</a>
-                    <a href="javascript:;" data-value="81">Cà Mau</a>
-                    <a href="javascript:;" data-value="7">Cần Thơ</a>
-                    <a href="javascript:;" data-value="112">Cao Bằng</a>
-                    <a href="javascript:;" data-value="6">Đắk Lắk</a>
-                    <a href="javascript:;" data-value="113">Đắk Nông</a>
-                    <a href="javascript:;" data-value="114">Điện Biên</a>
-                    <a href="javascript:;" data-value="8">Đồng Nai</a>
-                    <a href="javascript:;" data-value="115">Đồng Tháp</a>
-                    <a href="javascript:;" data-value="116">Gia Lai</a>
-                    <a href="javascript:;" data-value="117">Hà Giang</a>
-                    <a href="javascript:;" data-value="118">Hà Nam</a>
-                    <a href="javascript:;" data-value="120">Hà Tĩnh</a>
-                    <a href="javascript:;" data-value="121">Hải Dương</a>
-                    <a href="javascript:;" data-value="101">Hải Phòng</a>
-                    <a href="javascript:;" data-value="122">Hậu Giang</a>
-                    <a href="javascript:;" data-value="123">Hòa Bình</a>
-                    <a href="javascript:;" data-value="124">Hưng Yên</a>
-                    <a href="javascript:;" data-value="125">Khánh Hòa</a>
-                  </div>
-                  <div class="item">
-                    <a href="javascript:;" data-value="126">Kiên Giang</a>
-                    <a href="javascript:;" data-value="127">Kon Tum</a>
-                    <a href="javascript:;" data-value="128">Lai Châu</a>
-                    <a href="javascript:;" data-value="129">Lâm Đồng</a>
-                    <a href="javascript:;" data-value="130">Lạng Sơn</a>
-                    <a href="javascript:;" data-value="131">Lào Cai</a>
-                    <a href="javascript:;" data-value="132">Long An</a>
-                    <a href="javascript:;" data-value="133">Nam Định</a>
-                    <a href="javascript:;" data-value="134">Nghệ An</a>
-                    <a href="javascript:;" data-value="135">Ninh Bình</a>
-                    <a href="javascript:;" data-value="136">Ninh Thuận</a>
-                    <a href="javascript:;" data-value="137">Phú Thọ</a>
-                    <a href="javascript:;" data-value="138">Phú Yên</a>
-                    <a href="javascript:;" data-value="139">Quảng Bình</a>
-                    <a href="javascript:;" data-value="140">Quảng Nam</a>
-                    <a href="javascript:;" data-value="141">Quảng Ngãi</a>
-                    <a href="javascript:;" data-value="142">Quảng Ninh</a>
-                    <a href="javascript:;" data-value="143">Quảng Trị</a>
-                    <a href="javascript:;" data-value="144">Sóc Trăng</a>
-                    <a href="javascript:;" data-value="145">Sơn La</a>
-                    <a href="javascript:;" data-value="146">Tây Ninh</a>
-                    <a href="javascript:;" data-value="147">Thái Bình</a>
-                    <a href="javascript:;" data-value="148">Thái Nguyên</a>
-                    <a href="javascript:;" data-value="149">Thanh Hóa</a>
-                    <a href="javascript:;" data-value="150">Thừa Thiên Huế</a>
-                    <a href="javascript:;" data-value="151">Tiền Giang</a>
-                    <a href="javascript:;" data-value="152">Trà Vinh</a>
-                    <a href="javascript:;" data-value="153">Tuyên Quang</a>
-                    <a href="javascript:;" data-value="154">Vĩnh Long</a>
-                    <a href="javascript:;" data-value="155">Vĩnh Phúc</a>
-                    <a href="javascript:;" data-value="156">Yên Bái</a>
-                  </div>
-                </div>
-                <input type="hidden" name="hdProvinceId" value="0" />
-              </div>
-            </div>
-            <div id="ddlDistrict" class="district inline">
-              <span data-value="0">Quận/ Huyện</span>
-              <input type="hidden" name="hdDistrictId" value="0" />
-            </div>
-            <div id="ddlWard" class="ward inline">
-              <span data-value="0">Phường/ Xã</span>
-              <input type="hidden" name="hdWardId" value="0" />
-            </div>
-            <input
-              type="text"
-              name="txtAddress"
-              class="inline"
-              placeholder="Số nhà, tên đường"
-            />
+          <a class="add"><i class="iconlsmh-add"></i>Thêm địa chỉ nhận hàng</a>
+          <form id="frmAddress" class="address">
+            <select
+              class="inline form-select form-select-sm"
+              id="city"
+              aria-label="Default select example"
+            >
+              <option value="" selected>Chọn tỉnh thành</option>
+            </select>
+
+            <select
+              class="inline form-select form-select-sm"
+              id="district"
+              aria-label="Default select example"
+            >
+              <option value="" selected>Chọn quận huyện</option>
+            </select>
+
+            <select
+              class="inline form-select form-select-sm"
+              id="ward"
+              aria-label="Default select example"
+            >
+              <option value="" selected>Chọn phường xã</option>
+            </select>
+            <input type="text" class="inline" placeholder="Số nhà, tên đường" />
             <p class="frmAddress_error"></p>
             <span class="">
               <i></i>

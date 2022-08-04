@@ -322,7 +322,9 @@ img.lazy {
 .iconlsmh-delete {
   width: 11px;
   height: 13px;
-  background: transparent url(../../images/icon-delete.png) no-repeat center top;
+  background: transparent
+    url(https://cdn.tgdd.vn/mwgcart/orderhistory/images/icon-delete.png)
+    no-repeat center top;
   background-size: 11px 13px !important;
 }
 .iconlsmh-edit {
@@ -1228,13 +1230,17 @@ img.lazy {
 .iconlsmh-edit {
   width: 13px;
   height: 13px;
-  background: transparent url("../../images/icon-edit.png") no-repeat center top;
+  background: transparent
+    url("https://cdn.tgdd.vn/mwgcart/orderhistory/images/icon-edit.png")
+    no-repeat center top;
   background-size: 13px 13px !important;
 }
 .iconlsmh-add {
   width: 18px;
   height: 18px;
-  background: transparent url("../../images/icon-add.png") no-repeat center top;
+  background: transparent
+    url("https://cdn.tgdd.vn/mwgcart/orderhistory/images/icon-add.png")
+    no-repeat center top;
   background-size: 18px 18px !important;
 }
 .profile {
@@ -1259,6 +1265,7 @@ img.lazy {
   padding: 10px 0 5px 0;
   border-top: 1px solid #ccc;
   color: #288ad6;
+  cursor: pointer;
 }
 .profile > a.add > i {
   display: inline-block;
@@ -1416,7 +1423,7 @@ img.lazy {
   cursor: pointer;
 }
 .profile > form > input {
-  height: 40px;
+  height: 31.2px;
   line-height: 38px;
   border: 1px solid #ccc;
   border-radius: 3px;
@@ -1437,7 +1444,8 @@ img.lazy {
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
 }
-.profile > form > div.inline {
+.profile > form > div.inline,
+.profile > form > select.inline {
   width: 49%;
   margin: 0 0 10px 0;
   position: relative;
@@ -1446,6 +1454,8 @@ img.lazy {
   display: inline-block;
   vertical-align: middle;
   box-sizing: border-box;
+  color: #288ad6;
+  cursor: pointer;
 }
 .profile > form div.province {
   z-index: 4;
@@ -1896,7 +1906,9 @@ img.lazy {
   height: 16px;
   display: inline-block;
   vertical-align: middle;
-  background: transparent url("	https://cdn.tgdd.vn/mwgcart/orderhistory/images/success.png") no-repeat center top;
+  background: transparent
+    url("	https://cdn.tgdd.vn/mwgcart/orderhistory/images/success.png") no-repeat
+    center top;
   background-size: 16px 16px;
   margin-right: 5px;
 }

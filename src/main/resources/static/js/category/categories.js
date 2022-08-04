@@ -39,11 +39,11 @@ $(function () {
     $("#formCategoryLv2").show();
   });
 
-  window.onload = function () {
-    $("#formCategoryLv0").hide();
-    $("#formCategoryLv1").hide();
-    $("#formCategoryLv2").hide();
-  };
+  // window.onload = function () {
+  //   $("#formCategoryLv0").hide();
+  //   $("#formCategoryLv1").hide();
+  //   $("#formCategoryLv2").hide();
+  // };
 
   $(document).ready(function () {
     $("#formCategoryLv0").hide();
@@ -52,7 +52,7 @@ $(function () {
   });
 
   $("#formCategoryLv0", "#formCategoryLv1", "#formCategoryLv2").submit(
-    function (event) {}
+    function (event) { }
   );
 });
 
