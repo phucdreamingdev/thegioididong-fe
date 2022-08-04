@@ -33,7 +33,8 @@ public class HomeController {
 	RestTemplate restTemplate;
 
 	/*
-	 * ============================================= GET ALL PRODUCT
+	 * =============================================
+	 * GET ALL PRODUCT
 	 * =============================================
 	 */
 	@RequestMapping(value = "/")
@@ -45,7 +46,8 @@ public class HomeController {
 	}
 
 	/*
-	 * ============================================= GET DETAILS OF PRODUCT
+	 * =============================================
+	 * GET DETAILS OF PRODUCT
 	 * =============================================
 	 */
 	@RequestMapping("/product-detail/{id}")
@@ -57,7 +59,8 @@ public class HomeController {
 	}
 
 	/*
-	 * ============================================= GET PRODUCT BY CATEGORY
+	 * =============================================
+	 * GET PRODUCT BY CATEGORY
 	 * =============================================
 	 */
 	@RequestMapping(value = "/category/{id}")
@@ -70,7 +73,8 @@ public class HomeController {
 	}
 
 	/*
-	 * ============================================= GET CATEGORY BY LEVEL 0
+	 * =============================================
+	 * GET CATEGORY BY LEVEL 0
 	 * =============================================
 	 */
 	@ModelAttribute("categoriesLevel0")
@@ -81,7 +85,8 @@ public class HomeController {
 	}
 
 	/*
-	 * ============================================= GET CATEGORY BY LEVEL 1
+	 * =============================================
+	 * GET CATEGORY BY LEVEL 1
 	 * =============================================
 	 */
 	@ModelAttribute("categoriesLevel1")
@@ -92,7 +97,8 @@ public class HomeController {
 	}
 
 	/*
-	 * ============================================= GET CATEGORY BY LEVEL 2
+	 * =============================================
+	 * GET CATEGORY BY LEVEL 2
 	 * =============================================
 	 */
 	@ModelAttribute("categoriesLevel2")
@@ -103,8 +109,9 @@ public class HomeController {
 	}
 
 	/*
-	 * ============================================= THIS FUNCTIONS USE FOR FORMAT
-	 * PRICE TO 'VNĐ' =============================================
+	 * =============================================
+	 * THIS FUNCTIONS USE FOR FORMAT PRICE TO 'VNĐ'
+	 * =============================================
 	 */
 
 	@ModelAttribute("priceFormatter")
@@ -116,8 +123,9 @@ public class HomeController {
 	}
 
 	/*
-	 * ============================================= THIS FUNCTIONS USE FOR FORMAT
-	 * DATE =============================================
+	 * =============================================
+	 * THIS FUNCTIONS USE FOR FORMAT
+	 * DATE ========================================
 	 */
 	@ModelAttribute("dateFormatter")
 	public SimpleDateFormat simpleDateFormat() {
@@ -137,8 +145,9 @@ public class HomeController {
 	}
 
 	/*
-	 * ============================================= CHECK SESSION WITHOUT REQUEST
-	 * LOGIN =============================================
+	 * =============================================
+	 * CHECK SESSION WITHOUT REQUEST
+	 * LOGIN =======================================
 	 */
 	@RequestMapping("/lich-su-mua-hang/dang-nhap")
 	public String login(HttpSession session) {
@@ -150,7 +159,8 @@ public class HomeController {
 	}
 
 	/*
-	 * ============================================= LOGIN BY PHONE NUMBER
+	 * =============================================
+	 * LOGIN BY PHONE NUMBER
 	 * =============================================
 	 */
 	@RequestMapping(value = "/lich-su-mua-hang/dang-nhap", method = RequestMethod.POST)
@@ -162,6 +172,7 @@ public class HomeController {
 		System.out.println(phoneNumber.getPhoneNumber());
 		HttpHeaders headers = new HttpHeaders();
 		session.setAttribute("phone", ph);
+		session.setAttribute("phoneVn", phone);
 		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
 		map.add("phone", ph);
 		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(map, headers);
@@ -172,7 +183,8 @@ public class HomeController {
 	}
 
 	/*
-	 * ============================================= GET OTP PHONE NUMBER
+	 * =============================================
+	 * GET OTP PHONE NUMBER
 	 * =============================================
 	 */
 
@@ -205,7 +217,8 @@ public class HomeController {
 	}
 
 	/*
-	 * ============================================= LOGOUT MEMBER ACCOUNT
+	 * =============================================
+	 * LOGOUT MEMBER ACCOUNT
 	 * =============================================
 	 */
 	@RequestMapping(value = "/OTPLogout")
@@ -217,7 +230,8 @@ public class HomeController {
 	}
 
 	/*
-	 * ============================================= ORDER HISTORY
+	 * =============================================
+	 * ORDER HISTORY
 	 * =============================================
 	 */
 	@RequestMapping("/lich-su-mua-hang")
@@ -237,14 +251,14 @@ public class HomeController {
 	}
 
 	/*
-	 * ============================================= GET ORDER DETAILS
+	 * =============================================
+	 * GET ORDER DETAILS
 	 * =============================================
 	 */
 
-	
 	@RequestMapping(value = "/lich-su-mua-hang/don-hang")
 	public String orderDetail(@RequestParam Long orderId, Model model, HttpSession httpSession) {
-		
+
 		String id = String.valueOf(httpSession.getAttribute("id"));
 		String resourceProductUrl1 = "http://localhost:8001/admin/get-member-by-id?id=" + id;
 		ResponseEntity<Object> productsResponse1 = restTemplate.getForEntity(resourceProductUrl1, Object.class);
@@ -262,7 +276,8 @@ public class HomeController {
 	}
 
 	/*
-	 * ============================================= GET INFORMATION PROFILES
+	 * =============================================
+	 * GET INFORMATION PROFILES
 	 * =============================================
 	 */
 	@RequestMapping("/lich-su-mua-hang/thong-tin-ca-nhan")
@@ -273,7 +288,7 @@ public class HomeController {
 		// "/" + id;
 		ResponseEntity<Object> productsResponse1 = restTemplate.getForEntity(resourceProductUrl1, Object.class);
 		model.addAttribute("member", productsResponse1.getBody());
-		String resourceProductUrl = "http://localhost:8001/member/get-member-address-by-member-id/" + memberId ;
+		String resourceProductUrl = "http://localhost:8001/member/get-member-address-by-member-id/" + memberId;
 		// String resourceProductUrl =
 		// "http://localhost:8001/member/get-member-address-by-member-id" + "/" + id;
 		ResponseEntity<Object> memberAddresses = restTemplate.getForEntity(resourceProductUrl, Object.class);

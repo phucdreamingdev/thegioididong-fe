@@ -16,9 +16,16 @@
       value="CfDJ8NWrZ30VhyxJm_fyyCNlLpL6oHW29mjyWOtrFcjOEIdjkhf3Rhj1Hu6frWsSA8tKKimOEfC2OeUGulw8J0YC1fPLrIuxW0c7z7hmqJaDq3R49kRVh7oKLEHODj1hy7J_Mjo2HC3R9aBkKIONYK7tJ4g"
     />
     <div class="d2 step2">
-      <span class="s1">Mã xác nhận đã được gửi đến số điện thoại <b></b></span>
+      <span class="s1"
+        >Mã xác nhận đã được gửi đến số điện thoại
+        <b th:text="${session.phoneVn}"></b
+      ></span>
       <span class="s2 hide">Mã xác nhận đã được gửi lại</span>
-      <form id="frmSubmitVerifyCode" th:action="@{/lich-su-mua-hang/dang-nhap/otp}"  method="post">
+      <form
+        id="frmSubmitVerifyCode"
+        th:action="@{/lich-su-mua-hang/dang-nhap/otp}"
+        method="post"
+      >
         <input
           type="tel"
           name="otp"
@@ -30,7 +37,7 @@
         <button type="submit" class="btn">Tiếp tục</button>
       </form>
       <a class="resend-sms" href="javascript:"></a>
-      <a href="javascript:void(0)" onclick="changeNum()" class="btnChangeNum"
+      <a th:href="@{/lich-su-mua-hang/dang-nhap}" class="btnChangeNum"
         >Thay đổi số điện thoại</a
       >
     </div>

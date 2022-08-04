@@ -22,28 +22,23 @@ $(function () {
 $(function () {
   $("#btnLevel0").click(function () {
     $("#levelHide0").hide();
-    $("#formCategoryLv0").show();
+    $("#formCategoryLv0").toggle("show");
     $("#formCategoryLv1").hide();
     $("#formCategoryLv2").hide();
   });
   $("#btnLevel1").click(function () {
     $("#levelHide1").hide();
     $("#formCategoryLv0").hide();
-    $("#formCategoryLv1").show();
+    $("#formCategoryLv1").toggle("show");
     $("#formCategoryLv2").hide();
   });
   $("#btnLevel2").click(function () {
     $("#levelHide2").hide();
     $("#formCategoryLv0").hide();
     $("#formCategoryLv1").hide();
-    $("#formCategoryLv2").show();
+    $("#formCategoryLv2").toggle("show");
   });
 
-  // window.onload = function () {
-  //   $("#formCategoryLv0").hide();
-  //   $("#formCategoryLv1").hide();
-  //   $("#formCategoryLv2").hide();
-  // };
 
   $(document).ready(function () {
     $("#formCategoryLv0").hide();

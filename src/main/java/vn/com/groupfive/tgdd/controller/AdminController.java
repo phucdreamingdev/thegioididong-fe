@@ -41,7 +41,8 @@ public class AdminController {
 	HttpSession session;
 
 	/*
-	 * ============================================= DASHBOARD ADMIN PAGE
+	 * =============================================
+	 * DASHBOARD ADMIN PAGE
 	 * =============================================
 	 */
 	@GetMapping(value = "dashboard")
@@ -54,7 +55,8 @@ public class AdminController {
 	 */
 
 	/*
-	 * ============================================= GET CATEGORY BY LEVEL 0
+	 * =============================================
+	 * GET CATEGORY BY LEVEL 0
 	 * =============================================
 	 */
 	@ModelAttribute("categoriesLevel0")
@@ -65,7 +67,8 @@ public class AdminController {
 	}
 
 	/*
-	 * ============================================= GET CATEGORY BY LEVEL 1
+	 * =============================================
+	 * GET CATEGORY BY LEVEL 1
 	 * =============================================
 	 */
 	@ModelAttribute("categoriesLevel1")
@@ -76,7 +79,8 @@ public class AdminController {
 	}
 
 	/*
-	 * ============================================= GET CATEGORY BY LEVEL 2
+	 * =============================================
+	 * GET CATEGORY BY LEVEL 2
 	 * =============================================
 	 */
 	@ModelAttribute("categoriesLevel2")
@@ -87,7 +91,8 @@ public class AdminController {
 	}
 
 	/*
-	 * ============================================= CATEGORY LIST PAGE
+	 * =============================================
+	 * CATEGORY LIST PAGE
 	 * =============================================
 	 */
 	@GetMapping(value = "categories-list")
@@ -96,7 +101,8 @@ public class AdminController {
 	}
 
 	/*
-	 * ============================================= CATEGORY ADD PAGE
+	 * =============================================
+	 * CATEGORY ADD PAGE
 	 * =============================================
 	 */
 	@GetMapping(value = "categories-add")
@@ -105,14 +111,15 @@ public class AdminController {
 	}
 
 	/*
-	 * ============================================= CATEGORY ADD FUNCTIONS
+	 * =============================================
+	 * CATEGORY ADD FUNCTIONS
 	 * =============================================
 	 */
 	@PostMapping(value = "categories-add")
 	public String categoryAddResult(@ModelAttribute("category") CategoryRequest category,
 			@RequestParam(name = "logoURL", required = false) MultipartFile logoURL,
 			RedirectAttributes redirectAttributes) throws IOException {
-		//Check logo null
+		// Check logo null
 		if (!logoURL.isEmpty()) {
 			String fileName = StringUtils.cleanPath(logoURL.getOriginalFilename());
 

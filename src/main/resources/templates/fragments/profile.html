@@ -7,6 +7,7 @@
 >
   <head>
     <link rel="stylesheet" th:href="@{/css/history-products-profile.css}" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
   </head>
   <!-- Lich Su Don Hang -->
   <section layout:fragment="content" class="wrapper">
@@ -85,11 +86,43 @@
               th:utext="${profile.address} + ', ' + ${profile.ward.name} + ', ' + ${profile.ward.district.name} + ', ' + ${profile.ward.district.province.name}"
               >116/8, Phường Tây Thạnh, Quận Tân Phú, Hồ Chí Minh</span
             ><br />
-            <a href="" class="edit"><i class="iconlsmh-edit"></i>Sửa</a>
+            <a class="edit"><i class="iconlsmh-edit"></i>Sửa</a>
             <a href="javascript:AddressDelete(35810907, true)"
               ><i class="iconlsmh-delete"></i>Xóa</a
             >
           </span>
+          <form id="frmAddressUpdate" class="address">
+            <select
+              class="inline form-select form-select-sm"
+              id="cityu"
+              aria-label="Default select example"
+            >
+              <option value="" selected>Chọn tỉnh thành</option>
+            </select>
+
+            <select
+              class="inline form-select form-select-sm"
+              id="districtu"
+              aria-label="Default select example"
+            >
+              <option value="" selected>Chọn quận huyện</option>
+            </select>
+
+            <select
+              class="inline form-select form-select-sm"
+              id="wardu"
+              aria-label="Default select example"
+            >
+              <option value="" selected>Chọn phường xã</option>
+            </select>
+            <input type="text" class="inline" placeholder="Số nhà, tên đường" />
+            <p class="frmAddress_error"></p>
+            <span class="">
+              <i></i>
+              <b>Đặt làm địa chỉ mặc định</b>
+              <input type="hidden" name="hdIsDefault" value="false" />
+            </span>
+          </form>
           <a class="add"><i class="iconlsmh-add"></i>Thêm địa chỉ nhận hàng</a>
           <form id="frmAddress" class="address">
             <select
@@ -123,8 +156,7 @@
               <input type="hidden" name="hdIsDefault" value="false" />
             </span>
           </form>
-
-          <a href="javascript:AddressSubmit()" class="button">CẬP NHẬT</a>
+          <a class="button">CẬP NHẬT</a>
           <input type="hidden" name="hdAddressId" value="-1" />
           <input
             name="__RequestVerificationToken"
@@ -135,5 +167,6 @@
       </div>
     </div>
   </section>
+  <script th:src="@{/js/profiles/profiles.js}"></script>
   <!-- End -->
 </html>
