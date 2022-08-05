@@ -61,17 +61,20 @@ public class HomeController {
 
 	/*
 	 * =============================================
-	 * GET PRODUCT BY CATEGORY
+	 * GET PRODUCT BY CATEGORY AND MANUFACTURERS
 	 * =============================================
 	 */
 	@RequestMapping(value = "/category/{id}")
 	public String getProductByCategoryId(@PathVariable("id") Long categoryId, Model model) {
+		/* GET PRODUCT BY CATEGORY */
 		String resourceProduct = "http://localhost:8001/customer/get-all-products-by-category-id-new" + "/"
 				+ categoryId;
 		ResponseEntity<Object> productResponse = restTemplate.getForEntity(resourceProduct, Object.class);
 		model.addAttribute("productsVersionColors", productResponse.getBody());
-		
-		String resourceManufacture ="http://localhost:8001/customer/get-manufacturers-by-category?categoryId=" + categoryId;
+
+		/* GET MANUFACTURERS BY CATEGORY */
+		String resourceManufacture = "http://localhost:8001/customer/get-manufacturers-by-category?categoryId="
+				+ categoryId;
 		ResponseEntity<Object> productResponse1 = restTemplate.getForEntity(resourceManufacture, Object.class);
 		model.addAttribute("productManufactures", productResponse1.getBody());
 		return "fragments/all-products";
