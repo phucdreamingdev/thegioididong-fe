@@ -6,6 +6,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
 
@@ -184,12 +186,9 @@ public class AdminController {
 
 	@GetMapping(value = "order-list")
 	public String listOrder(Model model) {
-
-		String resource = "http://localhost:3000/orders";
-
+		String resource = "http://localhost:8001/admin/get-all-order";
 		ResponseEntity<Object> response = restTemplate.getForEntity(resource, Object.class);
-
-		model.addAttribute("orders", response.getBody());
+		model.addAttribute("ordersLists", response.getBody());
 		return "admin/fragments/order/order-list";
 	}
 
@@ -268,6 +267,19 @@ public class AdminController {
 	public String addMember(Model model) {
 
 		return "admin/fragments/member/member-add";
+	}
+	/*
+	 * =============================================
+	 * THIS FUNCTIONS USE FOR FORMAT PRICE TO 'VNĐ'
+	 * =============================================
+	 */
+
+	@ModelAttribute("priceFormatter")
+	public NumberFormat formatPrice() {
+		Locale localeVN = new Locale("vi", "VN");
+		NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
+
+		return currencyVN;
 	}
 
 }

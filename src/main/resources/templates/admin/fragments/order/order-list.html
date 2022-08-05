@@ -19,20 +19,18 @@ t<!DOCTYPE html>
                 <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Name User</th>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
+                    <th>Order Date</th>
+                    <th>Status </th>
+                    <th>Total Payment</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr th:each="order : ${orders}">
-                    <td class="py-1" th:text="${order.id}"></td>
-                    <td class="py-1" th:text="${order.member}"></td>
-                    <td class="py-1" th:text="${order.product}"></td>
-                    <td class="py-1" th:text="${order.originalPrice}"></td>
-                    <td class="py-1" th:text="${order.quantity}"></td>
+                  <tr th:each="orderList : ${ordersLists}">
+                  	<td class = "py-1" th:text="${orderList.id}"></td>
+                  	<td class = "py-1" th:text="${orderList.orderDate}"></td>
+                  	<td class = "py-1" th:text="${orderList.deliveryStatus}"></td>
+                  	<td class = "py-1" th:text="${priceFormatter.format(orderList.totalPayment)}"></td>
                     <td>
                       <button class="btn btn-inverse-info btn-icon btn-sm">
                         <a href="#" alt="edit">
