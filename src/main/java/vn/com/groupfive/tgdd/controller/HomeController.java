@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
+import com.fasterxml.jackson.databind.deser.std.ObjectArrayDeserializer;
 import com.twilio.Twilio;
 import com.twilio.rest.lookups.v1.PhoneNumber;
 
@@ -69,6 +70,10 @@ public class HomeController {
 				+ categoryId;
 		ResponseEntity<Object> productResponse = restTemplate.getForEntity(resourceProduct, Object.class);
 		model.addAttribute("productsVersionColors", productResponse.getBody());
+		
+		String resourceManufacture ="http://localhost:8001/customer/get-manufacturers-by-category?categoryId=" + categoryId;
+		ResponseEntity<Object> productResponse1 = restTemplate.getForEntity(resourceManufacture, Object.class);
+		model.addAttribute("productManufactures", productResponse1.getBody());
 		return "fragments/all-products";
 	}
 
