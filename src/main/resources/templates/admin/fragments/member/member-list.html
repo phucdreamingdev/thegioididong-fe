@@ -19,14 +19,18 @@ t<!DOCTYPE html>
                 <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Product</th>
-                    <th>Actions</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Phone</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr th:each="mem : ${members}">
                     <td class="py-1" th:text="${mem.id}"></td>
                     <td class="py-1" th:text="${mem.fullname}"></td>
+                    <td class="py-1" th:text="${mem.gender} ? 'Anh' : 'Chị'"></td>
+                    <td class="py-1" th:text="${mem.phone}"></td>
                     <td>
                       <button class="btn btn-inverse-info btn-icon btn-sm">
                         <a href="#" alt="edit">

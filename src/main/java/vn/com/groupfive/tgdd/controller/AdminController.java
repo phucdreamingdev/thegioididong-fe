@@ -256,7 +256,7 @@ public class AdminController {
 
 	@GetMapping(value = "member-list")
 	public String listMember(Model model) {
-		String resource = "http://localhost:3000/members";
+		String resource = "http://localhost:8001/admin/get-all-member";
 
 		ResponseEntity<Object> response = restTemplate.getForEntity(resource, Object.class);
 
