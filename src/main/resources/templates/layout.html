@@ -26,12 +26,13 @@
     <!-- End  -->
 
     <!-- Location -->
+    <div class="locationbox__overlay"></div>
     <div th:replace="fragments/location :: location-box"></div>
-    <div th:replace="fragments/location :: location-box-popup"></div>
+    <div class="bg-ellipse"></div>
     <!-- End -->
 
     <!-- Filter Box -->
-    <!-- <div th:replace="fragments/box-filter :: box-filter"></div> -->
+    <div th:replace="fragments/box-filter :: box-filter"></div>
     <!-- End -->
 
     <!-- Main Content -->
@@ -45,4 +46,5 @@
   <!-- plugins:js -->
   <script th:src="@{/js/logout-otp.js}"></script>
   <script th:src="@{/js/profiles/profiles.js}"></script>
+  <script th:src="@{/js/location/location.js}"></script>
 </html>

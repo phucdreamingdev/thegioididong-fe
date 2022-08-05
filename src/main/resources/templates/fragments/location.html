@@ -19,10 +19,7 @@
             <span class="choose-text">Địa chỉ đã chọn: </span>
             <span class="fulladdress-v2"></span>
           </p>
-          <a
-            onclick="OpenLocation()"
-            class="cls-location"
-            href="javascript:void(0)"
+          <a class="cls-location" href="javascript:void(0)"
             ><i class="close-symbol"></i>Đóng</a
           >
         </div>
@@ -716,36 +713,5 @@
       ></b>
     </div>
     <!-- End Location Box -->
-
-    <!-- Location Box Popup -->
-    <div
-      th:fragment="location-box-popup"
-      class="locationbox__popup new-popup hide"
-      id="lc_pop--sugg"
-    >
-      <div
-        class="locationbox__popup--cnt locationbox__popup--suggestion new-locale"
-      >
-        <div class="flex-block">
-          <i class="icon-location"></i>
-          <p>
-            Hãy chọn <b>địa chỉ cụ thể</b> để chúng tôi cung cấp
-            <b>chính xác</b> gi&#xE1; v&#xE0; khuy&#x1EBF;n m&#xE3;i
-          </p>
-        </div>
-        <div class="btn-block">
-          <a href="javascript:;" class="btn-location" onclick="OpenLocation()"
-            ><b>Chọn địa chỉ</b></a
-          >
-          <a
-            href="javascript:;"
-            class="btn-location gray"
-            onclick="SkipLocation()"
-            ><b>Đóng</b></a
-          >
-        </div>
-      </div>
-    </div>
-    <!-- End Location Box Popup -->
   </body>
 </html>
