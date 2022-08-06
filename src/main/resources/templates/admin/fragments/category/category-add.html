@@ -281,6 +281,7 @@
                     </option>
                     <option
                       th:each="categoryLevel0 : ${categoriesLevel0}"
+                      th:if="${categoryLevel0.childrenLevel == 1}"
                       th:value="${categoryLevel0.name}"
                       th:text="${categoryLevel0.name}"
                     ></option>
@@ -460,15 +461,17 @@
                     class="form-control"
                   >
                     <option value="" selected>
-                      Select Category Name Level 1
+                      Select Category Name Level 1 & 2
                     </option>
                     <option
                       th:each="categoryLevel0 : ${categoriesLevel0}"
+                      th:if="${categoryLevel0.childrenLevel == 2}"
                       th:value="${categoryLevel0.name}"
                       th:text="${categoryLevel0.name}"
                     ></option>
                     <option
                       th:each="categoryLevel1 : ${categoriesLevel1}"
+                      th:if="${categoryLevel1.childrenLevel == 2}"
                       th:value="${categoryLevel1.name}"
                       th:text="${categoryLevel1.name}"
                     ></option>
