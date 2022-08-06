@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
-import com.fasterxml.jackson.databind.deser.std.ObjectArrayDeserializer;
 import com.twilio.Twilio;
 import com.twilio.rest.lookups.v1.PhoneNumber;
 
@@ -136,7 +135,7 @@ public class HomeController {
 	 * DATE ========================================
 	 */
 	@ModelAttribute("dateFormatter")
-	public SimpleDateFormat simpleDateFormat() {
+	public SimpleDateFormat simpleDate() {
 		String pattern = "yyyy-MM-dd";
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 		return simpleDateFormat;
