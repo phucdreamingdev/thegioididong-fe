@@ -29,6 +29,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import vn.com.groupfive.tgdd.payload.request.CategoryRequest;
+import vn.com.groupfive.tgdd.payload.request.PromotionRequest;
 
 @Controller
 @RequestMapping(value = "admin")
@@ -215,6 +216,20 @@ public class AdminController {
 
 		return "admin/fragments/promotion/promotion-add";
 	}
+	
+	@PostMapping(value = "promotion-add")
+	public String promotionAddResult(@ModelAttribute("promotion") PromotionRequest promotion) {
+		// Set header type for request header
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		String url = "http://localhost:8001/admin/create-new-promotion";
+		ResponseEntity<Object> categoryResult = restTemplate.postForEntity(url, promotion, Object.class);
+		if (categoryResult.getStatusCode() == HttpStatus.OK) {
+			return "redirect:/admin/promotion-list";
+		}
+		return "redirect:/admin/promotion-list";
+	}
+
 
 	/*
 	 * ================================TRANSACTION================================
