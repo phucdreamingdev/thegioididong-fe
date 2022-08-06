@@ -7,219 +7,145 @@
 >
   <!-- Main Content -->
   <div layout:fragment="content" class="content-wrapper">
-    <!-- Category Level 0 -->
     <div class="row">
-      <div
-        class="alert alert-primary"
-        role="alert"
-        th:text="${success}"
-        th:if="${success}"
-      ></div>
-      <div
-        class="alert alert-danger"
-        role="alert"
-        th:text="${error}"
-        th:if="${error}"
-      ></div>
-      <div class="col-lg-12 grid-margin stretch-card">
+      <div class="col-12">
         <div class="card">
           <div class="card-body">
-            <h3 class="card-title">Category List</h3>
-            <p class="card-description">
-              View List
-              <span class="font-weight-bold text-info">Level 0</span> Category
-              Here
-            </p>
-            <div class="table-responsive">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Logo</th>
-                    <th>Name</th>
-                    <th>Has Children</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr th:each="categoryLevel0 : ${categoriesLevel0}">
-                    <td class="py-1" th:text="${categoryLevel0.id}"></td>
-                    <td>
-                      <img th:src="${categoryLevel0.logo}" alt="No Logo" />
-                    </td>
-                    <td th:text="${categoryLevel0.name}"></td>
-                    <td>
-                      <label
-                        th:class="${categoryLevel0.isParent} ? 'badge badge-success' : 'badge badge-danger'"
-                        th:text="${categoryLevel0.isParent} ? 'Yes' : 'No'"
-                        >Yes</label
-                      >
-                    </td>
-                    <td>
-                      <label
-                        th:class="${categoryLevel0.status} ? 'badge badge-success' : 'badge badge-danger'"
-                        th:text="${categoryLevel0.status} ? 'Active' : 'Not Active'"
-                        >Active</label
-                      >
-                    </td>
-                    <td>
-                      <button class="btn btn-inverse-info btn-icon btn-sm">
-                        <a href="#" alt="edit">
-                          <i class="mdi mdi-grease-pencil"></i>
-                        </a>
-                      </button>
-                      <button
-                        class="btn btn-inverse-danger btn-icon btn-sm btn-sm"
-                      >
-                        <a href="#" alt="remove">
-                          <i class="mdi mdi-delete-forever"></i>
-                        </a>
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+            <h4 class="card-title">Orders</h4>
+            <div class="row grid-margin">
+              <div class="col-12">
+                <div
+                  class="alert alert-success"
+                  role="alert"
+                  th:text="${success}"
+                  th:if="${success}"
+                >
+                  <!-- <strong></strong> -->
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Category Level 0 -->
+            <div class="row">
+              <div class="col-12">
+                <div class="table-responsive">
+                  <table id="order-listing" class="table">
+                    <thead>
+                      <tr class="bg-primary text-black">
+                        <th>Id #</th>
+                        <th>Logo</th>
+                        <th>Name</th>
+                        <th>Level</th>
+                        <th>Parent Name</th>
+                        <th>Children Level</th>
+                        <th>Has Children</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr th:each="categoryLevel0 : ${categoriesLevel0}">
+                        <td class="py-1" th:text="${categoryLevel0.id}"></td>
+                        <td>
+                          <img th:src="${categoryLevel0.logo}" alt="No Logo" />
+                        </td>
+                        <td th:text="${categoryLevel0.name}"></td>
+                        <td th:text="${categoryLevel0.level}"></td>
+                        <td
+                          th:text="${categoryLevel0.parentName != ''} ? ${categoryLevel0.parentName} : 'null parent!'"
+                        ></td>
+                        <td th:text="${categoryLevel0.childrenLevel}"></td>
 
-    <!-- Category Level 1 -->
-    <div class="row">
-      <div class="col-lg-12 grid-margin stretch-card">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title">Category List</h3>
-            <p class="card-description">
-              View List
-              <span class="font-weight-bold text-info">Level 1</span> Category
-              Here
-            </p>
-            <div class="table-responsive">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Parent Name</th>
-                    <th>Has Children</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr th:each="categoryLevel1 : ${categoriesLevel1}">
-                    <td class="py-1" th:text="${categoryLevel1.id}"></td>
-                    <td th:text="${categoryLevel1.name}"></td>
-                    <td th:text="${categoryLevel1.parentName}"></td>
-                    <td>
-                      <label
-                        th:class="${categoryLevel1.isParent} ? 'badge badge-success' : 'badge badge-danger'"
-                        th:text="${categoryLevel1.isParent} ? 'Yes' : 'No'"
-                        >Yes</label
-                      >
-                    </td>
-                    <td>
-                      <label
-                        th:class="${categoryLevel1.status} ? 'badge badge-success' : 'badge badge-danger'"
-                        th:text="${categoryLevel1.status} ? 'Active' : 'Not Active'"
-                        >Active</label
-                      >
-                    </td>
-                    <td>
-                      <button class="btn btn-inverse-info btn-icon btn-sm">
-                        <a href="#" alt="edit">
-                          <i class="mdi mdi-grease-pencil"></i>
-                        </a>
-                      </button>
-                      <button
-                        class="btn btn-inverse-danger btn-icon btn-sm btn-sm"
-                      >
-                        <a href="#" alt="remove">
-                          <i class="mdi mdi-delete-forever"></i>
-                        </a>
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Category Level 1 -->
+                        <td>
+                          <label
+                            th:class="${categoryLevel0.isParent} ? 'badge badge-success' : 'badge badge-danger'"
+                            th:text="${categoryLevel0.isParent} ? 'Yes' : 'No'"
+                            >Yes</label
+                          >
+                        </td>
 
-    <!-- Category Level 2 -->
-    <div class="row">
-      <div class="col-lg-12 grid-margin stretch-card">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title">Category List</h3>
-            <p class="card-description">
-              View List
-              <span class="font-weight-bold text-info">Level 2</span> Category
-              Here
-            </p>
-            <div class="table-responsive">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Parent Name</th>
-                    <th>Has Children</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr th:each="categoryLevel2 : ${categoriesLevel2}">
-                    <td class="py-1" th:text="${categoryLevel2.id}"></td>
-                    <td th:text="${categoryLevel2.name}"></td>
-                    <td th:text="${categoryLevel2.parentName}"></td>
-                    <td>
-                      <span
-                        th:class="${categoryLevel2.isParent} ? 'badge badge-success' : 'badge badge-danger'"
-                        th:text="${categoryLevel2.isParent} ? 'Yes' : 'No'"
-                      >
-                        Yes
-                      </span>
-                    </td>
-                    <td>
-                      <span
-                        th:class="${categoryLevel2.status} ? 'badge badge-success' : 'badge badge-danger'"
-                        th:text="${categoryLevel2.status} ? 'Active' : 'Not Active'"
-                      >
-                        Active
-                      </span>
-                    </td>
-                    <td>
-                      <button class="btn btn-inverse-info btn-icon btn-sm">
-                        <a href="#" alt="edit">
-                          <i class="mdi mdi-grease-pencil"></i>
-                        </a>
-                      </button>
-                      <button
-                        class="btn btn-inverse-danger btn-icon btn-sm btn-sm"
-                      >
-                        <a href="#" alt="remove">
-                          <i class="mdi mdi-delete-forever"></i>
-                        </a>
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                        <td>
+                          <label
+                            th:class="${categoryLevel0.status} ? 'badge badge-success' : 'badge badge-danger'"
+                            th:text="${categoryLevel0.status} ? 'Active' : 'Not Active'"
+                            >Active</label
+                          >
+                        </td>
+                        <td class="text-center">
+                          <button class="btn btn-light">
+                            <i class="ti-eye text-info"></i>View
+                          </button>
+                        </td>
+                      </tr>
+                      <tr th:each="categoryLevel1 : ${categoriesLevel1}">
+                        <td class="py-1" th:text="${categoryLevel1.id}"></td>
+                        <td>
+                          <img th:src="${categoryLevel1.logo}" alt="No Logo" />
+                        </td>
+                        <td th:text="${categoryLevel1.name}"></td>
+                        <td th:text="${categoryLevel1.level}"></td>
+                        <td
+                          th:text="${categoryLevel1.parentName != ''} ? ${categoryLevel1.parentName} : 'null value!'"
+                        ></td>
+                        <td th:text="${categoryLevel1.childrenLevel}"></td>
+                        <td>
+                          <label
+                            th:class="${categoryLevel1.isParent} ? 'badge badge-success' : 'badge badge-danger'"
+                            th:text="${categoryLevel1.isParent} ? 'Yes' : 'No'"
+                            >Yes</label
+                          >
+                        </td>
+                        <td>
+                          <label
+                            th:class="${categoryLevel1.status} ? 'badge badge-success' : 'badge badge-danger'"
+                            th:text="${categoryLevel1.status} ? 'Active' : 'Not Active'"
+                            >Active</label
+                          >
+                        </td>
+                        <td class="text-center">
+                          <button class="btn btn-light">
+                            <i class="ti-eye text-info"></i>View
+                          </button>
+                        </td>
+                      </tr>
+                      <tr th:each="categoryLevel2 : ${categoriesLevel2}">
+                        <td class="py-2" th:text="${categoryLevel2.id}"></td>
+                        <td>
+                          <img th:src="${categoryLevel2.logo}" alt="No Logo" />
+                        </td>
+                        <td th:text="${categoryLevel2.name}"></td>
+                        <td th:text="${categoryLevel2.level}"></td>
+                        <td
+                          th:text="${categoryLevel2.parentName != ''} ? ${categoryLevel2.parentName} : 'null value!'"
+                        ></td>
+                        <td th:text="${categoryLevel2.childrenLevel}"></td>
+                        <td>
+                          <label
+                            th:class="${categoryLevel2.isParent} ? 'badge badge-success' : 'badge badge-danger'"
+                            th:text="${categoryLevel2.isParent} ? 'Yes' : 'No'"
+                            >Yes</label
+                          >
+                        </td>
+                        <td>
+                          <label
+                            th:class="${categoryLevel2.status} ? 'badge badge-success' : 'badge badge-danger'"
+                            th:text="${categoryLevel2.status} ? 'Active' : 'Not Active'"
+                            >Active</label
+                          >
+                        </td>
+                        <td class="text-center">
+                          <button class="btn btn-light">
+                            <i class="ti-eye text-info"></i>View
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- End Category Level 2 -->
   </div>
   <!-- End Main Content -->
 </html>

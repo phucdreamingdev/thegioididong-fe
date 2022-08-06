@@ -8,50 +8,167 @@
   <!-- Main Content -->
   <div layout:fragment="content" class="content-wrapper">
     <div class="row">
-      <div class="col-12 grid-margin stretch-card">
+      <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Add New Product</h4>
-            <p class="card-description">Add new product here</p>
+            <h4 class="card-title">Add New Product Table</h4>
+            <p class="card-description">Add new product form layout</p>
             <form class="forms-sample">
-              <div class="form-group">
-                <label for="exampleInputName1">Name</label>
+              <div class="form-group row">
+                <label
+                  for="exampleInputUsername2"
+                  class="col-sm-3 col-form-label"
+                  >Product Name</label
+                >
+                <div class="col-sm-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleInputUsername2"
+                    placeholder="Username"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Status</label>
+                <div class="col-sm-4">
+                  <div class="form-check form-check-success">
+                    <label class="form-check-label">
+                      <input
+                        type="radio"
+                        class="form-check-input"
+                        name="status"
+                        value="1"
+                      />
+                      Active
+                    </label>
+                  </div>
+                </div>
+                <div class="col-sm-5">
+                  <div class="form-check form-check-danger">
+                    <label class="form-check-label">
+                      <input
+                        type="radio"
+                        class="form-check-input"
+                        name="status"
+                        value="0"
+                      />
+                      Not Active
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="exampleInputMobile" class="col-sm-3 col-form-label"
+                  >Category</label
+                >
+                <div class="col-sm-9">
+                  <select class="js-example-basic-single w-100">
+                    <option value="" selected>Select Category Name</option>
+                    <option
+                      th:each="categoryLevel0 : ${categoriesLevel0}"
+                      th:value="${categoryLevel0.name}"
+                      th:text="${categoryLevel0.name}"
+                    ></option>
+                    <option
+                      th:each="categoryLevel1 : ${categoriesLevel1}"
+                      th:value="${categoryLevel1.name}"
+                      th:text="${categoryLevel1.name}"
+                    ></option>
+                    <option
+                      th:each="categoryLevel2 : ${categoriesLevel2}"
+                      th:value="${categoryLevel2.name}"
+                      th:text="${categoryLevel2.name}"
+                    ></option>
+                    <!-- <option value="AL">Alabama</option>
+                    <option value="WY">Wyoming</option>
+                    <option value="AM">America</option>
+                    <option value="CA">Canada</option>
+                    <option value="RU">Russia</option> -->
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="exampleInputMobile" class="col-sm-3 col-form-label"
+                  >Manufacturer</label
+                >
+                <div class="col-sm-9">
+                  <select class="js-example-basic-single w-100">
+                    <option value="" selected>Select Manufacturer</option>
+                    <!-- <option
+                      th:each="categoryLevel0 : ${categoriesLevel0}"
+                      th:value="${categoryLevel0.name}"
+                      th:text="${categoryLevel0.name}"
+                    ></option>
+                    <option
+                      th:each="categoryLevel1 : ${categoriesLevel1}"
+                      th:value="${categoryLevel1.name}"
+                      th:text="${categoryLevel1.name}"
+                    ></option>
+                    <option
+                      th:each="categoryLevel2 : ${categoriesLevel2}"
+                      th:value="${categoryLevel2.name}"
+                      th:text="${categoryLevel2.name}"
+                    ></option> -->
+                    <option value="AL">Alabama</option>
+                    <option value="WY">Wyoming</option>
+                    <option value="AM">America</option>
+                    <option value="CA">Canada</option>
+                    <option value="RU">Russia</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary me-2">Submit</button>
+              <button class="btn btn-light">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Add New Product Version Table</h4>
+            <p class="card-description">Add new product version form layout</p>
+            <form class="forms-sample">
+              <div class="form-group row">
+                <label
+                  for="exampleInputUsername2"
+                  class="col-sm-3 col-form-label"
+                  >Product Name</label
+                >
+                <div class="col-sm-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleInputUsername2"
+                    placeholder="Product Name"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label
+                  for="exampleInputUsername2"
+                  class="col-sm-3 col-form-label"
+                  >Product Version Name</label
+                >
+                <div class="col-sm-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleInputUsername2"
+                    placeholder="Product Version Name"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Video URL Upload</label>
                 <input
-                  type="text"
-                  class="form-control"
-                  id="exampleInputName1"
-                  placeholder="Name"
+                  type="file"
+                  name="logoURL"
+                  class="file-upload-default"
+                  accept="image/png, image/jpeg"
                 />
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail3">Email address</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="exampleInputEmail3"
-                  placeholder="Email"
-                />
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword4">Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="exampleInputPassword4"
-                  placeholder="Password"
-                />
-              </div>
-              <div class="form-group">
-                <label for="exampleSelectGender">Gender</label>
-                <select class="form-control" id="exampleSelectGender">
-                  <option>Male</option>
-                  <option>Female</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>File upload</label>
-                <input type="file" name="img[]" class="file-upload-default" />
-                <div class="input-group col-xs-12">
+                <div class="input-group col-sm-12">
                   <input
                     type="text"
                     class="form-control file-upload-info"
@@ -68,24 +185,173 @@
                   </span>
                 </div>
               </div>
-              <div class="form-group">
-                <label for="exampleInputCity1">City</label>
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label"
+                  >File Images Upload</label
+                >
                 <input
-                  type="text"
-                  class="form-control"
-                  id="exampleInputCity1"
-                  placeholder="Location"
+                  type="file"
+                  name="logoURL"
+                  class="file-upload-default"
+                  accept="image/png, image/jpeg"
                 />
+                <div class="input-group col-sm-12">
+                  <input
+                    type="text"
+                    class="form-control file-upload-info"
+                    disabled
+                    placeholder="Upload Image"
+                  />
+                  <span class="input-group-append">
+                    <button
+                      class="file-upload-browse btn btn-primary"
+                      type="button"
+                    >
+                      Upload
+                    </button>
+                  </span>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="exampleTextarea1">Textarea</label>
-                <textarea
-                  class="form-control"
-                  id="exampleTextarea1"
-                  rows="4"
-                ></textarea>
+
+              <button type="submit" class="btn btn-primary me-2">Submit</button>
+              <button class="btn btn-light">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Add New Product Version Table</h4>
+            <p class="card-description">Add new product version form layout</p>
+            <form class="forms-sample">
+              <div class="form-group row">
+                <label
+                  for="exampleInputUsername2"
+                  class="col-sm-3 col-form-label"
+                  >Product Version Name</label
+                >
+                <div class="col-sm-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleInputUsername2"
+                    placeholder="Product Version Name"
+                  />
+                </div>
               </div>
-              <button type="submit" class="btn btn-primary mr-2">Submit</button>
+              <div class="form-group row">
+                <label
+                  for="exampleInputUsername2"
+                  class="col-sm-3 col-form-label"
+                  >Product Version Color Name</label
+                >
+                <div class="col-sm-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleInputUsername2"
+                    placeholder="Product Version Color Name"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Default</label>
+                <div class="col-sm-4">
+                  <div class="form-check form-check-success">
+                    <label class="form-check-label">
+                      <input
+                        type="radio"
+                        class="form-check-input"
+                        name="default"
+                        value="1"
+                      />
+                      Yes
+                    </label>
+                  </div>
+                </div>
+                <div class="col-sm-5">
+                  <div class="form-check form-check-danger">
+                    <label class="form-check-label">
+                      <input
+                        type="radio"
+                        class="form-check-input"
+                        name="default"
+                        value="0"
+                      />
+                      No
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Price:</label>
+                <div class="col-sm-9">
+                  <input
+                    class="form-control"
+                    data-inputmask="'alias': 'currency'"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label
+                  for="exampleInputUsername2"
+                  class="col-sm-3 col-form-label"
+                  >Color
+                </label>
+                <div class="col-sm-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleInputUsername2"
+                    placeholder="Color"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label
+                  for="exampleInputUsername2"
+                  class="col-sm-3 col-form-label"
+                  >Avartar</label
+                >
+                <div class="col-sm-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleInputUsername2"
+                    placeholder="Avartar"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label"
+                  >File Images Upload</label
+                >
+                <input
+                  type="file"
+                  name="logoURL"
+                  class="file-upload-default"
+                  accept="image/png, image/jpeg"
+                />
+                <div class="input-group col-sm-12">
+                  <input
+                    type="text"
+                    class="form-control file-upload-info"
+                    disabled
+                    placeholder="Upload Image"
+                  />
+                  <span class="input-group-append">
+                    <button
+                      class="file-upload-browse btn btn-primary"
+                      type="button"
+                    >
+                      Upload
+                    </button>
+                  </span>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary me-2">Submit</button>
               <button class="btn btn-light">Cancel</button>
             </form>
           </div>

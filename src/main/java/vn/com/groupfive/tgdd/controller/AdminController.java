@@ -138,6 +138,7 @@ public class AdminController {
 		String url = "http://localhost:8001/admin/create-new-category";
 		ResponseEntity<Object> categoryResult = restTemplate.postForEntity(url, category, Object.class);
 		if (categoryResult.getStatusCode() == HttpStatus.OK) {
+			redirectAttributes.addFlashAttribute("messages", "Successfully added..");
 			return "redirect:/admin/categories-list";
 		}
 		return "redirect:/admin/categories-list";
