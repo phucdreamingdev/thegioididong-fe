@@ -46,15 +46,12 @@
     />
     <link
       rel="stylesheet"
-      href="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css"
+      th:href="@{/vendors/admin/font-awesome/css/font-awesome.min.css}"
     />
-    <script src="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js"></script>
-
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css"
+      th:href="@{/vendors/admin/bootstrap-datepicker/bootstrap-datepicker.min.css}"
     />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
 
     <!-- End plugin css for this page -->
     <!-- inject:css -->
@@ -107,6 +104,12 @@
   ></script>
   <script th:src="@{/vendors/admin/select2/select2.min.js}"></script>
   <script th:src="@{/js/admin/dataTables.select.min.js}"></script>
+  <script
+    th:src="@{/vendors/admin/inputmask/jquery.inputmask.bundle.js}"
+  ></script>
+  <script
+    th:src="@{/vendors/admin/bootstrap-datepicker/bootstrap-datepicker.min.js}"
+  ></script>
 
   <!-- End plugin js for this page -->
   <!-- inject:js -->
@@ -121,10 +124,11 @@
   <script th:src="@{/js/admin/typeahead.js}"></script>
   <script th:src="@{/js/admin/select2.js}"></script>
   <script th:src="@{/js/admin/data-table.js}"></script>
-  <script
-    th:src="@{/vendors/admin/inputmask/jquery.inputmask.bundle.js}"
-  ></script>
+
   <script th:src="@{/js/admin/inputmask.js}"></script>
+
+  <script th:src="@{/js/admin/formpickers.js}"></script>
+
   <!-- End custom js for this page -->
   <!-- Category  -->
   <script th:src="@{/js/category/categories.js}"></script>

@@ -118,7 +118,7 @@
                   </select>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary me-2">Submit</button>
+              <button type="submit" class="btn btn-success me-2">Submit</button>
               <button class="btn btn-light">Cancel</button>
             </form>
           </div>
@@ -213,7 +213,7 @@
                 </div>
               </div>
 
-              <button type="submit" class="btn btn-primary me-2">Submit</button>
+              <button type="submit" class="btn btn-success me-2">Submit</button>
               <button class="btn btn-light">Cancel</button>
             </form>
           </div>
@@ -287,12 +287,15 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Price:</label>
                 <div class="col-sm-9">
-                  <input
-                    class="form-control"
-                    data-inputmask="'alias': 'currency'"
-                  />
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">VND</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder=".đ" />
+                  </div>
                 </div>
               </div>
+
               <div class="form-group row">
                 <label
                   for="exampleInputUsername2"
@@ -312,7 +315,7 @@
                 <label
                   for="exampleInputUsername2"
                   class="col-sm-3 col-form-label"
-                  >Avartar</label
+                  >Avatar</label
                 >
                 <div class="col-sm-9">
                   <input
@@ -351,7 +354,7 @@
                 </div>
               </div>
 
-              <button type="submit" class="btn btn-primary me-2">Submit</button>
+              <button type="submit" class="btn btn-success me-2">Submit</button>
               <button class="btn btn-light">Cancel</button>
             </form>
           </div>

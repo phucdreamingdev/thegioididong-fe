@@ -9,45 +9,59 @@ t<!DOCTYPE html>
   <div layout:fragment="content" class="content-wrapper">
     <!-- Order List  -->
     <div class="row">
-      <div class="col-lg-12 grid-margin stretch-card">
+      <div class="col-12">
         <div class="card">
           <div class="card-body">
-            <h3 class="card-title">Member List</h3>
-            <p class="card-description">View List Member Here</p>
-            <div class="table-responsive">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Gender</th>
-                    <th>Phone</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr th:each="mem : ${members}">
-                    <td class="py-1" th:text="${mem.id}"></td>
-                    <td class="py-1" th:text="${mem.fullname}"></td>
-                    <td class="py-1" th:text="${mem.gender} ? 'Anh' : 'Chị'"></td>
-                    <td class="py-1" th:text="${mem.phone}"></td>
-                    <td>
-                      <button class="btn btn-inverse-info btn-icon btn-sm">
-                        <a href="#" alt="edit">
-                          <i class="mdi mdi-grease-pencil"></i>
-                        </a>
-                      </button>
-                      <button
-                        class="btn btn-inverse-danger btn-icon btn-sm btn-sm"
-                      >
-                        <a href="#" alt="remove">
-                          <i class="mdi mdi-delete-forever"></i>
-                        </a>
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+            <h4 class="card-title">Member List Table</h4>
+            <!-- <div class="row grid-margin">
+              <div class="col-12">
+                <div
+                  class="alert alert-success"
+                  role="alert"
+                  th:text="${success}"
+                  th:if="${success}"
+                >
+                  
+                </div>
+              </div>
+            </div> -->
+            <div class="row">
+              <div class="col-12">
+                <div class="table-responsive">
+                  <table id="order-listing" class="table">
+                    <thead>
+                      <tr class="bg-primary text-black">
+                        <th>No. #</th>
+                        <th>Full Name</th>
+                        <th>(+84)Phone Number</th>
+                        <th>Gender</th>
+                        <th>No. Street/Lane</th>
+                        <th>Wards</th>
+                        <th>District</th>
+                        <th>City</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr th:each="member : ${members}">
+                        <td th:text="${member.id}"></td>
+                        <td th:text="${member.fullname}"></td>
+                        <td th:text="${member.phone}"></td>
+                        <td th:text="${member.gender} ? 'Male' : 'Female'"></td>
+                        <td th:text="${member.gender}"></td>
+                        <td th:text="${member.gender}"></td>
+                        <td th:text="${member.gender}"></td>
+                        <td th:text="${member.gender}"></td>
+                        <td class="text-left">
+                          <button class="btn btn-light">
+                            <i class="ti-eye text-info"></i>View
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
         </div>

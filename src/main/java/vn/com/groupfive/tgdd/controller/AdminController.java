@@ -165,11 +165,8 @@ public class AdminController {
 
 	@GetMapping(value = "branch-list")
 	public String listBranch(Model model) {
-
 		String resource = "http://localhost:3000/branchs";
-
 		ResponseEntity<Object> response = restTemplate.getForEntity(resource, Object.class);
-
 		model.addAttribute("branchs", response.getBody());
 
 		return "admin/fragments/branch/branch-list";
@@ -193,21 +190,12 @@ public class AdminController {
 		return "admin/fragments/order/order-list";
 	}
 
-	@GetMapping(value = "order-list-member")
+	@GetMapping(value = "order-members-list")
 	public String listMemberOrder(Model model) {
-
 		String resource = "http://localhost:3000/order-members";
-
 		ResponseEntity<Object> response = restTemplate.getForEntity(resource, Object.class);
-
 		model.addAttribute("orderMembers", response.getBody());
 		return "admin/fragments/order/order-member-list";
-	}
-
-	@GetMapping(value = "order-add")
-	public String addOrder(Model model) {
-
-		return "admin/fragments/order/order-add";
 	}
 
 	/*
@@ -216,10 +204,8 @@ public class AdminController {
 
 	@GetMapping(value = "promotion-list")
 	public String listPromotion(Model model) {
-		String resource = "http://localhost:3000/promotions";
-
+		String resource = "http://localhost:8001/admin/get-all-promotion";
 		ResponseEntity<Object> response = restTemplate.getForEntity(resource, Object.class);
-
 		model.addAttribute("promotions", response.getBody());
 		return "admin/fragments/promotion/promotion-list";
 	}
@@ -237,9 +223,7 @@ public class AdminController {
 	@GetMapping(value = "transaction-list")
 	public String listTransaction(Model model) {
 		String resource = "http://localhost:3000/transactions";
-
 		ResponseEntity<Object> response = restTemplate.getForEntity(resource, Object.class);
-
 		model.addAttribute("transactions", response.getBody());
 		return "admin/fragments/transaction/transaction-list";
 	}
@@ -257,29 +241,20 @@ public class AdminController {
 	@GetMapping(value = "member-list")
 	public String listMember(Model model) {
 		String resource = "http://localhost:8001/admin/get-all-member";
-
 		ResponseEntity<Object> response = restTemplate.getForEntity(resource, Object.class);
-
 		model.addAttribute("members", response.getBody());
 		return "admin/fragments/member/member-list";
 	}
 
-	@GetMapping(value = "member-add")
-	public String addMember(Model model) {
-
-		return "admin/fragments/member/member-add";
-	}
 	/*
 	 * =============================================
 	 * THIS FUNCTIONS USE FOR FORMAT PRICE TO 'VNĐ'
 	 * =============================================
 	 */
-
 	@ModelAttribute("priceFormatter")
 	public NumberFormat formatPrice() {
 		Locale localeVN = new Locale("vi", "VN");
 		NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
-
 		return currencyVN;
 	}
 

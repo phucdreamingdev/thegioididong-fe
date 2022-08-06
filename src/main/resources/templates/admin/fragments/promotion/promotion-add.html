@@ -8,152 +8,117 @@ t<!DOCTYPE html>
   <!-- Main Content -->
   <div layout:fragment="content" class="content-wrapper">
     <div class="row">
-      <div class="col-12 grid-margin">
+      <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h3 class="card-title">Add New Category</h3>
-            <form class="form-sample">
-              <p class="card-description">Add new Category here</p>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Name</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" />
+            <h4 class="card-title">Add New Promotion Table</h4>
+            <p class="card-description">Add new promotion form layout</p>
+            <form class="forms-sample">
+              <div class="form-group row">
+                <label
+                  for="exampleInputUsername2"
+                  class="col-sm-3 col-form-label"
+                  >Promotion (%)</label
+                >
+                <div class="col-sm-9">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-danger text-white"
+                        >%</span
+                      >
                     </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Parent Name</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Level</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" />
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Parent</label>
-                    <div class="col-sm-4">
-                      <div class="form-check form-check-success">
-                        <label class="form-check-label">
-                          <input
-                            type="radio"
-                            class="form-check-input"
-                            name="membershipRadios"
-                            id="membershipRadios1"
-                            value="option1"
-                            checked
-                          />
-                          Yes
-                        </label>
-                      </div>
-                    </div>
-                    <div class="col-sm-5">
-                      <div class="form-check form-check-danger">
-                        <label class="form-check-label">
-                          <input
-                            type="radio"
-                            class="form-check-input"
-                            name="membershipRadios"
-                            id="membershipRadios2"
-                            value="option2"
-                          />
-                          No
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-3 col-form-label"
-                      >Children Level</label
-                    >
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" />
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Status</label>
-                    <div class="col-sm-4">
-                      <div class="form-check form-check-success">
-                        <label class="form-check-label">
-                          <input
-                            type="radio"
-                            class="form-check-input"
-                            name="membershipRadios"
-                            id="membershipRadios3"
-                            value="option1"
-                            checked
-                          />
-                          Active
-                        </label>
-                      </div>
-                    </div>
-                    <div class="col-sm-5">
-                      <div class="form-check form-check-danger">
-                        <label class="form-check-label">
-                          <input
-                            type="radio"
-                            class="form-check-input"
-                            name="membershipRadios"
-                            id="membershipRadios4"
-                            value="option2"
-                          />
-                          Not Active
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group row">
-                    <label class="col-sm-3 col-form-label"
-                      >File Logo Upload</label
-                    >
                     <input
-                      type="file"
-                      name="img[]"
-                      class="file-upload-default"
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter Promotion from 10 to 100"
+                      aria-label="Username"
                     />
-                    <div class="input-group col-sm-12">
-                      <input
-                        type="text"
-                        class="form-control file-upload-info"
-                        disabled
-                        placeholder="Upload Image"
-                      />
-                      <span class="input-group-append">
-                        <button
-                          class="file-upload-browse btn btn-primary"
-                          type="button"
-                        >
-                          Upload
-                        </button>
-                      </span>
-                    </div>
                   </div>
                 </div>
               </div>
-              <button type="submit" class="btn btn-success mr-2">Submit</button>
-              <button class="btn btn-secondary">Cancel</button>
+
+              <div class="form-group row">
+                <label for="exampleInputMobile" class="col-sm-3 col-form-label"
+                  >Category</label
+                >
+                <div class="col-sm-9">
+                  <select class="js-example-basic-single w-100">
+                    <option value="" selected>Select Product To Applied</option>
+                    <option value="AL">Alabama</option>
+                    <option value="WY">Wyoming</option>
+                    <option value="AM">America</option>
+                    <option value="CA">Canada</option>
+                    <option value="RU">Russia</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="exampleInputMobile" class="col-sm-3 col-form-label"
+                  >Manufacturer</label
+                >
+                <div class="col-sm-9">
+                  <select class="js-example-basic-single w-100">
+                    <option value="" selected>Select Place To Applied</option>
+                    <option value="AL">Alabama</option>
+                    <option value="WY">Wyoming</option>
+                    <option value="AM">America</option>
+                    <option value="CA">Canada</option>
+                    <option value="RU">Russia</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Status</label>
+                <div class="col-sm-4">
+                  <div class="form-check form-check-success">
+                    <label class="form-check-label">
+                      <input
+                        type="radio"
+                        class="form-check-input"
+                        name="status"
+                        value="1"
+                      />
+                      Active
+                    </label>
+                  </div>
+                </div>
+                <div class="col-sm-5">
+                  <div class="form-check form-check-danger">
+                    <label class="form-check-label">
+                      <input
+                        type="radio"
+                        class="form-check-input"
+                        name="status"
+                        value="0"
+                      />
+                      Not Active
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Date</label>
+                <div class="col-sm-12">
+                  <div
+                    class="input-group input-daterange d-flex align-items-center"
+                  >
+                    <input
+                      type="text"
+                      class="form-control"
+                      value="2012-04-05"
+                    />
+                    <div class="input-group-addon mx-4">to</div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      value="2012-04-19"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-success me-2">Submit</button>
+              <button class="btn btn-light">Cancel</button>
             </form>
           </div>
         </div>
