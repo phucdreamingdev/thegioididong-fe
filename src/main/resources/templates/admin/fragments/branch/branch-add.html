@@ -13,7 +13,12 @@ t<!DOCTYPE html>
           <div class="card-body">
             <h4 class="card-title">Add New Promotion Table</h4>
             <p class="card-description">Add new promotion form layout</p>
-            <form class="forms-sample" id="promotionAdd" method="POST">
+            <form
+              class="forms-sample"
+              th:action="@{/admin/branches-add}"
+              th:object="${branchesAdd}"
+              method="POST"
+            >
               <div class="form-group row">
                 <label
                   for="exampleInputUsername2"
@@ -29,8 +34,9 @@ t<!DOCTYPE html>
                       type="text"
                       class="form-control"
                       placeholder="Street/Lane"
-                      id="promotionPercent"
-                      name="promotionPercent"
+                      id="address"
+                      name="address"
+                      th:field="*{address}"
                     />
                   </div>
                 </div>
@@ -70,12 +76,44 @@ t<!DOCTYPE html>
                   <select
                     class="js-example-basic-single w-100"
                     id="wardBranches"
+                    th:field="*{wardId}"
                   >
                     <option value="" selected>Select Wards</option>
                   </select>
                 </div>
               </div>
-
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Status</label>
+                <div class="col-sm-4">
+                  <div class="form-check form-check-success">
+                    <label class="form-check-label">
+                      <input
+                        type="radio"
+                        class="form-check-input"
+                        name="status"
+                        value="1"
+                        checked
+                        th:field="*{status}"
+                      />
+                      Active
+                    </label>
+                  </div>
+                </div>
+                <div class="col-sm-5">
+                  <div class="form-check form-check-danger">
+                    <label class="form-check-label">
+                      <input
+                        type="radio"
+                        class="form-check-input"
+                        name="status"
+                        value="0"
+                        th:field="*{status}"
+                      />
+                      Not Active
+                    </label>
+                  </div>
+                </div>
+              </div>
               <button type="submit" class="btn btn-success me-2">Submit</button>
               <button class="btn btn-light">Cancel</button>
             </form>

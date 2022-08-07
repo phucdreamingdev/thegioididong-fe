@@ -13,7 +13,13 @@
           <div class="card-body">
             <h4 class="card-title">Add New Product Table</h4>
             <p class="card-description">Add new product form layout</p>
-            <form class="forms-sample">
+            <form
+              th:action="@{/admin/product-add}"
+              th:object="${product}"
+              method="POST"
+              class="forms-sample"
+              id="forms-product-add"
+            >
               <div class="form-group row">
                 <label
                   for="exampleInputUsername2"
@@ -24,8 +30,9 @@
                   <input
                     type="text"
                     class="form-control"
+                    th:field="*{name}"
                     id="exampleInputUsername2"
-                    placeholder="Username"
+                    placeholder="Product name"
                   />
                 </div>
               </div>
@@ -37,7 +44,7 @@
                       <input
                         type="radio"
                         class="form-check-input"
-                        name="status"
+                        name="actived"
                         value="1"
                       />
                       Active
@@ -50,7 +57,7 @@
                       <input
                         type="radio"
                         class="form-check-input"
-                        name="status"
+                        name="actived"
                         value="0"
                       />
                       Not Active
@@ -63,28 +70,16 @@
                   >Category</label
                 >
                 <div class="col-sm-9">
-                  <select class="js-example-basic-single w-100">
+                  <select
+                    class="js-example-basic-single w-100"
+                    th:field="*{categoryId}"
+                  >
                     <option value="" selected>Select Category Name</option>
                     <option
-                      th:each="categoryLevel0 : ${categoriesLevel0}"
-                      th:value="${categoryLevel0.name}"
-                      th:text="${categoryLevel0.name}"
+                      th:each="category : ${categoriesProductAdd}"
+                      th:text="${category.name}"
+                      th:value="${category.id}"
                     ></option>
-                    <option
-                      th:each="categoryLevel1 : ${categoriesLevel1}"
-                      th:value="${categoryLevel1.name}"
-                      th:text="${categoryLevel1.name}"
-                    ></option>
-                    <option
-                      th:each="categoryLevel2 : ${categoriesLevel2}"
-                      th:value="${categoryLevel2.name}"
-                      th:text="${categoryLevel2.name}"
-                    ></option>
-                    <!-- <option value="AL">Alabama</option>
-                    <option value="WY">Wyoming</option>
-                    <option value="AM">America</option>
-                    <option value="CA">Canada</option>
-                    <option value="RU">Russia</option> -->
                   </select>
                 </div>
               </div>
@@ -93,28 +88,17 @@
                   >Manufacturer</label
                 >
                 <div class="col-sm-9">
-                  <select class="js-example-basic-single w-100">
+                  <select
+                    class="js-example-basic-single w-100"
+                    th:field="*{manufacturerId}"
+                  >
                     <option value="" selected>Select Manufacturer</option>
-                    <!-- <option
-                      th:each="categoryLevel0 : ${categoriesLevel0}"
-                      th:value="${categoryLevel0.name}"
-                      th:text="${categoryLevel0.name}"
-                    ></option>
+
                     <option
-                      th:each="categoryLevel1 : ${categoriesLevel1}"
-                      th:value="${categoryLevel1.name}"
-                      th:text="${categoryLevel1.name}"
+                      th:each="manufacturer : ${manufacturerProductAdd}"
+                      th:value="${manufacturer.id}"
+                      th:text="${manufacturer.name}"
                     ></option>
-                    <option
-                      th:each="categoryLevel2 : ${categoriesLevel2}"
-                      th:value="${categoryLevel2.name}"
-                      th:text="${categoryLevel2.name}"
-                    ></option> -->
-                    <option value="AL">Alabama</option>
-                    <option value="WY">Wyoming</option>
-                    <option value="AM">America</option>
-                    <option value="CA">Canada</option>
-                    <option value="RU">Russia</option>
                   </select>
                 </div>
               </div>

@@ -32,6 +32,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import vn.com.groupfive.tgdd.payload.request.CategoryRequest;
 import vn.com.groupfive.tgdd.payload.request.ProductCreateRequest;
 import vn.com.groupfive.tgdd.payload.request.PromotionRequest;
+import vn.com.groupfive.tgdd.payload.request.BranchesRequest;
 
 @Controller
 @RequestMapping(value = "admin")
@@ -174,8 +175,36 @@ public class AdminController {
 	 * ================================PRODUCT================================
 	 */
 
+	@GetMapping(value = "product-list")
+	public String listProduct(Model model) {
+
+		return "admin/fragments/products/products-list";
+	}
+
 	@GetMapping(value = "product-add")
 	public String addProduct(@ModelAttribute("product") ProductCreateRequest product,
+			Model model,
+			RedirectAttributes redirectAttributes) {
+		String categoiesUrl = "http://localhost:8001/admin/get-all-category-by-level/0";
+		ResponseEntity<Object> categoriesResponse = restTemplate.getForEntity(categoiesUrl, Object.class);
+		if (categoriesResponse.getStatusCode() != HttpStatus.OK) {
+			redirectAttributes.addFlashAttribute("messages", "Can not load list category to add product");
+		}
+		model.addAttribute("categoriesProductAdd", categoriesResponse.getBody());
+
+		String manufacturersUrl = "http://localhost:8001/customer/get-manufacturers-by-category?categoryId=1";
+		ResponseEntity<Object> manufacturersResponse = restTemplate.getForEntity(manufacturersUrl, Object.class);
+		if (manufacturersResponse.getStatusCode() != HttpStatus.OK) {
+			redirectAttributes.addFlashAttribute("messages", "Can not load list manufacturers to add product");
+		}
+		model.addAttribute("manufacturerProductAdd", manufacturersResponse.getBody());
+
+		return "admin/fragments/products/products-add";
+	}
+
+	@PostMapping(value = "product-add")
+	public String addProduct(@ModelAttribute("product") ProductCreateRequest product,
+
 			RedirectAttributes redirectAttributes) {
 		// Set header type for request header
 		HttpHeaders headers = new HttpHeaders();
@@ -187,12 +216,6 @@ public class AdminController {
 			return "redirect:/admin/categories-list";
 		}
 		return "admin/fragments/products/products-add";
-	}
-
-	@GetMapping(value = "product-list")
-	public String listProduct(Model model) {
-
-		return "admin/fragments/products/products-list";
 	}
 
 	/*
@@ -209,9 +232,23 @@ public class AdminController {
 	}
 
 	@GetMapping(value = "branch-add")
-	public String addBranch(Model model) {
-
+	public String addBranchPage(@ModelAttribute("branchesAdd") BranchesRequest branches) {
 		return "admin/fragments/branch/branch-add";
+
+	}
+
+	@PostMapping(value = "branch-add")
+	public String addBranch(@ModelAttribute("branchesAdd") BranchesRequest branches) {
+		// Set header type for request header
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		String url = "http://localhost:8001/admin/create-branch";
+		ResponseEntity<Object> branchesResult = restTemplate.postForEntity(url, branches, Object.class);
+		if (branchesResult.getStatusCode() == HttpStatus.OK) {
+			return "redirect:/admin/branch-list";
+		}
+		return "redirect:/admin/branch-list";
+
 	}
 
 	/*
@@ -268,13 +305,13 @@ public class AdminController {
 	 */
 
 	@GetMapping(value = "transaction-list")
-	public String listTransaction(Model model) {
+	public String listTransaction() {
 
 		return "admin/fragments/transaction/transaction-list";
 	}
 
 	@GetMapping(value = "transaction-add")
-	public String addTransaction(Model model) {
+	public String addTransaction() {
 
 		return "admin/fragments/transaction/transaction-add";
 	}
