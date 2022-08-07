@@ -16,7 +16,7 @@
         <div class="box-quicklink block-scroll-main">
           <div class="lst-quickfilter q-manu">
             <a th:each = "productManufacture : ${productManufactures}"
-              href="dtdd-apple-iphone.html"
+				th:href="@{/manufacturer/{mId}(mId=${productManufacture.id})}"
               data-href="dtdd-apple-iphone"
               data-index="0"
               class="box-quicklink__item bd-radius quicklink-logo"
