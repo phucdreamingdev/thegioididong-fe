@@ -9,47 +9,39 @@ t<!DOCTYPE html>
   <div layout:fragment="content" class="content-wrapper">
     <!-- Order List  -->
     <div class="row">
-      <div class="col-lg-12 grid-margin stretch-card">
+      <div class="col-12">
         <div class="card">
           <div class="card-body">
-            <h3 class="card-title">Transaction List</h3>
-            <p class="card-description">View List Transaction Here</p>
-            <div class="table-responsive">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Product</th>
-                    <th>Date</th>
-                    <th>Quantity</th>
-                    <th>Stock</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr th:each="trans : ${transactions}">
-                    <td class="py-1" th:text="${trans.id}"></td>
-                    <td class="py-1" th:text="${trans.product}"></td>
-                    <td class="py-1" th:text="${trans.date}"></td>
-                    <td class="py-1" th:text="${trans.quantity}"></td>
-                    <td class="py-1" th:text="${trans.stock}"></td>
-                    <td>
-                      <button class="btn btn-inverse-info btn-icon btn-sm">
-                        <a href="#" alt="edit">
-                          <i class="mdi mdi-grease-pencil"></i>
-                        </a>
-                      </button>
-                      <button
-                        class="btn btn-inverse-danger btn-icon btn-sm btn-sm"
-                      >
-                        <a href="#" alt="remove">
-                          <i class="mdi mdi-delete-forever"></i>
-                        </a>
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+            <h4 class="card-title">Promotion List Table</h4>
+            <div class="row">
+              <div class="col-12">
+                <div class="table-responsive">
+                  <table id="order-listing" class="table">
+                    <thead>
+                      <tr class="bg-primary text-black">
+                        <th>Date</th>
+                        <th>Total</th>
+                        <th>Location</th>
+                        <th>Detail</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr th:each="promo : ${promotionsList}">
+                        <td th:text="${promo.id}"></td>
+                        <td th:text="${promo.startDate}"></td>
+                        <td th:text="${promo.endDate}"></td>
+                        <td th:text="${promo.promotionPercent}"></td>
+                        <td class="text-center">
+                          <button class="btn btn-light">
+                            <i class="ti-eye text-info"></i>View
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -226,14 +226,6 @@ public class AdminController {
 		return "admin/fragments/order/order-list";
 	}
 
-	@GetMapping(value = "order-members-list")
-	public String listMemberOrder(Model model) {
-		String resource = "http://localhost:3000/order-members";
-		ResponseEntity<Object> response = restTemplate.getForEntity(resource, Object.class);
-		model.addAttribute("orderMembers", response.getBody());
-		return "admin/fragments/order/order-member-list";
-	}
-
 	/*
 	 * ================================PROMOTION================================
 	 */
@@ -277,9 +269,7 @@ public class AdminController {
 
 	@GetMapping(value = "transaction-list")
 	public String listTransaction(Model model) {
-		String resource = "http://localhost:3000/transactions";
-		ResponseEntity<Object> response = restTemplate.getForEntity(resource, Object.class);
-		model.addAttribute("transactions", response.getBody());
+
 		return "admin/fragments/transaction/transaction-list";
 	}
 
