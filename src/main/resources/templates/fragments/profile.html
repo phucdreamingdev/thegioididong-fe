@@ -21,7 +21,7 @@
       <div class="right">
         <div class="user" data-customer="1089714740">
           Chào
-          <b th:text="${member.fullname}"></b> :
+          <b th:text="${member.fullname != null} ? ${member.fullname} : 'Vui lòng cập nhật tên của bạn'"></b> :
           <b
             th:text="${#phoneNumber.format(member.phone, 'VN', 'NATIONAL')}"
           ></b>
