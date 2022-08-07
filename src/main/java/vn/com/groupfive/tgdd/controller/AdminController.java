@@ -12,6 +12,7 @@ import java.util.Locale;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -213,23 +214,21 @@ public class AdminController {
 
 	@GetMapping(value = "promotion-add")
 	public String addPromotion(Model model) {
-
 		return "admin/fragments/promotion/promotion-add";
 	}
-	
+
 	@PostMapping(value = "promotion-add")
 	public String promotionAddResult(@ModelAttribute("promotion") PromotionRequest promotion) {
 		// Set header type for request header
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		String url = "http://localhost:8001/admin/create-new-promotion";
-		ResponseEntity<Object> categoryResult = restTemplate.postForEntity(url, promotion, Object.class);
-		if (categoryResult.getStatusCode() == HttpStatus.OK) {
+		ResponseEntity<Object> promotionResult = restTemplate.postForEntity(url, promotion, Object.class);
+		if (promotionResult.getStatusCode() == HttpStatus.OK) {
 			return "redirect:/admin/promotion-list";
 		}
 		return "redirect:/admin/promotion-list";
 	}
-
 
 	/*
 	 * ================================TRANSACTION================================

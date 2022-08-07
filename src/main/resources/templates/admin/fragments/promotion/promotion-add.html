@@ -13,7 +13,7 @@ t<!DOCTYPE html>
           <div class="card-body">
             <h4 class="card-title">Add New Promotion Table</h4>
             <p class="card-description">Add new promotion form layout</p>
-            <form class="forms-sample">
+            <form class="forms-sample" th:object="${promotion}" method="POST">
               <div class="form-group row">
                 <label
                   for="exampleInputUsername2"
@@ -31,7 +31,9 @@ t<!DOCTYPE html>
                       type="text"
                       class="form-control"
                       placeholder="Enter Promotion from 10 to 100"
-                      aria-label="Username"
+                      th:field="*{promotionPercent}"
+                      id="promotionPercent"
+                      name="promotionPercent"
                     />
                   </div>
                 </div>

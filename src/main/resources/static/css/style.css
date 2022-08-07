@@ -2945,8 +2945,9 @@ textarea {
   background-color: #fff;
   border: none;
   border-radius: 4px;
-  color: #999;
-  font-size: 12px;
+  color: #000;
+  font-size: 13px;
+  font-weight: 500;
   line-height: 14px;
   height: 40px;
   padding: 8px 8px 8px 13px;

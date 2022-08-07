@@ -33,7 +33,7 @@ t<!DOCTYPE html>
                       <tr class="bg-primary text-black">
                         <th>No. #</th>
                         <th>Full Name</th>
-                        <th>(+84)Phone Number</th>
+                        <th>Phone Number</th>
                         <th>Gender</th>
                         <th>No. Street/Lane</th>
                         <th>Wards</th>
@@ -45,8 +45,12 @@ t<!DOCTYPE html>
                     <tbody>
                       <tr th:each="member : ${members}">
                         <td th:text="${member.id}"></td>
-                        <td th:text="${member.fullname}"></td>
-                        <td th:text="${member.phone}"></td>
+                        <td
+                          th:text="${member.fullname != null} ? ${member.fullname} : 'Chưa cập nhật tên!!'"
+                        ></td>
+                        <td
+                          th:text="${#phoneNumber.format(member.phone, 'VN', 'NATIONAL')}"
+                        ></td>
                         <td th:text="${member.gender} ? 'Male' : 'Female'"></td>
                         <td th:text="${member.gender}"></td>
                         <td th:text="${member.gender}"></td>
