@@ -24,12 +24,11 @@
           Chào
           <b
             th:text="${member.fullname != null} ? ${member.fullname} : 'Vui lòng cập nhật tên của bạn'"
-            >Gia Minh</b
-          >
+          ></b>
           -
-          <b th:text="${#phoneNumber.format(member.phone, 'VN', 'NATIONAL')}"
-            >0867635674</b
-          >
+          <b
+            th:text="${#phoneNumber.format(member.phone, 'VN', 'NATIONAL')}"
+          ></b>
           <a th:href="@{/OTPLogout}" class="logout-h">Thoát tài khoản</a>
           <a class="about-s">|</a>
           <!--<a class="feed-back" th:each = "historyProduct : ${memberOrders}">

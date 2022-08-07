@@ -52,10 +52,22 @@ t<!DOCTYPE html>
                           th:text="${#phoneNumber.format(member.phone, 'VN', 'NATIONAL')}"
                         ></td>
                         <td th:text="${member.gender} ? 'Male' : 'Female'"></td>
-                        <td th:text="${member.gender}"></td>
-                        <td th:text="${member.gender}"></td>
-                        <td th:text="${member.gender}"></td>
-                        <td th:text="${member.gender}"></td>
+                        <td
+                          th:each="memberAdd : ${member.memberAddresses}"
+                          th:text="${memberAdd.address}"
+                        ></td>
+                        <td
+                          th:each="memberAdd : ${member.memberAddresses}"
+                          th:text="${memberAdd.ward.name}"
+                        ></td>
+                        <td
+                          th:each="memberAdd : ${member.memberAddresses}"
+                          th:text="${memberAdd.ward.district.name}"
+                        ></td>
+                        <td
+                          th:each="memberAdd : ${member.memberAddresses}"
+                          th:text="${memberAdd.ward.district.province.name}"
+                        ></td>
                         <td class="text-left">
                           <button class="btn btn-light">
                             <i class="ti-eye text-info"></i>View
