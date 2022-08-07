@@ -30,6 +30,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import vn.com.groupfive.tgdd.payload.request.CategoryRequest;
+import vn.com.groupfive.tgdd.payload.request.ProductCreateRequest;
 import vn.com.groupfive.tgdd.payload.request.PromotionRequest;
 
 @Controller
@@ -150,8 +151,17 @@ public class AdminController {
 	 */
 
 	@GetMapping(value = "product-add")
-	public String addProduct(Model model) {
-
+	public String addProduct(@ModelAttribute("product") ProductCreateRequest product,
+			RedirectAttributes redirectAttributes) {
+		// Set header type for request header
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		String url = "http://localhost:8001/admin/create-new-product";
+		ResponseEntity<Object> categoryResult = restTemplate.postForEntity(url, product, Object.class);
+		if (categoryResult.getStatusCode() == HttpStatus.OK) {
+			redirectAttributes.addFlashAttribute("messages", "Successfully added..");
+			return "redirect:/admin/categories-list";
+		}
 		return "admin/fragments/products/products-add";
 	}
 
