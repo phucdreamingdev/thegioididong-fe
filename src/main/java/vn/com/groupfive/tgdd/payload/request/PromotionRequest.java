@@ -22,21 +22,21 @@ public class PromotionRequest {
 	@Min(value = 10)
 	@Max(value = 100)
 	private int promotionPercent;
-	
+
 	@NotNull
-	@JsonFormat(pattern ="yyyy-mm-dd")
+	@JsonFormat(pattern = "dd-MM-yyyy HH:mm")
 	private Date startDate;
-	
+
 	@NotNull
-	@JsonFormat(pattern ="yyyy-mm-dd")
+	@JsonFormat(pattern = "dd-MM-yyyy HH:mm")
 	private Date endDate;
-	
+
 	@NotNull
 	private boolean isActived;
-	
+
 	@NotNull
 	private List<Long> versionColorIds;
-	
+
 	@NotNull
 	private List<Long> provinceIds;
 }

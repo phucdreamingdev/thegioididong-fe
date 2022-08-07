@@ -1,4 +1,4 @@
-t<!DOCTYPE html>
+<!DOCTYPE html>
 <html
   lang="vi-VN"
   xmlns:th="http://www.thymeleaf.org"
@@ -13,7 +13,13 @@ t<!DOCTYPE html>
           <div class="card-body">
             <h4 class="card-title">Add New Promotion Table</h4>
             <p class="card-description">Add new promotion form layout</p>
-            <form class="forms-sample" th:object="${promotion}" method="POST">
+            <form
+              class="forms-sample"
+              th:action="@{/admin/promotion-add}"
+              th:object="${promotionAdd}"
+              id="promotionAdd"
+              method="POST"
+            >
               <div class="form-group row">
                 <label
                   for="exampleInputUsername2"
@@ -31,41 +37,88 @@ t<!DOCTYPE html>
                       type="text"
                       class="form-control"
                       placeholder="Enter Promotion from 10 to 100"
-                      th:field="*{promotionPercent}"
                       id="promotionPercent"
                       name="promotionPercent"
+                      th:field="*{promotionPercent}"
                     />
                   </div>
                 </div>
               </div>
-
               <div class="form-group row">
                 <label for="exampleInputMobile" class="col-sm-3 col-form-label"
-                  >Category</label
+                  >Product</label
                 >
                 <div class="col-sm-9">
-                  <select class="js-example-basic-single w-100">
+                  <select
+                    class="js-example-basic-single w-100"
+                    id="productPromoAdd"
+                  >
                     <option value="" selected>Select Product To Applied</option>
-                    <option value="AL">Alabama</option>
-                    <option value="WY">Wyoming</option>
-                    <option value="AM">America</option>
-                    <option value="CA">Canada</option>
-                    <option value="RU">Russia</option>
+                    <!-- <option
+                      th:each="product : ${products}"
+                      th:value="${product.id}"
+                      th:text="${product.name}"
+                    ></option> -->
                   </select>
                 </div>
               </div>
               <div class="form-group row">
                 <label for="exampleInputMobile" class="col-sm-3 col-form-label"
-                  >Manufacturer</label
+                  >Product Version</label
                 >
                 <div class="col-sm-9">
-                  <select class="js-example-basic-single w-100">
-                    <option value="" selected>Select Place To Applied</option>
-                    <option value="AL">Alabama</option>
-                    <option value="WY">Wyoming</option>
-                    <option value="AM">America</option>
-                    <option value="CA">Canada</option>
-                    <option value="RU">Russia</option>
+                  <select
+                    class="js-example-basic-single w-100"
+                    id="productPromoVerAdd"
+                  >
+                    <option value="" selected>
+                      Select Product Version To Applied
+                    </option>
+                    <!-- <option
+                      th:each="productVersion : ${product.versions}"
+                      th:value="${productVersion.id}"
+                      th:text="${productVersion.name}"
+                    ></option> -->
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="exampleInputMobile" class="col-sm-3 col-form-label"
+                  >Product Version Color</label
+                >
+                <div class="col-sm-9">
+                  <select
+                    class="js-example-basic-single w-100"
+                    id="productPromoVerCorAdd"
+                  >
+                    <option value="" selected>
+                      Select Product Version Color To Applied
+                    </option>
+                    <!-- <option
+                      th:each="product : ${products}"
+                      th:value="${product.id}"
+                      th:text="${product.name}"
+                    ></option> -->
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="exampleInputMobile" class="col-sm-3 col-form-label"
+                  >Location</label
+                >
+                <div class="col-sm-9">
+                  <select
+                    class="js-example-basic-multiple w-100"
+                    multiple="multiple"
+                    th:field="*{versionColorIds}"
+                  >
+                    <option
+                      th:each="province : ${provinces}"
+                      th:value="${province.id}"
+                      th:text="${province.name}"
+                    ></option>
                   </select>
                 </div>
               </div>
@@ -79,6 +132,8 @@ t<!DOCTYPE html>
                         class="form-check-input"
                         name="status"
                         value="1"
+                        checked
+                        th:field="*{actived}"
                       />
                       Active
                     </label>
@@ -92,6 +147,7 @@ t<!DOCTYPE html>
                         class="form-check-input"
                         name="status"
                         value="0"
+                        th:field="*{actived}"
                       />
                       Not Active
                     </label>
@@ -107,18 +163,17 @@ t<!DOCTYPE html>
                     <input
                       type="text"
                       class="form-control"
-                      value="2012-04-05"
+                      th:field="*{startDate}"
                     />
                     <div class="input-group-addon mx-4">to</div>
                     <input
                       type="text"
                       class="form-control"
-                      value="2012-04-19"
+                      th:field="*{endDate}"
                     />
                   </div>
                 </div>
               </div>
-
               <button type="submit" class="btn btn-success me-2">Submit</button>
               <button class="btn btn-light">Cancel</button>
             </form>

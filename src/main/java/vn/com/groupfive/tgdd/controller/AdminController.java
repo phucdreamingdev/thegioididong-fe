@@ -56,6 +56,30 @@ public class AdminController {
 	}
 
 	/*
+	 * =============================================
+	 * THIS FUNCTIONS USE FOR FORMAT PRICE TO 'VNĐ'
+	 * =============================================
+	 */
+	@ModelAttribute("priceFormatter")
+	public NumberFormat formatPrice() {
+		Locale localeVN = new Locale("vi", "VN");
+		NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
+		return currencyVN;
+	}
+
+	/*
+	 * =============================================
+	 * GET ALL PROVINCES
+	 * =============================================
+	 */
+	@ModelAttribute("provinces")
+	public Object provinces() {
+		String resourceUrl = "http://localhost:8001/customer/get-all-provinces";
+		ResponseEntity<Object> response = restTemplate.getForEntity(resourceUrl, Object.class);
+		return response.getBody();
+	}
+
+	/*
 	 * ================================CATEGORY================================
 	 */
 
@@ -223,12 +247,19 @@ public class AdminController {
 	}
 
 	@GetMapping(value = "promotion-add")
-	public String addPromotion(Model model) {
+	public String addPromotion(@ModelAttribute("promotionAdd") PromotionRequest promotion) {
 		return "admin/fragments/promotion/promotion-add";
 	}
 
+	@ModelAttribute("products")
+	public Object productTest(Model model) {
+		String resourceProductUrl = "http://localhost:8001/admin/get-all-product";
+		ResponseEntity<Object> productsResponse = restTemplate.getForEntity(resourceProductUrl, Object.class);
+		return productsResponse.getBody();
+	}
+
 	@PostMapping(value = "promotion-add")
-	public String promotionAddResult(@ModelAttribute("promotion") PromotionRequest promotion) {
+	public String promotionAddResult(@ModelAttribute("promotionAdd") PromotionRequest promotion, Model model) {
 		// Set header type for request header
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
@@ -268,18 +299,6 @@ public class AdminController {
 		ResponseEntity<Object> response = restTemplate.getForEntity(resource, Object.class);
 		model.addAttribute("members", response.getBody());
 		return "admin/fragments/member/member-list";
-	}
-
-	/*
-	 * =============================================
-	 * THIS FUNCTIONS USE FOR FORMAT PRICE TO 'VNĐ'
-	 * =============================================
-	 */
-	@ModelAttribute("priceFormatter")
-	public NumberFormat formatPrice() {
-		Locale localeVN = new Locale("vi", "VN");
-		NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
-		return currencyVN;
 	}
 
 }

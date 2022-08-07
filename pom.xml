@@ -57,21 +57,25 @@
 			<groupId>org.thymeleaf.extras</groupId>
 			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
 		</dependency>
+		<!-- Lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		<!--Twilio OTP  -->
 		<dependency>
 			<groupId>com.twilio.sdk</groupId>
 			<artifactId>twilio</artifactId>
 			<version>8.5.0</version>
 		</dependency>
+		<!-- Phone Number Format -->
 		<dependency>
 			<groupId>ch.itds.taglib</groupId>
 			<artifactId>phonenumber-thymeleaf-taglib</artifactId>
 			<version>1.0.1</version>
 		</dependency>
+
 
 	</dependencies>
 
