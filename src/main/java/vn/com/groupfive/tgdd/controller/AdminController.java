@@ -177,9 +177,9 @@ public class AdminController {
 
 	@GetMapping(value = "branch-list")
 	public String listBranch(Model model) {
-		String resource = "http://localhost:3000/branchs";
+		String resource = "http://localhost:8001/admin/get-all-branch";
 		ResponseEntity<Object> response = restTemplate.getForEntity(resource, Object.class);
-		model.addAttribute("branchs", response.getBody());
+		model.addAttribute("branchsList", response.getBody());
 
 		return "admin/fragments/branch/branch-list";
 	}
@@ -218,7 +218,7 @@ public class AdminController {
 	public String listPromotion(Model model) {
 		String resource = "http://localhost:8001/admin/get-all-promotion";
 		ResponseEntity<Object> response = restTemplate.getForEntity(resource, Object.class);
-		model.addAttribute("promotions", response.getBody());
+		model.addAttribute("promotionsList", response.getBody());
 		return "admin/fragments/promotion/promotion-list";
 	}
 

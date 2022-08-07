@@ -7,50 +7,65 @@ t<!DOCTYPE html>
 >
   <!-- Main Content -->
   <div layout:fragment="content" class="content-wrapper">
-    <!-- Branch  -->
+    <!-- Order List  -->
     <div class="row">
-      <div class="col-lg-12 grid-margin stretch-card">
+      <div class="col-12">
         <div class="card">
           <div class="card-body">
-            <h3 class="card-title">Branch List</h3>
-            <p class="card-description">View List Branch Here</p>
-            <div class="table-responsive">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th>No.</th>
-                    <th>Name</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr th:each="branch : ${branchs}">
-                    <td class="py-1" th:text="${branch.id}"></td>
-                    <td th:text="${branch.address}"></td>
-
-                    <td>
-                      <button class="btn btn-inverse-info btn-icon btn-sm">
-                        <a href="#" alt="edit">
-                          <i class="mdi mdi-grease-pencil"></i>
-                        </a>
-                      </button>
-                      <button
-                        class="btn btn-inverse-danger btn-icon btn-sm btn-sm"
-                      >
-                        <a href="#" alt="remove">
-                          <i class="mdi mdi-delete-forever"></i>
-                        </a>
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+            <h4 class="card-title">Member List Table</h4>
+            <!-- <div class="row grid-margin">
+              <div class="col-12">
+                <div
+                  class="alert alert-success"
+                  role="alert"
+                  th:text="${success}"
+                  th:if="${success}"
+                >
+                  
+                </div>
+              </div>
+            </div> -->
+            <div class="row">
+              <div class="col-12">
+                <div class="table-responsive">
+                  <table id="order-listing" class="table">
+                    <thead>
+                      <tr class="bg-primary text-black">
+                        
+                        <th>Address</th>
+                        <th>Ward</th>
+                        <th>District</th>
+                        <th>Province</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr th:each=" branch : ${branchsList}">
+                        <td th:text="${branch.address}"></td>
+                        <td
+                          th:text="${branch.ward.name}"
+                        ></td>
+                        <td
+                          th:text="${branch.ward.district.name}"
+                        ></td>
+                        <td th:text="${branch.ward.district.province.name}"></td>
+                           
+                        <td class="text-left">
+                          <button class="btn btn-light">
+                            <i class="ti-eye text-info"></i>View
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- End Branch  -->
+    <!-- End Order List  -->
   </div>
   <!-- End Main Content -->
 </html>
